@@ -7,18 +7,22 @@ import Stalls from './pages/Stalls';
 //import ResponsiveAppBar from './components/Navbar';
 import NavBarLayout from './components/NavBarLayout';
 import EventCalendar from './components/EventCalendar';
+import Admin from './pages/Admin';
+import Main from './pages/Main';
 
 function App() {
   return (
     <BrowserRouter>
-    <NavBarLayout  />
-
       <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="/about" element={<About/>} />
-        <Route path="/events" element={<Events/>} />
-        <Route path="/stalls" element={<Stalls/>} />
-        <Route path="/event-calendar" element={<EventCalendar/>} />
+        <Route path='/' element={<Main/>}>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/stalls" element={<Stalls />} />
+          <Route path="/event-calendar" element={<EventCalendar />} />
+        </Route>
+        <Route path="/admin" element={<Admin />}>
+        </Route>
       </Routes>
     </BrowserRouter>
   );
