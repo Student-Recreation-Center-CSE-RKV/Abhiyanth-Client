@@ -1,0 +1,132 @@
+.footer {
+  background: radial-gradient(circle at 50% -50%, 
+                              #EFE1EE 10%, 
+                              #9C2746 55%, 
+                              #630E3A 180%);
+  color: #fff;
+  padding: 10px 0;
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
+
+.footer-section {
+  flex: 1;
+  text-align: center;
+  min-width: 200px;
+}
+
+.footer-section.left {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  font-family: 'Inter', sans-serif; 
+  font-size: 14px; 
+  font-weight: 500; 
+  line-height: 14.52px;
+  text-align: left; 
+  text-decoration-skip-ink: none; 
+  margin: 25px 10px; 
+  cursor: pointer; 
+  transition: color 0.3s ease; 
+
+}
+
+.footer-section ul li:hover {
+  color: #EFE1EE91; /* Hover Effect */
+}
+
+.footer-section.middle {
+  text-align: center;
+  max-width: 400px;
+  padding: 0 10px;
+}
+
+.footer-image {
+  width: 80px;
+  margin-bottom: 10px;
+}
+
+.footer-section.middle h1 {
+  font-family: 'Audiowide', sans-serif;
+  font-size: 24px; 
+  font-weight: 400; 
+  line-height: 30.6px; 
+  text-align: center; 
+  text-underline-position: from-font; 
+  text-decoration-skip-ink: none; 
+  margin: 10px 0; 
+}
+
+
+.footer-section.middle p {
+  font-family: 'Inter', sans-serif; 
+  font-size: 14px; 
+  font-weight: 300; 
+  line-height: 20px; 
+  text-align: center; 
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none; 
+  color: #ffffff; 
+}
+
+.footer-section.right h3 {
+  font-family: 'Audiowide', sans-serif; 
+  font-size: 20px; 
+  font-weight: 400; 
+  line-height: 25.5px; 
+  text-align: center; 
+  text-decoration-skip-ink: none; 
+  margin-bottom: 20px; 
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.icon {
+  cursor: pointer;
+  color: #EFE1EE91;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.icon:hover {
+  color: #fff; /* Change icon color on hover */
+  transform: scale(1.1);
+}
+
+.vertical-line {
+  width: 2px;
+  height: 150px;
+  background-color: #EFE1EE66;
+  margin: 0 20px;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+      flex-direction: column;
+      gap: 30px;
+  }
+
+  .vertical-line {
+      display: none; /* Hide vertical line on smaller screens */
+  }
+}
