@@ -239,7 +239,6 @@ function NavBarLayout(props) {
 
   const router = useDemoRouter('/dashboard');
   return (
-    // preview-start
     <AppProvider
       session={session}
       authentication={authentication}
@@ -259,15 +258,10 @@ function NavBarLayout(props) {
       <DemoPageContent pathname={router.pathname} />
       </DashboardLayout>
     </AppProvider>
-    // preview-end
   );
 }
 
 NavBarLayout.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * Remove this when copying and pasting into your project.
-   */
   window: PropTypes.func,
 };
 

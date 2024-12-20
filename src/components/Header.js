@@ -5,6 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import {motion} from "motion/react"
 import "../assets/styles/global.css";
+import { useNavigate } from 'react-router-dom';
 
 function Header() {
   const textStyles = {
@@ -16,6 +17,7 @@ function Header() {
     fontSize:"10px"
 
   }
+  const navigate=useNavigate()
   const [isSelected, setIsSelected] = React.useState(1);
   return (
     <Box>
@@ -29,26 +31,26 @@ function Header() {
           height: "40px"
         }}>
           <nav>
-            <Button variant="text" sx={textStyles} onClick={() => setIsSelected(1)}>
+            <Button variant="text" sx={textStyles} onClick={() => {setIsSelected(1); navigate("")}}>
               Home
               </Button>
               {isSelected === 1 && <motion.div layoutId='underline'  style={{ boxShadow: "0px 4px 2px 1px white" ,width:"100%"}}  />}
             </nav>
           <nav>
-            <Button variant="text" sx={textStyles} onClick={() => setIsSelected(2)}>
+            <Button variant="text" sx={textStyles} onClick={() => {setIsSelected(2); navigate("/gallery")}}>
               Gallery
             </Button>
               {isSelected === 2 && <motion.div   layoutId='underline'  style={{ boxShadow: "0px 4px 2px 1px white" ,width:"100%"}}  />}
             
           </nav>
           <nav>
-            <Button variant="text" sx={textStyles} onClick={() => setIsSelected(3)}>
+            <Button variant="text" sx={textStyles} onClick={() => {setIsSelected(3); navigate("/sponsers")}}>
               Sponsors
             </Button>
               {isSelected === 3 && <motion.div layoutId='underline' style={{ boxShadow: "0px 4px 2px 1px white" ,width:"100%"}} />}
           </nav>
           <nav>
-            <Button variant="text" sx={textStyles} onClick={() => setIsSelected(4)}>
+            <Button variant="text" sx={textStyles} onClick={() => {setIsSelected(4); navigate("/about")}}>
               About Us
             </Button>
               {isSelected === 4 && <motion.div layoutId='underline'  style={{ boxShadow: "0px 4px 2px 1px white" ,width:"100%"}}  />}
