@@ -1,10 +1,13 @@
 import React from 'react'
+import Sponsers from './Sponsers'
+import EventCards from '../components/EventCards'
 
 import { audience,abhiyanthLogo,maskGroup } from '../assets/images'
 import { Box, Typography } from '@mui/material'
 import {motion}  from 'motion/react';
 export default function Home() {
   return (
+    
     <>
       <motion.img 
               src={audience} 
@@ -114,6 +117,10 @@ export default function Home() {
           </motion.button>
         </Box>
         </Box>
+       < div>
+      <EventCards/>
+      <Sponsers />
+    </div>
     </>
   )
 }

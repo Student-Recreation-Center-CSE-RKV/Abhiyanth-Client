@@ -5,6 +5,10 @@
   "dependencies": {
     "@emotion/react": "^11.13.5",
     "@emotion/styled": "^11.13.5",
+    "@fontsource/aubrey": "^5.1.0",
+    "@fontsource/audiowide": "^5.1.0",
+    "@fontsource/inter": "^5.1.0",
+    "@fontsource/orbitron": "^5.1.0",
     "@mui/icons-material": "^6.1.9",
     "@mui/material": "^6.1.9",
     "@testing-library/jest-dom": "^5.17.0",
@@ -14,8 +18,10 @@
     "motion": "^11.15.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^7.0.1",
+    "react-router-dom": "^6.28.0",
     "react-scripts": "5.0.1",
+    "react-slick": "^0.30.3",
+    "slick-carousel": "^1.8.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
