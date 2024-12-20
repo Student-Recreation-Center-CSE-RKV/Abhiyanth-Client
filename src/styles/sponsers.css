@@ -1,4 +1,5 @@
 .container {
+	margin-block:5px;
 	background: linear-gradient(
 		90deg,
 		rgba(6, 6, 139, 1) 0%,
@@ -55,7 +56,7 @@
 	width: 40%;
 	text-align: center;
 	font-size: 2.5rem;
-	font-family: "ABeeZee", serif;
+	font-family: "Audiowide", serif;
 	font-weight: 400;
 }
 .content-container {
@@ -67,12 +68,12 @@
 .left-para {
 	border-right: 2px solid white;
 	padding-right: 3rem;
-	font-family: "Poppins", serif;
-	font-size: 19px;
+	font-family: "Inter", serif;
+	font-size: 23px;
 }
 .right-para {
-	font-family: "Poppins", serif;
-	font-size: 19px;
+	font-family: "Inter", serif;
+	font-size: 23px;
 }
 .right-heading {
 	width: 50%;
@@ -83,7 +84,7 @@
 	letter-spacing: 0.06em;
 	text-underline-position: from-font;
 	text-decoration-skip-ink: none;
-	font-family: "Inter", serif;
+	font-family: "Audiowide", serif;
 	font-optical-sizing: auto;
 }
 .navbar-container {
