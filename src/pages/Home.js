@@ -1,9 +1,10 @@
 import React from 'react'
+import Sponsers from './Sponsers'
 
 export default function Home() {
   return (
     <div>
-      <div>Home</div>
+      <Sponsers />
     </div>
     
   )
