@@ -1,5 +1,5 @@
 import React from 'react'
-import Sponsers from './Sponsers'
+import Sponsers from '../components/Sponsers'
 import EventCards from '../components/EventCards'
 import HomeStartingComponent from '../components/HomeStartingComponent'
 export default function Home() {

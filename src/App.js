@@ -7,7 +7,8 @@ import Stalls from './pages/Stalls';
 import EventCalendar from './components/EventCalendar';
 import Admin from './pages/Admin';
 import Main from './pages/Main';
-import EventCards from './components/EventCards';
+import Gallery from './pages/Gallery';
+import Sponsers from './pages/Sponsers';
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
         <Route path='/' element={<Main/>}>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+		  <Route path="/gallery" element={<Gallery/>} />
+		  <Route path="/sponsers" element={<Sponsers/>} />
           <Route path="/events" element={<Events />} />
           <Route path="/stalls" element={<Stalls />} />
           <Route path="/event-calendar" element={<EventCalendar />} />
