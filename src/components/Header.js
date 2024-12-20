@@ -5,6 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import {motion} from "motion/react"
 import "../assets/styles/global.css";
+import { miniAbhiyanthLogo } from '../assets/images/index';
 import { useNavigate } from 'react-router-dom';
 
 function Header() {
@@ -21,7 +22,7 @@ function Header() {
   const [isSelected, setIsSelected] = React.useState(1);
   return (
     <Box>
-      <AppBar position="fixed" sx={{ borderRadius: "0px 0px 30px 30px", backgroundColor: "rgb(137,112,162,0.3)", zIndex: "2" }}>
+      <AppBar position="fixed" sx={{ borderRadius: "0px 0px 30px 30px", backgroundColor: "rgb(137,112,162,0.8)", zIndex: "2" }}>
         <Toolbar sx={{
           display: "flex",
           flexDirection: "row",
@@ -42,6 +43,11 @@ function Header() {
             </Button>
               {isSelected === 2 && <motion.div   layoutId='underline'  style={{ boxShadow: "0px 4px 2px 1px white" ,width:"100%"}}  />}
             
+          </nav>
+          <nav >
+            <div >
+              <img src={miniAbhiyanthLogo} alt="A" style={{width:"60px",height:"100%"}}/>
+              </div>
           </nav>
           <nav>
             <Button variant="text" sx={textStyles} onClick={() => {setIsSelected(3); navigate("/sponsers")}}>

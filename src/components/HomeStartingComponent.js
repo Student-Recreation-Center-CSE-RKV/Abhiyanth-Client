@@ -5,16 +5,8 @@ import { Box, Typography } from '@mui/material'
 import { motion } from 'motion/react';
 export default function HomeStartingComponent() {
     return (
-
-        <>
-            <motion.img
-                src={audience}
-                alt="Audience"
-                style={{ width: '100%', height: 'auto', objectFit: 'cover', opacity: 0.5 }}
-                animate={{ opacity: [0.3, 0.5, 0.3] }}
-            />
-
-            <Box sx={{ position: 'relative', width: '100%', height: '100vh', background: `black`, overflow: 'hidden' }}>
+        <div >
+            <Box sx={{ position: 'relative', width: '100%', height: '100vh', backgroundImage:`url(${audience})`,backgroundSize:"cover", overflow: 'hidden' }}>
                 <Box sx={{
                     position: 'absolute',
                     top: '70%', left: '51%',
@@ -26,11 +18,11 @@ export default function HomeStartingComponent() {
                         <motion.img
                             src={abhiyanthLogo}
                             alt="Ablogo"
-                            style={{ width: '100%', height: 'auto', objectFit: "fill", bottom: "15px" }}
-                            animate={{ y: [0, -20, 0] }}
+                            style={{ width: '100%', height: 'auto', objectFit: "fill", bottom: "30px" }}
+                            animate={{ y: [0, -50, 0] }}
                             transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
                         />
-                        <img src={maskGroup} alt="Mask Group" style={{ width: '287px', height: '50px', objectFit: "fill", position: 'absolute', bottom: '10px', right: "10px", left: "10px" }} />
+                        <img src={maskGroup} alt="Mask Group" style={{ width: '287px', height: '150px', objectFit: "fill", position: 'absolute', bottom: '10px', top:"140px",right: "10px", left: "10px" }} />
                     </div>
 
                     <h1 style={{
@@ -45,7 +37,7 @@ export default function HomeStartingComponent() {
                 </Box>
                 <Box sx={{ position: 'absolute', top: '30%', left: "0" }}>
                     <motion.button
-                        style={{ padding: '10px 20px', fontSize: '16px', cursor: 'pointer', borderRadius: "0 30px 0 0" }}
+                        style={{ padding: '10px 12px', fontSize: '16px', cursor: 'pointer', borderRadius: "0 30px 0 0",  backgroundColor:"transparent", borderColor:"white",color:"white"}}
                         whileHover={{ scale: 1.1 }}
                     >
                         <Typography sx={{
@@ -64,7 +56,7 @@ export default function HomeStartingComponent() {
                 </Box>
                 <Box sx={{ position: 'absolute', top: '30%', right: "0" }}>
                     <motion.button
-                        style={{ padding: '10px 20px', fontSize: '16px', cursor: 'pointer', borderRadius: "30px  0 0 0" }}
+                        style={{ padding: '10px 20px', fontSize: '16px', cursor: 'pointer', borderRadius: "30px  0 0 0", backgroundColor:"transparent", borderColor:"white",color:"white" }}
                         whileHover={{ scale: 1.1 }}
                     >
                         <Typography sx={{
@@ -83,7 +75,7 @@ export default function HomeStartingComponent() {
                 </Box>
                 <Box sx={{ position: 'absolute', bottom: '10%', left: "0" }}>
                     <motion.button
-                        style={{ padding: '10px 70px', fontSize: '16px', width: "300px", cursor: 'pointer', borderRadius: "0 30px 0 0", }}
+                        style={{ padding: '10px 70px', fontSize: '16px', width: "300px", cursor: 'pointer', borderRadius: "0 30px 0 0",  backgroundColor:"transparent", borderColor:"white",color:"white"}}
                         whileHover={{ scale: 1.1 }}
                     >
                         <Typography sx={{
@@ -102,8 +94,8 @@ export default function HomeStartingComponent() {
                 </Box>
                 <Box sx={{ position: 'absolute', bottom: '10%', right: "0" }}>
                     <motion.button
-                        style={{ padding: '10px 30px', fontSize: '16px', width: "200px", cursor: 'pointer', borderRadius: "30px 0 0 0" }}
-                        whileHover={{ scale: 1.1, shadow: "white" }}
+                        style={{ padding: '10px 20px', fontSize: '16px', width: "200px", cursor: 'pointer', borderRadius: "30px 0 0 0" , backgroundColor:"transparent", borderColor:"white",color:"white"}}
+                        whileHover={{ scale: 1.1}}
                     >
                         <Typography sx={{
                             fontFamily: 'Audiowide',
@@ -120,7 +112,7 @@ export default function HomeStartingComponent() {
                     </motion.button>
                 </Box>
             </Box>
-        </>
+        </div>
     )
 }
 
