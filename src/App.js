@@ -1,12 +1,12 @@
-import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Events from "./pages/Events";
-import Stalls from "./pages/Stalls";
-import EventCalendar from "./components/EventCalendar";
-import Admin from "./pages/Admin";
-import Main from "./pages/Main";
+import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import About from './pages/About';
+import Events from './pages/Events';
+import Stalls from './pages/Stalls';
+import EventCalendar from './components/EventCalendar';
+import Admin from './pages/Admin';
+import Main from './pages/Main';
 
 function App() {
 	return (

@@ -1,10 +1,12 @@
 import React from 'react'
 import NavBarLayout from '../components/NavBarLayout'
 
-export default function () {
+function Admin () {
   return (
     <div>
         <NavBarLayout/>
     </div>
   )
 }
+
+export default Admin;
