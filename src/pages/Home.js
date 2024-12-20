@@ -6,12 +6,11 @@ import {motion}  from 'motion/react';
 export default function Home() {
   return (
     <>
-       <motion.img 
+      <motion.img 
               src={audience} 
               alt="Audience" 
               style={{ width: '100%', height: 'auto', objectFit: 'cover', opacity: 0.5 }}
               animate={{ opacity: [0.3, 0.5, 0.3] }}
-             
             />
         
       <Box sx={{position: 'relative', width: '100%', height: '100vh', background:`black`,overflow: 'hidden' }}>
