@@ -1,14 +1,5 @@
 import React from 'react'
-<<<<<<< HEAD
-import Sponsers from './Sponsers'
 
-export default function Home() {
-  return (
-    <div>
-      <Sponsers />
-    </div>
-    
-=======
 import { audience,abhiyanthLogo,maskGroup } from '../assets/images'
 import { Box, Typography } from '@mui/material'
 import {motion}  from 'motion/react';
@@ -125,7 +116,6 @@ export default function Home() {
         </Box>
         </Box>
     </>
->>>>>>> e33ab8c (added home page without bg)
   )
 }
 
