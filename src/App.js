@@ -4,8 +4,6 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Events from './pages/Events';
 import Stalls from './pages/Stalls';
-//import ResponsiveAppBar from './components/Navbar';
-import NavBarLayout from './components/NavBarLayout';
 import EventCalendar from './components/EventCalendar';
 import Admin from './pages/Admin';
 import Main from './pages/Main';
@@ -21,7 +19,6 @@ function App() {
           <Route path="/events" element={<Events />} />
           <Route path="/stalls" element={<Stalls />} />
           <Route path="/event-calendar" element={<EventCalendar />} />
-          <Route path="/Event-Cards" element={<EventCards />} />
         </Route>
         <Route path="/admin" element={<Admin />}>
         </Route>
