@@ -1,5 +1,5 @@
 import React from 'react'
-import NavBarLayout from '../components/NavBarLayout'
+import NavBarLayout from '../components/general/NavBarLayout'
 
 function Admin () {
   return (

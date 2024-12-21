@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../assets/images/ab-logo-removebg-preview.png'
+import logo from '../../assets/images/ab-logo-removebg-preview.png'
 import "@fontsource/orbitron"
 import "@fontsource/orbitron/400.css"
 import "@fontsource/audiowide"
@@ -9,7 +9,7 @@ import '@fontsource/aubrey'
 import '@fontsource/aubrey/400.css'
 import Grid from '@mui/material/Grid';
 import { useState } from 'react';
-import '../styles/eventCards.css'
+import '../../styles/eventCards.css'
 const CardComponent = ({card}) => {
    const [isHovered , setIsHovered] = useState(null);
   return (
