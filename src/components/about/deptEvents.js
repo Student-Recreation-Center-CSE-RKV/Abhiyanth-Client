@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import city1 from "../../assets/images/Dark Gradient 06.png";
-import city2 from "../../assets/images/Maskgroup.png";
-import city3 from "../../assets/images/Dark Gradient 06.png";
-import planet1 from "../../assets/images/Maskgroup.png";
-import planet2 from "../../assets/images/sponsors_bg.jpeg";
+import image1 from "../../assets/images/deptimage1.jpeg";
+import image2 from "../../assets/images/deptimage2.jpeg";
+import image3 from "../../assets/images/deptimage3.jpeg";
+import image4 from "../../assets/images/deptimage4.jpeg";
+import image5 from "../../assets/images/deptimage1.jpeg";
+import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 
 const DeptEvents = () => {
 	const [positionIndexes, setPositionIndexes] = useState([0, 1, 2, 3, 4]);
@@ -27,8 +28,19 @@ const DeptEvents = () => {
 			return updatedIndexes;
 		});
 	};
+	const handleDotClick = (index) => {
+		const newPositionIndexes = Array.from(
+			{ length: 5 },
+			(_, idx) => (index + idx) % 5
+		);
+		setPositionIndexes(newPositionIndexes);
+	};
 
-	const images = [city1, city2, city3, planet1, planet2];
+	const handleImageClick = (index) => {
+		handleDotClick(index);
+	};
+
+	const images = [image1, image2, image3, image4, image5];
 
 	const positions = ["center", "left1", "left", "right", "right1"];
 
@@ -40,25 +52,36 @@ const DeptEvents = () => {
 		right1: { x: "50%", scale: 0.7, zIndex: 3 },
 	};
 	return (
-		<div style={{
-            display:"flex",
-            flexDirection:"column",
-            margin:"2rem",
-            gap:"1rem",
-            justifyContent:"center",
-            alignItems:"center",
-            minHeight:"100vh",
-            width:"100vw"
-        }} className="dept-events">
-            <h1 style={{color:"white"}}>Dept Events </h1>
+		<div
+			style={{
+				display: "flex",
+				flexDirection: "column",
+				marginBlock: "2rem",
+				justifyContent: "center",
+				alignItems: "center",
+				minHeight: "100vh",
+				width: "100%",
+			}}
+			className="dept-events"
+		>
+			<h1
+				style={{
+					color: "white",
+					fontFamily: "audiowide",
+					flex: "0.1",
+					fontSize: "3rem",
+				}}
+			>
+				Dept Events
+			</h1>
 			<div
 				style={{
 					display: "flex",
 					alignItems: "center",
 					flexDirection: "column",
 					justifyContent: "center",
-					backgroundColor: "black",
 					height: "100vh",
+					flex: "0.9",
 				}}
 			>
 				{images.map((image, index) => (
@@ -66,45 +89,61 @@ const DeptEvents = () => {
 						key={index}
 						src={image}
 						alt={image}
-						className="rounded-[12px]"
 						initial="center"
 						animate={positions[positionIndexes[index]]}
 						variants={imageVariants}
 						transition={{ duration: 0.5 }}
-						style={{ width: "40%", position: "absolute" }}
+						style={{ width: "40%", position: "absolute", borderRadius: "30px" }}
+						onClick={() => handleImageClick(index)}
 					/>
 				))}
 				<div
 					style={{
 						display: "flex",
 						gap: "0.85rem",
+
 					}}
 				>
 					<button
 						style={{
 							color: "white",
-							marginTop: "400px",
-							backgroundColor: "indigo",
+							marginTop: "500px",
 							borderRadius: "20px",
 							paddingBlock: "0.5rem",
 							paddingInline: "1rem",
+							backgroundColor: "transparent",
 						}}
 						onClick={handleBack}
 					>
-						Back
+						<ArrowBackIos />
 					</button>
+					<div style={{marginTop: "500px",backgroundColor:"transparent",display:"flex",alignItems:"center",justifyContent:"center",gap:"20px"}}>
+						{images.map((_, index) => (
+							<div
+								key={index}
+								onClick={() => handleDotClick(index)}
+								style={{
+									width: "10px",
+									height: "10px",
+									borderRadius: "50%",
+									backgroundColor: "white",
+									cursor: "pointer",
+								}}
+							></div>
+						))}
+					</div>
 					<button
 						style={{
 							color: "white",
-							marginTop: "400px",
-							backgroundColor: "indigo",
+							marginTop: "500px",
 							borderRadius: "20px",
 							paddingBlock: "0.5rem",
 							paddingInline: "1rem",
+							backgroundColor: "transparent",
 						}}
 						onClick={handleNext}
 					>
-						Next
+						<ArrowForwardIos />
 					</button>
 				</div>
 			</div>
