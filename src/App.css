@@ -40,41 +40,8 @@
 }
 
 
-@layer base {
-  body {
-    background: linear-gradient(90deg, #00008B -50%, black 50%, #00008B 190%);
-  }
-}
 
 
-.event-cards {
-  width: 100%;
-  height: 100vh; /* Full viewport height */
-  background-image: url('./assets/images/Dark Gradient 06.png'); 
-  background-repeat: no-repeat; /* Prevent repeating */
-  background-position: center; /* Center the image */
-  position: sticky; /* Keeps the section fixed during scroll */
-  margin-top: 10px;
-  border-end-start-radius: 35px;
-  border-bottom-right-radius: 35px;
-}
 
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .event-cards {
-    background-size: contain; /* Adjust size for smaller screens */
-    background-position: top; /* Adjust position */
-    height: 50vh; /* Reduce height for smaller screens */
-  }
-}
-
-@media (max-width: 480px) {
-  .event-cards {
-    background-size: cover;
-    background-position: center top;
-    height: auto; /* Allow the height to adjust automatically */
-  }
-}
 
 
