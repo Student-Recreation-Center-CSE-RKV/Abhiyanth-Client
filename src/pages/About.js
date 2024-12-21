@@ -8,12 +8,9 @@ import AimVision from "../components/about/AimVision";
 export default function About() {
 	return (
 		<div className="gif-background">
-			<div>
-				<AimVision />
-			</div>
+			<AimVision />
 			<StatsComponent />
 			<PreEventsCard />
-
 			<DeptEvents />
 		</div>
 	);
