@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { audience, abhiyanthLogo, maskGroup } from '../assets/images'
+import { audience, abhiyanthLogo, maskGroup } from '../../assets/images'
 import { Box, Typography } from '@mui/material'
 import { motion } from 'motion/react';
 export default function HomeStartingComponent() {

@@ -1,6 +1,6 @@
 import React from 'react';
-import "../styles/Footer.css";
-import image from "../assets/images/abhiyath_logo_2.png"
+import "../../styles/Footer.css";
+import image from "../../assets/images/abhiyath_logo_2.png"
 import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';

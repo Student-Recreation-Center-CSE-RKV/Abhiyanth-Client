@@ -1,6 +1,6 @@
 import React from 'react'
-import '../styles/Extravaganza.css'
-import logo from '../assets/images/abhiyath_logo_2.png'
+import '../../styles/Extravaganza.css'
+import logo from '../../assets/images/abhiyath_logo_2.png'
 import { useState } from 'react'
 
 
