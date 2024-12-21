@@ -9,7 +9,7 @@ import MomentsGallary from "../components/about/gallary";
 export default function About() {
 	return (
 		<div className="gif-background">
-			<div>
+			<div style={{width:"100vw"}}>
 				<AimVision />
 			</div>
 			<StatsComponent />
