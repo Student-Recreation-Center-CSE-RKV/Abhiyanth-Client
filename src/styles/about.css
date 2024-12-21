@@ -1,0 +1,12 @@
+.gif-background {
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    background-image: url('/src/assets/images/bg.gif'); /* Replace with your GIF URL */
+    background-size: cover; /* Makes the GIF cover the entire div */
+    background-position: center; /* Centers the GIF */
+    background-repeat: no-repeat; /* Prevents repeating */
+    opacity:0.1;
+    padding-top:4rem;
+}
+
+  

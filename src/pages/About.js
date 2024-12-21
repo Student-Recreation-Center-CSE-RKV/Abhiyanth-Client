@@ -1,10 +1,13 @@
-import React from 'react'
+import React from "react";
+import "../styles/about.css";
+
 import PreEventsCard from '../components/about/preEvents'
 
 export default function About() {
-  return (
-    <div>
-      <PreEventsCard/>
-    </div>
-  )
+	return <div className="gif-background">
+		<p style={{fontSize:"2rem",color:"pink"}}> About</p>
+		<PreEventsCard/>
+	</div>;
 }
+
+
