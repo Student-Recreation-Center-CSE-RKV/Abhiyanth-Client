@@ -3,10 +3,13 @@ import React from 'react';
 const StatsCard = ({ image, number, description }) => {
   return (
     <div style={styles.cardContainer}>
-      <div style={styles.cardBackground} />
-      {image && <img src={image} alt="Stats" style={styles.image} />}
-      <div style={styles.numberText}>{number}</div>
-      <div style={styles.descriptionText}>{description}</div>
+      <div style={styles.cardBackground}>
+        {image && <img src={image} alt="Stats" style={styles.image} />}
+        <div style={styles.textContainer}>
+          <div style={styles.numberText}>{number}</div>
+          <div style={styles.descriptionText}>{description}</div>
+        </div>
+      </div>
     </div>
   );
 };
@@ -16,47 +19,47 @@ const styles = {
     width: 247,
     height: 294,
     position: 'relative',
-    margin: '20px auto', // Center the card and add spacing
+    margin: '20px',
   },
   cardBackground: {
     width: '100%',
     height: '100%',
     position: 'absolute',
     background: 'rgba(217, 217, 217, 0)', 
-    border: '1px solid', // Solid border to apply gradient
-    borderImageSource: 'linear-gradient(to bottom, #FF6AB7, #22D1EE)', // Gradient for the border
-    borderImageSlice: 1,
-    borderRadius: 64, // Rounded corners
+    
+    borderRadius: 64, 
+    border: '1px #FF6AB7 solid', 
+    display: 'flex',
+    flexDirection: 'column', 
+    justifyContent: 'center', 
+    alignItems: 'center',
+    padding: '20px',
+    boxShadow: '0px 4px 15px rgba(173, 216, 230, 0.5)'
   },
   image: {
-    width: '80%',
+    width: "120px",
     height: 'auto',
-    position: 'absolute',
-    top: 20,
-    left: '10%',
-    borderRadius: 16, // Optional: rounded edges for the image
+    borderRadius: 16,
+    marginBottom: '20px', 
+  },
+  textContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
   },
   numberText: {
-    position: 'absolute',
-    top: 160,
-    left: '50%',
-    transform: 'translateX(-50%)',
-    textAlign: 'center',
+    fontSize: 32,
     color: 'white',
-    fontSize: 40,
     fontFamily: 'Audiowide, sans-serif',
     fontWeight: '400',
+    textAlign: 'center',
   },
   descriptionText: {
-    position: 'absolute',
-    top: 210,
-    left: '50%',
-    transform: 'translateX(-50%)',
-    textAlign: 'center',
-    color: 'white',
     fontSize: 25,
+    color: 'white',
     fontFamily: 'Audiowide, sans-serif',
     fontWeight: '400',
+    textAlign: 'center',
   },
 };
 
