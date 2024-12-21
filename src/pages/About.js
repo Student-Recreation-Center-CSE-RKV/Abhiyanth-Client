@@ -7,8 +7,9 @@ export default function About() {
   return (
     <div className="gif-background">
       <p style={{ fontSize: "2rem", color: "pink" }}>About</p>
-      <PreEventsCard />
       <StatsComponent/>
+      <PreEventsCard />
+      
     </div>
   );
 }
