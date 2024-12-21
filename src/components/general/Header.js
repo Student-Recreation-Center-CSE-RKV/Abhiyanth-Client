@@ -4,7 +4,6 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import { motion } from "motion/react";
-import "../../assets/styles/global.css"
 import { miniAbhiyanthLogo } from '../../assets/images/index';
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -41,6 +40,7 @@ function Header() {
       <AppBar position="fixed" sx={{ borderRadius: "0px 0px 30px 30px", backgroundColor: "rgb(137,112,162,0.8)", zIndex: "2" }}>
         <Toolbar sx={{
           display: "flex",
+          width:"100%",
           flexDirection: "row",
           gap: "20px",
           alignItems: "center",
