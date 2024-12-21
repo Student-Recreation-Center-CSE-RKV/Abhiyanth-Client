@@ -1,15 +1,11 @@
-import React, { useState } from 'react';
-import darkGradient from '../assets/images/Dark Gradient 06.png'
-import logo from '../assets/images/ab-logo-removebg-preview.png'
+import React from 'react';
 import "@fontsource/orbitron"
 import "@fontsource/orbitron/400.css"
 import "@fontsource/audiowide"
 import "@fontsource/audiowide/400.css"
-import { Box, Typography, Card, CardMedia, CardContent } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import '@fontsource/aubrey'
 import '@fontsource/aubrey/400.css'
-import { styled } from '@mui/material/styles';
-import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import CardComponent from './cardComponent';
 import '../styles/eventCards.css'
@@ -101,7 +97,6 @@ const EventCards = () => {
                     infinite: true,
                     dots: true,
                     infinite: true,
-                 
                 }
             },
             {
@@ -152,7 +147,6 @@ const EventCards = () => {
                     letterSpacing: '5px',
                     marginTop:{xs:'15px', md:15}
                   }}
-                 
                 >
                   ABHIYANTH
                 </Typography>

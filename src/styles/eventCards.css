@@ -1,9 +1,4 @@
-@layer base {
-    body {
-      background: linear-gradient(90deg, #00008B -50%, black 50%, #00008B 190%);
-    }
-  }
-  
+
   
   .event-cards {
     width: 100%;

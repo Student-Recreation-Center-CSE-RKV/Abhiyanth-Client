@@ -1,16 +1,33 @@
-import React from 'react'
-
+import React from 'react';
 import Header from '../components/Header';
 import { Outlet } from "react-router-dom";
-import Footer from '../components/Footer'
+import Footer from '../components/Footer';
 
 export default function Main() {
+  const styles = {
+    mainContainer: {
+      display: 'flex',
+      flexDirection: 'column',
+      minHeight: '100vh', 
+    },
+    contentContainer: {
+      flex: 1, 
+      paddingBottom: '100px', 
+    },
+    footerContainer: {
+      marginTop: 'auto', 
+    }
+  };
+
   return (
-    <div>
-        <Header backgroundcolor="rgba(239, 225, 238, 0.25)" />
+    <div style={styles.mainContainer}>
+      <Header />
+      <div style={styles.contentContainer}>
         <Outlet />
-        <Footer/>
+      </div>
+      <div style={styles.footerContainer}>
+        <Footer />
+      </div>
     </div>
-  )
+  );
 }
-//rgb(137,112,162,0.8)
