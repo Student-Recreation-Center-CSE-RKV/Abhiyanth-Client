@@ -7,9 +7,10 @@ import Footer from '../components/Footer'
 export default function Main() {
   return (
     <div>
-        <Header/>
+        <Header backgroundcolor="rgba(239, 225, 238, 0.25)" />
         <Outlet />
         <Footer/>
     </div>
   )
 }
+//rgb(137,112,162,0.8)
