@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import { motion } from "motion/react";
-import "../../assets/styles/global.css"
+// import "../../assets/styles/global.css"
 import { miniAbhiyanthLogo } from '../../assets/images/index';
 import { useNavigate, useLocation } from 'react-router-dom';
 
