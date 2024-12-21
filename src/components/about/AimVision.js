@@ -5,7 +5,8 @@ function AimVision(){
   const styles = {
     container: {
       width: "100%",
-      height: "900px",
+      height: "auto",
+      minHeight: "100vh",
       flexShrink: "0",
       border: '3px solid',
       borderImageSource: 'linear-gradient(to right, #261E35, #C91C75, #EFE1EE, #E9C0DA, #E4AACC, #C91C75, #261E35)',
@@ -19,29 +20,29 @@ function AimVision(){
       textAlign: "center",
       textShadow: "3px 4px 10px rgba(34, 209, 238, 0.30), -3px -4px 10px rgba(255, 79, 248, 0.30)",
       fontFamily: "Audiowide",
-      fontSize: "60px",
+      fontSize: "50px",
       fontStyle: "normal",
       fontWeight: "400",
       lineHeight: "normal",
     },
     textLayout: {
       display: "flex",
-      width: "687px",
-      height: "66px",
-      position: "absolute",
+      maxwidth: "100%",
+      height: "auto",
+      position: "relative",
       top: "5%",
-      left: "20%",
+      left: "5%",
       flexDirection: "column",
       justifyContent: "center",
+      padding: "2px 4px",
       flexShrink: "0",
     },
-    rectangle1:  {
-      width: "1050px",
-      height: "214px",
-      position: "absolute",
-      top: "25%",
-      left: "5%",
-      right: "5%",
+    rectangle1: {
+      minHeight: "100px",
+      position: "relative",
+      marginTop: "5%",
+      marginLeft: "5%",
+      marginRight: "5%",
       borderRadius: "26px",
       border: "1px solid var(--gradient, #FF6AB7,#6AE4FF)",
       background: "rgba(0, 0, 0, 0.25)",
@@ -51,85 +52,69 @@ function AimVision(){
       color: "white",
       textAlign: "center",
       fontFamily: "Averia Sans Libre",
-      fontSize: "25px",
+      fontSize: "26px",
       fontStyle: "normal",
       fontWeight: "400",
-      marginLeft: "10px",
-      mariginRight: "20px",
-      paddingRight:"20px"
-
-
+      padding: "30px 40px"
     },
     rectangle2: {
-      width: "1050px",
-      height: "250px",
-      position: "absolute",
-      bottom: "15%",
-      left: "5%",
-      right: "10%",
+      minHeight: "100px",
+      position: "relative",
+      marginTop: "5%",
+      marginLeft: "5%",
+      marginRight: "5%",
       borderRadius: "26px",
       border: "1px solid var(--gradient, #FF6AB7,#6AE4FF)",
       background: "rgba(0, 0, 0, 0.25)",
       boxShadow: "-3px -4px 10px 0px rgba(255, 79, 248, 0.50), 3px 4px 10px 0px rgba(34, 209, 238, 0.50)",
     },
-    aim: 
-      {
-        width: "32px",
-        height: "32px",
-        borderRadius: "50%",
-        background: "#fff",
-        color: "#000",
-        display: "inline-flex",
-        justifyContent: "center",
-        alignItems: "center",
-        marginTop: "-1px",
-        marginRight: "10px",
-        fontWeight: "bold",
-      },
+    aim: {
+      width: "auto",
+      height: "20px",
+      display: "inline-flex",
+      justifyContent: "center",
+      position: "absolute",
+      alignItems: "center",
+      marginTop: "-20px",
+      marginLeft: "0px",
+      marginRight: "5px",
+      fontWeight: "bold",
+    },
     aimText: {
       borderRadius: "12px",
       border: "1px solid var(--gradient, #FF6AB7)",
-      padding:" 0 10px",
+      padding: "5px 20px",
       background: "var(--Not-so-black, #11110F)",
       color: "#FFFF",
       textAlign: "center",
       textShadow: "3px 4px 10px rgba(34, 209, 238, 0.30), -3px -4px 10px rgba(255, 79, 248, 0.30)",
       fontFamily: "Audiowide",
-      fontSize: "40px",
+      fontSize: "30px",
       fontStyle: "normal",
       fontWeight: "400",
       lineHeight: "normal",
-      marginLeft: "10px",
+      marginTop:"-10px", 
+      marginRight: "40px"
     }
   }
   return (
-  <>
-    <div style={styles.container}>
+  <div style={styles.container}>
+    <div >
       <Box sx={styles.textLayout}>
         <Typography variant="h3" style={styles.text}>
           Abhiyanth 2K25
         </Typography>
       </Box>
       <Box sx={styles.rectangle1}>
-        <Typography
-          variant="h6"
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            color: "#fff",
-            marginBottom: "10px",
-          }}
-        >
           <Box 
             component="span"
-            sx={{ ...styles.aim, width: "50px", height: "50px",marginTop:"-50px", marginLeft: "-10px" }}
+            sx={{ ...styles.aim, }}
           >
-            <img src={aim} style={{ width: "40px", height: "40px" }} alt="aim"/>
+              <img src={aim} style={{ width: "50px", height: "50px",marginRight:"0px" }} alt="aim"/>
+            <Typography sx={{ ...styles.aimText, }}>
+            Aim</Typography>
           </Box>
-          <Box sx={{ ...styles.aimText,marginTop:"-30px", marginLeft: "-10px",marginBottom:"10px" }}>
-          Aim
-          </Box>
-        </Typography>
+      
         <Typography
           variant="body1"
           sx={{ ...styles.contentText, marginLeft: "70px" }}
@@ -153,39 +138,45 @@ function AimVision(){
         >
           <Box
             component="span"
-            sx={{ ...styles.aimText,marginTop:"-50px", marginRight: "40px" }}
+            sx={{ ...styles.aimText }}
           >
             Vision
           </Box>
           <Box
             component="span"
-            sx={{ ...styles.aim, width: "50px", height: "50px",  marginRight: "-10px" ,marginTop:"-10px",marginBottom:"10px"}}
+            sx={{ ...styles.aim, width: "50px", height: "50px",  marginRight: "-10px" ,marginTop:"-10px"}}
           >
-            <img src={vision} style={{ width: "80px", height: "80px" }} alt="vision"/>
+            <img src={vision} style={{ width: "70px", height: "80px" }} alt="vision"/>
           </Box>
         </Typography>
         <Typography
           variant="body1"
-          sx={{ ...styles.contentText, marginLeft: "70px" }}
+          sx={{ ...styles.contentText }}
         >
         Abhiyanth is a Valley of Engineers, events, artists coming together to form a 3-day techno management cultural fest with an instilling new spirit in quest of exposure, freedom, fun and diversity. In Abhiyanth, faith flows, aspirations arise, achievements adored, talent turns up with ecstasy endured
         </Typography>
       </Box>
-      <Box
+      
+    </div > 
+    <div style={{
+      position: "absolute",
+      bottom: "0",
+      right: "0",
+      height: "25%",
+    }}>
+    <Box
     component="img"
     src={roboRocket}
     alt="roboRocket"
     sx={{
-      position: "absolute",
-      bottom: "0",
-      right: "0",
-      width: "250px",
-      height: "auto",
+      width: "100%",
+      height: "100%",
+      objectFit: "fill"
     }}
+  
   />
-    </div>
-   
-  </>
+  </div>
+  </div>
   ) 
 }
 export default AimVision;
