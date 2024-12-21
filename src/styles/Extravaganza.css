@@ -34,7 +34,7 @@
 .top-gradient {
 	flex: 1;
 	width: 100%;
-	background-image: url("/src/assets/images/Dark\ Gradient\ 06.png");
+	background-image: url("/src/assets/images/ExtravaganzaHome.png");
 	background-size: cover;
 	background-repeat: no-repeat;
 	border-bottom-left-radius: 4em;
@@ -61,7 +61,7 @@
     padding-right: 2rem;
 }
 .heading{
-    font-family: "aubrey", sans-serif;
+ font-family: "Aubrey", sans-serif;
 	font-size: clamp(2rem, 5vw, 4rem);
 	letter-spacing: 8px;
 	font-weight: 100;
@@ -71,8 +71,9 @@
 .text{
     font-family: "inter", sans-serif;
     font-style: italic;
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.8rem;
+    margin-top: 13px;
     margin-left: 3.5rem;
 }
 

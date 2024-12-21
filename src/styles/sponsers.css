@@ -1,5 +1,6 @@
 .container {
 	margin-block:5px;
+	margin-top: 0;
 	background: linear-gradient(
 		90deg,
 		rgba(6, 6, 139, 1) 0%,
