@@ -177,6 +177,9 @@
 	padding-block: 2rem;
 	text-align: justify;
   }
+  .navbar-container1 ,.navbar-container{
+	width: 100%;
+  }
   .left-heading,.right-heading{
 	width: 100%;
 	font-size: 1.5rem;

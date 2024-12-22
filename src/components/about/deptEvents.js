@@ -46,10 +46,10 @@ const DeptEvents = () => {
 
 	const imageVariants = {
 		center: { x: "0%", scale: 1, zIndex: 5 },
-		left1: { x: "-50%", scale: 0.7, zIndex: 3 },
-		left: { x: "-90%", scale: 0.5, zIndex: 2 },
-		right: { x: "90%", scale: 0.5, zIndex: 1 },
-		right1: { x: "50%", scale: 0.7, zIndex: 3 },
+		left1: { x: "-30%", scale: 0.7, zIndex: 3 },
+		left: { x: "-50%", scale: 0.5, zIndex: 2 },
+		right: { x: "50%", scale: 0.5, zIndex: 1 },
+		right1: { x: "30%", scale: 0.7, zIndex: 3 },
 	};
 	return (
 		<div
@@ -62,7 +62,6 @@ const DeptEvents = () => {
 				minHeight: "100vh",
 				width: "100%",
 			}}
-			className="dept-events"
 		>
 			<h1
 				style={{
@@ -80,8 +79,7 @@ const DeptEvents = () => {
 					alignItems: "center",
 					flexDirection: "column",
 					justifyContent: "center",
-					height: "100vh",
-					flex: "0.9",
+					flex: "0.8",
 				}}
 			>
 				{images.map((image, index) => (
@@ -93,7 +91,11 @@ const DeptEvents = () => {
 						animate={positions[positionIndexes[index]]}
 						variants={imageVariants}
 						transition={{ duration: 0.5 }}
-						style={{ width: "40%", position: "absolute", borderRadius: "30px" }}
+						style={{
+							width: "50%",
+							position: "absolute",
+							borderRadius: "39px",
+						}}
 						onClick={() => handleImageClick(index)}
 					/>
 				))}
@@ -101,7 +103,6 @@ const DeptEvents = () => {
 					style={{
 						display: "flex",
 						gap: "0.85rem",
-
 					}}
 				>
 					<button
@@ -117,7 +118,16 @@ const DeptEvents = () => {
 					>
 						<ArrowBackIos />
 					</button>
-					<div style={{marginTop: "500px",backgroundColor:"transparent",display:"flex",alignItems:"center",justifyContent:"center",gap:"20px"}}>
+					<div
+						style={{
+							marginTop: "500px",
+							backgroundColor: "transparent",
+							display: "flex",
+							alignItems: "center",
+							justifyContent: "center",
+							gap: "20px",
+						}}
+					>
 						{images.map((_, index) => (
 							<div
 								key={index}
