@@ -95,10 +95,10 @@ function BasicMenu() {
         }}
       >
 
-        <MenuItem onClick={() => { handleClose(); navigate("") }}>Home</MenuItem>
-        <MenuItem onClick={() => { handleClose(); navigate("/gallery") }}>Gallery</MenuItem>
-        <MenuItem onClick={() => { handleClose(); navigate("/sponsers") }}>Sponsors</MenuItem>
-        <MenuItem onClick={() => { handleClose(); navigate("/about") }}>About</MenuItem>
+        <MenuItem sx={styles.smallMenutext} onClick={() => { handleClose(); navigate("") }}>Home</MenuItem>
+        <MenuItem sx={styles.smallMenutext} onClick={() => { handleClose(); navigate("/gallery") }}>Gallery</MenuItem>
+        <MenuItem sx={styles.smallMenutext} onClick={() => { handleClose(); navigate("/sponsers") }}>Sponsors</MenuItem>
+        <MenuItem sx={styles.smallMenutext} onClick={() => { handleClose(); navigate("/about") }}>About</MenuItem>
       </Menu>
     </div>
   );
