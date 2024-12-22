@@ -30,7 +30,7 @@ const MomentsGallary = () => {
 						paddingLeft: "0.5rem",
 						textShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)",
 						marginBottom: "1rem",
-            display: { xs: "block", md: "none" },
+            display: { xs: "block", md: "none",sm:"block",lg:"none" },
 					}}
 					className="about-heading"
 				>
@@ -85,7 +85,7 @@ const MomentsGallary = () => {
 					maxWidth: "100vw",
 					margin: "auto",
 					borderRadius: "8px",
-					display: { xs: "none", sm: "block" },
+					display: { xs: "none", sm: "none",md:"block",lg:"block" },
 				}}
 			>
 				{/* CSS Grid Layout */}
