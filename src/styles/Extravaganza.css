@@ -50,6 +50,10 @@
   padding-left: 0rem;
   padding-right: 0rem;
   padding-top: 1rem;
+  margin-top: 0px;
+  border-top: 3px solid;
+  border-image-source: linear-gradient(to right, #261E35, #C91C75, #EFE1EE, #E9C0DA, #E4AACC, #C91C75, #261E35);
+  border-image-slice: 1;
   
 }
 
@@ -256,9 +260,9 @@
 
 @media (max-width: 480px) {
 	.heading {
-		font-size: clamp(3rem, 4vw, 2rem);
+		font-size: clamp(1.5rem, 4vw, 2rem);
         margin-left: 3rem;
-        justify-content: space-between;
+        justify-content: center;
 	}
 
 	.text {
@@ -268,4 +272,7 @@
         text-align: center;
         margin-right: 1rem;
 	}
+  .circle-2{
+    display: none;
+  }
 }
