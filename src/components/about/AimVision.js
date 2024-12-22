@@ -12,27 +12,38 @@ function AimVision() {
 			borderImageSource:
 				"linear-gradient(to right, #261E35, #C91C75, #EFE1EE, #E9C0DA, #E4AACC, #C91C75, #261E35)",
 			backgroundImage: `url(${sandAbLogo})`,
-			backgroundSize: "cover",
+			backgroundSize: "contain",
+			backgroundRepeat: "no-repeat",
 			zIndex: "-1",
 			position: "relative",
 		},
 		text: {
 			color: "#FFF",
-      paddingTop:"1rem",
-      paddingLeft:"365px",
-      width:"100%",
+			paddingTop: "1rem",
+			textAlign:"center",
+			width: "100%",
 			textShadow:
 				"3px 4px 10px rgba(34, 209, 238, 0.30), -3px -4px 10px rgba(255, 79, 248, 0.30)",
 			fontFamily: "Audiowide",
-			fontSize: "50px",
+			fontSize: "50px", // Default size for desktop
 			fontStyle: "normal",
 			fontWeight: "400",
 			lineHeight: "normal",
+			'@media (max-width: 1200px)': {
+				fontSize: "50px", // Adjust for large tablets
+			},
+			'@media (max-width: 900px)': {
+				fontSize: "28px", // Adjust for small tablets
+			},
+			'@media (max-width: 600px)': {
+				fontSize: "26px", // Adjust for mobile devices
+				paddingLeft: "20%",
+			},
 		},
 		textLayout: {
 			display: "flex",
 			height: "auto",
-      width:"860px",
+			width: "860px",
 			position: "relative",
 			top: "5%",
 			left: "5%",
@@ -40,6 +51,12 @@ function AimVision() {
 			justifyContent: "center",
 			padding: "2px 4px",
 			flexShrink: "0",
+			marginBottom:"3%",
+			'@media (max-width: 900px)': {
+				width: "100%",
+				left: "0",
+				padding: "0 10px",
+			},
 		},
 		rectangle1: {
 			minHeight: "100px",
@@ -52,6 +69,10 @@ function AimVision() {
 			background: "rgba(0, 0, 0, 0.25)",
 			boxShadow:
 				"-3px -4px 10px 0px rgba(255, 79, 248, 0.50), 3px 4px 10px 0px rgba(34, 209, 238, 0.50)",
+			'@media (max-width: 900px)': {
+				marginLeft: "2%",
+				marginRight: "2%",
+			},
 		},
 		contentText: {
 			color: "white",
@@ -61,6 +82,14 @@ function AimVision() {
 			fontStyle: "normal",
 			fontWeight: "400",
 			padding: "30px 40px",
+			'@media (max-width: 900px)': {
+				fontSize: "22px",
+				padding: "20px 30px",
+			},
+			'@media (max-width: 600px)': {
+				fontSize: "18px",
+				padding: "15px 20px",
+			},
 		},
 		rectangle2: {
 			minHeight: "100px",
@@ -73,6 +102,10 @@ function AimVision() {
 			background: "rgba(0, 0, 0, 0.25)",
 			boxShadow:
 				"-3px -4px 10px 0px rgba(255, 79, 248, 0.50), 3px 4px 10px 0px rgba(34, 209, 238, 0.50)",
+			'@media (max-width: 900px)': {
+				marginLeft: "2%",
+				marginRight: "2%",
+			},
 		},
 		aim: {
 			height: "20px",
@@ -80,7 +113,7 @@ function AimVision() {
 			justifyContent: "center",
 			position: "absolute",
 			alignItems: "center",
-			marginTop: "-20px",
+			marginTop: "-10px",
 			marginLeft: "0px",
 			marginRight: "5px",
 			fontWeight: "bold",
@@ -99,15 +132,23 @@ function AimVision() {
 			fontStyle: "normal",
 			fontWeight: "400",
 			lineHeight: "normal",
-			marginTop: "-10px",
+			marginTop: "-5px",
 			marginRight: "40px",
+			'@media (max-width: 900px)': {
+				fontSize: "24px",
+				padding: "5px 15px",
+			},
+			'@media (max-width: 600px)': {
+				fontSize: "20px",
+				padding: "5px 10px",
+			},
 		},
 	};
 	return (
-		<div style={styles.container}>
-			<div>
+		<div >
+			<div style={styles.container}>
 				<Box sx={styles.textLayout}>
-					<Typography style={styles.text}>
+					<Typography sx={styles.text}>
 						Abhiyanth 2K25
 					</Typography>
 				</Box>
@@ -118,7 +159,7 @@ function AimVision() {
 							style={{ width: "50px", height: "50px", marginRight: "0px" }}
 							alt="aim"
 						/>
-						<Typography sx={{ ...styles.aimText }}>Aim</Typography>
+						<Typography sx={styles.aimText}>Aim</Typography>
 					</Box>
 
 					<Typography
@@ -170,15 +211,14 @@ function AimVision() {
 						talent turns up with ecstasy endured
 					</Typography>
 				</Box>
-			</div>
-			<div>
+			
 				<Box
 					style={{
 						position: "absolute",
 						bottom: "0",
-						right: "0px",
+						right: "0",
 						height: "35%",
-            width:"20%",
+            width:"15%",
 					}}
 					component="img"
 					src={roboRocket}
@@ -189,6 +229,7 @@ function AimVision() {
             objectFit: "contain",
 					}}
 				/>
+				
 			</div>
 		</div>
 	);

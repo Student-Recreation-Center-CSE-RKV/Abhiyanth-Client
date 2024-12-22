@@ -4,9 +4,20 @@ import { audience, abhiyanthLogo, maskGroup } from '../../assets/images'
 import { Box, Typography } from '@mui/material'
 import { motion } from 'motion/react';
 export default function HomeStartingComponent() {
+    const styles={
+        heroContainer:{ 
+            position: 'relative',
+            width: '100%', 
+            height: '100vh', 
+            backgroundImage:`url(${audience})`,
+            backgroundSize:"cover", 
+            overflow: 'hidden' },
+
+        
+    }
     return (
         <div >
-            <Box sx={{ position: 'relative', width: '100%', height: '100vh', backgroundImage:`url(${audience})`,backgroundSize:"cover", overflow: 'hidden' }}>
+            <Box sx={styles.heroContainer}>
                 <Box sx={{
                     position: 'absolute',
                     top: '70%', left: '51%',
