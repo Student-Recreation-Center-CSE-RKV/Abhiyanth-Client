@@ -12,25 +12,26 @@ import MenuIcon from '@mui/icons-material/Menu';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { Typography } from '@mui/material';
 
-const styles ={
-  menubar:{
+const styles = {
+  menubar: {
     display: "flex",
-    width:"100%",
+    width: "100%",
     flexDirection: "row",
     gap: "20px",
     alignItems: "center",
     justifyContent: "space-around",
     height: "40px"
   },
-  textStyles : {
+  textStyles: {
     fontFamily: "Audiowide",
     fontWeight: "400",
     fontStyle: "normal",
     color: "white",
-    textTransform: "none", 
-    fontSize: "19px"},
-  
-  }
+    textTransform: "none",
+    fontSize: "19px"
+  },
+
+}
 function BasicMenu() {
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -42,7 +43,9 @@ function BasicMenu() {
     setAnchorEl(null);
   };
   return (
-    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%" ,padding:"10px 5px"}}>
+    <div style={{
+      display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%", padding: "10px 5px", position: "fixed",top: 0,left: 0,zIndex: 1000,boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",backgroundColor:"rgba(0, 0, 0, 0.6)"
+    }}>
       <nav style={{ display: "flex", alignItems: "center" }}>
         <img src={miniAbhiyanthLogo} alt="A" style={{ width: "40px", height: "40px", marginRight: "10px" }} />
         <Typography sx={styles.textStyles}>Abhiyanth</Typography>
@@ -74,10 +77,10 @@ function BasicMenu() {
           horizontal: 'right',
         }}
       >
-        <MenuItem onClick={()=>{handleClose();navigate("")}}>Home</MenuItem>
-        <MenuItem onClick={()=>{handleClose();navigate("/gallery")}}>Gallery</MenuItem>
-        <MenuItem onClick={()=>{handleClose();navigate("/sponsers")}}>Sponsors</MenuItem>
-        <MenuItem onClick={()=>{handleClose();navigate("/about")}}>About</MenuItem>
+        <MenuItem onClick={() => { handleClose(); navigate("") }}>Home</MenuItem>
+        <MenuItem onClick={() => { handleClose(); navigate("/gallery") }}>Gallery</MenuItem>
+        <MenuItem onClick={() => { handleClose(); navigate("/sponsers") }}>Sponsors</MenuItem>
+        <MenuItem onClick={() => { handleClose(); navigate("/about") }}>About</MenuItem>
       </Menu>
     </div>
   );
@@ -90,7 +93,7 @@ function Header() {
   const location = useLocation();
   const [isSelected, setIsSelected] = useState(1);
 
-  
+
   const pathToNavMap = {
     "/": 1,
     "/gallery": 2,
@@ -98,10 +101,10 @@ function Header() {
     "/about": 4
   };
 
-  
+
   useEffect(() => {
     const currentPath = location.pathname;
-    setIsSelected(pathToNavMap[currentPath] || 1); 
+    setIsSelected(pathToNavMap[currentPath] || 1);
   }, [location.pathname]);
 
   return (
