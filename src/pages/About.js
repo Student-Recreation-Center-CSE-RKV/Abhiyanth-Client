@@ -5,6 +5,7 @@ import StatsComponent from "../components/about/StatsComponent";
 import DeptEvents from "../components/about/deptEvents";
 import AimVision from "../components/about/AimVision";
 import MomentsGallary from "../components/about/gallary";
+import GradientBorderComponent from "../components/general/GradientBorderComponet";
 
 export default function About() {
 	return (
@@ -12,9 +13,13 @@ export default function About() {
 			<div style={{width:"100vw"}}>
 				<AimVision />
 			</div>
+			<GradientBorderComponent/>
 			<StatsComponent />
+			<GradientBorderComponent/>
 			<PreEventsCard />
+			<GradientBorderComponent/>
 			<DeptEvents />
+			<GradientBorderComponent/>
 			<MomentsGallary/>
 		</div>
 	);

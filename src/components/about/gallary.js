@@ -8,46 +8,10 @@ import img5 from "../../assets/images/gallary_img5.jpeg";
 import img6 from "../../assets/images/gallary_img6.jpeg";
 import img7 from "../../assets/images/gallary_img7.jpeg";
 import img8 from "../../assets/images/gallary_img8.jpeg";
-import Slider from "react-slick";
+import "../../styles/about_heading.css"
 
 const MomentsGallary = () => {
 	const images = [img1, img2, img3, img4, img5, img6, img7, img8];
-
-	const settings = {
-		dots: true,
-		infinite: true,
-		slidesToShow: 4,
-		slidesToScroll: 2,
-		autoplay: true,
-		autoplaySpeed: 2000,
-		arrows: false,
-		responsive: [
-			{
-				breakpoint: 1024,
-				settings: {
-					slidesToShow: 3,
-					slidesToScroll: 1,
-					infinite: true,
-				},
-			},
-			{
-				breakpoint: 600,
-				settings: {
-					slidesToShow: 2,
-					slidesToScroll: 1,
-					infinite: true,
-				},
-			},
-			{
-				breakpoint: 480,
-				settings: {
-					slidesToShow: 1,
-					slidesToScroll: 1,
-					dots: true,
-				},
-			},
-		],
-	};
 
 	return (
 		<>
@@ -57,21 +21,18 @@ const MomentsGallary = () => {
 					display: "flex",
 					flexDirection: "column",
 					justifyContent: "center",
+					padding:"20px"
 				}}
 			>
 				<Typography
 					variant="h5"
 					sx={{
-						fontFamily: "Audiowide, sans-serif",
-						fontWeight: "bold",
-						fontSize: "1.5rem",
-						color: "white",
 						paddingLeft: "0.5rem",
 						textShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)",
 						marginBottom: "1rem",
-						textAlign: "center",
             display: { xs: "block", md: "none" },
 					}}
+					className="about-heading"
 				>
 					Moments of Previous Abhiyanth
 				</Typography>
@@ -82,6 +43,7 @@ const MomentsGallary = () => {
 						overflowX: "auto",
 						whiteSpace: "nowrap",
 						padding: "1rem",
+          "&::-webkit-scrollbar": { display: "none" },
 					}}
 				>
 					<Box
