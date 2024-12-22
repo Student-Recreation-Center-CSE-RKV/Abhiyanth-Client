@@ -12,25 +12,41 @@ import MenuIcon from '@mui/icons-material/Menu';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { Typography } from '@mui/material';
 
-const styles ={
-  menubar:{
+const styles = {
+  menubar: {
     display: "flex",
-    width:"100%",
+    width: "100%",
     flexDirection: "row",
     gap: "20px",
     alignItems: "center",
     justifyContent: "space-around",
     height: "40px"
   },
-  textStyles : {
+  textStyles: {
     fontFamily: "Audiowide",
     fontWeight: "400",
     fontStyle: "normal",
     color: "white",
-    textTransform: "none", 
-    fontSize: "17px"},
-  
+    textTransform: "none",
+    fontSize: "17px",
+    
+  },
+  smallMenucontainer: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    width: "100%",
+    zIndex: "2",
+    position: "fixed",
+    backgroundColor: "rgb(137,112,162,0.8)"
+  },
+  smallMenutext: {
+    background: "linear-gradient(to right, purple, red )",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+    fontWeight:"bold"
   }
+}
 function BasicMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -41,7 +57,7 @@ function BasicMenu() {
     setAnchorEl(null);
   };
   return (
-    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%" }}>
+    <div style={styles.smallMenucontainer}>
       <nav style={{ display: "flex", alignItems: "center" }}>
         <img src={miniAbhiyanthLogo} alt="A" style={{ width: "40px", height: "40px", marginRight: "10px" }} />
         <Typography sx={styles.textStyles}>Abhiyanth</Typography>
@@ -73,10 +89,10 @@ function BasicMenu() {
           horizontal: 'right',
         }}
       >
-        <MenuItem onClick={handleClose}>Home</MenuItem>
-        <MenuItem onClick={handleClose}>Gallery</MenuItem>
-        <MenuItem onClick={handleClose}>Sponsors</MenuItem>
-        <MenuItem onClick={handleClose}>About</MenuItem>
+        <MenuItem sx={styles.smallMenutext} onClick={handleClose}>Home</MenuItem>
+        <MenuItem sx={styles.smallMenutext} onClick={handleClose}>Gallery</MenuItem>
+        <MenuItem sx={styles.smallMenutext} onClick={handleClose}>Sponsors</MenuItem>
+        <MenuItem sx={styles.smallMenutext} onClick={handleClose}>About</MenuItem>
       </Menu>
     </div>
   );
