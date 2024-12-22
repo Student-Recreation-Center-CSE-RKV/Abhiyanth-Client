@@ -173,9 +173,12 @@
 	display: none;
   }
   .bottom-container{
+	margin-top: 1rem;
 	padding-inline: 1rem;
 	padding-block: 2rem;
 	text-align: justify;
+	border-top-left-radius: 5em;
+	border-top-right-radius: 5em;
   }
   .navbar-container1 ,.navbar-container{
 	width: 100%;

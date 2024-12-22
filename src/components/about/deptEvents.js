@@ -11,23 +11,17 @@ const DeptEvents = () => {
 	const [positionIndexes, setPositionIndexes] = useState([0, 1, 2, 3, 4]);
 
 	const handleNext = () => {
-		setPositionIndexes((prevIndexes) => {
-			const updatedIndexes = prevIndexes.map(
-				(prevIndex) => (prevIndex + 1) % 5
-			);
-			return updatedIndexes;
-		});
+		setPositionIndexes((prevIndexes) =>
+			prevIndexes.map((prevIndex) => (prevIndex + 1) % 5)
+		);
 	};
 
 	const handleBack = () => {
-		setPositionIndexes((prevIndexes) => {
-			const updatedIndexes = prevIndexes.map(
-				(prevIndex) => (prevIndex + 4) % 5
-			);
-
-			return updatedIndexes;
-		});
+		setPositionIndexes((prevIndexes) =>
+			prevIndexes.map((prevIndex) => (prevIndex + 4) % 5)
+		);
 	};
+
 	const handleDotClick = (index) => {
 		const newPositionIndexes = Array.from(
 			{ length: 5 },
@@ -41,7 +35,6 @@ const DeptEvents = () => {
 	};
 
 	const images = [image1, image2, image3, image4, image5];
-
 	const positions = ["center", "left1", "left", "right", "right1"];
 
 	const imageVariants = {
@@ -51,6 +44,7 @@ const DeptEvents = () => {
 		right: { x: "50%", scale: 0.5, zIndex: 1 },
 		right1: { x: "30%", scale: 0.7, zIndex: 3 },
 	};
+
 	return (
 		<div
 			style={{
@@ -67,8 +61,8 @@ const DeptEvents = () => {
 				style={{
 					color: "white",
 					fontFamily: "audiowide",
-					flex: "0.1",
 					fontSize: "3rem",
+					textAlign: "center",
 				}}
 			>
 				Dept Events
@@ -79,22 +73,24 @@ const DeptEvents = () => {
 					alignItems: "center",
 					flexDirection: "column",
 					justifyContent: "center",
-					flex: "0.8",
+					width: "100%",
+					position: "relative",
 				}}
 			>
 				{images.map((image, index) => (
 					<motion.img
 						key={index}
 						src={image}
-						alt={image}
+						alt={`Event ${index + 1}`}
 						initial="center"
 						animate={positions[positionIndexes[index]]}
 						variants={imageVariants}
 						transition={{ duration: 0.5 }}
 						style={{
-							width: "50%",
+							width: "65%",
+							maxWidth: "670px",
 							position: "absolute",
-							borderRadius: "39px",
+							borderRadius: "35px",
 						}}
 						onClick={() => handleImageClick(index)}
 					/>
@@ -102,17 +98,16 @@ const DeptEvents = () => {
 				<div
 					style={{
 						display: "flex",
-						gap: "0.85rem",
+						gap: "1rem",
+						marginTop: "450px",
 					}}
 				>
 					<button
 						style={{
 							color: "white",
-							marginTop: "500px",
 							borderRadius: "20px",
-							paddingBlock: "0.5rem",
-							paddingInline: "1rem",
-							backgroundColor: "transparent",
+							padding: "0.5rem 1rem",
+							backgroundColor: "rgba(0, 0, 0, 0.6)",
 						}}
 						onClick={handleBack}
 					>
@@ -120,12 +115,9 @@ const DeptEvents = () => {
 					</button>
 					<div
 						style={{
-							marginTop: "500px",
-							backgroundColor: "transparent",
 							display: "flex",
+							gap: "10px",
 							alignItems: "center",
-							justifyContent: "center",
-							gap: "20px",
 						}}
 					>
 						{images.map((_, index) => (
@@ -145,11 +137,9 @@ const DeptEvents = () => {
 					<button
 						style={{
 							color: "white",
-							marginTop: "500px",
 							borderRadius: "20px",
-							paddingBlock: "0.5rem",
-							paddingInline: "1rem",
-							backgroundColor: "transparent",
+							padding: "0.5rem 1rem",
+							backgroundColor: "rgba(0, 0, 0, 0.6)",
 						}}
 						onClick={handleNext}
 					>
@@ -162,3 +152,4 @@ const DeptEvents = () => {
 };
 
 export default DeptEvents;
+
