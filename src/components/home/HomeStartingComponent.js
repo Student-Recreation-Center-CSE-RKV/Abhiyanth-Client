@@ -11,7 +11,7 @@ export default function HomeStartingComponent() {
             height: '100vh',
             backgroundImage: `url(${audience})`,
             backgroundSize: "cover",
-            overflow: 'hidden'
+            overflow: 'hidden',
         },
         title: {
             fontFamily: 'Audiowide',
