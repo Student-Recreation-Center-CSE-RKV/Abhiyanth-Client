@@ -12,7 +12,6 @@ export default function Main() {
     },
     contentContainer: {
       flex: 1, 
-      paddingBottom: '100px', 
     },
     footerContainer: {
       marginTop: 'auto', 

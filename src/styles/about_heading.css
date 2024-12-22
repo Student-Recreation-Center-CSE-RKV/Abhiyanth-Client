@@ -1,0 +1,27 @@
+/* styles.css */
+
+.about-heading {
+    color: white;
+    font-family: 'Audiowide', sans-serif;
+    text-align: center;
+    font-size: 3.5rem; /* Default for large screens */
+  }
+  
+  @media (max-width: 1200px) {
+    .about-heading {
+      font-size: 3rem; /* Medium screens */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .about-heading {
+      font-size: 2.5rem; /* Small screens */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .about-heading {
+      font-size: 2rem; /* Extra small screens */
+    }
+  }
+  
