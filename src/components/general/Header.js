@@ -44,10 +44,14 @@ const styles = {
     background: "linear-gradient(to right, purple, red )",
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
-    fontWeight:"bold"
-  }
+    fontWeight:"bold",
+    fontSize: "19px"
+  },
+
+
 }
 function BasicMenu() {
+  const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -57,6 +61,7 @@ function BasicMenu() {
     setAnchorEl(null);
   };
   return (
+
     <div style={styles.smallMenucontainer}>
       <nav style={{ display: "flex", alignItems: "center" }}>
         <img src={miniAbhiyanthLogo} alt="A" style={{ width: "40px", height: "40px", marginRight: "10px" }} />
@@ -89,10 +94,11 @@ function BasicMenu() {
           horizontal: 'right',
         }}
       >
-        <MenuItem sx={styles.smallMenutext} onClick={handleClose}>Home</MenuItem>
-        <MenuItem sx={styles.smallMenutext} onClick={handleClose}>Gallery</MenuItem>
-        <MenuItem sx={styles.smallMenutext} onClick={handleClose}>Sponsors</MenuItem>
-        <MenuItem sx={styles.smallMenutext} onClick={handleClose}>About</MenuItem>
+
+        <MenuItem onClick={() => { handleClose(); navigate("") }}>Home</MenuItem>
+        <MenuItem onClick={() => { handleClose(); navigate("/gallery") }}>Gallery</MenuItem>
+        <MenuItem onClick={() => { handleClose(); navigate("/sponsers") }}>Sponsors</MenuItem>
+        <MenuItem onClick={() => { handleClose(); navigate("/about") }}>About</MenuItem>
       </Menu>
     </div>
   );
@@ -105,18 +111,18 @@ function Header() {
   const location = useLocation();
   const [isSelected, setIsSelected] = useState(1);
 
-  
+
   const pathToNavMap = {
     "/": 1,
     "/gallery": 2,
-    "/sponsors": 3,
+    "/sponsers": 3,
     "/about": 4
   };
 
-  
+
   useEffect(() => {
     const currentPath = location.pathname;
-    setIsSelected(pathToNavMap[currentPath] || 1); 
+    setIsSelected(pathToNavMap[currentPath] || 1);
   }, [location.pathname]);
 
   return (
@@ -141,8 +147,8 @@ function Header() {
             </div>
           </nav>
           <nav>
-            <Button variant="text" sx={styles.textStyles} onClick={() => navigate("/sponsors")}>
-              Sponsors
+            <Button variant="text" sx={styles.textStyles} onClick={() => navigate("/sponsers")}>
+              Sponsers
             </Button>
             {isSelected === 3 && <motion.div layoutId='underline' style={{ boxShadow: "0px 4px 2px 1px white", width: "100%" }} />}
           </nav>
