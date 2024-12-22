@@ -37,7 +37,7 @@ export default function Sponsers() {
 			</div>
 			<div className="bottom-container">
 				<h2 className="left-heading">
-					WHEN WE CELEBRATE <br></br>ABHIYANTH?
+					WHEN WE CELEBRATE ABHIYANTH?
 					<img
 						src="images/image40g.png"
 						alt="abc image"
