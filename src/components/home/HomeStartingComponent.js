@@ -1,112 +1,137 @@
 import React from 'react'
-
 import { audience, abhiyanthLogo, maskGroup } from '../../assets/images'
 import { Box, Typography } from '@mui/material'
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
+
 export default function HomeStartingComponent() {
+    const styles = {
+        heroContainer: {
+            position: 'relative',
+            width: '100%',
+            height: '100vh',
+            backgroundImage: `url(${audience})`,
+            backgroundSize: "cover",
+            overflow: 'hidden'
+        },
+        title: {
+            fontFamily: 'Audiowide',
+            fontSize: { xs: '20px', sm: '30px', md: '30px', lg: '50px' },
+            fontWeight: 400,
+            lineHeight: "normal",
+            width:"100%",
+            letterSpacing: '0.19em',
+            position: "absolute",
+            bottom: "0px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            textAlign: 'center',
+            color: 'white',
+        },
+        buttonLeft: {
+            padding: "10px 15px ",
+            fontSize: { xs: '14px', sm: '16px', md: '18px' },
+            cursor: 'pointer',
+            borderRadius: "0 30px 0 0",
+            backgroundColor: "transparent",
+            borderColor: "white",
+            color: "white",
+            width: { xs: '150px', sm: '300px', md: '500px' }, 
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            '@media (max-width: 600px)': {
+                width: '80px',
+                padding: '5px 10px',
+                fontSize: '12px'
+            }
+        },
+        buttonRight: {
+            padding: "10px 15px ",
+            fontSize: { xs: '14px', sm: '16px', md: '18px' },
+            cursor: 'pointer',
+            borderRadius: "30px 0 0 0",
+            backgroundColor: "transparent",
+            borderColor: "white",
+            color: "white",
+            width: { xs: '150px', sm: '300px', md: '500px' }, // Adjust width according to screen sizes
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            '@media (max-width: 600px)': {
+                width: '80px',
+                padding: '5px 10px',
+                fontSize: '12px'
+            }
+        },
+        buttonText: {
+            fontFamily: 'Audiowide',
+            fontSize: { xs: '18px', sm: '20px', md: '28px' },
+            fontWeight: 400,
+            lineHeight: '35.7px',
+            textAlign: 'center', // Center align text
+            textUnderlinePosition: 'from-font',
+            textDecorationSkipInk: 'none',
+        }
+    }
+
     return (
-        <div >
-            <Box sx={{ position: 'relative', width: '100%', height: '100vh', backgroundImage:`url(${audience})`,backgroundSize:"cover", overflow: 'hidden' }}>
+        <div>
+            <Box sx={styles.heroContainer}>
                 <Box sx={{
                     position: 'absolute',
-                    top: '70%', left: '51%',
+                    top: '60%', left: '50%',
                     transform: 'translate(-50%, -50%)',
                     color: 'white',
-                    textAlign: 'left',
+                    textAlign: 'center',
                 }}>
-                    <div style={{ width: "267px", height: "263px", position: 'relative' }}>
+                    <Box sx={{ width: { xs: "200px", sm: "267px" }, height: { xs: "200px", sm: "263px" }, position: 'relative' }}>
                         <motion.img
                             src={abhiyanthLogo}
                             alt="Ablogo"
                             style={{ width: '100%', height: 'auto', objectFit: "fill", bottom: "30px" }}
-                            animate={{ y: [0, -50, 0] }}
+                            animate={{x:10 , y: [0, -50, 0]}}
                             transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
                         />
-                        <img src={maskGroup} alt="Mask Group" style={{ width: '287px', height: '150px', objectFit: "fill", position: 'absolute', bottom: '10px', top:"140px",right: "10px", left: "10px" }} />
-                    </div>
-
-                    <h1 style={{
-                        fontFamily: 'Audiowide',
-                        fontSize: '30px',
-                        fontWeight: 400,
-                        lineHeight: '81.59px',
-                        letterSpacing: '0.19em',
-                        textAlign: 'center',
-                        marginTop: '0px',
-                    }}>ABHIYANTH 2K25</h1>
+                        <img src={maskGroup} alt="Mask Group" style={{ width: '287px', height: '150px', objectFit: "fill", position: 'absolute', bottom: '10px', top: "140px", right: "10px", left: "10px" }} />
+                    </Box>
                 </Box>
+                <Typography sx={styles.title}>ABHIYANTH 2K25</Typography>
                 <Box sx={{ position: 'absolute', top: '30%', left: "0" }}>
                     <motion.button
-                        style={{ padding: '10px 12px', fontSize: '16px', cursor: 'pointer', borderRadius: "0 30px 0 0",  backgroundColor:"transparent", borderColor:"white",color:"white"}}
+                        style={styles.buttonLeft}
                         whileHover={{ scale: 1.1 }}
                     >
-                        <Typography sx={{
-                            fontFamily: 'Audiowide',
-                            fontSize: '28px',
-                            fontWeight: 400,
-                            lineHeight: '35.7px',
-                            textAlign: 'left',
-                            textUnderlinePosition: 'from-font',
-                            textDecorationSkipInk: 'none',
-
-                        }}>
+                        <Typography component="span" sx={styles.buttonText}>
                             Technical Events
                         </Typography>
                     </motion.button>
                 </Box>
                 <Box sx={{ position: 'absolute', top: '30%', right: "0" }}>
                     <motion.button
-                        style={{ padding: '10px 20px', fontSize: '16px', cursor: 'pointer', borderRadius: "30px  0 0 0", backgroundColor:"transparent", borderColor:"white",color:"white" }}
+                        style={styles.buttonRight}
                         whileHover={{ scale: 1.1 }}
                     >
-                        <Typography sx={{
-                            fontFamily: 'Audiowide',
-                            fontSize: '28px',
-                            fontWeight: 400,
-                            lineHeight: '35.7px',
-                            textAlign: 'left',
-                            textUnderlinePosition: 'from-font',
-                            textDecorationSkipInk: 'none',
-
-                        }}>
+                        <Typography component="span" sx={{ ...styles.buttonText, minWidth: "100px" }}>
                             Culturals
                         </Typography>
                     </motion.button>
                 </Box>
                 <Box sx={{ position: 'absolute', bottom: '10%', left: "0" }}>
                     <motion.button
-                        style={{ padding: '10px 70px', fontSize: '16px', width: "300px", cursor: 'pointer', borderRadius: "0 30px 0 0",  backgroundColor:"transparent", borderColor:"white",color:"white"}}
+                        style={{ ...styles.buttonLeft, minWidth: "150px" }}
                         whileHover={{ scale: 1.1 }}
                     >
-                        <Typography sx={{
-                            fontFamily: 'Audiowide',
-                            fontSize: '28px',
-                            fontWeight: 400,
-                            lineHeight: '35.7px',
-                            textAlign: 'left',
-                            textUnderlinePosition: 'from-font',
-                            textDecorationSkipInk: 'none',
-
-                        }}>
+                        <Typography component="span" sx={{ ...styles.buttonText }}>
                             Stalls
                         </Typography>
                     </motion.button>
                 </Box>
                 <Box sx={{ position: 'absolute', bottom: '10%', right: "0" }}>
                     <motion.button
-                        style={{ padding: '10px 20px', fontSize: '16px', width: "200px", cursor: 'pointer', borderRadius: "30px 0 0 0" , backgroundColor:"transparent", borderColor:"white",color:"white"}}
-                        whileHover={{ scale: 1.1}}
+                        style={{ ...styles.buttonRight, width: "150px" }}
+                        whileHover={{ scale: 1.1 }}
                     >
-                        <Typography sx={{
-                            fontFamily: 'Audiowide',
-                            fontSize: '28px',
-                            fontWeight: 400,
-                            lineHeight: '35.7px',
-                            textAlign: 'left',
-                            textUnderlinePosition: 'from-font',
-                            textDecorationSkipInk: 'none',
-
-                        }}>
+                        <Typography sx={styles.buttonText}>
                             Sports
                         </Typography>
                     </motion.button>
@@ -115,11 +140,3 @@ export default function HomeStartingComponent() {
         </div>
     )
 }
-
-// linear-gradient(145deg, rgba(122, 54, 119, 0.7) 30%, rgba(82, 74, 162, 0.6) 50%, rgba(89, 57, 125, 0.4) 20%, rgba(57, 42, 107, 0.3) 10%)`,
-
-
-
-
-// background: #4758CB;
-// background: radial-gradient(at left top, #4758CB, #6529ED);

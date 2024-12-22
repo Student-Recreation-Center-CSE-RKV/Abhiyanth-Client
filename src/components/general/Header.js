@@ -28,8 +28,26 @@ const styles = {
     fontStyle: "normal",
     color: "white",
     textTransform: "none",
+    fontSize: "17px",
+    
+  },
+  smallMenucontainer: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    width: "100%",
+    zIndex: "2",
+    position: "fixed",
+    backgroundColor: "rgb(137,112,162,0.8)"
+  },
+  smallMenutext: {
+    background: "linear-gradient(to right, purple, red )",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+    fontWeight:"bold",
     fontSize: "19px"
   },
+
 
 }
 function BasicMenu() {
@@ -43,9 +61,8 @@ function BasicMenu() {
     setAnchorEl(null);
   };
   return (
-    <div style={{
-      display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%", padding: "10px 5px", position: "fixed",top: 0,left: 0,zIndex: 1000,boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",backgroundColor:"rgba(0, 0, 0, 0.6)"
-    }}>
+
+    <div style={styles.smallMenucontainer}>
       <nav style={{ display: "flex", alignItems: "center" }}>
         <img src={miniAbhiyanthLogo} alt="A" style={{ width: "40px", height: "40px", marginRight: "10px" }} />
         <Typography sx={styles.textStyles}>Abhiyanth</Typography>
@@ -77,10 +94,11 @@ function BasicMenu() {
           horizontal: 'right',
         }}
       >
-        <MenuItem onClick={() => { handleClose(); navigate("") }}>Home</MenuItem>
-        <MenuItem onClick={() => { handleClose(); navigate("/gallery") }}>Gallery</MenuItem>
-        <MenuItem onClick={() => { handleClose(); navigate("/sponsers") }}>Sponsors</MenuItem>
-        <MenuItem onClick={() => { handleClose(); navigate("/about") }}>About</MenuItem>
+
+        <MenuItem sx={styles.smallMenutext} onClick={() => { handleClose(); navigate("") }}>Home</MenuItem>
+        <MenuItem sx={styles.smallMenutext} onClick={() => { handleClose(); navigate("/gallery") }}>Gallery</MenuItem>
+        <MenuItem sx={styles.smallMenutext} onClick={() => { handleClose(); navigate("/sponsers") }}>Sponsors</MenuItem>
+        <MenuItem sx={styles.smallMenutext} onClick={() => { handleClose(); navigate("/about") }}>About</MenuItem>
       </Menu>
     </div>
   );

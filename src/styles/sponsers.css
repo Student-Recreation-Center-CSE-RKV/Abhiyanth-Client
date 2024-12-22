@@ -161,3 +161,39 @@
 	bottom: 5px;
 	left: 60px;
 }
+
+@media only screen and (max-width: 600px) {
+  .top-container{
+	flex-direction: column;
+  }
+  .main-heading {
+	font-size: 60px;
+  }
+  .image1,.image2{
+	display: none;
+  }
+  .bottom-container{
+	margin-top: 1rem;
+	padding-inline: 1rem;
+	padding-block: 2rem;
+	text-align: justify;
+	border-top-left-radius: 5em;
+	border-top-right-radius: 5em;
+  }
+  .navbar-container1 ,.navbar-container{
+	width: 100%;
+  }
+  .left-heading,.right-heading{
+	width: 100%;
+	font-size: 1.5rem;
+  }
+  .content-container{
+	flex-direction: column;
+  }
+  .left-para{
+	border-bottom: 2px solid white;
+	padding-bottom: 3rem;
+	border-right: none;
+	padding-right: 0;
+  }
+}

@@ -11,23 +11,17 @@ const DeptEvents = () => {
 	const [positionIndexes, setPositionIndexes] = useState([0, 1, 2, 3, 4]);
 
 	const handleNext = () => {
-		setPositionIndexes((prevIndexes) => {
-			const updatedIndexes = prevIndexes.map(
-				(prevIndex) => (prevIndex + 1) % 5
-			);
-			return updatedIndexes;
-		});
+		setPositionIndexes((prevIndexes) =>
+			prevIndexes.map((prevIndex) => (prevIndex + 1) % 5)
+		);
 	};
 
 	const handleBack = () => {
-		setPositionIndexes((prevIndexes) => {
-			const updatedIndexes = prevIndexes.map(
-				(prevIndex) => (prevIndex + 4) % 5
-			);
-
-			return updatedIndexes;
-		});
+		setPositionIndexes((prevIndexes) =>
+			prevIndexes.map((prevIndex) => (prevIndex + 4) % 5)
+		);
 	};
+
 	const handleDotClick = (index) => {
 		const newPositionIndexes = Array.from(
 			{ length: 5 },
@@ -41,16 +35,16 @@ const DeptEvents = () => {
 	};
 
 	const images = [image1, image2, image3, image4, image5];
-
 	const positions = ["center", "left1", "left", "right", "right1"];
 
 	const imageVariants = {
 		center: { x: "0%", scale: 1, zIndex: 5 },
-		left1: { x: "-50%", scale: 0.7, zIndex: 3 },
-		left: { x: "-90%", scale: 0.5, zIndex: 2 },
-		right: { x: "90%", scale: 0.5, zIndex: 1 },
-		right1: { x: "50%", scale: 0.7, zIndex: 3 },
+		left1: { x: "-30%", scale: 0.7, zIndex: 3 },
+		left: { x: "-50%", scale: 0.5, zIndex: 2 },
+		right: { x: "50%", scale: 0.5, zIndex: 1 },
+		right1: { x: "30%", scale: 0.7, zIndex: 3 },
 	};
+
 	return (
 		<div
 			style={{
@@ -62,14 +56,13 @@ const DeptEvents = () => {
 				minHeight: "100vh",
 				width: "100%",
 			}}
-			className="dept-events"
 		>
 			<h1
 				style={{
 					color: "white",
 					fontFamily: "audiowide",
-					flex: "0.1",
 					fontSize: "3rem",
+					textAlign: "center",
 				}}
 			>
 				Dept Events
@@ -80,44 +73,53 @@ const DeptEvents = () => {
 					alignItems: "center",
 					flexDirection: "column",
 					justifyContent: "center",
-					height: "100vh",
-					flex: "0.9",
+					width: "100%",
+					position: "relative",
 				}}
 			>
 				{images.map((image, index) => (
 					<motion.img
 						key={index}
 						src={image}
-						alt={image}
+						alt={`Event ${index + 1}`}
 						initial="center"
 						animate={positions[positionIndexes[index]]}
 						variants={imageVariants}
 						transition={{ duration: 0.5 }}
-						style={{ width: "40%", position: "absolute", borderRadius: "30px" }}
+						style={{
+							width: "65%",
+							maxWidth: "670px",
+							position: "absolute",
+							borderRadius: "35px",
+						}}
 						onClick={() => handleImageClick(index)}
 					/>
 				))}
 				<div
 					style={{
 						display: "flex",
-						gap: "0.85rem",
-
+						gap: "1rem",
+						marginTop: "450px",
 					}}
 				>
 					<button
 						style={{
 							color: "white",
-							marginTop: "500px",
 							borderRadius: "20px",
-							paddingBlock: "0.5rem",
-							paddingInline: "1rem",
-							backgroundColor: "transparent",
+							padding: "0.5rem 1rem",
+							backgroundColor: "rgba(0, 0, 0, 0.6)",
 						}}
 						onClick={handleBack}
 					>
 						<ArrowBackIos />
 					</button>
-					<div style={{marginTop: "500px",backgroundColor:"transparent",display:"flex",alignItems:"center",justifyContent:"center",gap:"20px"}}>
+					<div
+						style={{
+							display: "flex",
+							gap: "10px",
+							alignItems: "center",
+						}}
+					>
 						{images.map((_, index) => (
 							<div
 								key={index}
@@ -135,11 +137,9 @@ const DeptEvents = () => {
 					<button
 						style={{
 							color: "white",
-							marginTop: "500px",
 							borderRadius: "20px",
-							paddingBlock: "0.5rem",
-							paddingInline: "1rem",
-							backgroundColor: "transparent",
+							padding: "0.5rem 1rem",
+							backgroundColor: "rgba(0, 0, 0, 0.6)",
 						}}
 						onClick={handleNext}
 					>
@@ -152,3 +152,4 @@ const DeptEvents = () => {
 };
 
 export default DeptEvents;
+
