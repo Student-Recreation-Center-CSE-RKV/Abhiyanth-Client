@@ -1,0 +1,232 @@
+.extravaganzaAbout-container  {
+    position: relative;
+    width: 100%;
+    min-height: 100vh; 
+    padding-top: 4rem; 
+    padding-bottom: 100px; 
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-top: 4rem;
+    border-top: 3px solid;
+    border-image-source: linear-gradient(to right, #261E35, #C91C75, #EFE1EE, #E9C0DA, #E4AACC, #C91C75, #261E35);
+    border-image-slice: 1;
+  }
+  
+  
+  .extravaganzaAbout-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.2;
+    z-index: -1; /* Ensure it's behind the content */
+  }
+  
+  .extravaganzaAbout-container > * {
+    flex: 1; /* Ensure the content grows properly */
+  }
+  
+.ExtravagangaAbout-heading{
+    color: #FFF;
+    text-align: center;
+    text-shadow: 3px 4px 10px rgba(34, 209, 238, 0.30), -3px -4px 10px rgba(255, 79, 248, 0.30);
+    font-family: Audiowide;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+   
+
+  }
+.circle-container {
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+    justify-content: center;
+    position: relative;
+    /* overflow: hidden; To hide the parts outside the card */
+    overflow-x: auto; 
+    overflow-y: hidden; 
+    scroll-behavior: smooth; 
+    padding-bottom: 10px; 
+}
+.circle-container::-webkit-scrollbar {
+    height: 0px;
+   
+}
+
+.circle-container::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    
+}
+
+.extravaganzaAbout-circle-1 {
+    width: 247px;
+    height: 247px;
+    flex-shrink: 0;
+    border-radius: 50%; 
+    border: 1px solid var(--gradient, #FF6AB7);
+    background-position: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.5s ease, background-position 0.5s ease;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    margin-top: 2rem;
+}
+
+.extravaganzaAbout-circle-1:hover {
+    
+    transform: scale(1.1); 
+    background-position: center top; 
+    transition: transform 0.5s ease, background-position 0.5s ease;
+}
+.extravaganzaAbout-circle-1::after {
+    z-index: 1;
+}
+
+.extravaganzaAbout-circle-1 h3 {
+    color: #FFF;
+    text-align: center;
+    text-shadow: 0px 2px 4px #0047FF;
+    font-family: Audiowide;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 3.42px;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 1rem;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: bottom 0.5s ease;
+}
+
+.extravaganzaAbout-circle-1:hover h3 {
+    bottom: 100px; 
+    margin-bottom: 0;
+}
+
+.extravaganzaAbout-circle-1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40%; 
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 100%;
+    background: linear-gradient(90deg,#652DC0  ,#6954EBC9 , #CF47CA7D);
+    transition: opacity 0.5s ease;
+    opacity: 0;
+    z-index: 1; /* Ensures it's below other content */
+    opacity: 0;
+}
+
+.extravaganzaAbout-circle-1:hover::after {
+    opacity: 1;
+}
+
+
+.buttonAbove-text{
+    color: #FFF;
+    text-align: center;
+    font-family: Audiowide;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 4.34px;
+    text-transform: uppercase;
+}
+.extravaganzaAbout-circle-1 .button-container {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: opacity 0.5s ease;
+    opacity: 0;
+    z-index: 2;
+}
+
+.extravaganzaAbout-circle-1:hover .button-container {
+    opacity: 1;
+}
+
+.extravaganzaAbout-circle-1 .button-container button {
+    width: 140px;
+    height: 25px;
+    border-radius: 14px;
+    border: 1px solid var(--gradient, #FF6AB7);
+    background: #FFF;
+    box-shadow: 0px 4px 3px 0px rgba(0, 71, 255, 0.30);
+    color: #000;
+    text-align: center;
+    font-family: Audiowide;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 2.28px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+@media (max-width: 768px) {
+    .ExtravagangaAbout-heading {
+      font-size: 40px; /* Adjust heading size */
+    }
+  
+    .circle-container {
+      gap: 2rem; /* Moderate spacing */
+    }
+  
+    .extravaganzaAbout-circle-1 {
+      width: 200px; /* Adjust circle size */
+      height: 200px;
+    }
+  
+    .button-container button {
+      width: 130px; /* Adjust button size */
+      font-size: 11px; /* Adjust font size */
+    }
+  }
+
+  @media (max-width: 320px) {
+    .ExtravagangaAbout-heading {
+      font-size: 20px; /* Further reduce heading size */
+    }
+  
+    .extravaganzaAbout-container {
+      padding: 1rem; /* Add padding for better layout */
+      gap: 1.5rem; /* Reduce gap between sections */
+    }
+  
+    .circle-container {
+      gap: 0.5rem; /* Minimal gap between circles */
+    }
+  
+    .extravaganzaAbout-circle-1 {
+      width: 100px; /* Adjust circle size for very small screens */
+      height: 100px;
+    }
+  
+    .button-container button {
+      width: 9px; /* Smaller buttons */
+      font-size: 2px; /* Smaller text */
+      letter-spacing: 1.5px;
+    }
+  }

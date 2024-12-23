@@ -8,6 +8,7 @@ import Admin from './pages/Admin';
 import Main from './pages/Main';
 import Gallery from './pages/Gallery';
 import Sponsers from './pages/Sponsers';
+import ExtravaganzaAbout from './components/about/ExtravaganzaAbout';
 
 function App() {
   return (
