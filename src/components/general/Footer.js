@@ -1,6 +1,7 @@
 import React from 'react';
 import "../../styles/Footer.css";
 import image from "../../assets/images/abhiyath_logo_2.png"
+import src_logo from "../../assets/images/src_logo_white.jpeg"
 import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -27,7 +28,7 @@ const Footer = () => {
                         <li>About Us</li>
                         <li>Our Team</li>
                         <li>Contact us</li>
-                       
+
                     </ul>
                 </div>
                 <div className="vertical-line"></div>
@@ -36,7 +37,7 @@ const Footer = () => {
                         src={image}
                         alt="Abhiyanth Logo"
                         className="footer-image"
-                        style={{height:"150px",width:"150px",margin:"0px"}}
+                        style={{ height: "150px", width: "150px", margin: "0px" }}
                     />
                     <div>
                         <h1>Abhiyanth 2K25</h1>
@@ -46,6 +47,15 @@ const Footer = () => {
                         creativity, and community, offering a dynamic platform for showcasing talent, exchanging ideas,
                         and creating unforgettable experiences.
                     </p>
+                    <div style={{display:"flex",flexDirection:"row",alignItems:"center",paddingTop:"20px",justifyContent:"center"}}>
+                        <img
+                            src={src_logo}
+                            alt="SRC Logo"
+                            className="footer-image"
+                            style={{ height: "30px", width: "30px", margin: "5px" , borderRadius: "50%" }}
+                        />
+                        <p style={{fontSize: "14px", fontWeight: 400,fontFamily:"Inter"}}>Powered by SRC @CSE</p>
+                    </div>
                 </div>
 
 
