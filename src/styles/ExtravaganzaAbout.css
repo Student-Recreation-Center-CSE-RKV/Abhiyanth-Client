@@ -57,6 +57,7 @@
     overflow-y: hidden; 
     scroll-behavior: smooth; 
     padding-bottom: 10px; 
+    padding-left: 3.5rem;
 }
 .circle-container::-webkit-scrollbar {
     height: 0px;
