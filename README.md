@@ -16,6 +16,15 @@ Abhiyanth-Client is a React application developed for the **Abhiyanth** event of
 - **Material UI**: A popular React UI framework for styling and components.
 
 ---
+## Contributors
+
+Special thanks to the incredible code contributors who continue to drive this project forward.
+
+<a href="https://github.com/Student-Recreation-Center-CSE-RKV/Abhiyanth-Client/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Student-Recreation-Center-CSE-RKV/Abhiyanth-Client" />
+</a>
+
+---
 
 ## **Getting Started**
 
