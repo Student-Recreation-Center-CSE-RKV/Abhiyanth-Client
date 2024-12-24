@@ -3,7 +3,7 @@
   width: 100%;
   min-height: 100vh; /* Make sure it takes at least the full viewport height */
   padding-top: 4rem; /* Adjust this padding as needed */
-  padding-bottom: 100px; /* Set a reasonable padding-bottom for footer space */
+  padding-bottom: 40px; /* Set a reasonable padding-bottom for footer space */
   display: flex;
   flex-direction: column;
 }

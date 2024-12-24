@@ -1,51 +1,41 @@
 import React from 'react';
 import '../../styles/ExtravaganzaAbout.css';
-import image1 from '../../assets/images/ExtravaganzaAbout-1.png'
-import image2 from '../../assets/images/ExtravaganzaAbout-2.png'
-import image3 from '../../assets/images/ExtravaganzaAbout-3.png'
-import image4 from '../../assets/images/ExtravaganzaAbout-4.png'
+import techFest from '../../assets/images/ExtravaganzaAbout-4.png'
+import image3 from '../../assets/images/gallary_img1.jpeg'
+import sports from '../../assets/images/sports.jpeg'
+import hackathon from "../../assets/images/hackathon.jpeg"
+
 import ExtravagangaAboutDialog from './ExtravaganzaAboutDialog';
 
 const ExtravaganzaAbout = () => {
 
-  const cardsData=[
+  const cardsData = [
     {
-      id:1,
-      name:'carnival',
-      bgImage: image1,
-      dialogText:"Step into the vibrant world of Indian tradition at XPLODE 2024, where culture comes alive! From mesmerizing classical dance performances like Bharatanatyam and Kathak to soul-stirring folk music and timeless art forms, immerse yourself in the beauty of India’s rich heritage. Witness grand Rangoli displays, traditional attire showcases, and thrilling cultural competitions that celebrate unity in diversity. "
-    },
-    {
-      id:2,
-      name:'xplode',
-      bgImage: image2,
-      dialogText:"Step into the vibrant world of Indian tradition at XPLODE 2024, where culture comes alive! From mesmerizing classical dance performances like Bharatanatyam and Kathak to soul-stirring folk music and timeless art forms, immerse yourself in the beauty of India’s rich heritage. Witness grand Rangoli displays, traditional attire showcases, and thrilling cultural competitions that celebrate unity in diversity. "
-    },
-    {
-      id:3,
-      name:'Tech fest',
-      bgImage: image4,
-      dialogText:"Step into the vibrant world of Indian tradition at XPLODE 2024, where culture comes alive! From mesmerizing classical dance performances like Bharatanatyam and Kathak to soul-stirring folk music and timeless art forms, immerse yourself in the beauty of India’s rich heritage. Witness grand Rangoli displays, traditional attire showcases, and thrilling cultural competitions that celebrate unity in diversity. "
-    },
-    {
-      id:4,
-      name:'sports',
+      id: 2,
+      name: 'Xplode',
       bgImage: image3,
-      dialogText:"Step into the vibrant world of Indian tradition at XPLODE 2024, where culture comes alive! From mesmerizing classical dance performances like Bharatanatyam and Kathak to soul-stirring folk music and timeless art forms, immerse yourself in the beauty of India’s rich heritage. Witness grand Rangoli displays, traditional attire showcases, and thrilling cultural competitions that celebrate unity in diversity. "
+      dialogText: "Get ready to ignite your passion at XPLODE 2024! A cultural extravaganza filled with electrifying performances, from classical and contemporary dances to melodious musical renditions. Celebrate the spirit of diversity and creativity through vibrant rangoli art, traditional attire displays, and exciting competitions. Experience the heartbeat of culture and tradition at its finest!"
     },
     {
-      id:4,
-      name:'sports',
-      bgImage: image3,
-      dialogText:"Step into the vibrant world of Indian tradition at XPLODE 2024, where culture comes alive! From mesmerizing classical dance performances like Bharatanatyam and Kathak to soul-stirring folk music and timeless art forms, immerse yourself in the beauty of India’s rich heritage. Witness grand Rangoli displays, traditional attire showcases, and thrilling cultural competitions that celebrate unity in diversity. "
+      id: 3,
+      name: 'Tech Fest',
+      bgImage: techFest,
+      dialogText: "Dive into the future of innovation at Tech Fest 2024! Explore cutting-edge technologies through hands-on workshops, interactive exhibits, and thought-provoking seminars by industry experts. Engage in coding challenges, robotics competitions, and hackathons that push the boundaries of creativity and technical prowess. Join us to shape tomorrow, today!"
     },
     {
-      id:4,
-      name:'sports',
-      bgImage: image3,
-      dialogText:"Step into the vibrant world of Indian tradition at XPLODE 2024, where culture comes alive! From mesmerizing classical dance performances like Bharatanatyam and Kathak to soul-stirring folk music and timeless art forms, immerse yourself in the beauty of India’s rich heritage. Witness grand Rangoli displays, traditional attire showcases, and thrilling cultural competitions that celebrate unity in diversity. "
+      id: 4,
+      name: 'Sports',
+      bgImage: sports,
+      dialogText: "Feel the adrenaline rush at Sports Fest 2024! Showcase your athletic skills and team spirit across a wide array of sports, from cricket and football to badminton and athletics. Participate in thrilling matches and celebrate the joy of victory, camaraderie, and sportsmanship in a vibrant, competitive environment!"
+    },
+    {
+      id: 5,
+      name: 'Hackathon',
+      bgImage: hackathon,
+      dialogText: "Unleash your coding genius at Hackathon 2024! Collaborate with fellow innovators to tackle real-world challenges, create groundbreaking solutions, and compete for exciting prizes. Join us for 24 hours of non-stop ideation, programming, and innovation, where your creativity and skills take center stage!"
     }
-  ]
+  ];
+  
   
   return (
 

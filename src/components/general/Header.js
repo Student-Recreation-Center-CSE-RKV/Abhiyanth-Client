@@ -98,7 +98,8 @@ function BasicMenu() {
         <MenuItem sx={styles.smallMenutext} onClick={() => { handleClose(); navigate("") }}>Home</MenuItem>
         <MenuItem sx={styles.smallMenutext} onClick={() => { handleClose(); navigate("/gallery") }}>Gallery</MenuItem>
         <MenuItem sx={styles.smallMenutext} onClick={() => { handleClose(); navigate("/sponsers") }}>Sponsors</MenuItem>
-        <MenuItem sx={styles.smallMenutext} onClick={() => { handleClose(); navigate("/about") }}>About</MenuItem>
+        <MenuItem sx={styles.smallMenutext} onClick={() => { handleClose(); navigate("/about") }}>About Us</MenuItem>
+        <MenuItem sx={styles.smallMenutext} onClick={() => { handleClose(); navigate("/ourTeam") }}>Our Team</MenuItem>
       </Menu>
     </div>
   );

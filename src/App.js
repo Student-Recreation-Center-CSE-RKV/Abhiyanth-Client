@@ -9,6 +9,7 @@ import Main from './pages/Main';
 import Gallery from './pages/Gallery';
 import Sponsers from './pages/Sponsers';
 import ExtravaganzaAbout from './components/about/ExtravaganzaAbout';
+import OurTeam from './pages/OurTeam';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
 		      <Route path="/sponsers" element={<Sponsers/>} />
           <Route path="/events" element={<Events />} />
           <Route path="/stalls" element={<Stalls />} />
+          <Route path="/ourTeam" element={<OurTeam/>} />
         </Route>
         <Route path="/admin" element={<Admin />}>
         </Route>
