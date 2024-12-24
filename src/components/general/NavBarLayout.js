@@ -2,7 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import { createTheme } from '@mui/material/styles';
+import { createTheme,ThemeProvider } from '@mui/material/styles';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import { AppProvider } from '@toolpad/core/AppProvider';
 import { DashboardLayout, ThemeSwitcher } from '@toolpad/core/DashboardLayout';
@@ -28,7 +28,7 @@ import TipsAndUpdatesIcon from '@mui/icons-material/TipsAndUpdates';
 
 const NAVIGATION = [
   {
-    segment: 'dashboard',
+    segment: 'Dashboard',
     title: 'Dashboard',
     icon: <DashboardIcon />,
   },
@@ -52,12 +52,12 @@ const NAVIGATION = [
         icon: <SportsVolleyballIcon color='secondary' />,
       },
       {
-        segment: 'Cultural show',
-        title: 'Cultural show',
+        segment: 'Events',
+        title: 'Events',
         icon: <NightlifeIcon color='secondary' />,
       },
       {
-        segment: 'Curtain Raiser',
+        segment: 'CurtainRaiser',
         title: 'Curtain Raiser Events',
         icon: <SportsScoreIcon color='secondary' />,
       },
@@ -79,25 +79,25 @@ const NAVIGATION = [
         
       },
       {
-        segment: 'Tech talk Shows',
+        segment: 'TechTalkShows',
         title: 'Tech Talks Shows',
         icon:<CampaignIcon color="secondary"/>,
         
       },
       {
-        segment: 'Project Expo',
+        segment: 'ProjectExpo',
         title: 'Project Expo',
         icon:<TipsAndUpdatesIcon color="secondary"/>,
       },
     ],
   },
   {
-    segment: 'Finance Management',
+    segment: 'FinanceManagement',
     title: 'Finance Management',
     icon: <AccountBalanceIcon color='secondary' />,
     children: [
       {
-        segment: 'Sponsor Funds',
+        segment: 'SponsorFunds',
         title: 'Sponsor Funds',
         icon: <CurrencyRupeeIcon color='secondary' />,
       },
@@ -107,37 +107,37 @@ const NAVIGATION = [
         icon: <CalculateIcon color='secondary' />,
       },
       {
-        segment: 'Amount Generated',
+        segment: 'AmountGenerated',
         title: 'Amount Generated',
         icon: <AssuredWorkloadIcon color='secondary' />,
       },
     ],
   },
   {
-    segment: 'Abhiyanth core Team',
+    segment: 'AbhiyanthCoreTeam',
     title: 'Abhiyanth Core Team',
     icon: <GroupsIcon color='secondary' />,
     children: [
       {
-        segment: 'Core Team',
+        segment: 'CoreTeam',
         title: 'Core Team',
       },
       {
-        segment: 'Sub Core Team',
+        segment: 'SubCoreTeam',
         title: 'Sub Core Team',
       },
       {
-        segment: 'Event Heads',
+        segment: 'EventHeads',
         title: 'Event Heads',
       },
       {
-        segment: 'Faculty Coordinators',
+        segment: 'FacultyCoordinators',
         title: 'Faculty Coordinators',
       },
     ],
   },
   {
-    segment: 'Franchise Management',
+    segment: 'FranchiseManagement',
     title: 'Franchise Management',
     icon :<AcUnitIcon color='secondary'/>,
     children: [
@@ -146,7 +146,7 @@ const NAVIGATION = [
         title: 'Logos',
       },
       {
-        segment: 'Id Cards',
+        segment: 'IdCards',
         title: 'Id Cards',
       },
       {
@@ -173,7 +173,7 @@ const demoTheme = createTheme({
   },
   palette: {
     secondary: {
-      main: '#f50057', // You can change this to your desired secondary color
+      main: '#f50057',
     },
   },
 });
@@ -183,16 +183,26 @@ function DemoPageContent({ pathname }) {
     <Box
       sx={{
         py: 4,
+        px: 2, // Optional padding on the sides
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         textAlign: 'center',
+        backgroundColor: 'background.default', // Use the theme's background color
+        color: 'text.primary', // Use the theme's text color
+        minHeight: 'calc(100vh - 64px)', // Ensure it covers the full height minus header
       }}
     >
-      <Typography>Dashboard content for {pathname}</Typography>
+      <Typography variant="h4" gutterBottom>
+        Dashboard content for {pathname}
+      </Typography>
+      <Typography>
+        This is a demo page. Customize this content as per your requirements.
+      </Typography>
     </Box>
   );
 }
+
 
 DemoPageContent.propTypes = {
   pathname: PropTypes.string.isRequired,
@@ -239,25 +249,27 @@ function NavBarLayout(props) {
 
   const router = useDemoRouter('/dashboard');
   return (
-    <AppProvider
-      session={session}
-      authentication={authentication}
-      navigation={NAVIGATION}
-      router={router}
-      theme={demoTheme}
-      branding={{
-      logo: <img src="https://mui.com/static/logo.png" alt="Abhiyanth logo" />,
-      title: 'ABHIYANTH',
-      }}
-      
-    >
-      <DashboardLayout
-      slots={{
-      toolbarActions: ToolbarActionsCalendar, 
-      }}>
-      <DemoPageContent pathname={router.pathname} />
-      </DashboardLayout>
-    </AppProvider>
+    <ThemeProvider theme={demoTheme}>
+      <AppProvider
+        session={session}
+        authentication={authentication}
+        navigation={NAVIGATION}
+        router={router}
+        theme={demoTheme}
+        branding={{
+          logo: <img src="https://mui.com/static/logo.png" alt="Abhiyanth logo" />,
+          title: 'ABHIYANTH',
+        }}
+      >
+        <DashboardLayout
+          slots={{
+            toolbarActions: ToolbarActionsCalendar,
+          }}
+        >
+          <DemoPageContent pathname={router.pathname} />
+        </DashboardLayout>
+      </AppProvider>
+    </ThemeProvider>
   );
 }
 
