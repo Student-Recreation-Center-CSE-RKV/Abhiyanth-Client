@@ -6,16 +6,18 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
+import { useNavigate } from 'react-router-dom';
 
 const Footer = () => {
+    const navigate=useNavigate()
     return (
         <footer className="footer">
             <div className="footer-container">
                 <div className="footer-section left">
                     <ul>
-                        <li>Home</li>
-                        <li>Gallery</li>
-                        <li>Sponsors</li>
+                        <li onClick={()=>navigate("/")}>Home</li>
+                        <li onClick={()=>navigate("/gallery")}>Gallery</li>
+                        <li onClick={()=>navigate("/sponsers")}>Sponsors</li>
                         <li>Stalls</li>
                     </ul>
                     <ul>
@@ -25,8 +27,8 @@ const Footer = () => {
                         <li>Workshops</li>
                     </ul>
                     <ul>
-                        <li>About Us</li>
-                        <li>Our Team</li>
+                        <li onClick={()=>navigate("/about")}>About Us</li>
+                        <li onClick={()=>navigate("/ourTeam")}>Our Team</li>
                         <li>Contact us</li>
 
                     </ul>
@@ -52,7 +54,8 @@ const Footer = () => {
                             src={src_logo}
                             alt="SRC Logo"
                             className="footer-image"
-                            style={{ height: "30px", width: "30px", margin: "5px" , borderRadius: "50%" }}
+                            style={{ height: "30px", width: "30px", margin: "5px" , borderRadius: "50%",cursor:"pointer" }}
+                            onClick={() => window.open("https://www.linkedin.com/company/src-rgukt-rkvalley/", "_blank")}
                         />
                         <p style={{fontSize: "14px", fontWeight: 400,fontFamily:"Inter"}}>Powered by SRC @CSE</p>
                     </div>
