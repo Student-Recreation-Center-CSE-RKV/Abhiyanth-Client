@@ -105,6 +105,10 @@ const styles = {
   icon: {
     color: 'white',
     fontSize: '1.5rem',
+    transition: 'transform 0.3s ease, color 0.3s ease', // Smooth transition for hover effects
+    '&:hover': {
+      transform: 'scale(1.2)', 
+    },
   },
 };
 
