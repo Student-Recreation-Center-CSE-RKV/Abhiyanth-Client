@@ -36,7 +36,7 @@ function EventDetails(){
       </Box>
       <Box>
       <Typography sx={{ ...styles.subHeading, color:"#C91C75" , textAlign:"center",margin:"2%"}}>
-            <Link to="/events" sx={{color:"#C91C75"}}> Go Back </Link>
+            <Link to="/events" styles={{color:"#C91C75", textDecoration: "none" }}> Go Back </Link>
       </Typography>
     </Box>
     </div>
