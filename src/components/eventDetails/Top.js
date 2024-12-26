@@ -66,7 +66,7 @@ function Top(){
       return "";
     } else if (status === "live") {
       return (
-        <Box sx={{ display: "flex", alignItems: "center", gap: "8px" }}>
+        <Box sx={{ display: "flex", alignItems: "center", gap: "8px"}}>
           <motion.div
             animate={{ scale: 1.5 }}
             transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
