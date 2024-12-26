@@ -3,15 +3,16 @@ import { Box, Typography, IconButton } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import EmailIcon from '@mui/icons-material/Email';
 
-const OurTeamCard = ({ image, name, designation, githubURL, linkdeinURL, instagramURL }) => {
+
+const OurTeamCard = ({ image, name, githubURL, linkdeinURL, instagramURL, email }) => {
   return (
     <Box sx={styles.cardContainer}>
       <Box sx={styles.cardBackground}>
-        {image && <img src={image} alt={name} style={styles.image} onContextMenu={(e) => e.preventDefault()}/>}
+        {image && <img src={image} alt={name} style={styles.image} onContextMenu={(e) => e.preventDefault()} />}
         <Box sx={styles.textContainer}>
           {name && <Typography sx={styles.nameText}>{name}</Typography>}
-          {designation && <Typography sx={styles.designationText}>{designation}</Typography>}
           <Box sx={styles.iconContainer}>
             {githubURL && (
               <IconButton component="a" href={githubURL} target="_blank" rel="noopener noreferrer">
@@ -28,6 +29,17 @@ const OurTeamCard = ({ image, name, designation, githubURL, linkdeinURL, instagr
                 <InstagramIcon sx={styles.icon} />
               </IconButton>
             )}
+            {email && (
+              <IconButton
+                component="a"
+                href={`https://mail.google.com/mail/?view=cm&fs=1&to=${email}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <EmailIcon sx={styles.icon} />
+              </IconButton>
+            )}
+
 
           </Box>
         </Box>
@@ -62,7 +74,7 @@ const styles = {
     height: 'auto',
     borderRadius: '50%',
     marginBottom: '20px',
-    pointerEvents:"none"
+    pointerEvents: "none"
   },
   textContainer: {
     display: 'flex',
@@ -93,6 +105,10 @@ const styles = {
   icon: {
     color: 'white',
     fontSize: '1.5rem',
+    transition: 'transform 0.3s ease, color 0.3s ease', // Smooth transition for hover effects
+    '&:hover': {
+      transform: 'scale(1.2)', 
+    },
   },
 };
 
