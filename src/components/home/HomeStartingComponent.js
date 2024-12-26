@@ -1,6 +1,6 @@
 import React from 'react'
 import { audience, abhiyanthLogo, maskGroup } from '../../assets/images'
-import { Box, Typography } from '@mui/material'
+import { Box, Typography, useMediaQuery } from '@mui/material'
 import { motion } from 'framer-motion';
 
 export default function HomeStartingComponent() {
@@ -73,13 +73,13 @@ export default function HomeStartingComponent() {
             textDecorationSkipInk: 'none',
         }
     }
-
+    const istitleVisible = useMediaQuery('(max-width:800px)');
     return (
         <div>
             <Box sx={styles.heroContainer}>
                 <Box sx={{
                     position: 'absolute',
-                    top: '60%', left: '50%',
+                    top: '60%', left: {xs:'45%',sm:'50%',md:"50%"},
                     transform: 'translate(-50%, -50%)',
                     color: 'white',
                     textAlign: 'center',
@@ -88,14 +88,15 @@ export default function HomeStartingComponent() {
                         <motion.img
                             src={abhiyanthLogo}
                             alt="Ablogo"
-                            style={{ width: '100%', height: 'auto', objectFit: "fill", bottom: "30px" }}
-                            animate={{x:10 , y: [0, -50, 0]}}
+                            style={{ width: '100%', height: 'auto', objectFit: "fill", bottom: "40px",paddingLeft:{xs:"20px"}}}
+                            animate={{x:10, y: [0, -50, 0]}}
                             transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
                         />
-                        <img src={maskGroup} alt="Mask Group" style={{ width: '287px', height: '150px', objectFit: "fill", position: 'absolute', bottom: '10px', top: "140px", right: "10px", left: "10px" }} />
+                        <img src={maskGroup} alt="Mask Group" style={{ width: '287px', height:'150px', objectFit: "fill", position: 'absolute', bottom:{xm:'20px',sm:'10px',md:"10px"}, top: "140px", right: "10px", left: "10px" }} />
                     </Box>
                 </Box>
-                <Typography sx={styles.title}>ABHIYANTH 2K25</Typography>
+                { istitleVisible ?null :
+                <Typography sx={styles.title}>ABHIYANTH 2K25</Typography>}
                 <Box sx={{ position: 'absolute', top: '30%', left: "0" }}>
                     <motion.button
                         style={styles.buttonLeft}
