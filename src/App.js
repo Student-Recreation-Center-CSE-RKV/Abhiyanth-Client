@@ -10,6 +10,7 @@ import Gallery from './pages/Gallery';
 import Sponsers from './pages/Sponsers';
 import ExtravaganzaAbout from './components/about/ExtravaganzaAbout';
 import OurTeam from './pages/OurTeam';
+import EventDetails from './pages/EventDetails';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
 		      <Route path="/gallery" element={<Gallery/>} />
 		      <Route path="/sponsers" element={<Sponsers/>} />
           <Route path="/events" element={<Events />} />
+          <Route path="/events/:id" element={<EventDetails/>}/>
           <Route path="/stalls" element={<Stalls />} />
           <Route path="/ourTeam" element={<OurTeam/>} />
         </Route>
