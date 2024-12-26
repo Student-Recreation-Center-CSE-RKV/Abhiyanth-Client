@@ -168,21 +168,26 @@
 	flex-direction: column;
   }
   .main-heading {
-	font-size: 60px;
+	font-size:60px;
+	border: none;
+	padding-inline: 10px;
+	padding-block: 5px;
+	line-height: 70px;
   }
   .image1,.image2{
 	display: none;
   }
   .bottom-container{
-	margin-top: 1rem;
-	padding-inline: 1rem;
+	padding-inline: 1.5rem;
 	padding-block: 2rem;
-	text-align: justify;
-	border-top-left-radius: 5em;
-	border-top-right-radius: 5em;
+	text-align: center;
+	border-top-left-radius: 3em;
+	border-top-right-radius:3em;
+
   }
   .navbar-container1 ,.navbar-container{
 	width: 100%;
+	height: 40px;
   }
   .left-heading,.right-heading{
 	width: 100%;
@@ -196,5 +201,9 @@
 	padding-bottom: 3rem;
 	border-right: none;
 	padding-right: 0;
+  }
+  .left-para,.right-para{
+
+	font-size: 18px;
   }
 }
