@@ -39,7 +39,7 @@ export default function OurTeam() {
             name: 'V.Achyutha',
             githubURL: 'https://github.com/AchyuthaVikaram',
             linkdeinURL: 'https://www.linkedin.com/in/achyuthavikaram',
-            instagramURL: '',
+            instagramURL: 'https://www.instagram.com/_lightening_rose__/',
         },
         {
             image: rajeswari,

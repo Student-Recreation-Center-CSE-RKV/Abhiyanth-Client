@@ -15,7 +15,7 @@ export default function HomeStartingComponent() {
         },
         title: {
             fontFamily: 'Audiowide',
-            fontSize: { xs: '20px', sm: '30px', md: '30px', lg: '50px' },
+            fontSize: { xs: '10px', sm: '30px', md: '30px', lg: '50px' },
             fontWeight: 400,
             lineHeight: "normal",
             width:"100%",
