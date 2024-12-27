@@ -100,7 +100,7 @@
 .social-icons {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 15px;
 }
 
 .icon {
@@ -110,24 +110,24 @@
 }
 
 .icon:hover {
-  color: #fff; /* Change icon color on hover */
+  color: #fff; 
   transform: scale(1.1);
 }
 
 .vertical-line {
   width: 2px;
-  height: 150px;
+  height: 170px;
   background-color: #EFE1EE66;
   margin: 0 20px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 700px) {
   .footer-container {
       flex-direction: column;
       gap: 30px;
   }
 
   .vertical-line {
-      display: none; /* Hide vertical line on smaller screens */
+      display: none; 
   }
 }
