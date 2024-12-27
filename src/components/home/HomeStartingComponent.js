@@ -2,6 +2,7 @@ import React from 'react'
 import { audience, abhiyanthLogo, maskGroup } from '../../assets/images'
 import { Box, Typography, useMediaQuery } from '@mui/material'
 import { motion } from 'framer-motion';
+import CountdownTimer from './timer';
 
 export default function HomeStartingComponent() {
     const styles = {
@@ -18,7 +19,7 @@ export default function HomeStartingComponent() {
             fontSize: { xs: '10px', sm: '30px', md: '30px', lg: '50px' },
             fontWeight: 400,
             lineHeight: "normal",
-            width:"100%",
+            width: "100%",
             letterSpacing: '0.19em',
             position: "absolute",
             bottom: "0px",
@@ -35,7 +36,7 @@ export default function HomeStartingComponent() {
             backgroundColor: "transparent",
             borderColor: "white",
             color: "white",
-            width: { xs: '150px', sm: '300px', md: '500px' }, 
+            width: { xs: '150px', sm: '300px', md: '500px' },
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
@@ -71,15 +72,27 @@ export default function HomeStartingComponent() {
             textAlign: 'center', // Center align text
             textUnderlinePosition: 'from-font',
             textDecorationSkipInk: 'none',
+        },
+        timer: {
+            fontFamily: 'Audiowide',
+            fontSize: { xs: '20px', sm: '30px', md: '45px',lg:"50px" },
+            fontWeight: 500,
+            color: 'white',
+            textAlign: 'center',
         }
     }
     const istitleVisible = useMediaQuery('(max-width:800px)');
     return (
         <div>
             <Box sx={styles.heroContainer}>
+                <Box sx={{ position: 'absolute', top: '20%', left: '50%', transform: 'translateX(-50%)' }}>
+                    <Typography sx={styles.timer}>
+                        <CountdownTimer targetDate={"2025-02-27T00:00:00"} />
+                    </Typography>
+                </Box>
                 <Box sx={{
                     position: 'absolute',
-                    top: '60%', left: {xs:'45%',sm:'50%',md:"50%"},
+                    top: '60%', left: { xs: '45%', sm: '50%', md: "50%" },
                     transform: 'translate(-50%, -50%)',
                     color: 'white',
                     textAlign: 'center',
@@ -88,15 +101,15 @@ export default function HomeStartingComponent() {
                         <motion.img
                             src={abhiyanthLogo}
                             alt="Ablogo"
-                            style={{ width: '100%', height: 'auto', objectFit: "fill", bottom: "40px",paddingLeft:{xs:"20px"}}}
-                            animate={{x:10, y: [0, -50, 0]}}
+                            style={{ width: '100%', height: 'auto', objectFit: "fill", bottom: "40px", paddingLeft: { xs: "20px" } }}
+                            animate={{ x: 10, y: [0, -50, 0] }}
                             transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
                         />
-                        <img src={maskGroup} alt="Mask Group" style={{ width: '287px', height:'150px', objectFit: "fill", position: 'absolute', bottom:{xm:'20px',sm:'10px',md:"10px"}, top: "140px", right: "10px", left: "10px" }} />
+                        <img src={maskGroup} alt="Mask Group" style={{ width: '287px', height: '150px', objectFit: "fill", position: 'absolute', bottom: { xm: '20px', sm: '10px', md: "10px" }, top: "140px", right: "10px", left: "10px" }} />
                     </Box>
                 </Box>
-                { istitleVisible ?null :
-                <Typography sx={styles.title}>ABHIYANTH 2K25</Typography>}
+                {istitleVisible ? null :
+                    <Typography sx={styles.title}>ABHIYANTH 2K25</Typography>}
                 <Box sx={{ position: 'absolute', top: '30%', left: "0" }}>
                     <motion.button
                         style={styles.buttonLeft}
