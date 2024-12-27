@@ -17,6 +17,16 @@ const instagramLink = 'https://www.instagram.com/abhiyanth_rkv?igsh=NjNjbXdrbW05
 const linkedinLink = 'https://www.linkedin.com/in/abhiyanth-tech-and-cultural-fest-at-rgukt-rk-valley-42ba0b343/';
 const youtubeLink = 'https://youtube.com/@abhiyanth-rkvalley?si=GfVnmrQrjrY0Ml37';
 
+const styles = {
+    icon: {
+      fontSize: {
+        xs: '30px',  
+        sm: '35px',  
+        md: '40px',  
+        lg: '45px',  
+      },
+    },
+  };
 
 const Footer = () => {
     const navigate = useNavigate()
@@ -84,7 +94,7 @@ const Footer = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <InstagramIcon className="icon" sx={{ fontSize: "40px" }} />
+                            <InstagramIcon className="icon" sx={styles.icon} />
                         </IconButton>
 
                         <IconButton
@@ -93,7 +103,7 @@ const Footer = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <LinkedInIcon className="icon" sx={{ fontSize: "40px" }} />
+                            <LinkedInIcon className="icon" sx={styles.icon} />
                         </IconButton>
 
                         <IconButton
@@ -102,7 +112,7 @@ const Footer = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <YoutubeIcon className="icon" sx={{ fontSize: "40px" }} />
+                            <YoutubeIcon className="icon" sx={styles.icon} />
                         </IconButton>
 
                         <IconButton
@@ -111,7 +121,7 @@ const Footer = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <EmailIcon className="icon" sx={{ fontSize: "40px" }} />
+                            <EmailIcon className="icon" sx={styles.icon} />
                         </IconButton>
 
                         <IconButton
@@ -120,7 +130,7 @@ const Footer = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <WhatsAppIcon className="icon" sx={{ fontSize: "40px" }} />
+                            <WhatsAppIcon className="icon" sx={styles.icon} />
                         </IconButton>
 
 
