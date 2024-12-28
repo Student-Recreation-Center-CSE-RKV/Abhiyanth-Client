@@ -89,7 +89,7 @@ function Top(){
   return (
     <Box sx={styles.TopLayout} >
       <Box sx={styles.titleLayout}>
-        <Typography variant="h2"  sx={styles.title}>Name Of the Event</Typography>
+        <Typography variant="h2"  sx={styles.title}>{item.name}</Typography>
         <Typography variant="h3" sx={{...styles.eventStatus,color:"#F00"}}> {getStatusText()}</Typography>
       </Box>
       <Box >
@@ -117,3 +117,29 @@ function Top(){
   )
 }
 export default Top;
+
+
+const item={
+  "id": "event-001",
+  "name": "Hackathon 2024",
+  "description": "A 24-hour hackathon to solve real-world problems.",
+  "status": "live",
+  "date": "2024-12-23",
+  "time": "09:00:00",
+  "venue": "Tech Hall, RGUKT RK Valley",
+  "organizers": [
+    { "name": "John Doe", "mobile": "9876543210" },
+    { "name": "Jane Smith", "mobile": "9123456789" }
+  ],
+  "links": [
+    { "text": "Event Details", "link": "https://example.com/hackathon" },
+    { "text": "Submit Project", "link": "https://example.com/submit" }
+  ],
+  "results": [],
+  "images": {
+    "mainImage": "https://example.com/hackathon_main.jpg",
+    "lastImage": "https://example.com/hackathon_last.jpg",
+    "descImageLeft": "https://example.com/hackathon_left.jpg",
+    "descImageRight": "https://example.com/hackathon_right.jpg"
+  }
+}
