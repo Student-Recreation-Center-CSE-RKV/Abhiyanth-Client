@@ -9,14 +9,14 @@ const AllEvents = () => {
 	const upcomingEvents = [...Array(10)]; 
 
 	return (
-		<div className="container">
+		<div className="alleventscontainer">
 			<div className="header">
 				<h2>All Events</h2>
 			</div>
 
 			{/* Ongoing Events */}
 			<div className="eventsContainer">
-				<h3 className="topHeading">ONGOING</h3>
+				<h3 className="alleventstopHeading">ONGOING</h3>
 				<HorizontalScrollBox
 					items={ongoingEvents}
 					renderCard={(item, index) => <CustomCard key={index} />}
@@ -25,14 +25,14 @@ const AllEvents = () => {
 
 			{/* Upcoming Events */}
 			<div className="eventsContainer">
-				<h3 className="topHeading">UPCOMING</h3>
+				<h3 className="alleventstopHeading">UPCOMING</h3>
 				<HorizontalScrollBox
 					items={upcomingEvents}
 					renderCard={(item, index) => <CustomCard key={index} />}
 				/>
 			</div>
 
-			<div className="text eventsContainer">
+			<div className="alleventstext1 eventsContainer">
 				<a href="#" style={{ textDecoration: "none", color: "white" }}>
 					FULL SCHEDULE -&gt;
 				</a>
@@ -40,14 +40,14 @@ const AllEvents = () => {
 
 			{/* Completed Events */}
 			<div className="eventsContainer">
-				<h3 className="topHeading">COMPLETED</h3>
+				<h3 className="alleventstopHeading">COMPLETED</h3>
 				<HorizontalScrollBox
 					items={completedEvents}
 					renderCard={(item, index) => <CustomCard key={index} />}
 				/>
 			</div>
 
-			<div className="text2 eventsContainer" style={{ marginBlock: "2rem" }}>
+			<div className="alleventstext2 eventsContainer" style={{ marginBlock: "2rem" }}>
 				<a href="#" style={{ textDecoration: "none", color: "white" }}>
 					ANIMATIONS -&gt;
 				</a>
