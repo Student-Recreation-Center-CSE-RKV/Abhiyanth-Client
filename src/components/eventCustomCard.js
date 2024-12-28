@@ -5,7 +5,7 @@ import {
 	CardContent,
 	Typography,
 	Button,
-	Grid,
+	Grid2,
 } from "@mui/material";
 export default function CustomCard() {
 	const isLive = true;
@@ -57,8 +57,8 @@ export default function CustomCard() {
 			/>
 
 			{/* Two images side by side */}
-			<Grid container spacing={1}>
-				<Grid item xs={6}>
+			<Grid2 container spacing={1}>
+				<Grid2 item xs={6}>
 					<CardMedia
 						component="img"
 						height="100"
@@ -69,8 +69,8 @@ export default function CustomCard() {
 							borderRadius: "10px",
 						}}
 					/>
-				</Grid>
-				<Grid item xs={6}>
+				</Grid2>
+				<Grid2 item xs={6}>
 					<CardMedia
 						component="img"
 						height="100"
@@ -81,8 +81,8 @@ export default function CustomCard() {
 							borderRadius: "10px",
 						}}
 					/>
-				</Grid>
-			</Grid>
+				</Grid2>
+			</Grid2>
 
 			{/* Heading and content */}
 			<CardContent sx={{ paddingLeft: "0", marginLeft: "0" }}>
