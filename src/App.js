@@ -10,6 +10,7 @@ import Gallery from './pages/Gallery';
 import Sponsers from './pages/Sponsers';
 import OurTeam from './pages/OurTeam';
 import EventDetails from './pages/EventDetails';
+import AllEvents from './components/allEvents';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/events/:id" element={<EventDetails/>}/>
           <Route path="/stalls" element={<Stalls />} />
           <Route path="/ourTeam" element={<OurTeam/>} />
+          <Route path="/allEvents" element={<AllEvents/>} />
         </Route>
         <Route path="/admin" element={<Admin />}>
         </Route>

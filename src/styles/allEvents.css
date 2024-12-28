@@ -1,0 +1,60 @@
+.container {
+	margin: 2rem;
+	margin-top: 100px;
+	color: white;
+	background: transparent;
+	display: flex;
+	flex-direction: column;
+	padding: 1rem;
+}
+.eventsContainer{
+    margin-block:2rem;
+}
+.topHeading {
+	font-family: "Audiowide";
+	font-size: 40px;
+	font-weight: 400;
+	line-height: 76.49px;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+	margin-bottom: 2rem;
+}
+.text {
+	font-family: "Audiowide";
+	font-size: 50px;
+	font-weight: 400;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+	padding-left: 0;
+	margin-left: 0;
+}
+.text2 {
+	font-family: Audiowide;
+	font-size: 50px;
+	font-weight: 400;
+	line-height: 127.49px;
+	text-align: center;
+	text-underline-position: from-font;
+	text-decoration-skip-ink: none;
+}
+
+@media only screen and (max-width: 600px) {
+	.container {
+		margin: 0;
+	}
+	.topHeading {
+		margin-bottom: 1rem;
+		font-size: 30px;
+	}
+	.text {
+		font-size: 28px;
+		padding-left: 0;
+		margin-left: 0;
+	}
+	.text2 {
+		font-size: 35px;
+	}
+    .eventsContainer{
+        margin-block: 1rem;
+    }
+}
