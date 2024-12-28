@@ -8,7 +8,7 @@ export const getAllEvents=async()=>{
         data["completed"]=res.filter((item)=>item.status==="completed")
         data["ongoing"]=res.filter((item)=>item.status==="ongoing" || item.status==="live")
         data["upcoming"]=res.filter((item)=>item.status==="upcoming")
-        console.log(data);
+        return data;
         
     } catch (error) {
         return {

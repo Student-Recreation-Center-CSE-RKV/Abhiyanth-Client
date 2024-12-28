@@ -7,9 +7,14 @@ import {
 	Button,
 	Grid2,
 } from "@mui/material";
-export default function CustomCard() {
-	const isLive = true;
-	const isUpcoming = true;
+import {extractDateTime} from "../../utils/timeStampToDate"
+
+
+export default function CustomCard({ item }) {
+
+	const isLive = item.status === "live";
+	const isUpcoming = item.status !== "completed";
+	const dateTime=extractDateTime(item.date)
 	return (
 		<Card
 			sx={{
@@ -88,16 +93,19 @@ export default function CustomCard() {
 			<CardContent sx={{ paddingLeft: "0", marginLeft: "0" }}>
 				<Typography
 					variant="h6"
-					component="div"
 					gutterBottom
 					sx={{
 						fontFamily: "Audiowide",
 						fontSize: "28px",
 						lineHeight: "35.7px",
 						color: " #00B093",
+						width: "100%",
+						whiteSpace: "nowrap",  // Prevent wrapping
+						overflow: "hidden",    // Hide overflowing text
+						textOverflow: "ellipsis"
 					}}
 				>
-					Card Heading
+					{item.name}
 				</Typography>
 				<Typography
 					variant="body2"
@@ -107,13 +115,17 @@ export default function CustomCard() {
 						fontSize: "17px",
 						lineHeight: "30.6px",
 						color: "white",
-						width: "90%",
+						width: "100%",
+    					whiteSpace: "normal",
+    					overflowWrap: "break-word",
+						display: "-webkit-box",          // Enables multiline truncation
+						WebkitLineClamp: 3,             // Limits to 3 lines
+						WebkitBoxOrient: "vertical",    // Required for `lineClamp` to work
+						overflow: "hidden",             // Hides overflowing text
+						textOverflow: "ellipsis",
 					}}
 				>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br />
-					Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.{" "}
-					<br />
-					Ut enim ad minim veniam...
+					{item.description}
 				</Typography>
 				<Button
 					size="small"
@@ -123,6 +135,7 @@ export default function CustomCard() {
 						fontSize: "18px",
 						lineHeight: "20.6px",
 						color: " #00B093",
+
 					}}
 				>
 					Read More
@@ -136,12 +149,25 @@ export default function CustomCard() {
 							sx={{
 								fontFamily: "Audiowide",
 								fontSize: "25px",
-								lineHeight: "35.7px",
+								lineHeight: "30.7px",
 								color: " #C91C75",
 								marginTop: "1rem",
+
 							}}
 						>
-							Location
+						{dateTime.date}
+						</Typography>
+						<Typography
+							variant="h6"
+							component="div"
+							gutterBottom
+							sx={{
+								fontFamily: "Audiowide",
+								fontSize: "20px",
+								color: " #C91C75",
+							}}
+						>
+						{dateTime.time}
 						</Typography>
 						<Typography
 							variant="body2"
@@ -152,9 +178,12 @@ export default function CustomCard() {
 								lineHeight: "30.6px",
 								color: "white",
 								width: "90%",
+						whiteSpace: "nowrap",  // Prevent wrapping
+						overflow: "hidden",    // Hide overflowing text
+						textOverflow: "ellipsis"
 							}}
 						>
-							Lorem ipsum dolor sit amet
+							{item.venue}
 						</Typography>
 					</>
 				)}
