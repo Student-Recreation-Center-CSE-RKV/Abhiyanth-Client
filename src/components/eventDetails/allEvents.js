@@ -1,7 +1,7 @@
 import React from "react";
 import CustomCard from "./eventCustomCard";
 import HorizontalScrollBox from "./HorizontalScrollBox";
-import "../styles/allEvents.css";
+import "../../styles/allEvents.css"
 
 const AllEvents = () => {
 	const completedEvents = [...Array(10)]; 
