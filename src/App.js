@@ -10,7 +10,7 @@ import Gallery from './pages/Gallery';
 import Sponsers from './pages/Sponsers';
 import OurTeam from './pages/OurTeam';
 import EventDetails from './pages/EventDetails';
-import AllEvents from './components/allEvents';
+import AllEvents from './components/eventDetails/allEvents';
 
 function App() {
   return (
