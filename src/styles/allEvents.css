@@ -1,4 +1,4 @@
-.container {
+.alleventscontainer {
 	margin: 2rem;
 	margin-top: 100px;
 	color: white;
@@ -10,7 +10,7 @@
 .eventsContainer{
     margin-block:2rem;
 }
-.topHeading {
+.alleventstopHeading {
 	font-family: "Audiowide";
 	font-size: 40px;
 	font-weight: 400;
@@ -19,7 +19,7 @@
 	text-decoration-skip-ink: none;
 	margin-bottom: 2rem;
 }
-.text {
+.alleventstext1 {
 	font-family: "Audiowide";
 	font-size: 50px;
 	font-weight: 400;
@@ -28,7 +28,7 @@
 	padding-left: 0;
 	margin-left: 0;
 }
-.text2 {
+.alleventstext2 {
 	font-family: Audiowide;
 	font-size: 50px;
 	font-weight: 400;
@@ -39,19 +39,19 @@
 }
 
 @media only screen and (max-width: 600px) {
-	.container {
+	.alleventscontainer {
 		margin: 0;
 	}
-	.topHeading {
+	.alleventstopHeading {
 		margin-bottom: 1rem;
 		font-size: 30px;
 	}
-	.text {
+	.alleventstext1 {
 		font-size: 28px;
 		padding-left: 0;
 		margin-left: 0;
 	}
-	.text2 {
+	.alleventstext2 {
 		font-size: 35px;
 	}
     .eventsContainer{
