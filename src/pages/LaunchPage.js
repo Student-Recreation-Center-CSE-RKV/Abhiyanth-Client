@@ -1,9 +1,11 @@
 import React from "react";
 import { Box, Button, Typography } from "@mui/material";
+import { audience } from '../assets/images';
+import logo from "../assets/images/Rgukt_Logo_White.png"
 
 const LaunchPage = ({ setFlag }) => {
     const handleClick = () => {
-        setFlag(true); // Set the flag to true when the button is clicked
+        setFlag(true); 
     };
 
     return (
@@ -15,48 +17,97 @@ const LaunchPage = ({ setFlag }) => {
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
-                background: "linear-gradient(135deg, #1e3c72, #2a5298, #1e3c72)",
+                backgroundImage: `url(${audience})`,
+                backgroundSize: "cover",
                 color: "white",
                 textAlign: "center",
                 padding: "20px",
+                position: "relative",
             }}
         >
-            <Typography 
-                variant="h2" 
-                gutterBottom 
-                sx={{ fontWeight: "bold", textTransform: "uppercase" }}
+            {/* RGUKT Header */}
+            <Box
+                sx={{
+                    position: "absolute",
+                    top: "20px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent:"center",
+                    gap: "10px",
+                }}
             >
-                Welcome to Abhiyanth
+                <img
+                    src={logo}
+                    alt="RGUKT Logo"
+                    style={{ width: "60px", height: "60px" }}
+                />
+                <Typography
+                    variant="h6"
+                    sx={{
+                        fontWeight: "bold",
+                        textTransform: "uppercase",
+                        fontFamily: "Audiowide",
+                        color: "white",
+                    }}
+                >
+                    Rajiv Gandhi University of Knowledge Technologies - RGUKT RK Valley
+                </Typography>
+            </Box>
+
+            {/* Title */}
+            <Typography
+                variant="h2"
+                gutterBottom
+                sx={{
+                    fontWeight: "bold",
+                    textTransform: "uppercase",
+                    fontFamily: "Audiowide",
+                    marginTop: "10px",
+                }}
+            >
+                ABHIYANTH 2K25
             </Typography>
-            <Typography 
-                variant="h5" 
-                gutterBottom 
-                sx={{ maxWidth: "800px", lineHeight: "1.8", marginBottom: "20px" }}
+
+            {/* Subtitle */}
+            <Typography
+                variant="h5"
+                gutterBottom
+                sx={{
+                    maxWidth: "800px",
+                    lineHeight: "1.8",
+                    marginBottom: "20px",
+                    fontFamily: "Audiowide",
+                    padding: "10px",
+                }}
             >
                 Let's Rock! Let's Begin! <br />
                 A celebration of innovation, creativity, and talent like never before.
             </Typography>
-            <Typography 
-                variant="h6" 
-                gutterBottom 
-                sx={{ maxWidth: "800px", lineHeight: "1.6", marginBottom: "30px" }}
-            >
-                Abhiyanth is the annual tech fest organized by RGUKT RK Valley, where students showcase their technical expertise, participate in thrilling competitions, and connect with like-minded peers. It’s a stage for ideas, creativity, and teamwork to shine!
-            </Typography>
-            <Typography 
-                variant="h4" 
-                gutterBottom 
-                sx={{ fontWeight: "bold", marginTop: "20px" }}
+
+            {/* Honourable Director Section */}
+            <Typography
+                variant="h4"
+                gutterBottom
+                sx={{
+                    fontWeight: "bold",
+                    marginTop: "20px",
+                    fontFamily: "Audiowide",
+                }}
             >
                 Launch By Honourable Director
             </Typography>
-            <Typography 
-                variant="h3" 
-                gutterBottom 
-                sx={{ fontStyle: "italic" }}
+            <Typography
+                variant="h3"
+                gutterBottom
+                sx={{
+                    fontStyle: "italic",
+                    fontFamily: "Audiowide",
+                }}
             >
                 Prof. AVSS Kumara Swami Guptha
             </Typography>
+
+            {/* Launch Button */}
             <Button
                 variant="contained"
                 color="secondary"
@@ -67,6 +118,7 @@ const LaunchPage = ({ setFlag }) => {
                     fontSize: "1.5rem",
                     fontWeight: "bold",
                     borderRadius: "8px",
+                    fontFamily: "Audiowide",
                 }}
             >
                 Launch Website
