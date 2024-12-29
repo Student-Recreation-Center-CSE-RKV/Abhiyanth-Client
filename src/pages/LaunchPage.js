@@ -1,7 +1,6 @@
 import React from "react";
 import { Box, Button, Typography } from "@mui/material";
-import { audience } from '../assets/images';
-import logo from "../assets/images/Rgukt_Logo_White.png"
+import  audience  from '../assets/images/launching.jpeg';
 
 const LaunchPage = ({ setFlag }) => {
     const handleClick = () => {
@@ -25,95 +24,44 @@ const LaunchPage = ({ setFlag }) => {
                 position: "relative",
             }}
         >
-            {/* RGUKT Header */}
+            {/* Honourable Director Section */}
             <Box
                 sx={{
                     position: "absolute",
-                    top: "20px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent:"center",
-                    gap: "10px",
+                    bottom: "0%",
+                    textAlign: "center",
                 }}
             >
-                <img
-                    src={logo}
-                    alt="RGUKT Logo"
-                    style={{ width: "60px", height: "60px" }}
-                />
                 <Typography
                     variant="h6"
+                    gutterBottom
                     sx={{
                         fontWeight: "bold",
-                        textTransform: "uppercase",
                         fontFamily: "Audiowide",
-                        color: "white",
                     }}
                 >
-                    Rajiv Gandhi University of Knowledge Technologies - RGUKT RK Valley
+                    Launch By Honourable Director
+                </Typography>
+                <Typography
+                    variant="h5"
+                    gutterBottom
+                    sx={{
+                        fontStyle: "italic",
+                        fontFamily: "Audiowide",
+                    }}
+                >
+                    Prof. AVSS Kumara Swami Guptha
                 </Typography>
             </Box>
 
-            {/* Title */}
-            <Typography
-                variant="h2"
-                gutterBottom
-                sx={{
-                    fontWeight: "bold",
-                    textTransform: "uppercase",
-                    fontFamily: "Audiowide",
-                    marginTop: "10px",
-                }}
-            >
-                ABHIYANTH 2K25
-            </Typography>
-
-            {/* Subtitle */}
-            <Typography
-                variant="h5"
-                gutterBottom
-                sx={{
-                    maxWidth: "800px",
-                    lineHeight: "1.8",
-                    marginBottom: "20px",
-                    fontFamily: "Audiowide",
-                    padding: "10px",
-                }}
-            >
-                Let's Rock! Let's Begin! <br />
-                A celebration of innovation, creativity, and talent like never before.
-            </Typography>
-
-            {/* Honourable Director Section */}
-            <Typography
-                variant="h4"
-                gutterBottom
-                sx={{
-                    fontWeight: "bold",
-                    marginTop: "20px",
-                    fontFamily: "Audiowide",
-                }}
-            >
-                Launch By Honourable Director
-            </Typography>
-            <Typography
-                variant="h3"
-                gutterBottom
-                sx={{
-                    fontStyle: "italic",
-                    fontFamily: "Audiowide",
-                }}
-            >
-                Prof. AVSS Kumara Swami Guptha
-            </Typography>
-
             {/* Launch Button */}
             <Button
-                variant="contained"
-                color="secondary"
+                variant="outlined"
+                color="#FFFFF"
                 onClick={handleClick}
                 sx={{
-                    marginTop: "40px",
+                    position: "absolute",
+                    bottom: "15%",
                     padding: "15px 40px",
                     fontSize: "1.5rem",
                     fontWeight: "bold",

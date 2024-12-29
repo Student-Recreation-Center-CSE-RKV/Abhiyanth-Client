@@ -1,9 +1,10 @@
-import React from 'react'
-import { audience, abhiyanthLogo, maskGroup } from '../../assets/images'
-import logo from "../../assets/images/Rgukt_Logo_White.png"
-import { Box, Typography, useMediaQuery } from '@mui/material'
+import React from 'react';
+import { audience, abhiyanthLogo, maskGroup } from '../../assets/images';
+import logo from "../../assets/images/Rgukt_Logo_White.png";
+import { Box, Typography, useMediaQuery } from '@mui/material';
 import { motion } from 'framer-motion';
 import CountdownTimer from './timer';
+import backi from "../../assets/images/launching_back.jpeg";
 
 export default function HomeStartingComponent() {
     const styles = {
@@ -17,13 +18,25 @@ export default function HomeStartingComponent() {
         },
         title: {
             fontFamily: 'Audiowide',
-            fontSize: { xs: '10px', sm: '30px', md: '30px', lg: '50px' },
+            fontSize: { xs: '10px', sm: '30px', md: '50px', lg: '70px' },
             fontWeight: 400,
             lineHeight: "normal",
             width: "100%",
             letterSpacing: '0.19em',
             position: "absolute",
-            bottom: "0px",
+            bottom: "14%",
+            left: "50%",
+            transform: "translateX(-50%)",
+            textAlign: 'center',
+            color: 'white',
+        },
+        subtitle: {
+            fontFamily: 'Audiowide',
+            fontSize: { xs: '8px', sm: '18px', md: '25px', lg: '30px' },
+            fontWeight: 300,
+            letterSpacing: '0.15em',
+            position: "absolute",
+            bottom: "10%",
             left: "50%",
             transform: "translateX(-50%)",
             textAlign: 'center',
@@ -55,7 +68,7 @@ export default function HomeStartingComponent() {
             backgroundColor: "transparent",
             borderColor: "white",
             color: "white",
-            width: { xs: '150px', sm: '300px', md: '500px' }, // Adjust width according to screen sizes
+            width: { xs: '150px', sm: '300px', md: '500px' },
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
@@ -70,7 +83,7 @@ export default function HomeStartingComponent() {
             fontSize: { xs: '18px', sm: '20px', md: '28px' },
             fontWeight: 400,
             lineHeight: '35.7px',
-            textAlign: 'center', // Center align text
+            textAlign: 'center',
             textUnderlinePosition: 'from-font',
             textDecorationSkipInk: 'none',
         },
@@ -81,8 +94,10 @@ export default function HomeStartingComponent() {
             color: 'white',
             textAlign: 'center',
         }
-    }
+    };
+
     const istitleVisible = useMediaQuery('(max-width:800px)');
+
     return (
         <div>
             <Box sx={styles.heroContainer}>
@@ -91,7 +106,7 @@ export default function HomeStartingComponent() {
                         position: "absolute",
                         top: "75px",
                         display: "flex",
-                        width:"100%",
+                        width: "100%",
                         alignItems: "center",
                         justifyContent: "center",
                         gap: "10px",
@@ -110,9 +125,9 @@ export default function HomeStartingComponent() {
                             fontFamily: "Audiowide",
                             color: "white",
                             display: {
-                                xs: "none", 
-                                sm: "none", 
-                                md: "block", 
+                                xs: "none",
+                                sm: "none",
+                                md: "block",
                                 lg: "block",
                             },
                         }}
@@ -127,10 +142,10 @@ export default function HomeStartingComponent() {
                             fontFamily: "Audiowide",
                             color: "white",
                             display: {
-                                xs: "block", 
+                                xs: "block",
                                 sm: "block",
-                                md: "none", 
-                                lg: "none", 
+                                md: "none",
+                                lg: "none",
                             },
                         }}
                     >
@@ -160,8 +175,12 @@ export default function HomeStartingComponent() {
                         <img src={maskGroup} alt="Mask Group" style={{ width: '287px', height: '150px', objectFit: "fill", position: 'absolute', bottom: { xm: '20px', sm: '10px', md: "10px" }, top: "140px", right: "10px", left: "10px" }} />
                     </Box>
                 </Box>
-                {istitleVisible ? null :
-                    <Typography sx={styles.title}>ABHIYANTH 2K25</Typography>}
+                {istitleVisible ? null : (
+                    <>
+                        <Typography sx={styles.title}>ABHIYANTH 2K25</Typography>
+                        <Typography sx={styles.subtitle}>#AbhiyathKishor</Typography>
+                    </>
+                )}
                 <Box sx={{ position: 'absolute', top: '30%', left: "0" }}>
                     <motion.button
                         style={styles.buttonLeft}
@@ -204,5 +223,5 @@ export default function HomeStartingComponent() {
                 </Box>
             </Box>
         </div>
-    )
+    );
 }
