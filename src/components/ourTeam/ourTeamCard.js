@@ -50,8 +50,19 @@ const OurTeamCard = ({ image, name, githubURL, linkdeinURL, instagramURL, email 
 
 const styles = {
   cardContainer: {
-    width: 280,
-    height: 350,
+    width: {
+      xs: 230, 
+      sm: 250, 
+      md: 280,
+      lg: 280, 
+  },
+  height: {
+      xs: 294, 
+      sm: 320, 
+      md: 350, 
+      lg: 350, 
+  },
+    
     position: 'relative',
     margin: '20px',
   },

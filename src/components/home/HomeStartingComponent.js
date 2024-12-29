@@ -1,7 +1,10 @@
-import React from 'react'
-import { audience, abhiyanthLogo, maskGroup } from '../../assets/images'
-import { Box, Typography, useMediaQuery } from '@mui/material'
+import React from 'react';
+import { audience, abhiyanthLogo, maskGroup } from '../../assets/images';
+import logo from "../../assets/images/Rgukt_Logo_White.png";
+import { Box, Typography, useMediaQuery } from '@mui/material';
 import { motion } from 'framer-motion';
+import CountdownTimer from './timer';
+import backi from "../../assets/images/launching_back.jpeg";
 
 export default function HomeStartingComponent() {
     const styles = {
@@ -15,13 +18,25 @@ export default function HomeStartingComponent() {
         },
         title: {
             fontFamily: 'Audiowide',
-            fontSize: { xs: '10px', sm: '30px', md: '30px', lg: '50px' },
+            fontSize: { xs: '10px', sm: '30px', md: '50px', lg: '70px' },
             fontWeight: 400,
             lineHeight: "normal",
-            width:"100%",
+            width: "100%",
             letterSpacing: '0.19em',
             position: "absolute",
-            bottom: "0px",
+            bottom: "14%",
+            left: "50%",
+            transform: "translateX(-50%)",
+            textAlign: 'center',
+            color: 'white',
+        },
+        subtitle: {
+            fontFamily: 'Audiowide',
+            fontSize: { xs: '8px', sm: '18px', md: '25px', lg: '30px' },
+            fontWeight: 300,
+            letterSpacing: '0.15em',
+            position: "absolute",
+            bottom: "10%",
             left: "50%",
             transform: "translateX(-50%)",
             textAlign: 'center',
@@ -35,7 +50,7 @@ export default function HomeStartingComponent() {
             backgroundColor: "transparent",
             borderColor: "white",
             color: "white",
-            width: { xs: '150px', sm: '300px', md: '500px' }, 
+            width: { xs: '150px', sm: '300px', md: '500px' },
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
@@ -53,7 +68,7 @@ export default function HomeStartingComponent() {
             backgroundColor: "transparent",
             borderColor: "white",
             color: "white",
-            width: { xs: '150px', sm: '300px', md: '500px' }, // Adjust width according to screen sizes
+            width: { xs: '150px', sm: '300px', md: '500px' },
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
@@ -68,18 +83,83 @@ export default function HomeStartingComponent() {
             fontSize: { xs: '18px', sm: '20px', md: '28px' },
             fontWeight: 400,
             lineHeight: '35.7px',
-            textAlign: 'center', // Center align text
+            textAlign: 'center',
             textUnderlinePosition: 'from-font',
             textDecorationSkipInk: 'none',
+        },
+        timer: {
+            fontFamily: 'Audiowide',
+            fontSize: { xs: '20px', sm: '30px', md: '45px', lg: "50px" },
+            fontWeight: 500,
+            color: 'white',
+            textAlign: 'center',
         }
-    }
+    };
+
     const istitleVisible = useMediaQuery('(max-width:800px)');
+
     return (
         <div>
             <Box sx={styles.heroContainer}>
+                <Box
+                    sx={{
+                        position: "absolute",
+                        top: "75px",
+                        display: "flex",
+                        width: "100%",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        gap: "10px",
+                    }}
+                >
+                    <img
+                        src={logo}
+                        alt="RGUKT Logo"
+                        style={{ width: "60px", height: "60px" }}
+                    />
+                    <Typography
+                        variant="h5"
+                        sx={{
+                            fontWeight: "bold",
+                            textTransform: "uppercase",
+                            fontFamily: "Audiowide",
+                            color: "white",
+                            display: {
+                                xs: "none",
+                                sm: "none",
+                                md: "block",
+                                lg: "block",
+                            },
+                        }}
+                    >
+                        Rajiv Gandhi University of Knowledge Technologies - RK Valley
+                    </Typography>
+                    <Typography
+                        variant="h6"
+                        sx={{
+                            fontWeight: "bold",
+                            textTransform: "uppercase",
+                            fontFamily: "Audiowide",
+                            color: "white",
+                            display: {
+                                xs: "block",
+                                sm: "block",
+                                md: "none",
+                                lg: "none",
+                            },
+                        }}
+                    >
+                        RGUKT RK Valley
+                    </Typography>
+                </Box>
+                <Box sx={{ position: 'absolute', top: '24%', left: '50%', transform: 'translateX(-50%)' }}>
+                    <Typography sx={styles.timer}>
+                        <CountdownTimer targetDate={"2025-02-27T00:00:00"} />
+                    </Typography>
+                </Box>
                 <Box sx={{
                     position: 'absolute',
-                    top: '60%', left: {xs:'45%',sm:'50%',md:"50%"},
+                    top: '60%', left: { xs: '45%', sm: '50%', md: "50%" },
                     transform: 'translate(-50%, -50%)',
                     color: 'white',
                     textAlign: 'center',
@@ -88,15 +168,19 @@ export default function HomeStartingComponent() {
                         <motion.img
                             src={abhiyanthLogo}
                             alt="Ablogo"
-                            style={{ width: '100%', height: 'auto', objectFit: "fill", bottom: "40px",paddingLeft:{xs:"20px"}}}
-                            animate={{x:10, y: [0, -50, 0]}}
+                            style={{ width: '100%', height: 'auto', objectFit: "fill", bottom: "40px", paddingLeft: { xs: "20px" } }}
+                            animate={{ x: 10, y: [0, -50, 0] }}
                             transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
                         />
-                        <img src={maskGroup} alt="Mask Group" style={{ width: '287px', height:'150px', objectFit: "fill", position: 'absolute', bottom:{xm:'20px',sm:'10px',md:"10px"}, top: "140px", right: "10px", left: "10px" }} />
+                        <img src={maskGroup} alt="Mask Group" style={{ width: '287px', height: '150px', objectFit: "fill", position: 'absolute', bottom: { xm: '20px', sm: '10px', md: "10px" }, top: "140px", right: "10px", left: "10px" }} />
                     </Box>
                 </Box>
-                { istitleVisible ?null :
-                <Typography sx={styles.title}>ABHIYANTH 2K25</Typography>}
+                {istitleVisible ? null : (
+                    <>
+                        <Typography sx={styles.title}>ABHIYANTH 2K25</Typography>
+                        <Typography sx={styles.subtitle}>#AbhiyathKishor</Typography>
+                    </>
+                )}
                 <Box sx={{ position: 'absolute', top: '30%', left: "0" }}>
                     <motion.button
                         style={styles.buttonLeft}
@@ -139,5 +223,5 @@ export default function HomeStartingComponent() {
                 </Box>
             </Box>
         </div>
-    )
+    );
 }

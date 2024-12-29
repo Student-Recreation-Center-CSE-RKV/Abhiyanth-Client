@@ -15,10 +15,7 @@ import ishrath from "../assets/images/ourTeam/ishrath.jpeg";
 import sahel from "../assets/images/ourTeam/sahel.jpeg";
 import tanisha from "../assets/images/ourTeam/tanisha.jpeg";
 import rakshitha from "../assets/images/ourTeam/rakshitha.jpeg"
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import { useState,useRef } from 'react';
-import {IconButton} from '@mui/material';
+
 
 import "../styles/about.css";
 
@@ -144,16 +141,14 @@ export default function OurTeam() {
         paddingTop:"50px"
     };
 
-    const CARD_WIDTH = 280;
-
     const renderTeam = (team) => (
         isSmallScreen ? (
             <Box
                 sx={{
                     display: 'flex',
                     overflowX: 'auto',
-                    gap: 2,
-                    padding: "1rem",
+                    gap: 1,
+                    paddingTop: "1rem",
                     "&::-webkit-scrollbar": { display: "none" },
                 }}
             >
