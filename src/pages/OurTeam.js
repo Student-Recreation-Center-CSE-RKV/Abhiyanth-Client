@@ -147,8 +147,8 @@ export default function OurTeam() {
                 sx={{
                     display: 'flex',
                     overflowX: 'auto',
-                    gap: 2,
-                    padding: "1rem",
+                    gap: 1,
+                    paddingTop: "1rem",
                     "&::-webkit-scrollbar": { display: "none" },
                 }}
             >

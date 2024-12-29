@@ -11,13 +11,15 @@ import Sponsers from './pages/Sponsers';
 import OurTeam from './pages/OurTeam';
 import EventDetails from './pages/EventDetails';
 import AllEvents from './components/eventDetails/allEvents';
+import { useState } from 'react';
 
 function App() {
+  const [flag, setFlag] = useState(false);
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Main/>}>
-          <Route path="/" element={<Home />} />
+        <Route path='/' element={<Main flag={flag}/>}>
+          <Route path="/" element={<Home flag={flag} setFlag={setFlag}/>} />
           <Route path="/about" element={<About />} />
 		      <Route path="/gallery" element={<Gallery/>} />
 		      <Route path="/sponsers" element={<Sponsers/>} />
