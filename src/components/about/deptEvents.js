@@ -35,7 +35,7 @@ const DeptEvents = () => {
 		handleDotClick(index);
 	};
 
-	const images = [image1, image2, image3, image4, image5];
+	const images = [image1, image2, image5, image4, image3];
 	const positions = ["center", "left1", "left", "right", "right1"];
 
 	const imageVariants = {

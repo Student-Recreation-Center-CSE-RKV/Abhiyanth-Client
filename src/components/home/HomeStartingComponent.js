@@ -1,5 +1,6 @@
 import React from 'react'
 import { audience, abhiyanthLogo, maskGroup } from '../../assets/images'
+import logo from "../../assets/images/Rgukt_Logo_White.png"
 import { Box, Typography, useMediaQuery } from '@mui/material'
 import { motion } from 'framer-motion';
 import CountdownTimer from './timer';
@@ -75,7 +76,7 @@ export default function HomeStartingComponent() {
         },
         timer: {
             fontFamily: 'Audiowide',
-            fontSize: { xs: '20px', sm: '30px', md: '45px',lg:"50px" },
+            fontSize: { xs: '20px', sm: '30px', md: '45px', lg: "50px" },
             fontWeight: 500,
             color: 'white',
             textAlign: 'center',
@@ -85,7 +86,58 @@ export default function HomeStartingComponent() {
     return (
         <div>
             <Box sx={styles.heroContainer}>
-                <Box sx={{ position: 'absolute', top: '20%', left: '50%', transform: 'translateX(-50%)' }}>
+                <Box
+                    sx={{
+                        position: "absolute",
+                        top: "75px",
+                        display: "flex",
+                        width:"100%",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        gap: "10px",
+                    }}
+                >
+                    <img
+                        src={logo}
+                        alt="RGUKT Logo"
+                        style={{ width: "60px", height: "60px" }}
+                    />
+                    <Typography
+                        variant="h5"
+                        sx={{
+                            fontWeight: "bold",
+                            textTransform: "uppercase",
+                            fontFamily: "Audiowide",
+                            color: "white",
+                            display: {
+                                xs: "none", 
+                                sm: "none", 
+                                md: "block", 
+                                lg: "block",
+                            },
+                        }}
+                    >
+                        Rajiv Gandhi University of Knowledge Technologies - RK Valley
+                    </Typography>
+                    <Typography
+                        variant="h6"
+                        sx={{
+                            fontWeight: "bold",
+                            textTransform: "uppercase",
+                            fontFamily: "Audiowide",
+                            color: "white",
+                            display: {
+                                xs: "block", 
+                                sm: "block",
+                                md: "none", 
+                                lg: "none", 
+                            },
+                        }}
+                    >
+                        RGUKT RK Valley
+                    </Typography>
+                </Box>
+                <Box sx={{ position: 'absolute', top: '24%', left: '50%', transform: 'translateX(-50%)' }}>
                     <Typography sx={styles.timer}>
                         <CountdownTimer targetDate={"2025-02-27T00:00:00"} />
                     </Typography>
