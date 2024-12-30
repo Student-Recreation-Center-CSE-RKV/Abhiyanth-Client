@@ -14,7 +14,7 @@ import { useNavigate } from 'react-router-dom';
 const email = 'abhiyanth@rguktrkv.ac.in';
 const whatsappLink = 'https://whatsapp.com/channel/0029VawFXPVLCoWs5A8bCo3D';
 const instagramLink = 'https://www.instagram.com/abhiyanth_rkv?igsh=NjNjbXdrbW05YTVo';
-const linkedinLink = 'https://www.linkedin.com/in/abhiyanth-tech-and-cultural-fest-at-rgukt-rk-valley-42ba0b343/';
+const linkedinLink = 'https://www.linkedin.com/company/abhiyanth-rgukt-rk-valley/';
 const youtubeLink = 'https://youtube.com/@abhiyanth-rkvalley?si=GfVnmrQrjrY0Ml37';
 
 const styles = {

@@ -56,8 +56,8 @@ const LaunchPage = ({ setFlag }) => {
 
             {/* Launch Button */}
             <Button
-                variant="outlined"
-                color="#FFFFF"
+                variant="secondary"
+                color="primary"
                 onClick={handleClick}
                 sx={{
                     position: "absolute",
