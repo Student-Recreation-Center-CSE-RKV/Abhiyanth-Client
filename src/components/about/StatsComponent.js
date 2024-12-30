@@ -24,7 +24,7 @@ export default function StatsComponent() {
       >
         <Box sx={{ display: 'flex', flexDirection: 'row', gap: '20px', flexWrap: 'wrap', justifyContent: 'center' }}>
           <StatsCard image={image1} number="03" description="Days" />
-          <StatsCard image={image2} number="150000 +" description="Foot Fall" />
+          <StatsCard image={image2} number="15000 +" description="Foot Fall" />
           <StatsCard image={image3} number="50+" description="Projects" />
           <StatsCard image={image4} number="50+" description="Stalls" />
         </Box>

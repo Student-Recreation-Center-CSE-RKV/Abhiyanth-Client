@@ -264,7 +264,7 @@ export default function HomeStartingComponent() {
                 {istitleVisible ? null : (
                     <>
                         <Typography sx={styles.title}>ABHIYANTH 2K25</Typography>
-                        <Typography sx={styles.subtitle}>#AbhiyathKishor</Typography>
+                        <Typography sx={styles.subtitle}>#AbhiyathKashor</Typography>
                     </>
                 )}
                 <Box sx={{ position: 'absolute', top: '30%', left: "0" }}>
