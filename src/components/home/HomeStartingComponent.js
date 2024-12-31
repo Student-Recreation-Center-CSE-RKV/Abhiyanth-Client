@@ -93,6 +93,7 @@ export default function HomeStartingComponent() {
             fontSize: { xs: '22px', sm: '30px', md: '45px', lg: "50px" },
             padding:{xs:"0"},
             margin:{xs:"0"},
+            fontSize: { xs: '18px', sm: '27px', md: '45px', lg: "50px" },
             fontWeight: 500,
             color: 'white',
             textAlign: 'center',
@@ -241,7 +242,7 @@ export default function HomeStartingComponent() {
                         RGUKT RK Valley
                     </Typography>
                 </Box>
-                <Box sx={{ position: 'absolute', top: '24%', left: '50%', transform: 'translateX(-50%)' }}>
+                <Box sx={{ position: 'absolute', top: '20%', left: '50%', transform: 'translateX(-50%)' }}>
                     <Typography sx={styles.timer}>
                         <CountdownTimer targetDate={"2025-02-27T00:00:00"} />
                     </Typography>
