@@ -5,6 +5,7 @@ import { Box, Typography, useMediaQuery } from '@mui/material';
 import { motion } from 'framer-motion';
 import CountdownTimer from './timer';
 import confetti from 'canvas-confetti'; // Import confetti
+import { Margin } from '@mui/icons-material';
 
 export default function HomeStartingComponent() {
     const styles = {
@@ -24,7 +25,7 @@ export default function HomeStartingComponent() {
             width: "100%",
             letterSpacing: '0.19em',
             position: "absolute",
-            bottom: "14%",
+            bottom: "5%",
             left: "50%",
             transform: "translateX(-50%)",
             textAlign: 'center',
@@ -36,7 +37,7 @@ export default function HomeStartingComponent() {
             fontWeight: 300,
             letterSpacing: '0.15em',
             position: "absolute",
-            bottom: "10%",
+            bottom: "2%",
             left: "50%",
             transform: "translateX(-50%)",
             textAlign: 'center',
@@ -89,7 +90,9 @@ export default function HomeStartingComponent() {
         },
         timer: {
             fontFamily: 'Audiowide',
-            fontSize: { xs: '20px', sm: '30px', md: '45px', lg: "50px" },
+            fontSize: { xs: '22px', sm: '30px', md: '45px', lg: "50px" },
+            padding:{xs:"0"},
+            margin:{xs:"0"},
             fontWeight: 500,
             color: 'white',
             textAlign: 'center',

@@ -28,7 +28,7 @@ const LaunchPage = ({ setFlag }) => {
             <Box
                 sx={{
                     position: "absolute",
-                    bottom: "0%",
+                    bottom: "-1%",
                     textAlign: "center",
                 }}
             >
@@ -60,16 +60,19 @@ const LaunchPage = ({ setFlag }) => {
   onClick={handleClick}
   sx={{
     position: "absolute",
-    bottom: "15%",
-    padding: "15px 40px",
+    bottom: "12%",
+    padding: "10px 30px",
     fontSize: "1.5rem",
-    fontWeight: "bold",
-    borderRadius: "8px",
+    fontWeight:"700",
+    borderRadius: "10px",
     fontFamily: "Audiowide",
     backgroundColor: "#ffffff", // White background
     color: "#000000", // Black text for contrast
+    transition:"0s all ease",
     '&:hover': {
       backgroundColor: "#f0f0f0", // Slightly darker shade on hover
+      boxShadow:"1px 1px 15px black",
+      fontSize:"1.55rem"
     },
   }}
 >

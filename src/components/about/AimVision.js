@@ -226,7 +226,8 @@ function AimVision() {
 					sx={{
 						width: "100%",
 						height: "100%",
-            objectFit: "contain",
+                        objectFit: "contain",
+						display: { xs: "none", md: "block",sm:"none",lg:"block" },
 					}}
 				/>
 				
