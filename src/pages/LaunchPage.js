@@ -56,21 +56,26 @@ const LaunchPage = ({ setFlag }) => {
 
             {/* Launch Button */}
             <Button
-                variant="secondary"
-                color="primary"
-                onClick={handleClick}
-                sx={{
-                    position: "absolute",
-                    bottom: "15%",
-                    padding: "15px 40px",
-                    fontSize: "1.5rem",
-                    fontWeight: "bold",
-                    borderRadius: "8px",
-                    fontFamily: "Audiowide",
-                }}
-            >
-                Launch Website
-            </Button>
+  variant="secondary"
+  onClick={handleClick}
+  sx={{
+    position: "absolute",
+    bottom: "15%",
+    padding: "15px 40px",
+    fontSize: "1.5rem",
+    fontWeight: "bold",
+    borderRadius: "8px",
+    fontFamily: "Audiowide",
+    backgroundColor: "#ffffff", // White background
+    color: "#000000", // Black text for contrast
+    '&:hover': {
+      backgroundColor: "#f0f0f0", // Slightly darker shade on hover
+    },
+  }}
+>
+  Launch Website
+</Button>
+
         </Box>
     );
 };
