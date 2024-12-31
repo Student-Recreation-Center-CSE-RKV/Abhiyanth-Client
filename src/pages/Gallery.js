@@ -53,10 +53,11 @@ function MomentsOfPreviousAbhiyath() {
       borderRadius: "8px",
     },
     gridImage: {
-      width: "100%",
-      height: "100%",
+      width:"300px",
+      height:"200px",
       objectFit: "cover",
       opacity: 0,
+      borderRadius:"15px",
       transition: "opacity 0.5s ease, transform 0.3s ease",
     },
     gridImageLoaded: {

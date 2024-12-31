@@ -13,8 +13,8 @@ const GalleryShimmer = () => {
 
   return (
     <Grid container spacing={2} sx={{ padding: "20px" }}>
-      {[...Array(6)].map((_, index) => (
-        <Grid item xs={12} sm={6} md={4} lg={4} key={index}>
+      {[...Array(8)].map((_, index) => (
+        <Grid item xs={12} sm={6} md={3} lg={3} key={index}>
           <Card sx={shimmerCardStyle}>
             <Skeleton
               variant="rectangular"
