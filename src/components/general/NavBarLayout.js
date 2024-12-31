@@ -25,6 +25,7 @@ import AcUnitIcon from '@mui/icons-material/AcUnit';
 import PhonelinkIcon from '@mui/icons-material/Phonelink';
 import CampaignIcon from '@mui/icons-material/Campaign';
 import TipsAndUpdatesIcon from '@mui/icons-material/TipsAndUpdates';
+import ManageEventsByAdmin from '../admin/ManageEventsByAdmin';
 
 const NAVIGATION = [
   {
@@ -199,6 +200,7 @@ function DemoPageContent({ pathname }) {
       <Typography>
         This is a demo page. Customize this content as per your requirements.
       </Typography>
+      <ManageEventsByAdmin/>
     </Box>
   );
 }
