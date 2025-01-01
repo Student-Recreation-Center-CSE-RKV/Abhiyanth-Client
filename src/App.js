@@ -34,10 +34,10 @@ function App() {
           <Route path="/ourTeam" element={<OurTeam />} />
           <Route path="/allEvents" element={<AllEvents />} />
         </Route>
-        <Route path="/admin" element={<Admin />}>
-        <Route path='events' element={<ManageEventsByAdmin/>} />
+        {/* <Route path="/admin" element={<Admin />}>
+          <Route path='events' element={<ManageEventsByAdmin />} />
           <Route path='sponsers' element={<SponsersAdmin />} />
-        </Route>
+        </Route> */}
       </Routes>
     </BrowserRouter>
   );

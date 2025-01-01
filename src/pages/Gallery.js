@@ -53,11 +53,11 @@ function MomentsOfPreviousAbhiyath() {
       borderRadius: "8px",
     },
     gridImage: {
-      width:"300px",
-      height:"200px",
+      width: "300px",
+      height: "200px",
       objectFit: "cover",
       opacity: 0,
-      borderRadius:"15px",
+      borderRadius: "15px",
       transition: "opacity 0.5s ease, transform 0.3s ease",
     },
     gridImageLoaded: {
@@ -78,15 +78,21 @@ function MomentsOfPreviousAbhiyath() {
     modalContent: {
       maxWidth: "90%",
       maxHeight: "90%",
+      backgroundColor: "#000",
+      padding: "10px",
       borderRadius: "10px",
-      overflow: "hidden",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
     },
     modalImage: {
       width: "100%",
       height: "100%",
       objectFit: "contain",
+      borderRadius: "10px",
     },
   };
+  
 
   return (
     <div style={styles.container}>
@@ -137,17 +143,18 @@ function MomentsOfPreviousAbhiyath() {
         </div>
       )}
 
-      {isModalOpen && (
-        <div style={styles.modal} onClick={closeModal}>
-          <div style={styles.modalContent}>
-            <img
-              src={selectedImage}
-              alt="Full view"
-              style={styles.modalImage}
-            />
-          </div>
-        </div>
-      )}
+{isModalOpen && (
+  <div style={styles.modal} onClick={closeModal}>
+    <div style={styles.modalContent}>
+      <img
+        src={selectedImage}
+        alt="Full view"
+        style={styles.modalImage}
+      />
+    </div>
+  </div>
+)}
+
     </div>
   );
 }

@@ -17,10 +17,12 @@ export default function Sponsers() {
       <GradientBorderComponent/>
       <div style={{paddingTop:"40px"}}>
       <Brochure />
+      <GradientBorderComponent/>
       </div>
       <WhatsInAbiyanth/>
       <GradientBorderComponent/>
       <PerksAndBenifitsInSponsers/>
+      
       <PastSponsers/>
      <BeAPartner/>
     </div>

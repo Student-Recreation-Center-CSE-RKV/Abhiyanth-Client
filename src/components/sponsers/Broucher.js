@@ -15,7 +15,7 @@ const Brochure = () => {
     const isSmallScreen = useMediaQuery('(max-width:900px)');
 
     return (
-        <Box sx={{ color: '#FFFFFF', p: 4, bgcolor: '#0A0A23' }}>
+        <Box sx={{ color: '#FFFFFF', p: 4 }}>
             <Typography variant="h4" sx={{ mb: 2, fontWeight: 'bold' }}>Brochure</Typography>
             <Box
                 sx={{
