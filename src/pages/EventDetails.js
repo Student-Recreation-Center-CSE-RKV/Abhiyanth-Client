@@ -3,6 +3,7 @@ import Top from "../components/eventDetails/Top";
 import { Box, Typography } from "@mui/material";
 import GradientBorderComponent from "../components/general/GradientBorderComponet";
 import { Link } from "react-router-dom";
+import OrganiserDetails from "../components/eventDetails/OrganiserDetails";
 const styles={
   container:{
     margin:"5% 1% ",
@@ -34,11 +35,18 @@ function EventDetails(){
         </Box>
 
       </Box>
+      <Box sx={{marginTop:"6%"}}>
+        <GradientBorderComponent />
+      </Box>
+    <Box >
+      <OrganiserDetails />
+      </Box>
       <Box>
       <Typography sx={{ ...styles.subHeading, color:"#C91C75" , textAlign:"center",margin:"2%"}}>
             <Link to="/events" styles={{color:"#C91C75", textDecoration: "none" }}> Go Back </Link>
       </Typography>
     </Box>
+
     </div>
   )
 }

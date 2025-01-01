@@ -8,6 +8,7 @@ import roboRocket from "./rocket.gif";
 import aim from "./Aim.png";
 import vision from "./Group.png";
 import dummyImage from "./gallary_img7.jpeg"
+import pastSponsers from "./pastSponsers.png"
 export {audience,
     abhiyanthLogo,
 gradient,
@@ -16,4 +17,4 @@ miniAbhiyanthLogo,
 sandAbLogo,
 roboRocket,
 aim,
-vision,dummyImage}
+vision,dummyImage,pastSponsers}
