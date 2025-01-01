@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Typography } from "@mui/material";
-import { fetchGalleryImages } from "../api/getAllGalleryImages";
+import { fetchAllImages } from "../api/getAllGalleryImages";
 import GalleryShimmer from "../components/gallery/GalleryShimmer";
 
 function MomentsOfPreviousAbhiyath() {
@@ -22,7 +22,7 @@ function MomentsOfPreviousAbhiyath() {
   useEffect(() => {
     const loadImages = async () => {
       try {
-        const imageUrls = await fetchGalleryImages();
+        const imageUrls = await fetchAllImages("gallery");
         setImages(imageUrls);
       } catch (error) {
         console.error("Error loading images:", error);

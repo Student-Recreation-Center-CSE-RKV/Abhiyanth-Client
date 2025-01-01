@@ -15,7 +15,7 @@ import AssuredWorkloadIcon from '@mui/icons-material/AssuredWorkload';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import Tooltip from '@mui/material/Tooltip';
 import IconButton from '@mui/material/IconButton';
-import { useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import SportsVolleyballIcon from '@mui/icons-material/SportsVolleyball';
 import NightlifeIcon from '@mui/icons-material/Nightlife';
@@ -191,16 +191,11 @@ function DemoPageContent({ pathname }) {
         textAlign: 'center',
         backgroundColor: 'background.default', // Use the theme's background color
         color: 'text.primary', // Use the theme's text color
-        minHeight: 'calc(100vh - 64px)', // Ensure it covers the full height minus header
       }}
     >
-      <Typography variant="h4" gutterBottom>
-        Dashboard content for {pathname}
-      </Typography>
-      <Typography>
-        This is a demo page. Customize this content as per your requirements.
-      </Typography>
-      <ManageEventsByAdmin/>
+      
+      <Outlet/>
+      
     </Box>
   );
 }
