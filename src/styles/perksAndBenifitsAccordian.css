@@ -1,6 +1,11 @@
 /* AccordionStyle.css */
 @import url('https://fonts.googleapis.com/css2?family=Aubrey&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
+.MuiAccordionDetails-root, 
+.MuiAccordionDetails-root * {
+  font-family: 'Montserrat', sans-serif !important;
+}
 
 
 .accordion-header.color-1 {
