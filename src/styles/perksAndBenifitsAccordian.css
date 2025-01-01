@@ -1,0 +1,52 @@
+/* AccordionStyle.css */
+@import url('https://fonts.googleapis.com/css2?family=Aubrey&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
+.accordion-header.color-1 {
+    background-color: #26264F !important;
+  }
+  
+  .accordion-header.color-2 {
+    background-color: #0f0f3a !important;
+  }
+
+.color-1 {
+  background-color: #26264F; 
+}
+
+.color-2 {
+  background-color: #0f0f3a; 
+}
+
+.accordion-title {
+    font-family: 'Montserrat', sans-serif;
+  }
+
+.accordion-header .MuiTypography-root {
+  color: white;
+  font-family: 'Montserrat', sans-serif; 
+}
+
+.MuiAccordion-root {
+  margin: 1rem 0;
+}
+
+
+.MuiAccordionDetails-root {
+  background-color: #26264F;
+  color: white;
+  padding: 1rem;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+  .accordion-header .MuiTypography-root {
+    font-size: 1rem; 
+  }
+
+  .MuiAccordionDetails-root {
+    font-size: 0.9rem; 
+  }
+}
