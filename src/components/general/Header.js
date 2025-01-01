@@ -149,7 +149,7 @@ function Header() {
           </nav>
           <nav>
             <Button variant="text" sx={styles.textStyles} onClick={() => navigate("/sponsers")}>
-              Sponsers
+              Sponsors
             </Button>
             {isSelected === 3 && <motion.div layoutId='underline' style={{ boxShadow: "0px 4px 2px 1px white", width: "100%" }} />}
           </nav>

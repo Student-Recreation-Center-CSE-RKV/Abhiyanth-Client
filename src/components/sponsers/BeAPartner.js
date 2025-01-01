@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Box, Typography } from '@mui/material';
 
 const sponsorshipData = [
     { category: "Online Partner", acceptability: "Online coverage and promotion of the event before and during the event and post-event release" },
@@ -13,6 +14,7 @@ const SponsorshipPage = () => {
         <div
             style={{
                 position: 'relative',
+
                 color: 'white',
                 display: 'flex',
                 fontFamily: 'Audiowide, sans-serif', // Applied Audiowide font globally
@@ -26,8 +28,8 @@ const SponsorshipPage = () => {
                     top: '50%',
                     transform: 'rotate(-90deg) translateY(-50%)',
                     color: '#9747FF',
-                    width:'20%',
-                    textAlign:'center',
+                    width: '20%',
+                    textAlign: 'center',
                     fontSize: '40px',
                     fontWeight: '400',
                     letterSpacing: '2px',
@@ -43,9 +45,9 @@ const SponsorshipPage = () => {
                 style={{
                     flex: 1,
                     display: 'flex',
-                    gap:'5',
+                    gap: '5',
                     flexDirection: 'column',
-                    width:'60%',
+                    width: '60%',
                     alignItems: 'center',
                     justifyContent: 'center',
                     padding: '0 20px',
@@ -53,39 +55,43 @@ const SponsorshipPage = () => {
                 }}
             >
                 {/* Headings */}
-                <div
-                    style={{
+                <Box
+                    sx={{
                         display: 'flex',
                         justifyContent: 'space-between',
                         width: '60%',
                         borderBottom: '2px solid #FFFFFF',
-                        marginBottom: '20px',
-                        padding: '10px 0',
+                        mb: 2,
+                        py: 1,
                     }}
                 >
-                    <h2
-                        style={{
+                    <Typography
+                        variant="h5" // Variant for consistent heading style
+                        sx={{
                             flex: 1,
                             textAlign: 'center',
+                            color: '#8C52FF',
                             textTransform: 'uppercase',
-                            fontSize: '1.5rem',
-                            margin: 0,
+                            fontSize: { xs: '1.2rem', sm: '1.4rem', md: '1.5rem' }, // Responsive font sizes
+                            m: 0,
                         }}
                     >
                         Category
-                    </h2>
-                    <h2
-                        style={{
+                    </Typography>
+                    <Typography
+                        variant="h5" // Variant for consistent heading style
+                        sx={{
                             flex: 1,
                             textAlign: 'center',
                             textTransform: 'uppercase',
-                            fontSize: '1.5rem',
-                            margin: 0,
+                            fontSize: { xs: '1.2rem', sm: '1.4rem', md: '1.5rem' }, // Responsive font sizes
+                            m: 0,
                         }}
                     >
                         Acceptability
-                    </h2>
-                </div>
+                    </Typography>
+                </Box>
+
 
                 {/* Table Section */}
                 <div

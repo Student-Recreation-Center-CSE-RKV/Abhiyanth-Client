@@ -8,7 +8,7 @@ import think from "../../assets/images/think_logo.png";
 function ParticipatingClubs() {
   const clubs = [
     { name: "SRC CSE", logo: src_logo },
-    { name: "DELIT", logo: delit },
+    { name: "De-Lit", logo: delit },
     { name: "FMC", logo: fmc },
     { name: "Think Finance", logo: think },
   ];

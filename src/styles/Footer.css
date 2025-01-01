@@ -1,14 +1,14 @@
 .footer {
   background: radial-gradient(circle at 50% -50%, 
-                              #EFE1EE 10%, 
-                              #9C2746 55%, 
-                              #630E3A 180%);
+                              #E1E8EE 10%, 
+                              #00008B 50%, 
+                              black 180%);
   color: #fff;
   padding: 10px 0;
   font-family: 'Arial', sans-serif;
   text-align: center;
-
 }
+
 
 .footer-container {
   display: flex;
@@ -121,7 +121,7 @@
   margin: 0 20px;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 1100px) {
   .footer-container {
       flex-direction: column;
       gap: 30px;
