@@ -18,13 +18,15 @@ export default function Sponsers() {
       <div style={{paddingTop:"40px"}}>
       <Brochure />
       <GradientBorderComponent/>
+      <BeAPartner/>
+      <GradientBorderComponent/>
       </div>
       <WhatsInAbiyanth/>
       <GradientBorderComponent/>
       <PerksAndBenifitsInSponsers/>
       
       <PastSponsers/>
-     <BeAPartner/>
+     
     </div>
   )
 }
