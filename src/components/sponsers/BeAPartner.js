@@ -13,7 +13,6 @@ const SponsorshipPage = () => {
         <div
             style={{
                 position: 'relative',
-                backgroundColor: '#0A0A23',
                 color: 'white',
                 display: 'flex',
                 fontFamily: 'Audiowide, sans-serif', // Applied Audiowide font globally

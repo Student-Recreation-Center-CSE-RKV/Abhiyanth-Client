@@ -1,7 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
 import { createTheme,ThemeProvider } from '@mui/material/styles';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import { AppProvider } from '@toolpad/core/AppProvider';
@@ -25,7 +24,6 @@ import AcUnitIcon from '@mui/icons-material/AcUnit';
 import PhonelinkIcon from '@mui/icons-material/Phonelink';
 import CampaignIcon from '@mui/icons-material/Campaign';
 import TipsAndUpdatesIcon from '@mui/icons-material/TipsAndUpdates';
-import ManageEventsByAdmin from '../admin/ManageEventsByAdmin';
 
 const NAVIGATION = [
   {
