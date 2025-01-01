@@ -4,8 +4,12 @@ import backgroundImage from "../../assets/images/whatsabhiyanth_bgimg.jpeg";
 import logoImage from "../../assets/images/Abhiyanthlogo2.png";
 
 const text = {
-  fontFamily: "Audiowide",
-  fontWeight: "400",
+  color: "#FFF",
+fontFamily: "Averia Sans Libre",
+fontSize: "28px",
+fontStyle:"normal",
+fontWeight: "400",
+lineHeight:"normal",
 };
 
 const WhatsAbhiyanth = () => {
@@ -14,8 +18,10 @@ const WhatsAbhiyanth = () => {
       <Box
         sx={{
           backgroundImage: `url(${backgroundImage})`,
+          backgroundColor:' rgba(0, 0, 0, 0.60)',
           backgroundSize: "cover",
           backgroundPosition: "center",
+          backgroundBlendMode:'overlay',
           width: "100%",
           color: "#fff",
           mt: 2,
@@ -25,9 +31,10 @@ const WhatsAbhiyanth = () => {
         {/* Title Section */}
         <Box sx={{ textAlign: "center", mb: 4 }}>
           <Typography
-            variant="h4"
+            variant="h2"
             sx={{
-              ...text,
+               fontFamily: "Audiowide",
+              fontWeight: "400",
               textTransform: "uppercase",
               mb: 1,
             }}
@@ -44,13 +51,13 @@ const WhatsAbhiyanth = () => {
             alignItems: "center",
             justifyContent: "space-between",
             gap: 4,
-            mb: 4,
+            mb: 1,
           }}
         >
           {/* Description */}
           <Box
             sx={{
-              width: { xs: "100%", md: "65%" },
+              width: { xs: "100%", md: "79%" },
               textAlign: { xs: "center", md: "left" },
               px: 2,
               ...text,
@@ -60,7 +67,7 @@ const WhatsAbhiyanth = () => {
               variant="h6"
               sx={{
                 ...text,
-                mb: 2,
+                mb: 0,
               }}
             >
               "Unleashing Innovation, Empowering Creativity"
@@ -69,7 +76,7 @@ const WhatsAbhiyanth = () => {
               variant="body1"
               sx={{ mb: 1, lineHeight: "1.6", ...text }}
             >
-              Abhiyanth is the flagship annual techno-management fest of IIIT
+              &nbsp; &nbsp; &nbsp; &nbsp;Abhiyanth is the flagship annual techno-management fest of IIIT
               RK Valley, bringing together technology enthusiasts, innovators,
               and visionaries at a single place. With a rich legacy of fostering
               innovation and providing a platform for groundbreaking ideas,
@@ -112,19 +119,20 @@ const WhatsAbhiyanth = () => {
         {/* Sponsorship Section */}
         <Box sx={{ px: 2 }}>
           <Typography
-            variant="h5"
+            variant="h3"
             sx={{
               ...text,
               fontWeight: "bold",
-              mb: 2,
+              fontSize:"50px",
+              mb: 1,
             }}
           >
             Why Sponsor Abhiyanth?
           </Typography>
-          <Typography variant="h6" sx={{ ...text, mb: 2 }}>
+          <Typography variant="h6" sx={{ ...text, mb: 1 }}>
             "Be a Catalyst for Innovation"
           </Typography>
-          <Typography variant="body1" sx={{ mb: 2, ...text }}>
+          <Typography variant="body1" sx={{ mb: 1, ...text }}>
             Abhiyanth is IIIT RK Valley’s premier tech fest, attracting
             thousands of students, professionals, and tech enthusiasts from
             across the country. By sponsoring this event, you gain a unique
