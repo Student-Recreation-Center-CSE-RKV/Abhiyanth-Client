@@ -4,7 +4,11 @@ import GradientBorderComponent from '../components/general/GradientBorderCompone
 import PastSponsers from '../components/sponsers/PastSponsers'
 import WhatsAbhiyanth from '../components/sponsers/WhatsAbhiyanth'
 import WhatsInAbiyanth from '../components/sponsers/WhatsInAbiyanth'
+
 import BeAPartner from '../components/sponsers/BeAPartner'
+
+import PerksAndBenifitsInSponsers from '../components/sponsers/perksAndBenifitsInSponsers'
+
 
 export default function Sponsers() {
   return (
@@ -16,6 +20,7 @@ export default function Sponsers() {
       </div>
       <WhatsInAbiyanth/>
       <GradientBorderComponent/>
+      <PerksAndBenifitsInSponsers/>
       <PastSponsers/>
      <BeAPartner/>
     </div>

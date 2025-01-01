@@ -1,0 +1,127 @@
+.perks-benifits-sponsers-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.3rem;
+}
+.perks-benifits-sponsers-heading{
+    color: #FFF;
+    text-align: center;
+    font-family: Audiowide;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 15px;
+}
+
+.table-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 100%; 
+    margin: 1.5rem;
+}
+table {
+    border-collapse: separate;
+    border-spacing: 0 5px;
+    width: 100%;
+}
+
+tbody tr {
+    margin: 0; 
+}
+tr{
+    margin-bottom: 2rem;
+}
+
+td {
+    color: white;
+    padding: 0.3rem;
+    border: none;
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 550;
+    line-height: normal;
+    text-align: center; 
+    word-break: break-all;
+    word-wrap: break-word;
+    background-color: #26264F; 
+    width: 10px;
+}
+th{
+    color: white;
+    padding: 1rem;
+    border: none;
+    font-family: Montserrat;
+    font-size: 0.9rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-align: center;
+    word-break: break-all;
+    word-wrap: break-word;
+    background-color: #26264F; 
+    width: 10px;
+}
+th:nth-child(even) ,td:nth-child(even) {
+    background-color: #0f0f3a; 
+}
+
+
+.pink-background{
+   background: var(--gradient, linear-gradient(180deg, #FF6AB7 0%, #6AE4FF 100%));
+   padding: 0.6rem;
+   border-radius: 5px;
+
+}
+
+.large-tick {
+    font-size: 30px; 
+  }
+  
+
+  
+@media only screen and (max-width: 1024px) {
+    .perks-benifits-sponsers-heading {
+      font-size: 48px;
+    }
+        
+    td, th {
+      font-size: 0.9rem;
+  }
+}
+  @media only screen and (max-width: 768px) {
+    .perks-benifits-sponsers-heading{
+      font-size: 36px; 
+    }
+    
+    
+  }
+  
+  @media only screen and (max-width: 480px) {
+    .perks-benifits-sponsers-heading {
+      font-size: 28px; 
+    }
+  
+  }
+
+
+@media only screen and (max-width: 768px) {
+    .table-container {
+      display: none;
+    }
+  
+    .accordion-container {
+      display: block;
+    }
+  }
+  
+ 
+  @media only screen and (min-width: 769px) {
+    .accordion-container {
+      display: none;
+    }
+  }
+  
