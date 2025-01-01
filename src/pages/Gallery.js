@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Typography } from "@mui/material";
 import { fetchAllImages } from "../api/getAllGalleryImages";
 import GalleryShimmer from "../components/gallery/GalleryShimmer";
+import gallery_main1 from "../assets/images/gallery_main1.webp"
+import gallery_main2 from "../assets/images/gallery_main2.webp"
+import gallery_main3 from "../assets/images/hackathon.jpeg"
+import gallery_main4 from "../assets/images/gallary_img2.jpeg"
 
 function MomentsOfPreviousAbhiyath() {
   const [imageUrls, setImages] = useState([]);
@@ -23,7 +27,8 @@ function MomentsOfPreviousAbhiyath() {
     const loadImages = async () => {
       try {
         const imageUrls = await fetchAllImages("gallery");
-        setImages(imageUrls);
+        const images=[gallery_main2,gallery_main1,gallery_main3,gallery_main4];
+        setImages(images.concat(imageUrls));
       } catch (error) {
         console.error("Error loading images:", error);
       } finally {

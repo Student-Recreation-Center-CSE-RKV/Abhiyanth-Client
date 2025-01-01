@@ -2,36 +2,35 @@ import React from "react";
 import "../../styles/sponsers.css";
 
 export default function Sponsers() {
+	const topSponsors = ["Nyra", "GFG", "VISWA", "Dalmia", "SBI"];
+	const bottomSponsors = ["Acer", "ACE", "OMNITRIX", "CGR", "twenty19"];
+
 	return (
 		<div className="container">
 			<div className="top-container">
-				<div class="navbar-container">
-					<div class="navbar">
-						<div class="navbar-item">Spotify</div>
-						<div class="navbar-item">Google</div>
-						<div class="navbar-item">Trivago</div>
-						<div class="navbar-item">Adobe</div>
-						<div class="navbar-item">Stripe</div>
-						<div class="navbar-item clone">Spotify</div>
-						<div class="navbar-item clone">Google</div>
-						<div class="navbar-item clone">Trivago</div>
-						<div class="navbar-item clone">Adobe</div>
-						<div class="navbar-item clone">Stripe</div>
+				<div className="navbar-container">
+					<div className="navbar">
+						{topSponsors.concat(topSponsors).map((sponsor, index) => (
+							<div
+								className={`navbar-item ${index >= topSponsors.length ? "clone" : ""}`}
+								key={index}
+							>
+								{sponsor}
+							</div>
+						))}
 					</div>
 				</div>
-				<p className="main-heading">Sponsers </p>
-				<div class="navbar-container1">
-					<div class="navbar1">
-						<div class="navbar-item">Puma</div>
-						<div class="navbar-item">Airbnb</div>
-						<div class="navbar-item">Pinterest</div>
-						<div class="navbar-item">Reddit</div>
-						<div class="navbar-item">Adidas</div>
-						<div class="navbar-item clone">Puma</div>
-						<div class="navbar-item clone">Airbnb</div>
-						<div class="navbar-item clone">Pinterest</div>
-						<div class="navbar-item clone">Reddit</div>
-						<div class="navbar-item clone">Adidas</div>
+				<p className="main-heading">Sponsors</p>
+				<div className="navbar-container1">
+					<div className="navbar1">
+						{bottomSponsors.concat(bottomSponsors).map((sponsor, index) => (
+							<div
+								className={`navbar-item ${index >= bottomSponsors.length ? "clone" : ""}`}
+								key={index}
+							>
+								{sponsor}
+							</div>
+						))}
 					</div>
 				</div>
 			</div>
@@ -42,36 +41,24 @@ export default function Sponsers() {
 						src="images/image40g.png"
 						alt="abc image"
 						className="image1"
-					></img>
+					/>
 				</h2>
-				<div className="content-container ">
-					<div className="left-para ">
-						Every Spring, Rajiv Gandhi University Comes Alive with Abhiyanth,
-						Our Annual Tech and Cultural Fest That Celebrates the Spirit of
-						Creativity and Technical Brilliance. Abhiyanth 2024 is Scheduled For
-						The Month of March and Promises To Bring Together Innovators,
-						Performers, and Enthusiasts From Various Walks of Life. With
-						Workshops, Hackathons, Exhibitions, and Food Lovers From Across The
-						Region.
+				<div className="content-container">
+					<div className="left-para">
+						Abhiyanth takes place every spring, transforming our university into a vibrant hub of innovation and creativity. From hackathons to cultural showcases, this event fosters connections among tech enthusiasts, performers, and innovators. Abhiyanth 2024 promises an exhilarating experience, offering something for everyone.
 						<img
 							src="images/image2.png"
 							alt="abc image"
 							className="image2"
-						></img>
+						/>
 					</div>
 					<div className="right-para">
-						Every Spring, Rajiv Gandhi University Comes Alive with Abhiyanth,
-						Our Annual Tech and Cultural Fest That Celebrates the Spirit of
-						Creativity and Technical Brilliance. Abhiyanth 2024 is Scheduled For
-						The Month of March and Promises To Bring Together Innovators,
-						Performers, and Enthusiasts From Various Walks of Life. With
-						Workshops, Hackathons, Exhibitions, and Food Lovers From Across The
-						Region.
+						Abhiyanth is not just a celebration but a platform that encourages collaboration, learning, and growth. It provides students with opportunities to showcase their talents, network with like-minded individuals, and explore the intersection of technology and art. Join us in celebrating this unique blend of culture and innovation.
 					</div>
 				</div>
 				<div style={{ textAlign: "right" }}>
 					<h2 className="right-heading">
-						WHY WE CELEBRATE <br></br>ABHIYANTH?
+						WHY WE CELEBRATE <br /> ABHIYANTH?
 					</h2>
 				</div>
 			</div>
