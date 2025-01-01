@@ -6,13 +6,15 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import EmailIcon from '@mui/icons-material/Email';
 
 
-const OurTeamCard = ({ image, name, githubURL, linkdeinURL, instagramURL, email }) => {
+const OurTeamCard = ({ image, name, githubURL, linkdeinURL, instagramURL, email,contact="",position="" }) => {
   return (
     <Box sx={styles.cardContainer}>
       <Box sx={styles.cardBackground}>
         {image && <img src={image} alt={name} style={styles.image} onContextMenu={(e) => e.preventDefault()} />}
         <Box sx={styles.textContainer}>
           {name && <Typography sx={styles.nameText}>{name}</Typography>}
+          {contact && <Typography sx={{...styles.nameText,fontSize:"1rem"}} >{position}</Typography>}
+          {contact && <Typography sx={{...styles.nameText,fontSize:"1rem"}}>{contact}</Typography>}
           <Box sx={styles.iconContainer}>
             {githubURL && (
               <IconButton component="a" href={githubURL} target="_blank" rel="noopener noreferrer">
@@ -93,7 +95,7 @@ const styles = {
     alignItems: 'center',
   },
   nameText: {
-    fontSize: '1.5rem',
+    fontSize: {sm:"1.1rem",md:'1.5rem'},
     color: 'white',
     fontFamily: 'Audiowide, sans-serif',
     fontWeight: '400',
