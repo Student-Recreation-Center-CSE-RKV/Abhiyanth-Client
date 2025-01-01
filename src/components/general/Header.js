@@ -128,7 +128,7 @@ function Header() {
 
   return (
     <Box>
-      <AppBar position="fixed" sx={{ borderRadius: "0px 0px 30px 30px", backgroundColor: "rgb(137,112,162,0.8)", zIndex: "2" }}>
+      <AppBar position="fixed" sx={{ borderRadius: "0px 0px 30px 30px", backgroundColor: "rgb(137,112,162,0.8)", zIndex: "7" }}>
         <Toolbar sx={styles.menubar}>
           <nav>
             <Button variant="text" sx={styles.textStyles} onClick={() => navigate("/")}>

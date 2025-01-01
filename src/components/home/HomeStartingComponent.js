@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { audience, abhiyanthLogo, maskGroup } from '../../assets/images';
 import logo from "../../assets/images/Rgukt_Logo_White.png";
 import { Box, Typography, useMediaQuery } from '@mui/material';
 import { motion } from 'framer-motion';
 import CountdownTimer from './timer';
-import backi from "../../assets/images/launching_back.jpeg";
+import confetti from 'canvas-confetti'; // Import confetti
+import { Margin } from '@mui/icons-material';
 
 export default function HomeStartingComponent() {
     const styles = {
@@ -18,13 +19,13 @@ export default function HomeStartingComponent() {
         },
         title: {
             fontFamily: 'Audiowide',
-            fontSize: { xs: '10px', sm: '30px', md: '50px', lg: '70px' },
+            fontSize: { xs: '10px', sm: '30px', md: '45px', lg: '60px' },
             fontWeight: 400,
             lineHeight: "normal",
             width: "100%",
             letterSpacing: '0.19em',
             position: "absolute",
-            bottom: "14%",
+            bottom: "5%",
             left: "50%",
             transform: "translateX(-50%)",
             textAlign: 'center',
@@ -32,11 +33,11 @@ export default function HomeStartingComponent() {
         },
         subtitle: {
             fontFamily: 'Audiowide',
-            fontSize: { xs: '8px', sm: '18px', md: '25px', lg: '30px' },
+            fontSize: { xs: '8px', sm: '18px', md: '22px', lg: '25px' },
             fontWeight: 300,
             letterSpacing: '0.15em',
             position: "absolute",
-            bottom: "10%",
+            bottom: "2%",
             left: "50%",
             transform: "translateX(-50%)",
             textAlign: 'center',
@@ -89,7 +90,10 @@ export default function HomeStartingComponent() {
         },
         timer: {
             fontFamily: 'Audiowide',
-            fontSize: { xs: '20px', sm: '30px', md: '45px', lg: "50px" },
+            fontSize: { xs: '22px', sm: '30px', md: '45px', lg: "50px" },
+            padding:{xs:"0"},
+            margin:{xs:"0"},
+            fontSize: { xs: '18px', sm: '27px', md: '45px', lg: "50px" },
             fontWeight: 500,
             color: 'white',
             textAlign: 'center',
@@ -97,6 +101,92 @@ export default function HomeStartingComponent() {
     };
 
     const istitleVisible = useMediaQuery('(max-width:800px)');
+
+    useEffect(() => {
+        // Triggering Side Cannons Confetti
+        const end = Date.now() + 3 * 1000; // 3 seconds
+        const colors = ["#a786ff", "#fd8bbc", "#eca184", "#f8deb1"];
+        const frame = () => {
+            if (Date.now() > end) return;
+
+            confetti({
+                particleCount: 2,
+                angle: 60,
+                spread: 55,
+                startVelocity: 60,
+                origin: { x: 0, y: 0.5 },
+                colors: colors,
+            });
+            confetti({
+                particleCount: 2,
+                angle: 120,
+                spread: 55,
+                startVelocity: 60,
+                origin: { x: 1, y: 0.5 },
+                colors: colors,
+            });
+
+            requestAnimationFrame(frame);
+        };
+        frame();
+
+        // Triggering Emoji Confetti
+        const scalar = 2;
+        const unicorn = confetti.shapeFromText({ text: "🦄", scalar });
+        const defaults = {
+            spread: 360,
+            ticks: 60,
+            gravity: 0,
+            decay: 0.96,
+            startVelocity: 20,
+            shapes: [unicorn],
+            scalar,
+        };
+        const shoot = () => {
+            confetti({
+                ...defaults,
+                particleCount: 30,
+            });
+            confetti({
+                ...defaults,
+                particleCount: 5,
+            });
+            confetti({
+                ...defaults,
+                particleCount: 15,
+                scalar: scalar / 2,
+                shapes: ["circle"],
+            });
+        };
+
+        setTimeout(shoot, 0);
+        setTimeout(shoot, 100);
+        setTimeout(shoot, 200);
+
+        // Triggering Fireworks Confetti
+        const duration = 5 * 1000;
+        const animationEnd = Date.now() + duration;
+        const randomInRange = (min, max) =>
+            Math.random() * (max - min) + min;
+        const interval = window.setInterval(() => {
+            const timeLeft = animationEnd - Date.now();
+            if (timeLeft <= 0) {
+                return clearInterval(interval);
+            }
+
+            const particleCount = 50 * (timeLeft / duration);
+            confetti({
+                ...defaults,
+                particleCount,
+                origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
+            });
+            confetti({
+                ...defaults,
+                particleCount,
+                origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
+            });
+        }, 250);
+    }, []);
 
     return (
         <div>
@@ -152,7 +242,7 @@ export default function HomeStartingComponent() {
                         RGUKT RK Valley
                     </Typography>
                 </Box>
-                <Box sx={{ position: 'absolute', top: '24%', left: '50%', transform: 'translateX(-50%)' }}>
+                <Box sx={{ position: 'absolute', top: '20%', left: '50%', transform: 'translateX(-50%)' }}>
                     <Typography sx={styles.timer}>
                         <CountdownTimer targetDate={"2025-02-27T00:00:00"} />
                     </Typography>
@@ -168,17 +258,24 @@ export default function HomeStartingComponent() {
                         <motion.img
                             src={abhiyanthLogo}
                             alt="Ablogo"
-                            style={{ width: '100%', height: 'auto', objectFit: "fill", bottom: "40px", paddingLeft: { xs: "20px" } }}
-                            animate={{ x: 10, y: [0, -50, 0] }}
+                            style={{
+                                width: '100%',
+                                height: 'auto',
+                                objectFit: "fill",
+                                bottom: "40px",
+                                paddingLeft: "20px", 
+                            }}
+                            animate={{ y: [0, -50, 0] }} // Up and down movement only
                             transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
                         />
-                        <img src={maskGroup} alt="Mask Group" style={{ width: '287px', height: '150px', objectFit: "fill", position: 'absolute', bottom: { xm: '20px', sm: '10px', md: "10px" }, top: "140px", right: "10px", left: "10px" }} />
+
+                        <img src={maskGroup} alt="Mask Group" style={{ width: '300px', height: '160px', objectFit: "fill", position: 'absolute', bottom: { xm: '20px', sm: '10px', md: "10px" }, top: "140px", right: "10px", left: "10px" }} />
                     </Box>
                 </Box>
                 {istitleVisible ? null : (
                     <>
                         <Typography sx={styles.title}>ABHIYANTH 2K25</Typography>
-                        <Typography sx={styles.subtitle}>#AbhiyathKishor</Typography>
+                        <Typography sx={styles.subtitle}>#AbhiyathKashor</Typography>
                     </>
                 )}
                 <Box sx={{ position: 'absolute', top: '30%', left: "0" }}>

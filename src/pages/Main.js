@@ -1,12 +1,12 @@
 import React from 'react';
 import Header from '../components/general/Header';
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Footer from '../components/general/Footer';
-import { useState } from 'react'
-
 
 export default function Main({flag}) {
- 
+  const location = useLocation();
+  const showHeaderAndFooter = location.pathname !== "/";
+
   const styles = {
     mainContainer: {
       display: 'flex',
@@ -22,16 +22,16 @@ export default function Main({flag}) {
   };
 
   return (
-
     <div style={styles.mainContainer}>
-      {flag && (<Header />)}
-
+      {(showHeaderAndFooter || flag) && <Header />}
       <div style={styles.contentContainer}>
-        <Outlet/>
+        <Outlet />
       </div>
-      {flag && (<div style={styles.footerContainer}>
-        <Footer />
-      </div>)}
+      {(showHeaderAndFooter || flag) && (
+        <div style={styles.footerContainer}>
+          <Footer />
+        </div>
+      )}
     </div>
   );
 }
