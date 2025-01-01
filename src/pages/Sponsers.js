@@ -1,17 +1,23 @@
 import React from 'react'
-import Sponser from '../components/home/Sponsers'
 import Brochure from '../components/sponsers/Broucher'
-import BeAPartner from '../components/sponsers/BeAPartner'
-import WhatsInAbiyanth from '../components/sponsers/WhatsInAbiyanth'
 import GradientBorderComponent from '../components/general/GradientBorderComponet'
+import PastSponsers from '../components/sponsers/PastSponsers'
+import WhatsAbhiyanth from '../components/sponsers/WhatsAbhiyanth'
+import WhatsInAbiyanth from '../components/sponsers/WhatsInAbiyanth'
+import BeAPartner from '../components/sponsers/BeAPartner'
 
 export default function Sponsers() {
   return (
-    <div style={{paddingTop:"40px"}}>
-      <Brochure/>
+    <div>
+      <WhatsAbhiyanth/>
       <GradientBorderComponent/>
+      <div style={{paddingTop:"40px"}}>
+      <Brochure />
+      </div>
       <WhatsInAbiyanth/>
-      <BeAPartner/>
+      <GradientBorderComponent/>
+      <PastSponsers/>
+     <BeAPartner/>
     </div>
   )
 }
