@@ -1,5 +1,5 @@
 import React from 'react'
-import './PerksAndBenifitsInSponsers.css'
+import '../../styles/PerksAndBenifitsInSponsers.css'
 import PerksAndBenefitsAccordion from './perksAndBenifitsAccordian'
 
 

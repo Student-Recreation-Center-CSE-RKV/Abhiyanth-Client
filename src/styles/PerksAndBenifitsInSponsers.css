@@ -3,9 +3,6 @@
     flex-direction: column;
     justify-content: center;
     gap: 1.3rem;
-    border-top: 3px solid;
-    border-image-source: linear-gradient(to right, #261E35, #C91C75, #EFE1EE, #E9C0DA, #E4AACC, #C91C75, #261E35);
-    border-image-slice: 1;
 }
 .perks-benifits-sponsers-heading{
     color: #FFF;
@@ -74,7 +71,7 @@ th:nth-child(even) ,td:nth-child(even) {
 
 
 .pink-background{
-   background-color: rgb(208, 9, 235);
+   background: var(--gradient, linear-gradient(180deg, #FF6AB7 0%, #6AE4FF 100%));
    padding: 0.6rem;
    border-radius: 5px;
 
