@@ -2,8 +2,8 @@ import React from "react";
 import "../../styles/sponsers.css";
 
 export default function Sponsers() {
-	const topSponsors = ["Nyra", "GFG", "VISWA", "Dalmia", "SBI"];
-	const bottomSponsors = ["Acer", "ACE", "OMNITRIX", "CGR", "twenty19"];
+	const topSponsors = ["Nyra", "VISWA", "Dalmia", "SBI"];
+	const bottomSponsors = ["Acer", "ACE", "omnytrix", "CGR", "twenty19"];
 
 	return (
 		<div className="container">
