@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 
@@ -30,13 +31,10 @@ const SponsorshipPage = () => {
                     transform: 'rotate(-90deg)',
                     transformOrigin: 'left center',
                     color: '#9747FF',
-
                     width: 'fit-content',
                     maxWidth: '150px',
                     textAlign: 'center',
                     fontSize: "28px",
-
-
                     fontWeight: '400',
                     letterSpacing: '2px',
                     whiteSpace: 'normal',
@@ -50,9 +48,6 @@ const SponsorshipPage = () => {
                 style={{
                     flex: 1,
                     display: 'flex',
-
-                    gap: '5',
-
                     flexDirection: 'column',
                     width: '60%',
                     alignItems: 'center',
@@ -61,49 +56,8 @@ const SponsorshipPage = () => {
                     zIndex: 2,
                 }}
             >
-
-                
-                <Box
-
-                    sx={{
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        borderBottom: '2px solid #FFFFFF',
-                        mb: 2,
-                        py: 1,
-                    }}
-                >
-                    <Typography
-                        variant="h5" // Variant for consistent heading style
-                        sx={{
-                            flex: 1,
-                            textAlign: 'center',
-                            color: '#8C52FF',
-                            textTransform: 'uppercase',
-                            fontSize: { xs: '1.2rem', sm: '1.4rem', md: '1.5rem' }, // Responsive font sizes
-                            m: 0,
-                        }}
-                    >
-                        Category
-                    </Typography>
-                    <Typography
-                        variant="h5" // Variant for consistent heading style
-                        sx={{
-                            flex: 1,
-                            textAlign: 'center',
-                            textTransform: 'uppercase',
-                            fontSize: { xs: '1.2rem', sm: '1.4rem', md: '1.5rem' }, // Responsive font sizes
-                            m: 0,
-                        }}
-                    >
-                        Acceptability
-                    </Typography>
-
-
-
-                </Box>
-
-
+                {/* Heading */}
+    
 
                 {/* Table Section */}
                 <div
@@ -126,9 +80,9 @@ const SponsorshipPage = () => {
                                 style={{
                                     flex: 1,
                                     textAlign: 'center',
-                                    padding: '10px',
-                                    fontWeight: 'bold',
-                                    color: '#8C52FF',
+                                    padding: '10px',               
+                                    color: index ===0?'#6AE4FF' :'#9747FF',
+                                    fontWeight: index === 0 ? 'bold' : 'normal',
                                 }}
                             >
                                 {item.category}
@@ -138,7 +92,8 @@ const SponsorshipPage = () => {
                                     flex: 1,
                                     textAlign: 'center',
                                     padding: '10px',
-                                    color: '#FFFFFF',
+                                    color: index===0 ? 'rgb(201, 28, 117)' : '#FFFFFF',
+                                    fontWeight: index === 0 ? 'bold' : 'normal',
                                 }}
                             >
                                 {item.acceptability}
@@ -152,5 +107,4 @@ const SponsorshipPage = () => {
 };
 
 export default SponsorshipPage;
-
 
