@@ -1,8 +1,8 @@
-
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 
 const sponsorshipData = [
+    { category: "Category", acceptability: "Acceptability" },
     { category: "Online Partner", acceptability: "Online coverage and promotion of the event before and during the event and post-event release" },
     { category: "Print Media Partner", acceptability: "Articles on all events and advertisements in city edition" },
     { category: "Travel Partner", acceptability: "Travel expenditure of outstation teams" },
@@ -14,11 +14,11 @@ const SponsorshipPage = () => {
         <div
             style={{
                 position: 'relative',
-
                 color: 'white',
                 display: 'flex',
                 fontFamily: 'Audiowide, sans-serif', // Applied Audiowide font globally
                 overflow: 'hidden',
+                minHeight: '100vh', // Ensure full viewport height
             }}
         >
             {/* Rotated "BE A PARTNER" Text */}
@@ -26,18 +26,23 @@ const SponsorshipPage = () => {
                 style={{
                     position: 'absolute',
                     top: '50%',
-                    transform: 'rotate(-90deg) translateY(-50%)',
+                    left: '10%',
+                    transform: 'rotate(-90deg)',
+                    transformOrigin: 'left center',
                     color: '#9747FF',
-                    width: '20%',
+
+                    width: 'fit-content',
+                    maxWidth: '150px',
                     textAlign: 'center',
-                    fontSize: '40px',
+                    fontSize: "28px",
+
+
                     fontWeight: '400',
                     letterSpacing: '2px',
-                    whiteSpace: 'nowrap',
+                    whiteSpace: 'normal',
                 }}
             >
-                BE <br></br>
-                A PARTNER
+                BE A<br /> PARTNER
             </div>
 
             {/* Main Content */}
@@ -45,7 +50,9 @@ const SponsorshipPage = () => {
                 style={{
                     flex: 1,
                     display: 'flex',
+
                     gap: '5',
+
                     flexDirection: 'column',
                     width: '60%',
                     alignItems: 'center',
@@ -54,12 +61,13 @@ const SponsorshipPage = () => {
                     zIndex: 2,
                 }}
             >
-                {/* Headings */}
+
+                
                 <Box
+
                     sx={{
                         display: 'flex',
                         justifyContent: 'space-between',
-                        width: '60%',
                         borderBottom: '2px solid #FFFFFF',
                         mb: 2,
                         py: 1,
@@ -90,7 +98,11 @@ const SponsorshipPage = () => {
                     >
                         Acceptability
                     </Typography>
+
+
+
                 </Box>
+
 
 
                 {/* Table Section */}
@@ -140,4 +152,5 @@ const SponsorshipPage = () => {
 };
 
 export default SponsorshipPage;
+
 
