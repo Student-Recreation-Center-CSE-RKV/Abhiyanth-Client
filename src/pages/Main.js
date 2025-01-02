@@ -23,15 +23,15 @@ export default function Main({flag}) {
 
   return (
     <div style={styles.mainContainer}>
-      {(showHeaderAndFooter || flag) && <Header />}
+      <Header />
       <div style={styles.contentContainer}>
         <Outlet />
       </div>
-      {(showHeaderAndFooter || flag) && (
+      
         <div style={styles.footerContainer}>
           <Footer />
         </div>
-      )}
+    
     </div>
   );
 }
