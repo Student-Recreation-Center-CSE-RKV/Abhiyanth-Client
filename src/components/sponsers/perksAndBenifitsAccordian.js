@@ -96,7 +96,7 @@ export default function AccordionExpandDefault() {
             id={`panel${index}-header`}
             className={`accordion-header ${index % 2 === 0 ? 'color-1' : 'color-2'}`} // Alternating colors
           >
-            <Typography component="span" >{benefit.heading }</Typography>
+            <Typography component="span" sx={{fontWeight:"4rem"}}>{benefit.heading }</Typography>
           </AccordionSummary>
           <AccordionDetails>
           {benefit.details.map((detail, i) => (

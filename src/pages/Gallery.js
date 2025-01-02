@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Typography } from "@mui/material";
 import { fetchAllImages } from "../api/getAllGalleryImages";
 import GalleryShimmer from "../components/gallery/GalleryShimmer";
+import gallery_main1 from "../assets/images/gallery_main1.webp"
+import gallery_main2 from "../assets/images/gallery_main2.webp"
+import gallery_main3 from "../assets/images/hackathon.jpeg"
+import gallery_main4 from "../assets/images/gallary_img2.jpeg"
 
 function MomentsOfPreviousAbhiyath() {
   const [imageUrls, setImages] = useState([]);
@@ -23,7 +27,8 @@ function MomentsOfPreviousAbhiyath() {
     const loadImages = async () => {
       try {
         const imageUrls = await fetchAllImages("gallery");
-        setImages(imageUrls);
+        const images=[gallery_main2,gallery_main1,gallery_main3,gallery_main4];
+        setImages(images.concat(imageUrls));
       } catch (error) {
         console.error("Error loading images:", error);
       } finally {
@@ -53,11 +58,11 @@ function MomentsOfPreviousAbhiyath() {
       borderRadius: "8px",
     },
     gridImage: {
-      width:"300px",
-      height:"200px",
+      width: "300px",
+      height: "200px",
       objectFit: "cover",
       opacity: 0,
-      borderRadius:"15px",
+      borderRadius: "15px",
       transition: "opacity 0.5s ease, transform 0.3s ease",
     },
     gridImageLoaded: {
@@ -78,15 +83,21 @@ function MomentsOfPreviousAbhiyath() {
     modalContent: {
       maxWidth: "90%",
       maxHeight: "90%",
+      backgroundColor: "#000",
+      padding: "10px",
       borderRadius: "10px",
-      overflow: "hidden",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
     },
     modalImage: {
       width: "100%",
       height: "100%",
       objectFit: "contain",
+      borderRadius: "10px",
     },
   };
+  
 
   return (
     <div style={styles.container}>
@@ -137,17 +148,18 @@ function MomentsOfPreviousAbhiyath() {
         </div>
       )}
 
-      {isModalOpen && (
-        <div style={styles.modal} onClick={closeModal}>
-          <div style={styles.modalContent}>
-            <img
-              src={selectedImage}
-              alt="Full view"
-              style={styles.modalImage}
-            />
-          </div>
-        </div>
-      )}
+{isModalOpen && (
+  <div style={styles.modal} onClick={closeModal}>
+    <div style={styles.modalContent}>
+      <img
+        src={selectedImage}
+        alt="Full view"
+        style={styles.modalImage}
+      />
+    </div>
+  </div>
+)}
+
     </div>
   );
 }

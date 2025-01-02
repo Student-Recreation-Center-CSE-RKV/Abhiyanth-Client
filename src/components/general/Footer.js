@@ -74,10 +74,10 @@ const Footer = () => {
                             src={src_logo}
                             alt="SRC Logo"
                             className="footer-image"
-                            style={{ height: "30px", width: "30px", margin: "5px", borderRadius: "50%", cursor: "pointer" }}
+                            style={{ height: "40px", width: "40px", margin: "5px", borderRadius: "50%", cursor: "pointer" }}
                             onClick={() => window.open("https://www.linkedin.com/company/src-rgukt-rkvalley/", "_blank")}
                         />
-                        <p style={{ fontSize: "14px", fontWeight: 400, fontFamily: "Inter" }}>Powered by SRC @CSE</p>
+                        <p style={{ fontSize: "18px", fontWeight: 400, fontFamily: "Inter" }}>Powered by SRC @CSE</p>
                     </div>
                 </div>
 

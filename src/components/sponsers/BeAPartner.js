@@ -30,10 +30,13 @@ const SponsorshipPage = () => {
                     transform: 'rotate(-90deg)',
                     transformOrigin: 'left center',
                     color: '#9747FF',
+
                     width: 'fit-content',
                     maxWidth: '150px',
                     textAlign: 'center',
                     fontSize: "28px",
+
+
                     fontWeight: '400',
                     letterSpacing: '2px',
                     whiteSpace: 'normal',
@@ -47,6 +50,9 @@ const SponsorshipPage = () => {
                 style={{
                     flex: 1,
                     display: 'flex',
+
+                    gap: '5',
+
                     flexDirection: 'column',
                     width: '60%',
                     alignItems: 'center',
@@ -55,8 +61,10 @@ const SponsorshipPage = () => {
                     zIndex: 2,
                 }}
             >
-                {/* Heading */}
-                {/* <Box
+
+                
+                <Box
+
                     sx={{
                         display: 'flex',
                         justifyContent: 'space-between',
@@ -90,7 +98,12 @@ const SponsorshipPage = () => {
                     >
                         Acceptability
                     </Typography>
-                </Box> */}
+
+
+
+                </Box>
+
+
 
                 {/* Table Section */}
                 <div

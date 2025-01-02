@@ -25,16 +25,7 @@ const GalleryShimmer = () => {
                 backgroundColor: "#505050",
               }}
             />
-            <Skeleton
-              variant="text"
-              height={30}
-              width="60%"
-              animation="wave"
-              sx={{
-                marginTop: "10px",
-                backgroundColor: "#505050",
-              }}
-            />
+           
           </Card>
         </Grid>
       ))}
