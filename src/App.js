@@ -18,13 +18,13 @@ import ManageEventsByAdmin from './components/admin/ManageEventsByAdmin';
 
 
 function App() {
-  const [flag, setFlag] = useState(false);
+  
   return (
     <BrowserRouter>
       <ScrollToTop />
       <Routes>
-        <Route path='/' element={<Main flag={flag} />}>
-          <Route path="/" element={<Home flag={flag} setFlag={setFlag} />} />
+        <Route path='/' element={<Main />}>
+          <Route path="/" element={<Home  />} />
           <Route path="/about" element={<About />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/sponsers" element={<Sponsers />} />

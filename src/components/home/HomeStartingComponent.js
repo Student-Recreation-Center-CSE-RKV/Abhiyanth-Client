@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { audience, abhiyanthLogo, maskGroup } from '../../assets/images';
 import logo from "../../assets/images/Rgukt_Logo_White.png";
 import { Box, Typography, useMediaQuery } from '@mui/material';
 import { motion } from 'framer-motion';
 import CountdownTimer from './timer';
-import confetti from 'canvas-confetti'; // Import confetti
-import { Margin } from '@mui/icons-material';
+
+
 
 export default function HomeStartingComponent() {
     const styles = {
@@ -102,92 +102,7 @@ export default function HomeStartingComponent() {
 
     const istitleVisible = useMediaQuery('(max-width:800px)');
 
-    useEffect(() => {
-        // Triggering Side Cannons Confetti
-        const end = Date.now() + 3 * 1000; // 3 seconds
-        const colors = ["#a786ff", "#fd8bbc", "#eca184", "#f8deb1"];
-        const frame = () => {
-            if (Date.now() > end) return;
-
-            confetti({
-                particleCount: 2,
-                angle: 60,
-                spread: 55,
-                startVelocity: 60,
-                origin: { x: 0, y: 0.5 },
-                colors: colors,
-            });
-            confetti({
-                particleCount: 2,
-                angle: 120,
-                spread: 55,
-                startVelocity: 60,
-                origin: { x: 1, y: 0.5 },
-                colors: colors,
-            });
-
-            requestAnimationFrame(frame);
-        };
-        frame();
-
-        // Triggering Emoji Confetti
-        const scalar = 2;
-        const unicorn = confetti.shapeFromText({ text: "🦄", scalar });
-        const defaults = {
-            spread: 360,
-            ticks: 60,
-            gravity: 0,
-            decay: 0.96,
-            startVelocity: 20,
-            shapes: [unicorn],
-            scalar,
-        };
-        const shoot = () => {
-            confetti({
-                ...defaults,
-                particleCount: 30,
-            });
-            confetti({
-                ...defaults,
-                particleCount: 5,
-            });
-            confetti({
-                ...defaults,
-                particleCount: 15,
-                scalar: scalar / 2,
-                shapes: ["circle"],
-            });
-        };
-
-        setTimeout(shoot, 0);
-        setTimeout(shoot, 100);
-        setTimeout(shoot, 200);
-
-        // Triggering Fireworks Confetti
-        const duration = 5 * 1000;
-        const animationEnd = Date.now() + duration;
-        const randomInRange = (min, max) =>
-            Math.random() * (max - min) + min;
-        const interval = window.setInterval(() => {
-            const timeLeft = animationEnd - Date.now();
-            if (timeLeft <= 0) {
-                return clearInterval(interval);
-            }
-
-            const particleCount = 50 * (timeLeft / duration);
-            confetti({
-                ...defaults,
-                particleCount,
-                origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
-            });
-            confetti({
-                ...defaults,
-                particleCount,
-                origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
-            });
-        }, 250);
-    }, []);
-
+    
     return (
         <div>
             <Box sx={styles.heroContainer}>
