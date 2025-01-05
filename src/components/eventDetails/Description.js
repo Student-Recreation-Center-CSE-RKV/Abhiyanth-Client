@@ -1,8 +1,7 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Button } from "@mui/material"; // Import Button
 import { dummyImage } from "../../assets/images/index";
 import { useMediaQuery } from "@mui/material";
 import { extractDateTime } from "../../utils/timeStampToDate";
-
 
 const styles = {
   descriptionLayout: {
@@ -50,14 +49,26 @@ const styles = {
     justifyContent: "space-between",
     width: "100%",
     height: "auto"
+  },
+  registerButton: {
+    backgroundColor: "#00B093",
+    color: "#FFF",
+    fontFamily: "Audiowide",
+    fontSize: "18px",
+    fontWeight: "500",
+    textTransform: "none",
+    margin: "2% 0",
+    "&:hover": {
+      backgroundColor: "#00785F"
+    },
+
   }
 };
 
-function Description({item}) {
-  
-  const date=extractDateTime(item.date);
-  const isSmallScreen = useMediaQuery('(max-width:750px)');
-  const isMediumScreen = useMediaQuery('(max-width:1200px)');
+function Description({ item }) {
+  const date = extractDateTime(item.date);
+  const isSmallScreen = useMediaQuery("(max-width:750px)");
+  const isMediumScreen = useMediaQuery("(max-width:1200px)");
 
   const dynamicFontSize = isSmallScreen ? "16px" : isMediumScreen ? "18px" : "20px";
 
@@ -66,7 +77,11 @@ function Description({item}) {
     fontSize: dynamicFontSize
   };
 
-  const { results , organizers , links } = item;
+  const { results, organizers, links } = item;
+
+  const handleRegisterClick = () => {
+    window.open("https://forms.gle/your-google-form-id", "_blank"); // Replace with your Google Form URL
+  };
 
   return (
     <Box sx={styles.descriptionLayout}>
@@ -187,6 +202,24 @@ function Description({item}) {
           </Box>
         </Box>
       )}
+      <Box sx={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center"
+      }}>
+        {
+          item.status!=="completed"?(<Button
+            variant="contained"
+            sx={styles.registerButton}
+            onClick={handleRegisterClick}
+          >
+            Register
+          </Button>):<></>
+
+        }
+        
+      </Box>
+
       {links.length > 0 && (
         <Box>
           <Typography
@@ -215,6 +248,7 @@ function Description({item}) {
           </Box>
         </Box>
       )}
+
     </Box>
   );
 }
