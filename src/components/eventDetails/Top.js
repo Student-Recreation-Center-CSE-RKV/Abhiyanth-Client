@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import StarIcon from '@mui/icons-material/Star';
 import {dummyImage} from "../../assets/images/index";
 import {useMediaQuery}  from "@mui/material";
-import { extractDateTimeFromTimestamp } from "../../utils/timeStampToDate";
+import { extractDateTime } from "../../utils/timeStampToDate";
 
 const styles={
   TopLayout:{
@@ -57,17 +57,16 @@ const styles={
 }
 function Top({item}){
 
-  // const date=extractDateTimeFromTimestamp(item.date);
-  const [value,setValue] = useState(2);
-  const isSmallScreen = useMediaQuery('(max-width:280px)');
+  const date=extractDateTime(item.date);
+  
   
   const getStatusText = () => {
     if (item.status === "upcoming") {
-      return "DD/MM/YYYY";
+      return date.date;
     } else if (item.status === "ongoing") {
-      return "TODAY AT DD/MM/YYYY";
+      return `TODAY AT ${date.date}`;
     } else if (item.status === "completed") {
-      return "";
+      return "Completed";
     } else if (item.status === "live") {
       return (
         <Box sx={{ display: "flex", alignItems: "center", gap: "8px"}}>

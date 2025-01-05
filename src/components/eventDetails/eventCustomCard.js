@@ -8,10 +8,11 @@ import {
 	Grid2,
 } from "@mui/material";
 import {extractDateTime} from "../../utils/timeStampToDate"
+import { useNavigate } from "react-router-dom";
 
 
 export default function CustomCard({ item }) {
-
+	const navigate=useNavigate()
 	const isLive = item.status === "live";
 	const isUpcoming = item.status !== "completed";
 	const dateTime=extractDateTime(item.date)
@@ -128,19 +129,7 @@ export default function CustomCard({ item }) {
 				>
 					{item.description}
 				</Typography>
-				<Button
-					size="small"
-					sx={{
-						marginTop: 2,
-						fontFamily: "Audiowide",
-						fontSize: "18px",
-						lineHeight: "20.6px",
-						color: " #00B093",
-
-					}}
-				>
-					Read More
-				</Button>
+				
 				{isUpcoming && (
 					<>
 						<Typography
@@ -188,6 +177,20 @@ export default function CustomCard({ item }) {
 						</Typography>
 					</>
 				)}
+				<Button
+					size="small"
+					sx={{
+						marginTop: 2,
+						fontFamily: "Audiowide",
+						fontSize: "18px",
+						lineHeight: "20.6px",
+						color: " #00B093",
+
+					}}
+					onClick={()=>navigate(`/events/${item.id}`)}
+				>
+					Read More
+				</Button>
 				{/* conditional rendering */}
 			</CardContent>
 		</Card>

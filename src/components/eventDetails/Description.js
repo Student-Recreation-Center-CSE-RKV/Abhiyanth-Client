@@ -1,6 +1,8 @@
 import { Box, Typography } from "@mui/material";
 import { dummyImage } from "../../assets/images/index";
 import { useMediaQuery } from "@mui/material";
+import { extractDateTime } from "../../utils/timeStampToDate";
+
 
 const styles = {
   descriptionLayout: {
@@ -51,7 +53,9 @@ const styles = {
   }
 };
 
-function Description({ item }) {
+function Description({item}) {
+  
+  const date=extractDateTime(item.date);
   const isSmallScreen = useMediaQuery('(max-width:750px)');
   const isMediumScreen = useMediaQuery('(max-width:1200px)');
 
@@ -62,7 +66,7 @@ function Description({ item }) {
     fontSize: dynamicFontSize
   };
 
-  const { results = [], organizers = [], links = [] } = item;
+  const { results , organizers , links } = item;
 
   return (
     <Box sx={styles.descriptionLayout}>
@@ -116,7 +120,7 @@ function Description({ item }) {
           </Box>
         )}
       </Box>
-      {item.date || item.time || item.venue ? (
+      {date.date || date.time || item.venue ? (
         <Box>
           <Typography
             sx={{
@@ -129,11 +133,11 @@ function Description({ item }) {
             Event Details
           </Typography>
           <Box>
-            {item.date && (
-              <Typography sx={contentTextStyles}>Date: {item.date}</Typography>
+            {date.date && (
+              <Typography sx={contentTextStyles}>Date: {date.date}</Typography>
             )}
-            {item.time && (
-              <Typography sx={contentTextStyles}>Time: {item.time}</Typography>
+            {date.time && (
+              <Typography sx={contentTextStyles}>Time: {date.time}</Typography>
             )}
             {item.venue && (
               <Typography sx={contentTextStyles}>Venue: {item.venue}</Typography>

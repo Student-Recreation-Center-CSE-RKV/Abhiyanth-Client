@@ -1,5 +1,5 @@
 import { db } from "./firebaseConfig"; 
-import { collection,doc ,deleteDoc,setDoc,updateDoc,getDocs} from "firebase/firestore";
+import { collection,doc ,deleteDoc,setDoc,updateDoc,getDocs,getDoc} from "firebase/firestore";
 
 export const addDataToCollection = async (collectionName, data) => {
     try {      
@@ -51,5 +51,21 @@ export const updateDataById = async (collectionName, id, updatedData) => {
     } catch (error) {
       console.error("Error getting documents: ", error);
       return [];
+    }
+  };
+
+  export const getDataById = async (collectionName, id) => {
+    try {
+      const docRef = doc(db, collectionName, id); 
+      const docSnapshot = await getDoc(docRef); 
+      if (docSnapshot.exists()) {
+        return docSnapshot.data(); 
+      } else {
+        console.error("No such document!");
+        return null; 
+      }
+    } catch (error) {
+      console.error("Error getting document by ID: ", error);
+      return null; 
     }
   };
