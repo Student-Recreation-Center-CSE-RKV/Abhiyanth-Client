@@ -167,13 +167,13 @@ const AllEvents = () => {
 							</div>
 						)}
 
-						{(events.ongoing.length > 0 || events.upcoming.length > 0) && (
+						{/* {(events.ongoing.length > 0 || events.upcoming.length > 0) && (
 							<div className="alleventstext1 eventsContainer">
 								<a href="#" style={{ textDecoration: "none", color: "white" }}>
 									FULL SCHEDULE -&gt;
 								</a>
 							</div>
-						)}
+						)} */}
 
 						{events.completed.length > 0 && (
 							<div className="eventsContainer">
@@ -187,16 +187,7 @@ const AllEvents = () => {
 							</div>
 						)}
 
-						{events.completed.length > 0 && (
-							<div
-								className="alleventstext2 eventsContainer"
-								style={{ marginBlock: "2rem" }}
-							>
-								<a href="#" style={{ textDecoration: "none", color: "white" }}>
-									ANIMATIONS -&gt;
-								</a>
-							</div>
-						)}
+						
 					</>
 				)}
 			</div>

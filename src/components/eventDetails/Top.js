@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import StarIcon from '@mui/icons-material/Star';
 import {dummyImage} from "../../assets/images/index";
 import {useMediaQuery}  from "@mui/material";
+import { extractDateTime } from "../../utils/timeStampToDate";
+
 const styles={
   TopLayout:{
     margin:"3% 1%"
@@ -53,18 +55,19 @@ const styles={
 
 
 }
-function Top(){
-  const [value,setValue] = useState(2);
-  const isSmallScreen = useMediaQuery('(max-width:280px)');
-  const [status,setStatus] = useState("live");
+function Top({item}){
+
+  const date=extractDateTime(item.date);
+  
+  
   const getStatusText = () => {
-    if (status === "upcoming") {
-      return "DD/MM/YYYY";
-    } else if (status === "ongoing") {
-      return "TODAY AT DD/MM/YYYY";
-    } else if (status === "completed") {
-      return "";
-    } else if (status === "live") {
+    if (item.status === "upcoming") {
+      return date.date;
+    } else if (item.status === "ongoing") {
+      return `TODAY AT ${date.date}`;
+    } else if (item.status === "completed") {
+      return "Completed";
+    } else if (item.status === "live") {
       return (
         <Box sx={{ display: "flex", alignItems: "center", gap: "8px"}}>
           <motion.div
@@ -97,49 +100,8 @@ function Top(){
           <img src={dummyImage} alt="Event" style={{width:"100%", height:"auto", borderRadius: "16.718px"}}/>
         </Box>
       </Box>
-      <Box sx={styles.RatingLayout}>
-        <Typography variant="h5" sx={styles.subHeading}>
-          {
-           isSmallScreen ? null : "Rating:"
-          }&nbsp;
-         
-        </Typography>
-          <Rating
-          name="rating"
-          value={value}
-          readOnly
-          precision={0.5}
-          emptyIcon={<StarIcon style={{ opacity: 0.55,color:"white" }} fontSize="inherit" max={5} />}
-        />
-        <Box sx={{fontFamily:"Audiowide",color:"white", fontWeight:"bold"}}>{value}/5</Box>
-      </Box>
     </Box>
   )
 }
 export default Top;
 
-
-const item={
-  "id": "event-001",
-  "name": "Hackathon 2024",
-  "description": "A 24-hour hackathon to solve real-world problems.",
-  "status": "live",
-  "date": "2024-12-23",
-  "time": "09:00:00",
-  "venue": "Tech Hall, RGUKT RK Valley",
-  "organizers": [
-    { "name": "John Doe", "mobile": "9876543210" },
-    { "name": "Jane Smith", "mobile": "9123456789" }
-  ],
-  "links": [
-    { "text": "Event Details", "link": "https://example.com/hackathon" },
-    { "text": "Submit Project", "link": "https://example.com/submit" }
-  ],
-  "results": [],
-  "images": {
-    "mainImage": "https://example.com/hackathon_main.jpg",
-    "lastImage": "https://example.com/hackathon_last.jpg",
-    "descImageLeft": "https://example.com/hackathon_left.jpg",
-    "descImageRight": "https://example.com/hackathon_right.jpg"
-  }
-}

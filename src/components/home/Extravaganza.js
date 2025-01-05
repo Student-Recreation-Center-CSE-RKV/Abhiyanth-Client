@@ -36,38 +36,32 @@ const Extravaganza = () => {
           id: 5,
           name: 'Sponsors',
           logo: 'https://via.placeholder.com/80',
-          events: ['Company A', 'Company B', 'Company C' ],
-        },
-        {
-          id: 6,
-          name: 'xplode',
-          logo: 'https://via.placeholder.com/80',
-          events: ['Company A', 'Company B', 'Company C' ],
-        },
-        {
-          id: 7,
-          name: 'Stalls',
-          logo: 'https://via.placeholder.com/80',
-          events: ['Company A', 'Company B', 'Company C' ],
-        },
-        {
-          id: 8,
-          name: 'Autions',
-          logo: 'https://via.placeholder.com/80',
-          events: ['Company A', 'Company B', 'Company C' ],
-        },
-        {
-          id: 9,
-          name: 'Bidding',
-          logo: 'https://via.placeholder.com/80',
-          events: ['Company A', 'Company B', 'Company C' ],
-        },
-        {
-          id: 10,
-          name: 'Competitions',
-          logo: 'https://via.placeholder.com/80',
-          events: ['Company A', 'Company B', 'Company C'],
-        },
+          events: ['Dalmia Cement', '', '' ],
+         },
+        // {
+        //   id: 6,
+        //   name: 'xplode',
+        //   logo: 'https://via.placeholder.com/80',
+        //   events: ['Company A', 'Company B', 'Company C' ],
+        // },
+        // {
+        //   id: 7,
+        //   name: 'Stalls',
+        //   logo: 'https://via.placeholder.com/80',
+        //   events: ['Company A', 'Company B', 'Company C' ],
+        // },
+        // {
+        //   id: 9,
+        //   name: 'Bidding',
+        //   logo: 'https://via.placeholder.com/80',
+        //   events: ['Company A', 'Company B', 'Company C' ],
+        // },
+        // {
+        //   id: 10,
+        //   name: 'Competitions',
+        //   logo: 'https://via.placeholder.com/80',
+        //   events: ['', '', ''],
+        // },
       ];
         
   return (

@@ -1,4 +1,4 @@
-import { getAllData,addDataToCollection,deleteDataById,updateDataById } from "./general"
+import { getAllData,addDataToCollection,deleteDataById,updateDataById, getDataById } from "./general"
 const collectionName=process.env.REACT_APP_FIREBASE_EVENT_COLLECTION
 
 export const getAllEvents=async()=>{
@@ -31,5 +31,10 @@ export const deleteEvent=async(id)=>{
 
 export const updateEvent=async(id,updatedData)=>{
     const res=await updateDataById(collectionName,id,updatedData);
+    return res;
+}
+
+export const getEventById=async(id)=>{
+    const res=await getDataById(collectionName,id);
     return res;
 }
