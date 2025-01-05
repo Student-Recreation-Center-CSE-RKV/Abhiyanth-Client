@@ -7,7 +7,7 @@ const uploadImage = async (image, collectionName) => {
 
   try {
     // Reference to the storage path
-    const storageRef = ref(storage, `images/${image.name}`);
+    const storageRef = ref(storage, `${collectionName}/${image.name}`);
 
     // Upload image to Firebase Storage
     await uploadBytes(storageRef, image);
@@ -15,9 +15,7 @@ const uploadImage = async (image, collectionName) => {
     // Get the download URL for the uploaded image
     const url = await getDownloadURL(storageRef);
 
-    // Add the download URL to Firestore under the specified collection
-    const docRef = collection(db, collectionName); // Changed `firestore` to `db`
-    await addDoc(docRef, { imageUrl: url, timestamp: new Date() });
+    
 
     return url; // Return the image URL
   } catch (error) {

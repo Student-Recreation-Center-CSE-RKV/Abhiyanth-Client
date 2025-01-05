@@ -8,6 +8,7 @@ import WhatsInAbiyanth from '../components/sponsers/WhatsInAbiyanth'
 import BeAPartner from '../components/sponsers/BeAPartner'
 
 import PerksAndBenifitsInSponsers from '../components/sponsers/perksAndBenifitsInSponsers'
+import CurrentSponsors from '../components/sponsers/CurrentSponsors'
 
 
 export default function Sponsers() {
@@ -24,7 +25,8 @@ export default function Sponsers() {
       <WhatsInAbiyanth/>
       <GradientBorderComponent/>
       <PerksAndBenifitsInSponsers/>
-      
+      <GradientBorderComponent/>
+      <CurrentSponsors/>
       <PastSponsers/>
      
     </div>

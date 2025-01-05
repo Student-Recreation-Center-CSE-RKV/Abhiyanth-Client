@@ -11,10 +11,8 @@ import Sponsers from './pages/Sponsers';
 import OurTeam from './pages/OurTeam';
 import EventDetails from './pages/EventDetails';
 import AllEvents from './components/eventDetails/allEvents';
-import { useState } from 'react';
 import ScrollToTop from './components/general/ScrollToTop';
-import SponsersAdmin from './components/admin/sponsers/sponsersAdmin';
-import ManageEventsByAdmin from './components/admin/ManageEventsByAdmin';
+
 
 
 function App() {
@@ -34,10 +32,9 @@ function App() {
           <Route path="/ourTeam" element={<OurTeam />} />
           <Route path="/allEvents" element={<AllEvents />} />
         </Route>
-        {/* <Route path="/admin" element={<Admin />}>
-          <Route path='events' element={<ManageEventsByAdmin />} />
-          <Route path='sponsers' element={<SponsersAdmin />} />
-        </Route> */}
+        <Route path="/admin" element={<Admin />}/>
+         
+        
       </Routes>
     </BrowserRouter>
   );
