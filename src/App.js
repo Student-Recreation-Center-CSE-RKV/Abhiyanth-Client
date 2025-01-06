@@ -11,6 +11,7 @@ import OurTeam from './pages/OurTeam';
 import EventDetails from './pages/EventDetails';
 import AllEvents from './components/eventDetails/allEvents';
 import ScrollToTop from './components/general/ScrollToTop';
+import ContactUs from './pages/ContactUs';
 
 function App() {
   
@@ -27,6 +28,7 @@ function App() {
           <Route path="/ourTeam" element={<OurTeam />} />
           <Route path="/events" element={<AllEvents />} />
           <Route path="/events/:id" element={<EventDetails />} />
+          <Route path="/contactUs" element={<ContactUs/>} />
         </Route>
         {/* <Route path="/admin" element={<Admin />}/> */}
          
