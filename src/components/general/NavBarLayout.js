@@ -7,23 +7,12 @@ import { AppProvider } from '@toolpad/core/AppProvider';
 import { DashboardLayout, ThemeSwitcher } from '@toolpad/core/DashboardLayout';
 import { useDemoRouter } from '@toolpad/core/internal';
 import CelebrationIcon from '@mui/icons-material/Celebration';
-import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
-import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
-import CalculateIcon from '@mui/icons-material/Calculate';
-import AssuredWorkloadIcon from '@mui/icons-material/AssuredWorkload';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import Tooltip from '@mui/material/Tooltip';
 import IconButton from '@mui/material/IconButton';
-import { Outlet, useNavigate } from 'react-router-dom';
-import StorefrontIcon from '@mui/icons-material/Storefront';
-import SportsVolleyballIcon from '@mui/icons-material/SportsVolleyball';
-import NightlifeIcon from '@mui/icons-material/Nightlife';
-import SportsScoreIcon from '@mui/icons-material/SportsScore';
-import GroupsIcon from '@mui/icons-material/Groups';
+import { useNavigate } from 'react-router-dom';
 import AcUnitIcon from '@mui/icons-material/AcUnit';
-import PhonelinkIcon from '@mui/icons-material/Phonelink';
-import CampaignIcon from '@mui/icons-material/Campaign';
-import TipsAndUpdatesIcon from '@mui/icons-material/TipsAndUpdates';
+
 import ImageUploader from '../../components/admin/sponsers/sponsersAdmin';
 import ManageEventsByAdmin from '../admin/ManageEventsByAdmin';
 
@@ -58,6 +47,10 @@ const NAVIGATION = [
       {
         segment: 'gallery',
         title: 'Gallery',
+      },
+      {
+        segment: 'galleryCarousel',
+        title: 'Gallery Carousel',
       }
     ],
   },
@@ -94,6 +87,9 @@ function DemoPageContent({ pathname }) {
     case "/Images/gallery":
       content = <ImageUploader name={"gallery"} />;
       break;
+      case "/Images/galleryCarousel":
+        content = <ImageUploader name={"galleryCarousel"} />;
+        break;
     case "/Culturals/addEvent":
       content=<ManageEventsByAdmin/>;
       break;

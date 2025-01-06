@@ -2,13 +2,15 @@ import React, { useEffect, useState } from "react";
 import { Typography } from "@mui/material";
 import { fetchAllImages } from "../api/getAllGalleryImages";
 import GalleryShimmer from "../components/gallery/GalleryShimmer";
-import gallery_main1 from "../assets/images/gallery_main1.webp"
-import gallery_main2 from "../assets/images/gallery_main2.webp"
-import gallery_main3 from "../assets/images/hackathon.jpeg"
-import gallery_main4 from "../assets/images/gallary_img2.jpeg"
+import gallery_main1 from "../assets/images/gallery_main1.webp";
+import gallery_main2 from "../assets/images/gallery_main2.webp";
+import gallery_main3 from "../assets/images/hackathon.jpeg";
+import gallery_main4 from "../assets/images/gallary_img2.jpeg";
+import ImageCarousel from "../components/general/Carousel";
 
 function MomentsOfPreviousAbhiyath() {
   const [imageUrls, setImages] = useState([]);
+  const [galleryCarousels, setCarouselImages] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const [isModalOpen, setModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
@@ -23,12 +25,39 @@ function MomentsOfPreviousAbhiyath() {
     setSelectedImage("");
   };
 
+  // Utility function to preload images
+  const preloadImages = async (urls) => {
+    return Promise.all(
+      urls.map(
+        (url) =>
+          new Promise((resolve, reject) => {
+            const img = new Image();
+            img.src = url;
+            img.onload = resolve;
+            img.onerror = reject;
+          })
+      )
+    );
+  };
+
   useEffect(() => {
     const loadImages = async () => {
       try {
-        const imageUrls = await fetchAllImages("gallery");
-        const images=[gallery_main2,gallery_main1,gallery_main3,gallery_main4];
-        setImages(images.concat(imageUrls));
+        const fetchedImageUrls = await fetchAllImages("gallery");
+        const fetchedCarouselImages = await fetchAllImages("galleryCarousel");
+
+        // Preload images before rendering
+        await preloadImages(fetchedImageUrls);
+        await preloadImages(fetchedCarouselImages);
+
+        const localImages = [
+          gallery_main2,
+          gallery_main1,
+          gallery_main3,
+          gallery_main4,
+        ];
+        setCarouselImages(fetchedCarouselImages);
+        setImages(localImages.concat(fetchedImageUrls));
       } catch (error) {
         console.error("Error loading images:", error);
       } finally {
@@ -43,7 +72,7 @@ function MomentsOfPreviousAbhiyath() {
     container: {
       padding: "20px",
       textAlign: "center",
-      paddingTop: "80px",
+      paddingTop: "30px",
     },
     grid: {
       display: "grid",
@@ -97,70 +126,73 @@ function MomentsOfPreviousAbhiyath() {
       borderRadius: "10px",
     },
   };
-  
 
   return (
-    <div style={styles.container}>
-      <Typography
-        sx={{
-          fontFamily: "Audiowide, sans-serif",
-          fontWeight: "bold",
-          marginBottom: "20px",
-          color: "#FFFFFF",
-          fontSize: {
-            xs: "30px", // Extra small screens
-            sm: "35px", // Small screens
-            md: "40px", // Medium screens
-            lg: "45px", // Large screens
-          },
-        }}
-      >
-        Moments of Previous Abhiyath
-      </Typography>
-      {isLoading ? (
-        <div >
-          
+    <>
+      <ImageCarousel images={galleryCarousels} />
+      <div style={styles.container}>
+        <Typography
+          sx={{
+            fontFamily: "Audiowide, sans-serif",
+            fontWeight: "bold",
+            marginBottom: "20px",
+            color: "#FFFFFF",
+            fontSize: {
+              xs: "30px", // Extra small screens
+              sm: "35px", // Small screens
+              md: "40px", // Medium screens
+              lg: "45px", // Large screens
+            },
+          }}
+        >
+          Moments of Previous Abhiyath
+        </Typography>
+        {isLoading ? (
+          <div>
             <GalleryShimmer />
-          
-        </div>
-      ) : (
-        <div style={styles.grid}>
-          {imageUrls.map((url, index) => (
-            <div
-              key={index}
-              style={styles.gridItem}
-              onClick={() => handleImageClick(url)}
-            >
+          </div>
+        ) : (
+          <div style={styles.grid}>
+            {imageUrls.map((url, index) => (
+              <div
+                key={index}
+                style={styles.gridItem}
+                onClick={() => handleImageClick(url)}
+              >
+                <img
+                  src={url}
+                  alt={`Abhiyath Moment ${index + 1}`}
+                  loading="lazy"
+                  style={{
+                    ...styles.gridImage,
+                    ...(isLoading ? {} : styles.gridImageLoaded),
+                  }}
+                  onLoad={(e) => (e.target.style.opacity = 1)}
+                  onMouseOver={(e) =>
+                    (e.target.style.transform = "scale(1.1)")
+                  }
+                  onMouseOut={(e) =>
+                    (e.target.style.transform = "scale(1)")
+                  }
+                />
+              </div>
+            ))}
+          </div>
+        )}
+
+        {isModalOpen && (
+          <div style={styles.modal} onClick={closeModal}>
+            <div style={styles.modalContent}>
               <img
-                src={url}
-                alt={`Abhiyath Moment ${index + 1}`}
-                style={
-                  isLoading
-                    ? styles.gridImage
-                    : { ...styles.gridImage, ...styles.gridImageLoaded }
-                }
-                onLoad={(e) => (e.target.style.opacity = 1)}
-                onMouseOver={(e) => (e.target.style.transform = "scale(1.1)")}
-                onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+                src={selectedImage}
+                alt="Full view"
+                style={styles.modalImage}
               />
             </div>
-          ))}
-        </div>
-      )}
-
-{isModalOpen && (
-  <div style={styles.modal} onClick={closeModal}>
-    <div style={styles.modalContent}>
-      <img
-        src={selectedImage}
-        alt="Full view"
-        style={styles.modalImage}
-      />
-    </div>
-  </div>
-)}
-
-    </div>
+          </div>
+        )}
+      </div>
+    </>
   );
 }
 
