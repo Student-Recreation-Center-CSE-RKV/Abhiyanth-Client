@@ -12,7 +12,7 @@ const CarouselShimmer = () => {
     alignItems: "center",
     flexDirection: "column",
     width: "100%",
-    height: isSmallScreen ? "50vh" : "80vh", // Adjust height based on screen size
+    height: isSmallScreen ? "37vh" : "80vh", // Adjust height based on screen size
     borderRadius: "10px",
     overflow: "hidden",
     padding: "10px",

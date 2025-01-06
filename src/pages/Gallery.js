@@ -146,7 +146,10 @@ function MomentsOfPreviousAbhiyath() {
   return (
     <>
       {isLoadingCarousels ? (
-        <CarouselShimmer/>
+        <div style={{marginTop:"60px"}}>
+          <CarouselShimmer/>
+        </div>
+        
       ) : (
         <ImageCarousel images={galleryCarousels} />
       )}

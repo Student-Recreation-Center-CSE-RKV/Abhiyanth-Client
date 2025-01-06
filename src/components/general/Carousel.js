@@ -35,7 +35,7 @@ const ImageCarousel = ({ images }) => {
             style={{
               padding:"10px",
               width: "100%",
-              height: isSmallScreen ? "50vh" : "80vh",
+              height: isSmallScreen ? "37vh" : "80vh",
               borderRadius: "8px",
               objectFit: "cover",
               
