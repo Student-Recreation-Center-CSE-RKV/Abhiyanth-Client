@@ -7,11 +7,13 @@ import gallery_main2 from "../assets/images/gallery_main2.webp";
 import gallery_main3 from "../assets/images/hackathon.jpeg";
 import gallery_main4 from "../assets/images/gallary_img2.jpeg";
 import ImageCarousel from "../components/general/Carousel";
+import CarouselShimmer from "../components/gallery/CarouselShimmer";
 
 function MomentsOfPreviousAbhiyath() {
   const [imageUrls, setImages] = useState([]);
   const [galleryCarousels, setCarouselImages] = useState([]);
-  const [isLoading, setLoading] = useState(true);
+  const [isLoadingCarousels, setLoadingCarousels] = useState(true);
+  const [isLoadingGallery, setLoadingGallery] = useState(true);
   const [isModalOpen, setModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
 
@@ -41,31 +43,44 @@ function MomentsOfPreviousAbhiyath() {
   };
 
   useEffect(() => {
-    const loadImages = async () => {
+    const loadCarouselImages = async () => {
+      try {
+        const fetchedCarouselImages = await fetchAllImages("galleryCarousel");
+        await preloadImages(fetchedCarouselImages); // Preload carousel images
+        setCarouselImages(fetchedCarouselImages);
+      } catch (error) {
+        console.error("Error loading carousel images:", error);
+      } finally {
+        setLoadingCarousels(false);
+      }
+    };
+
+    const loadGalleryImages = async () => {
       try {
         const fetchedImageUrls = await fetchAllImages("gallery");
-        const fetchedCarouselImages = await fetchAllImages("galleryCarousel");
-
-        // Preload images before rendering
-        await preloadImages(fetchedImageUrls);
-        await preloadImages(fetchedCarouselImages);
-
         const localImages = [
           gallery_main2,
           gallery_main1,
           gallery_main3,
           gallery_main4,
         ];
-        setCarouselImages(fetchedCarouselImages);
+
+        await preloadImages(fetchedImageUrls); // Preload gallery images
         setImages(localImages.concat(fetchedImageUrls));
       } catch (error) {
-        console.error("Error loading images:", error);
+        console.error("Error loading gallery images:", error);
       } finally {
-        setLoading(false);
+        setLoadingGallery(false);
       }
     };
 
-    loadImages();
+    // First load and handle carousel images, then fetch gallery images
+    const initialize = async () => {
+      await loadCarouselImages();
+      loadGalleryImages(); // Start loading gallery images after carousel
+    };
+
+    initialize();
   }, []);
 
   const styles = {
@@ -129,7 +144,11 @@ function MomentsOfPreviousAbhiyath() {
 
   return (
     <>
-      <ImageCarousel images={galleryCarousels} />
+      {isLoadingCarousels ? (
+        <CarouselShimmer/>
+      ) : (
+        <ImageCarousel images={galleryCarousels} />
+      )}
       <div style={styles.container}>
         <Typography
           sx={{
@@ -147,7 +166,7 @@ function MomentsOfPreviousAbhiyath() {
         >
           Moments of Previous Abhiyath
         </Typography>
-        {isLoading ? (
+        {isLoadingGallery ? (
           <div>
             <GalleryShimmer />
           </div>
@@ -165,7 +184,7 @@ function MomentsOfPreviousAbhiyath() {
                   loading="lazy"
                   style={{
                     ...styles.gridImage,
-                    ...(isLoading ? {} : styles.gridImageLoaded),
+                    ...(isLoadingGallery ? {} : styles.gridImageLoaded),
                   }}
                   onLoad={(e) => (e.target.style.opacity = 1)}
                   onMouseOver={(e) =>
