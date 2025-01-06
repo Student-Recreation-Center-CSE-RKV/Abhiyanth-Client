@@ -1,15 +1,18 @@
 // src/components/CarouselShimmer.js
 import React from "react";
-import { Box, Skeleton } from "@mui/material";
+import { Box, Skeleton, useMediaQuery, useTheme } from "@mui/material";
 
 const CarouselShimmer = () => {
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm")); // xs and sm screens
+
   const shimmerContainerStyle = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "column",
     width: "100%",
-    height: "80vh",
+    height: isSmallScreen ? "50vh" : "80vh", // Adjust height based on screen size
     borderRadius: "10px",
     overflow: "hidden",
     padding: "10px",
@@ -20,7 +23,7 @@ const CarouselShimmer = () => {
       <Skeleton
         variant="rectangular"
         width="90%"
-        height="90%"
+        height="100%" // Matches container height
         animation="wave"
         sx={{
           borderRadius: "10px",

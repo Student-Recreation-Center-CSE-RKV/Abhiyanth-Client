@@ -10,6 +10,7 @@ import ImageCarousel from "../components/general/Carousel";
 import CarouselShimmer from "../components/gallery/CarouselShimmer";
 
 function MomentsOfPreviousAbhiyath() {
+  
   const [imageUrls, setImages] = useState([]);
   const [galleryCarousels, setCarouselImages] = useState([]);
   const [isLoadingCarousels, setLoadingCarousels] = useState(true);

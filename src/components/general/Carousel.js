@@ -4,8 +4,11 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { useTheme,useMediaQuery } from "@mui/material";
 
 const ImageCarousel = ({ images }) => {
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm")); // xs and sm screens
   if (!images || images.length === 0) {
     return <p>No images to display</p>;
   }
@@ -30,10 +33,12 @@ const ImageCarousel = ({ images }) => {
             src={image}
             alt={`Slide ${index + 1}`}
             style={{
+              padding:"10px",
               width: "100%",
-              height: "70vh",
+              height: isSmallScreen ? "50vh" : "80vh",
               borderRadius: "8px",
               objectFit: "cover",
+              
             }}
           />
         </SwiperSlide>
