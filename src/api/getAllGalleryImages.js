@@ -24,8 +24,10 @@ export const fetchAllImages = async (name) => {
     const imageUrls = await Promise.all(
       result.items.map((itemRef) => getDownloadURL(itemRef))
     );
-
-    return shuffleArray(imageUrls);
+    if(name==="galleryCarousel")
+      return imageUrls;
+    else
+      return shuffleArray(imageUrls);
   } catch (error) {
     console.error("Error fetching images from Firebase Storage:", error);
     return [];

@@ -12,8 +12,6 @@ import EventDetails from './pages/EventDetails';
 import AllEvents from './components/eventDetails/allEvents';
 import ScrollToTop from './components/general/ScrollToTop';
 
-
-
 function App() {
   
   return (
@@ -30,7 +28,7 @@ function App() {
           <Route path="/events" element={<AllEvents />} />
           <Route path="/events/:id" element={<EventDetails />} />
         </Route>
-        <Route path="/admin" element={<Admin />}/>
+        {/* <Route path="/admin" element={<Admin />}/> */}
          
         
       </Routes>

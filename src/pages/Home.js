@@ -15,7 +15,7 @@ export default function Home() {
       >
         <div>
           <HomeStartingComponent />
-          <Extravaganza />
+          {/* <Extravaganza /> */}
           <Sponsers />
         </div>
       </div>
