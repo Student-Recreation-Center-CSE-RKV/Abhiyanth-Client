@@ -69,3 +69,20 @@ export const updateDataById = async (collectionName, id, updatedData) => {
       return null; 
     }
   };
+
+  export const fetchFirebaseDoc = async (collectionName, docName) => {
+    try {
+      const docRef = doc(db, collectionName, docName);
+      const docSnapshot = await getDoc(docRef);
+      if (docSnapshot.exists()) {
+        return { status: true, data: docSnapshot.data() };
+      } else {
+        console.error("No such document!");
+        return { status: false, message: "No such document!" };
+      }
+    } catch (error) {
+      console.error("Error fetching document:", error);
+      return { status: false, message: "Error fetching document" };
+    }
+  };
+  

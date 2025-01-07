@@ -8,6 +8,7 @@ import gallery_main3 from "../assets/images/hackathon.jpeg";
 import gallery_main4 from "../assets/images/gallary_img2.jpeg";
 import ImageCarousel from "../components/general/Carousel";
 import CarouselShimmer from "../components/gallery/CarouselShimmer";
+import { fetchFirebaseDoc } from "../api/general";
 
 function MomentsOfPreviousAbhiyath() {
   
@@ -45,35 +46,101 @@ function MomentsOfPreviousAbhiyath() {
 
   useEffect(() => {
     const loadCarouselImages = async () => {
+      const CONSTANTS_COLLECTION = "constants";
+      const CACHE_DOC = "cache";
+      const LOCAL_STORAGE_KEY = "galleryCarousels";
+    
       try {
-        const fetchedCarouselImages = await fetchAllImages("galleryCarousel");
-        await preloadImages(fetchedCarouselImages); // Preload carousel images
-        setCarouselImages(fetchedCarouselImages);
+        // Step 1: Fetch the version constant from Firebase
+        const cacheDoc = await fetchFirebaseDoc(CONSTANTS_COLLECTION, CACHE_DOC);
+        const firebaseVersion = cacheDoc?.galleryCarousels || 1; // Fallback to version 1 if undefined
+    
+        // Step 2: Check if galleryCarousels exists in localStorage
+        const localCache = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+        const localVersion = localCache?.version || 0;
+    
+        if (localVersion < firebaseVersion) {
+          // Step 3: Fetch new images from Firebase if the version is outdated or missing
+          const fetchedCarouselImages = await fetchAllImages("galleryCarousel");
+    
+          // Step 4: Preload images and update state
+          await preloadImages(fetchedCarouselImages);
+          setCarouselImages(fetchedCarouselImages);
+    
+          // Step 5: Update localStorage with the new version and images
+          localStorage.setItem(
+            LOCAL_STORAGE_KEY,
+            JSON.stringify({
+              version: firebaseVersion,
+              images: fetchedCarouselImages,
+            })
+          );
+        } else {
+          // Step 6: Use cached images from localStorage
+          const cachedImages = localCache.images || [];
+          setCarouselImages(cachedImages);
+        }
       } catch (error) {
         console.error("Error loading carousel images:", error);
       } finally {
         setLoadingCarousels(false);
       }
     };
+    
 
     const loadGalleryImages = async () => {
+      const CONSTANTS_COLLECTION = "constants";
+      const CACHE_DOC = "cache";
+      const LOCAL_STORAGE_KEY = "galleryImages";
+    
+      const localImages = [
+        gallery_main2,
+        gallery_main1,
+        gallery_main3,
+        gallery_main4,
+      ];
+    
       try {
-        const fetchedImageUrls = await fetchAllImages("gallery");
-        const localImages = [
-          gallery_main2,
-          gallery_main1,
-          gallery_main3,
-          gallery_main4,
-        ];
-
-        await preloadImages(fetchedImageUrls); // Preload gallery images
-        setImages(localImages.concat(fetchedImageUrls));
+        // Step 1: Fetch the version constant from Firebase
+        const cacheDoc = await fetchFirebaseDoc(CONSTANTS_COLLECTION, CACHE_DOC);
+        const firebaseVersion = cacheDoc?.galleryImages || 1; // Fallback to version 1 if undefined
+    
+        // Step 2: Check if galleryImages exists in localStorage
+        const localCache = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+        const localVersion = localCache?.version || 0;
+    
+        if (localVersion < firebaseVersion) {
+          console.log("Fetching new gallery images from Firebase...");
+    
+          // Step 3: Fetch new images from Firebase if the version is outdated or missing
+          const fetchedImageUrls = await fetchAllImages("gallery");
+    
+          // Step 4: Preload images and update state
+          await preloadImages(fetchedImageUrls);
+          setImages(localImages.concat(fetchedImageUrls));
+    
+          // Step 5: Update localStorage with the new version and images
+          localStorage.setItem(
+            LOCAL_STORAGE_KEY,
+            JSON.stringify({
+              version: firebaseVersion,
+              images: fetchedImageUrls,
+            })
+          );
+        } else {
+          console.log("Using cached gallery images from localStorage...");
+    
+          // Step 6: Use cached images from localStorage
+          const cachedImages = localCache.images || [];
+          setImages(localImages.concat(cachedImages));
+        }
       } catch (error) {
         console.error("Error loading gallery images:", error);
       } finally {
         setLoadingGallery(false);
       }
     };
+    
 
     // First load and handle carousel images, then fetch gallery images
     const initialize = async () => {
