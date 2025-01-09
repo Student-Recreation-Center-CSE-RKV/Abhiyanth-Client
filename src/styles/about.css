@@ -18,7 +18,6 @@
   background-image: url('/src/assets/images/bg.gif');
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
   opacity: 0.2;
   z-index: -1; /* Ensure it's behind the content */
 }
