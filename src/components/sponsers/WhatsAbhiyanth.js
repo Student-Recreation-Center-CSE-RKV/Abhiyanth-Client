@@ -1,35 +1,42 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import backgroundImage from "../../assets/images/whatsabhiyanth_bgimg.jpeg";
 import logoImage from "../../assets/images/Abhiyanthlogo2.png";
 
 const text = {
-  fontFamily: "Audiowide",
+  color: "#FFF",
+  fontFamily: "Averia Sans Libre",
+  fontSize: { xs: "18px", sm: "20px", md: "22px", lg: "28px" },
+  fontStyle: "normal",
   fontWeight: "400",
+  lineHeight: "normal",
 };
 
 const WhatsAbhiyanth = () => {
   return (
-    <Box sx={{ marginTop: "5%" }}>
+    <Box sx={{ mt: { xs: "3%", md: "5%" } }}>
       <Box
         sx={{
           backgroundImage: `url(${backgroundImage})`,
+          backgroundColor: "rgba(0, 0, 0, 0.60)",
           backgroundSize: "cover",
           backgroundPosition: "center",
+          backgroundBlendMode: "overlay",
           width: "100%",
           color: "#fff",
-          mt: 2,
-          padding: 4,
+          padding: { xs: 2, sm: 4 },
         }}
       >
         {/* Title Section */}
-        <Box sx={{ textAlign: "center", mb: 4 }}>
+        <Box sx={{ textAlign: "center", mb: { xs: 2, md: 4 } }}>
           <Typography
-            variant="h4"
+            variant="h2"
             sx={{
-              ...text,
+              fontFamily: "Audiowide",
+              fontWeight: "400",
               textTransform: "uppercase",
-              mb: 1,
+              fontSize: { xs: "28px", sm: "36px", md: "48px" },
+              mt:{xs:4}
             }}
           >
             What’s Abhiyanth...?
@@ -37,44 +44,38 @@ const WhatsAbhiyanth = () => {
         </Box>
 
         {/* Description and Logo Section */}
-        <Box
+        <Grid
+          container
+          spacing={4}
           sx={{
-            display: "flex",
-            flexDirection: { xs: "column", md: "row" },
             alignItems: "center",
             justifyContent: "space-between",
-            gap: 4,
-            mb: 4,
+            mb: 1,
           }}
         >
           {/* Description */}
-          <Box
-            sx={{
-              width: { xs: "100%", md: "65%" },
-              textAlign: { xs: "center", md: "left" },
-              px: 2,
-              ...text,
-            }}
-          >
+          <Grid item xs={12} md={8}>
             <Typography
               variant="h6"
               sx={{
                 ...text,
-                mb: 2,
+                mb: { xs: 2, md: 3 },
+                textAlign: { xs: "center", md: "left" },
               }}
             >
               "Unleashing Innovation, Empowering Creativity"
             </Typography>
             <Typography
               variant="body1"
-              sx={{ mb: 1, lineHeight: "1.6", ...text }}
+              sx={{ mb: 2, lineHeight: "1.6", ...text }}
             >
-              Abhiyanth is the flagship annual techno-management fest of IIIT
-              RK Valley, bringing together technology enthusiasts, innovators,
-              and visionaries at a single place. With a rich legacy of fostering
-              innovation and providing a platform for groundbreaking ideas,
-              Abhiyanth offers an electrifying mix of competitions, workshops,
-              talks, and cultural events.
+              &nbsp; &nbsp; &nbsp; &nbsp;Abhiyanth is the flagship annual
+              techno-management fest of IIIT RK Valley, bringing together
+              technology enthusiasts, innovators, and visionaries at a single
+              place. With a rich legacy of fostering innovation and providing a
+              platform for groundbreaking ideas, Abhiyanth offers an
+              electrifying mix of competitions, workshops, talks, and cultural
+              events.
             </Typography>
             <Typography
               variant="body1"
@@ -86,15 +87,17 @@ const WhatsAbhiyanth = () => {
               edition yet—and we invite you to be a part of this transformative
               journey!
             </Typography>
-          </Box>
+          </Grid>
 
           {/* Logo */}
-          <Box
+          <Grid
+            item
+            xs={12}
+            md={4}
             sx={{
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              width: { xs: "100%", md: "30%" },
             }}
           >
             <img
@@ -106,22 +109,29 @@ const WhatsAbhiyanth = () => {
                 height: "auto",
               }}
             />
-          </Box>
-        </Box>
+          </Grid>
+        </Grid>
 
         {/* Sponsorship Section */}
-        <Box sx={{ px: 2 }}>
+        <Box>
           <Typography
-            variant="h5"
+            variant="h3"
             sx={{
               ...text,
               fontWeight: "bold",
-              mb: 2,
+              fontSize: { xs: "32px", sm: "40px", md: "50px" },
+              mb: { xs: 2, md: 3 },
             }}
           >
             Why Sponsor Abhiyanth?
           </Typography>
-          <Typography variant="h6" sx={{ ...text, mb: 2 }}>
+          <Typography
+            variant="h6"
+            sx={{
+              ...text,
+              mb: { xs: 2, md: 3 },
+            }}
+          >
             "Be a Catalyst for Innovation"
           </Typography>
           <Typography variant="body1" sx={{ mb: 2, ...text }}>
@@ -149,7 +159,10 @@ const WhatsAbhiyanth = () => {
               </Typography>
             </li>
           </ul>
-          <Typography variant="h6" sx={{ mt: 2, mb: 1, ...text }}>
+          <Typography
+            variant="h6"
+            sx={{ mt: 2, mb: 1, ...text }}
+          >
             Reach and Impact
           </Typography>
           <ul style={{ marginLeft: "20px" }}>
@@ -180,5 +193,3 @@ const WhatsAbhiyanth = () => {
 };
 
 export default WhatsAbhiyanth;
-
-

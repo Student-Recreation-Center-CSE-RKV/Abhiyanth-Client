@@ -1,31 +1,22 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import { createTheme,ThemeProvider } from '@mui/material/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import { AppProvider } from '@toolpad/core/AppProvider';
 import { DashboardLayout, ThemeSwitcher } from '@toolpad/core/DashboardLayout';
 import { useDemoRouter } from '@toolpad/core/internal';
 import CelebrationIcon from '@mui/icons-material/Celebration';
-import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
-import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
-import CalculateIcon from '@mui/icons-material/Calculate';
-import AssuredWorkloadIcon from '@mui/icons-material/AssuredWorkload';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import Tooltip from '@mui/material/Tooltip';
 import IconButton from '@mui/material/IconButton';
-import { Outlet, useNavigate } from 'react-router-dom';
-import StorefrontIcon from '@mui/icons-material/Storefront';
-import SportsVolleyballIcon from '@mui/icons-material/SportsVolleyball';
-import NightlifeIcon from '@mui/icons-material/Nightlife';
-import SportsScoreIcon from '@mui/icons-material/SportsScore';
-import GroupsIcon from '@mui/icons-material/Groups';
+import { useNavigate } from 'react-router-dom';
 import AcUnitIcon from '@mui/icons-material/AcUnit';
-import PhonelinkIcon from '@mui/icons-material/Phonelink';
-import CampaignIcon from '@mui/icons-material/Campaign';
-import TipsAndUpdatesIcon from '@mui/icons-material/TipsAndUpdates';
+
+import ImageUploader from '../../components/admin/sponsers/sponsersAdmin';
 import ManageEventsByAdmin from '../admin/ManageEventsByAdmin';
+
+
 
 const NAVIGATION = [
   {
@@ -34,126 +25,33 @@ const NAVIGATION = [
     icon: <DashboardIcon />,
   },
   {
-    segment: 'Event',
-    title: 'Event Management',
+    segment: 'Culturals',
+    title: 'Events',
     icon: <CelebrationIcon color='secondary' />,
     children: [
       {
-        Kind: 'header',
-        title: 'Non-Technical',
-      },
-      {
-        segment: 'Stalls',
-        title: 'Stalls',
-        icon: <StorefrontIcon color='secondary' />,
-      },
-      {
-        segment: 'Sports',
-        title: 'Sports',
-        icon: <SportsVolleyballIcon color='secondary' />,
-      },
-      {
-        segment: 'Events',
-        title: 'Events',
-        icon: <NightlifeIcon color='secondary' />,
-      },
-      {
-        segment: 'CurtainRaiser',
-        title: 'Curtain Raiser Events',
-        icon: <SportsScoreIcon color='secondary' />,
-      },
-      {
-        Kind: 'header',
-        title: 'Technical',
-        
-      },
-      {
-        segment: 'Workshops',
-        title: 'Workshops',
-        icon:<PhonelinkIcon color="secondary"/>,
-        
-      },
-      {
-        segment: 'Hackathons',
-        title: 'Hackathons',
-        icon:<PhonelinkIcon color="secondary"/>,
-        
-      },
-      {
-        segment: 'TechTalkShows',
-        title: 'Tech Talks Shows',
-        icon:<CampaignIcon color="secondary"/>,
-        
-      },
-      {
-        segment: 'ProjectExpo',
-        title: 'Project Expo',
-        icon:<TipsAndUpdatesIcon color="secondary"/>,
-      },
+        segment: 'addEvent',
+        title: 'Add Event',
+      }
     ],
   },
   {
-    segment: 'FinanceManagement',
-    title: 'Finance Management',
-    icon: <AccountBalanceIcon color='secondary' />,
+    segment: 'Images',
+    title: 'Images',
+    icon: <AcUnitIcon color='secondary' />,
     children: [
       {
-        segment: 'SponsorFunds',
-        title: 'Sponsor Funds',
-        icon: <CurrencyRupeeIcon color='secondary' />,
+        segment: 'sponsers',
+        title: 'Sponsers',
       },
       {
-        segment: 'Expenditure',
-        title: 'Expenses',
-        icon: <CalculateIcon color='secondary' />,
+        segment: 'gallery',
+        title: 'Gallery',
       },
       {
-        segment: 'AmountGenerated',
-        title: 'Amount Generated',
-        icon: <AssuredWorkloadIcon color='secondary' />,
-      },
-    ],
-  },
-  {
-    segment: 'AbhiyanthCoreTeam',
-    title: 'Abhiyanth Core Team',
-    icon: <GroupsIcon color='secondary' />,
-    children: [
-      {
-        segment: 'CoreTeam',
-        title: 'Core Team',
-      },
-      {
-        segment: 'SubCoreTeam',
-        title: 'Sub Core Team',
-      },
-      {
-        segment: 'EventHeads',
-        title: 'Event Heads',
-      },
-      {
-        segment: 'FacultyCoordinators',
-        title: 'Faculty Coordinators',
-      },
-    ],
-  },
-  {
-    segment: 'FranchiseManagement',
-    title: 'Franchise Management',
-    icon :<AcUnitIcon color='secondary'/>,
-    children: [
-      {
-        segment: 'Logos',
-        title: 'Logos',
-      },
-      {
-        segment: 'IdCards',
-        title: 'Id Cards',
-      },
-      {
-        segment: 'Certificates',
-        title: 'Certificates',
-      },
+        segment: 'galleryCarousel',
+        title: 'Gallery Carousel',
+      }
     ],
   },
 ];
@@ -180,6 +78,25 @@ const demoTheme = createTheme({
 });
 
 function DemoPageContent({ pathname }) {
+  let content = null;
+
+  switch (pathname) {
+    case "/Images/sponsers":
+      content = <ImageUploader name={"Sponsor"} />;
+      break;
+    case "/Images/gallery":
+      content = <ImageUploader name={"gallery"} />;
+      break;
+      case "/Images/galleryCarousel":
+        content = <ImageUploader name={"galleryCarousel"} />;
+        break;
+    case "/Culturals/addEvent":
+      content=<ManageEventsByAdmin/>;
+      break;
+    default:
+      content = <div>{pathname}</div>;
+  }
+
   return (
     <Box
       sx={{
@@ -193,12 +110,11 @@ function DemoPageContent({ pathname }) {
         color: 'text.primary', // Use the theme's text color
       }}
     >
-      
-      <Outlet/>
-      
+      {content}
     </Box>
   );
 }
+
 
 
 DemoPageContent.propTypes = {
@@ -209,7 +125,7 @@ function ToolbarActionsCalendar() {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'row', gap: '8px', alignItems: 'center' }}>
       <Tooltip title="Event Calendar">
-        <IconButton onClick={() =>navigate('/event-calendar')}>
+        <IconButton onClick={() => navigate('/event-calendar')}>
           <CalendarMonthIcon />
         </IconButton>
       </Tooltip>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import uploadImage from "../../../api/uploadImage";
 import { Box, Typography, Button, TextField, Avatar } from "@mui/material";
 
-const ImageUploader = () => {
+const ImageUploader = ({name}) => {
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState(null); 
   const [message, setMessage] = useState("");
@@ -18,7 +18,7 @@ const ImageUploader = () => {
   const handleUpload = async () => {
     try {
       setMessage("Uploading...");
-      const imageUrl = await uploadImage(image, "sponsers"); 
+      const imageUrl = await uploadImage(image, name); 
       setMessage(`Image uploaded successfully`);
     } catch (error) {
       setMessage(`Upload failed: ${error.message}`);
@@ -33,6 +33,7 @@ const ImageUploader = () => {
     <Box
       sx={{
         maxWidth: 400,
+        height:"100vh",
         margin: "auto",
         padding: 3,
         boxShadow: 3,
@@ -41,7 +42,7 @@ const ImageUploader = () => {
       }}
     >
       <Typography variant="h4" gutterBottom>
-        Upload New Sponsor
+        Upload New {name}
       </Typography>
       <TextField
         type="file"
