@@ -4,7 +4,6 @@ import HorizontalScrollBox from "./HorizontalScrollBox";
 import { Grid } from "@mui/material";
 import Grid2 from "@mui/material/Grid2";
 import "../../styles/allEvents.css";
-import { getAllEvents, addEvent } from "../../api/events";
 import ShimmerCard from "./Shimmer";
 import img1 from "../../assets/images/eventsHeaderImg1.jpeg";
 import img2 from "../../assets/images/eventsHeaderImg2.jpeg";
@@ -13,25 +12,23 @@ import img4 from "../../assets/images/eventsHeaderImg4.jpeg";
 import img5 from "../../assets/images/eventsHeaderImg5.jpeg";
 import img6 from "../../assets/images/eventsHeaderImg6.jpeg";
 import abiyanthLogo from "../../assets/images/Abhiyanthlogo2.png";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchEvents } from "../../redux/slices/eventsSlice";
+
 
 const AllEvents = () => {
-	const [events, setEvents] = useState({
-		completed: [],
-		ongoing: [],
-		upcoming: [],
-	});
-	const [isLoading, setIsLoading] = useState(true);
+	
+	const dispatch = useDispatch();
+  const { completed, ongoing, upcoming, loading, error } = useSelector((state) => state.events);
 
-	const getData = async () => {
-		setIsLoading(true);
-		const res = await getAllEvents();
-		setEvents(res);
-		setIsLoading(false);
-	};
+  useEffect(() => {
+    dispatch(fetchEvents());  
+  }, [dispatch]);
 
-	useEffect(() => {
-		getData();
-	}, []);
+  
+  if (error) return <div>Error: {error}</div>;  
+
+
 
 	return (
 		<div
@@ -78,7 +75,7 @@ const AllEvents = () => {
 			</div>
 
 			<div className="alleventscontainer">
-				{isLoading ? (
+				{loading ? (
 					<Grid container spacing={3} sx={{ marginTop: "20px" }}>
 						{[...Array(8)].map((_, index) => (
 							<Grid item xs={12} sm={6} md={3} key={index}>
@@ -88,11 +85,11 @@ const AllEvents = () => {
 					</Grid>
 				) : (
 					<>
-						{events.ongoing.length > 0 && (
+						{ongoing.length > 0 && (
 							<div className="eventsContainer">
 								<h3 className="alleventstopHeading">ONGOING</h3>
 								<HorizontalScrollBox
-									items={events.ongoing}
+									items={ongoing}
 									renderCard={(item, index) => (
 										<CustomCard key={index} item={item} />
 									)}
@@ -100,11 +97,11 @@ const AllEvents = () => {
 							</div>
 						)}
 
-						{events.upcoming.length > 0 && (
+						{upcoming.length > 0 && (
 							<div className="eventsContainer">
 								<h3 className="alleventstopHeading">UPCOMING</h3>
 								<HorizontalScrollBox
-									items={events.upcoming}
+									items={upcoming}
 									renderCard={(item, index) => (
 										<CustomCard key={index} item={item} />
 									)}
@@ -120,11 +117,11 @@ const AllEvents = () => {
 							</div>
 						)} */}
 
-						{events.completed.length > 0 && (
+						{completed.length > 0 && (
 							<div className="eventsContainer">
 								<h3 className="alleventstopHeading">COMPLETED</h3>
 								<HorizontalScrollBox
-									items={events.completed}
+									items={completed}
 									renderCard={(item, index) => (
 										<CustomCard key={index} item={item} />
 									)}
