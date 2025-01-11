@@ -5,8 +5,12 @@ import { Grid } from "@mui/material";
 import Grid2 from "@mui/material/Grid2";
 import "../../styles/allEvents.css";
 import ShimmerCard from "./Shimmer";
-import musicImg1 from "../../assets/images/music.png";
-import musicImg2 from "../../assets/images/music@2x.png";
+import img1 from "../../assets/images/eventsHeaderImg1.jpeg";
+import img2 from "../../assets/images/eventsHeaderImg2.jpeg";
+import img3 from "../../assets/images/gallery_main2.webp";
+import img4 from "../../assets/images/gallery_main1.webp";
+import img5 from "../../assets/images/eventsHeaderImg5.jpeg";
+import img6 from "../../assets/images/eventsHeaderImg6.jpeg";
 import abiyanthLogo from "../../assets/images/Abhiyanthlogo2.png";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchEvents } from "../../redux/slices/eventsSlice";
@@ -49,86 +53,27 @@ const AllEvents = () => {
 				</div>
 				<Grid2 container spacing={1}>
 					<Grid2 size={3}>
-						<img
-							src={musicImg2}
-							alt="gallery img 3"
-							style={{
-								width: "100%",
-								height: "100%",
-								objectFit: "cover",
-								borderRadius: "8px",
-								border: "1px solid #00B093",
-							}}
-						/>
+						<img src={img4} alt="gallery img 3" className="imageInHeader" />
 					</Grid2>
 					<Grid2 size={3}>
-						<img
-							src={musicImg2}
-							alt="gallery img 3"
-							style={{
-								width: "100%",
-								height: "100%",
-								objectFit: "cover",
-								borderRadius: "8px",
-								border: "1px solid #00B093",
-							}}
-						/>
+						<img src={img2} alt="gallery img 3" className="imageInHeader" />
 					</Grid2>
 					<Grid2 size={6}>
-						<img
-							src={musicImg1}
-							alt="gallery img 3"
-							style={{
-								width: "100%",
-								height: "100%",
-								objectFit: "cover",
-								borderRadius: "8px",
-								border: "1px solid #00B093",
-							}}
-						/>
+						<img src={img1} className="imageInHeader" alt="gallery img 3" />
 					</Grid2>
 
 					<Grid2 size={6}>
-						<img
-							src={musicImg1}
-							alt="gallery img 3"
-							style={{
-								width: "100%",
-								height: "100%",
-								objectFit: "cover",
-								borderRadius: "8px",
-								border: "1px solid #00B093",
-							}}
-						/>
+						<img src={img6} alt="gallery img 3" className="imageInHeader" />
 					</Grid2>
 					<Grid2 size={3}>
-						<img
-							src={musicImg2}
-							alt="gallery img 3"
-							style={{
-								width: "100%",
-								height: "100%",
-								objectFit: "cover",
-								borderRadius: "8px",
-								border: "1px solid #00B093",
-							}}
-						/>
+						<img src={img5} alt="gallery img 3" className="imageInHeader" />
 					</Grid2>
 					<Grid2 size={3}>
-						<img
-							src={musicImg2}
-							alt="gallery img 3"
-							style={{
-								width: "100%",
-								height: "100%",
-								objectFit: "cover",
-								borderRadius: "8px",
-								border: "1px solid #00B093",
-							}}
-						/>
+						<img src={img3} alt="gallery img 3" className="imageInHeader" />
 					</Grid2>
 				</Grid2>
 			</div>
+
 			<div className="alleventscontainer">
 				{loading ? (
 					<Grid container spacing={3} sx={{ marginTop: "20px" }}>
@@ -183,8 +128,6 @@ const AllEvents = () => {
 								/>
 							</div>
 						)}
-
-						
 					</>
 				)}
 			</div>

@@ -10,35 +10,43 @@
 .eventsContainer {
 	margin-block: 2rem;
 }
+.imageInHeader {
+	width: 100%;
+	height: 230px;
+	objectfit: cover;
+	borderradius: 8px;
+	border: 1px solid #00b093;
+}
 .eventsHeader {
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
-	width:98vw;
+	width: 98vw;
 	position: relative;
 }
-.duplicate123{
+.duplicate123 {
 	position: absolute;
-	top:35px;
-	left:100px;
+	top: 35px;
+	left: 100px;
 }
-.abiyanthlogoimg{
+.abiyanthlogoimg {
 	height: 350px;
 }
-.alleventsculturalsheading{
+.alleventsculturalsheading {
 	font-family: "Audiowide";
 	font-size: 40px;
 	font-weight: 400;
 	line-height: 30.7px;
-	color: #C91C75;
+	color: #c91c75;
 	margin-top: 0;
-	margin-left: 3rem;	
+	margin-left: 3rem;
+	text-shadow: 2px 2px 10px rgb(91, 90, 90);
 }
 .eventAbiyanthLogo {
 	position: absolute;
 	height: 100%;
-	width: 40%;
-	background-color: rgba(0, 0, 0, 0.5);
+	width: 47%;
+	background-color: rgba(0, 0, 0, 0.3);
 }
 
 .alleventstopHeading {
@@ -68,8 +76,27 @@
 	text-underline-position: from-font;
 	text-decoration-skip-ink: none;
 }
-
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1150px) {
+	.abiyanthlogoimg {
+		height: 280px;
+	}
+	.alleventsculturalsheading {
+		font-size: 26px;
+		margin-left: 2.5rem;
+		line-height: 10px;
+	}
+}
+@media only screen and (max-width: 1150px) {
+	.abiyanthlogoimg {
+		height: 200px;
+	}
+	.alleventsculturalsheading {
+		font-size: 26px;
+		margin-left: 2.5rem;
+		line-height: 5px;
+	}
+}
+@media only screen and (max-width: 680px) {
 	.alleventscontainer {
 		margin: 0;
 	}
@@ -88,16 +115,19 @@
 	.eventsContainer {
 		margin-block: 1rem;
 	}
-	.abiyanthlogoimg{
+	.abiyanthlogoimg {
 		height: 100px;
 	}
-	.alleventsculturalsheading{
+	.imageInHeader {
+		height: 75px;
+	}
+	.alleventsculturalsheading {
 		font-size: 16px;
 		margin-left: 1rem;
 		line-height: 10px;
 	}
-	.duplicate123{
-		top:10px;
-		left:20px;
+	.duplicate123 {
+		top: 10px;
+		left: 20px;
 	}
 }
