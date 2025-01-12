@@ -1,0 +1,93 @@
+.title{
+    font-family: Audiowide;
+    color: white;
+    font-weight: 400;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 35px;
+}
+.main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1200px;
+    padding-left: 0px;
+}
+
+.card {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: 'rgba(217, 217, 217, 0)';
+    border: 1px solid  #FF6AB7;
+    width: 250px;
+    border-radius: 25px;
+    padding-bottom: 10px;
+    box-shadow: 0px 4px 15px rgba(173, 216, 230, 0.5);
+    text-align: center;
+    cursor: pointer;
+}
+
+.card-image {
+    width: 100%;
+    height: 150px;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.card-title {
+    font-family: Audiowide;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.card-description {
+    font-family: Audiowide;
+    color: white;
+    overflow: visible;
+    height: auto;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    white-space:normal;
+}
+
+.view-events-button {
+    font-family: Audiowide;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(
+  to right, 
+  rgba(255, 255, 255, 0.04),   /* #FFFFFF0A */
+  rgba(101, 45, 192, 1),       /* #652DC0 with 100% opacity */
+  rgba(105, 84, 235, 0.79),    /* #6954EBC9 with 75% opacity */
+  rgba(207, 71, 202, 0.30)     /* #CF47CA7D with 48% opacity */
+);
+    font-size: 0.9rem;
+    color: white;
+    border: 1.5px solid rgba(101, 45, 192, 1);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.view-events-button:hover {
+    background: linear-gradient(
+        to right, 
+        rgba(101, 45, 192, 1),    
+        rgba(105, 84, 235, 0.79),   
+        rgba(207, 71, 202, 0.30)     
+      );
+}
+@media only screen and (max-width: 650px) {
+    .title{
+        font-size: 30px;
+    }
+}
