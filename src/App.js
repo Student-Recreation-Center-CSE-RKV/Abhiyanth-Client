@@ -12,6 +12,7 @@ import EventDetails from './pages/EventDetails';
 import AllEvents from './components/eventDetails/allEvents';
 import ScrollToTop from './components/general/ScrollToTop';
 import ContactUs from './pages/ContactUs';
+import AllStalls from './components/allStalls';
 import DeptWiseEvents from './components/technicalEvents/DeptWiseEvents.js'
 
 function App() {
@@ -25,11 +26,11 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/sponsers" element={<Sponsers />} />
-          <Route path="/stalls" element={<Stalls />} />
           <Route path="/ourTeam" element={<OurTeam />} />
           <Route path="/events" element={<AllEvents />} />
           <Route path="/events/:id" element={<EventDetails />} />
           <Route path="/contactUs" element={<ContactUs/>} />
+          <Route path="/stalls" element={< AllStalls/>} />
           <Route path="/dept-wise-events" element={<DeptWiseEvents/>} />
         </Route>
         {/* <Route path="/admin" element={<Admin />}/> */}
