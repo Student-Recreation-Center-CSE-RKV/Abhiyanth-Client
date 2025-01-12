@@ -12,6 +12,7 @@ import EventDetails from './pages/EventDetails';
 import AllEvents from './components/eventDetails/allEvents';
 import ScrollToTop from './components/general/ScrollToTop';
 import ContactUs from './pages/ContactUs';
+import DeptWiseEvents from './components/technicalEvents/DeptWiseEvents.js'
 
 function App() {
   
@@ -29,6 +30,7 @@ function App() {
           <Route path="/events" element={<AllEvents />} />
           <Route path="/events/:id" element={<EventDetails />} />
           <Route path="/contactUs" element={<ContactUs/>} />
+          <Route path="/dept-wise-events" element={<DeptWiseEvents/>} />
         </Route>
         {/* <Route path="/admin" element={<Admin />}/> */}
          
