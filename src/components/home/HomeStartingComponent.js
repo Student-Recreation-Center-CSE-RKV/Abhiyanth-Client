@@ -4,10 +4,12 @@ import logo from "../../assets/images/Rgukt_Logo_White.png";
 import { Box, Typography, useMediaQuery } from '@mui/material';
 import { motion } from 'framer-motion';
 import CountdownTimer from './timer';
+import { useNavigate } from 'react-router-dom';
 
 
 
 export default function HomeStartingComponent() {
+    const navigate=useNavigate()
     const styles = {
         heroContainer: {
             position: 'relative',
@@ -193,7 +195,7 @@ export default function HomeStartingComponent() {
                         <Typography sx={styles.subtitle}>#AbhiyathKashor</Typography>
                     </>
                 )}
-                {/* <Box sx={{ position: 'absolute', top: '30%', left: "0" }}>
+                <Box sx={{ position: 'absolute', top: '30%', left: "0" }} onClick={()=>{navigate("/technicalEvents")}} >
                     <motion.button
                         style={styles.buttonLeft}
                         whileHover={{ scale: 1.1 }}
@@ -202,8 +204,8 @@ export default function HomeStartingComponent() {
                             Technical Events
                         </Typography>
                     </motion.button>
-                </Box> */}
-                {/* <Box sx={{ position: 'absolute', top: '30%', right: "0" }}>
+                </Box>
+                <Box sx={{ position: 'absolute', top: '30%', right: "0" }} onClick={()=>{navigate("/events")}}>
                     <motion.button
                         style={styles.buttonRight}
                         whileHover={{ scale: 1.1 }}
@@ -212,8 +214,8 @@ export default function HomeStartingComponent() {
                             Culturals
                         </Typography>
                     </motion.button>
-                </Box> */}
-                {/* <Box sx={{ position: 'absolute', bottom: '10%', left: "0" }}>
+                </Box>
+                <Box sx={{ position: 'absolute', bottom: '10%', left: "0" }} onClick={()=>{navigate("/stalls")}}>
                     <motion.button
                         style={{ ...styles.buttonLeft, minWidth: "150px" }}
                         whileHover={{ scale: 1.1 }}
@@ -222,8 +224,8 @@ export default function HomeStartingComponent() {
                             Stalls
                         </Typography>
                     </motion.button>
-                </Box> */}
-                {/* <Box sx={{ position: 'absolute', bottom: '10%', right: "0" }}>
+                </Box>
+                <Box sx={{ position: 'absolute', bottom: '10%', right: "0" }} onClick={()=>{navigate("/technicalEvents")}}>
                     <motion.button
                         style={{ ...styles.buttonRight, width: "150px" }}
                         whileHover={{ scale: 1.1 }}
@@ -232,7 +234,7 @@ export default function HomeStartingComponent() {
                             Sports
                         </Typography>
                     </motion.button>
-                </Box> */}
+                </Box>
             </Box>
         </div>
     );

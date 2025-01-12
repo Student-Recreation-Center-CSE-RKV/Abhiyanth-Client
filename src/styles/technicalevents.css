@@ -1,10 +1,11 @@
 .title{
     font-family: Audiowide;
     color: white;
-    font-weight: 400;
+    font-weight: 450;
     margin-top: 10px;
+    margin-bottom: 10px;
     text-align: center;
-    font-size: 35px;
+    font-size: 40px;
 }
 .main{
     display: flex;
@@ -14,10 +15,9 @@
 .cards-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
+    gap: 1rem;
     width: 100%;
-    max-width: 1200px;
-    padding-left: 0px;
+    padding: 10px;
 }
 
 .card {
@@ -58,6 +58,7 @@
     font-size: 0.9rem;
     margin-bottom: 1rem;
     white-space:normal;
+    padding: 5px;
 }
 
 .view-events-button {

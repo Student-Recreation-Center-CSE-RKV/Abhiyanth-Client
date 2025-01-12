@@ -24,7 +24,7 @@ const ImageCarousel = ({ images }) => {
       style={{
         width: "100%",
         height: "auto",
-        marginTop:"75px",
+        marginTop:"60px",
       }}
     >
       {images.map((image, index) => (

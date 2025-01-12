@@ -1,10 +1,10 @@
-import image1 from "../../assets/images/deptimage1.jpeg";
-import image2 from "../../assets/images/deptimage2.jpeg";
-import image3 from "../../assets/images/deptimage3.jpeg";
-import image4 from "../../assets/images/deptimage4.jpeg";
-import image5 from "../../assets/images/deptimage5.jpeg"; 
-import ImageCarousel from "../general/Carousel";
-import "../../styles/technicalevents.css";
+import image1 from "../assets/images/deptimage1.jpeg";
+import image2 from "../assets/images/deptimage2.jpeg";
+import image3 from "../assets/images/deptimage3.jpeg";
+import image4 from "../assets/images/deptimage4.jpeg";
+import image5 from "../assets/images/deptimage5.jpeg"; 
+import ImageCarousel from "../components/general/Carousel";
+import "../styles/technicalevents.css";
 
 const departments = [
     {
@@ -46,7 +46,7 @@ const departments = [
 
 const images = [image1, image2, image3, image4, image5, image3, image2];
 
-export default function Technicalevents() {
+export default function TechnicalEvents() {
     return (
         <> 
             <ImageCarousel images={images} />

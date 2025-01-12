@@ -15,8 +15,6 @@ const uploadImage = async (image, collectionName) => {
     // Get the download URL for the uploaded image
     const url = await getDownloadURL(storageRef);
 
-    
-
     return url; // Return the image URL
   } catch (error) {
     console.error("Error uploading image:", error);
