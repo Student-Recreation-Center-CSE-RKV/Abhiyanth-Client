@@ -19,7 +19,7 @@ const StallCard = ({ stall }) => (
 			color: "white",
 			borderRadius: "15px",
 			border: "1px solid rgb(68, 68, 68)",
-			boxShadow:"1px 1px 5px rgb(48, 17, 33)"
+			boxShadow: "1px 1px 5px rgb(48, 17, 33)",
 		}}
 	>
 		<CardMedia
@@ -31,6 +31,7 @@ const StallCard = ({ stall }) => (
 				marginBottom: "10px",
 				borderTopLeftRadius: "15px",
 				borderTopRightRadius: "15px",
+				border: "1px solid #00b093",
 			}}
 		/>
 		<Grid container spacing={1}>
@@ -40,6 +41,7 @@ const StallCard = ({ stall }) => (
 					height="100"
 					image={stall.bottomLeftImage}
 					alt={`${stall.name} bottom left image`}
+					sx={{ border: "1px solid #00b093" }}
 				/>
 			</Grid>
 			<Grid size={6}>
@@ -48,6 +50,7 @@ const StallCard = ({ stall }) => (
 					height="100"
 					image={stall.bottomRightImage}
 					alt={`${stall.name} bottom right image`}
+					sx={{ border: "1px solid #00b093" }}
 				/>
 			</Grid>
 		</Grid>

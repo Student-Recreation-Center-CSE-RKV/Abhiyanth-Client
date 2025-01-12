@@ -108,9 +108,9 @@ export default function AllStalls() {
 			>
 				All Stalls
 			</Typography>
-			<Grid2 container spacing={2} sx={{display:"flex",alignItems:"center",justifyContent:"center",marginBottom:"3rem"}}>
+			<Grid2 container spacing={3} sx={{display:"flex",alignItems:"center",justifyContent:"center",marginBottom:"3rem"}}>
 				{stallsData.map((stall) => (
-					<Grid2 size={{ xs: "12", sm: "12", md: "3", lg: "3" }} key={stall.id}>
+					<Grid2 size={{ xs: "12", sm: "12", md: "4", lg: "3" }} key={stall.id}>
 						<StallCard stall={stall} />
 					</Grid2>
 				))}

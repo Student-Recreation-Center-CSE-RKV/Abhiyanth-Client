@@ -12,11 +12,8 @@ import EventDetails from './pages/EventDetails';
 import AllEvents from './components/eventDetails/allEvents';
 import ScrollToTop from './components/general/ScrollToTop';
 import ContactUs from './pages/ContactUs';
-<<<<<<< HEAD
 import AllStalls from './components/allStalls';
-=======
 import DeptWiseEvents from './components/technicalEvents/DeptWiseEvents.js'
->>>>>>> 7f2720ec7a8a2cdd35f6789920a842cae904794a
 
 function App() {
   
@@ -33,11 +30,8 @@ function App() {
           <Route path="/events" element={<AllEvents />} />
           <Route path="/events/:id" element={<EventDetails />} />
           <Route path="/contactUs" element={<ContactUs/>} />
-<<<<<<< HEAD
           <Route path="/stalls" element={< AllStalls/>} />
-=======
           <Route path="/dept-wise-events" element={<DeptWiseEvents/>} />
->>>>>>> 7f2720ec7a8a2cdd35f6789920a842cae904794a
         </Route>
         {/* <Route path="/admin" element={<Admin />}/> */}
          
