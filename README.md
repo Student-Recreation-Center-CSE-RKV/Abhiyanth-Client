@@ -16,6 +16,52 @@ Abhiyanth-Client is a React application developed for the **Abhiyanth** event of
 - **Material UI**: A popular React UI framework for styling and components.
 
 ---
+
+## Project Status so for
+
+| Task/Module/Page/Component                        | Status          | API Integration|
+|-----------------------------------------|-----------------|----------------|
+| Contact Us                              | Done            | ✅             |
+| Stalls main Page                        | In progress     | ❌             |
+| Individual Stall Page                   | In progress     | ❌             |
+| Technical events main page              | Done            | ✅             |
+| Technical Events Individual Department page | Done        | ✅             |
+| Technical Events Individual Event page  | In progress     | ❌             |
+| Volunteer registration                  | Done            | ✅             |
+| Sports Page                             | Not started     | ❌             |
+| Home page technical                     | Not started     | ❌             |
+| Home page cultural                      | Not started     | ❌             |
+| Home Page stalls                        | Not started     | ❌             |
+| Sponsors page                           | Not started     | ❌             |
+| Director msg                            | Not started     | ❌             |
+| AO msg                                  | Not started     | ❌             |
+| Payment integration                     | Not started     | ❌             |
+| Login using Firebase                    | In progress     | ❌             |
+| FireBase Functions                      | In progress     | ❌             |
+| Technical Projects Page                 | Not started     | ❌             |
+| Each project description page           | Not started     | ❌             |
+| Home Page Extravaganza improvement      | Not started     | ❌             |
+| Detailed culturals Schedule             | Not started     | ❌             |
+| Prevents Schedule in technical events   | Not started     | ❌             |
+| College map integration                 | Not started     | ❌             |
+| User Profile and Edit Profile           | Not started     | ❌             |
+| User Registered Events                  | Not started     | ❌             |
+| Top Coders Page                         | Not started     | ❌             |
+| Top Contributors Page                   | Not started     | ❌             |
+| Latest News page                        | Not started     | ❌             |
+| Polls and surveys                       | Not started     | ❌             |
+| Polls and surveys charts                | Not started     | ❌             |
+| Gallery Page caching                    | Done            | ✅             |
+| Shimmer UI's                            | In progress     | ❌             |
+| Events Page admin                       | In progress     | ❌             |
+| Technical Events Admin                  | In progress     | ❌             |
+| Volunteer Admin and Integration with Firebase | In progress | ❌             |
+
+
+✅: Functioning properly  
+❔: Not yet tested, but expected to work  
+❌: Not functioning, requires further attention
+
 ## Contributors
 
 Special thanks to the incredible code contributors who continue to drive this project forward.
