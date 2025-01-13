@@ -14,6 +14,7 @@ import ScrollToTop from './components/general/ScrollToTop';
 import ContactUs from './pages/ContactUs';
 import DeptWiseEvents from './components/technicalEvents/DeptWiseEvents.js'
 import TechnicalEvents from "./pages/TechnicalEvents.js"
+import RegisterVolunteer from "./pages/RegisterVolunteer.js"
 
 function App() {
   
@@ -33,9 +34,10 @@ function App() {
           <Route path="/contactUs" element={<ContactUs/>} />
           <Route path="/stalls" element={< Stalls/>} />
           <Route path="/dept-wise-events" element={<DeptWiseEvents/>} />
+          <Route path="/register-volunteer" element={<RegisterVolunteer/>}/>
         </Route>
         <Route path="/admin" element={<Admin />}/>
-         
+    
         
       </Routes>
     </BrowserRouter>
