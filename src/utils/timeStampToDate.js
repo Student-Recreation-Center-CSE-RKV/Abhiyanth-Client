@@ -27,17 +27,21 @@ export const extractDateTime = (timestamp) => {
 
   export const convertDateTimeToFirebaseTimestamp=(date, time)=> {
     
-    const dateTimeString = `${date}T${time}`;
-
-    
-    const dateTime = new Date(dateTimeString);
-
-    if (isNaN(dateTime.getTime())) {
-        throw new Error("Invalid date or time format.");
-    }
-
-    return Timestamp.fromDate(dateTime);
+    let dateTimeString = `${date}T${time}`;
+    return convertDateTimeCombinedToFirebaseTimestamp(dateTimeString)
 }
+
+export const convertDateTimeCombinedToFirebaseTimestamp=(dateTimeCombined)=> {
+    
+  const dateTime = new Date(dateTimeCombined);
+
+  if (isNaN(dateTime.getTime())) {
+      throw new Error("Invalid date or time format.");
+  }
+
+  return Timestamp.fromDate(dateTime);
+}
+
 
 export const extractDateTimeFromTimestamp=(timestamp) =>{
   if (!(timestamp instanceof Timestamp)) {

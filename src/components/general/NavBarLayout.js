@@ -16,6 +16,7 @@ import AcUnitIcon from '@mui/icons-material/AcUnit';
 import ImageUploader from '../../components/admin/sponsers/sponsersAdmin';
 import ManageEventsByAdmin from '../admin/ManageEventsByAdmin';
 import DepartmentCarouselImageUploader from '../admin/technical/DepartmentImageUpload';
+import AddTechnicalEvent from '../admin/technical/addNewTechnicalEvent';
 
 
 
@@ -28,6 +29,16 @@ const NAVIGATION = [
   {
     segment: 'Culturals',
     title: 'Events',
+    icon: <CelebrationIcon color='secondary' />,
+    children: [
+      {
+        segment: 'addEvent',
+        title: 'Add Event',
+      }
+    ],
+  },{
+    segment: 'TechnicalEvents',
+    title: 'Technical Events',
     icon: <CelebrationIcon color='secondary' />,
     children: [
       {
@@ -101,6 +112,9 @@ function DemoPageContent({ pathname }) {
       break;
     case "/Images/departmentCarousel":
       content=<DepartmentCarouselImageUploader/>
+      break;
+    case "/TechnicalEvents/addEvent":
+      content=<AddTechnicalEvent/>
       break;
     default:
       content = <div>{pathname}</div>;
