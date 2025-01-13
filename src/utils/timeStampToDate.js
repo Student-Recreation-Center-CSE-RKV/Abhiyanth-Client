@@ -39,32 +39,32 @@ export const extractDateTime = (timestamp) => {
     return Timestamp.fromDate(dateTime);
 }
 
-export const extractDateTimeFromTimestamp=(timestamp) =>{
-  if (!(timestamp instanceof Timestamp)) {
-      throw new Error("Input must be a Firebase Timestamp.");
-  }
-
-  const dateObject = timestamp.toDate();
-
-  const date = dateObject.toISOString().split('T')[0];
-
-  const time = dateObject.toISOString().split('T')[1].split('.')[0];
-
-  return { date, time };
-}
-
-// export const extractDateTimeFromTimestamp = (timestamp) => {
+// export const extractDateTimeFromTimestamp=(timestamp) =>{
 //   if (!(timestamp instanceof Timestamp)) {
-//     throw new Error("Input must be a Firebase Timestamp.");
+//       throw new Error("Input must be a Firebase Timestamp.");
 //   }
 
 //   const dateObject = timestamp.toDate();
 
-//   // Extract the local date
-//   const date = dateObject.toLocaleDateString('en-CA'); // Format as YYYY-MM-DD
+//   const date = dateObject.toISOString().split('T')[0];
 
-//   // Extract the local time
-//   const time = dateObject.toLocaleTimeString('en-GB', { hour12: false }); // Format as HH:mm:ss
+//   const time = dateObject.toISOString().split('T')[1].split('.')[0];
 
 //   return { date, time };
-// };
+// }
+
+export const extractDateTimeFromTimestamp = (timestamp) => {
+  if (!(timestamp instanceof Timestamp)) {
+    throw new Error("Input must be a Firebase Timestamp.");
+  }
+
+  const dateObject = timestamp.toDate();
+
+  // Extract the local date
+  const date = dateObject.toLocaleDateString('en-CA'); // Format as YYYY-MM-DD
+
+  // Extract the local time
+  const time = dateObject.toLocaleTimeString('en-GB', { hour12: false }); // Format as HH:mm:ss
+
+  return { date, time };
+};
