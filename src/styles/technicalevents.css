@@ -87,8 +87,36 @@
         rgba(207, 71, 202, 0.30)     
       );
 }
+
+.button-container
+{
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+    margin-top: 10px;
+}
 @media only screen and (max-width: 650px) {
     .title{
         font-size: 30px;
+    }
+}
+
+/* @media only screen and (max-width: 650px) {
+    .view-events-button {
+        font-size: 0.8rem; /* Adjust font size for smaller screens */
+        /*padding: 0.4rem 0.8rem; /* Reduce padding to fit the text */
+        /*text-align: center; /* Ensure text stays centered */
+        /*white-space: nowrap; /* Prevent text from wrapping */
+       /* overflow: hidden; /* Hide any overflowing text */
+       /* text-overflow: ellipsis; /* Add "..." if text overflows */
+    /* }
+}  */
+
+@media only screen and (max-width: 650px) {
+    .view-events-button {
+        white-space: normal; /* Allow text to wrap */
+        text-align: center;  /* Keep the text centered */
+        padding: 0.6rem 0.8rem; /* Adjust padding */
+        font-size: 0.9rem;   /* Adjust font size for readability */
     }
 }
