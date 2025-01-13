@@ -211,27 +211,27 @@ export default function HomeStartingComponent() {
                         whileHover={{ scale: 1.1 }}
                     >
                         <Typography component="span" sx={{ ...styles.buttonText, minWidth: "100px" }}>
-                            Culturals
+                            Events
                         </Typography>
                     </motion.button>
                 </Box>
-                <Box sx={{ position: 'absolute', bottom: '10%', left: "0" }} onClick={()=>{navigate("/stalls")}}>
+                <Box sx={{ position: 'absolute', bottom: '10%', left: "0" }} onClick={()=>{navigate("/technicalEvents")}}>
                     <motion.button
                         style={{ ...styles.buttonLeft, minWidth: "150px" }}
                         whileHover={{ scale: 1.1 }}
                     >
                         <Typography component="span" sx={{ ...styles.buttonText }}>
-                            Stalls
+                        Volunteers
                         </Typography>
                     </motion.button>
                 </Box>
-                <Box sx={{ position: 'absolute', bottom: '10%', right: "0" }} onClick={()=>{navigate("/technicalEvents")}}>
+                <Box sx={{ position: 'absolute', bottom: '10%', right: "0" }} onClick={()=>{navigate("/stalls")}}>
                     <motion.button
                         style={{ ...styles.buttonRight, width: "150px" }}
                         whileHover={{ scale: 1.1 }}
                     >
                         <Typography sx={styles.buttonText}>
-                            Sports
+                            Stalls
                         </Typography>
                     </motion.button>
                 </Box>

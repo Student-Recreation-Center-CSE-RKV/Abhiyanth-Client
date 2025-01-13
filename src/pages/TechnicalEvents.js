@@ -4,7 +4,14 @@ import image3 from "../assets/images/deptimage3.jpeg";
 import image4 from "../assets/images/deptimage4.jpeg";
 import image5 from "../assets/images/deptimage5.jpeg"; 
 import ImageCarousel from "../components/general/Carousel";
+import PageTop from "../components/general/PageTop";
 import "../styles/technicalevents.css";
+import i1 from "../assets/images/techEvents/IMG-20241227-WA0009.jpg"
+import i2 from "../assets/images/techEvents/IMG-20241227-WA0011.jpg"
+import i3 from "../assets/images/techEvents/IMG-20250101-WA0020.jpg"
+import i4 from "../assets/images/techEvents/IMG-20250101-WA0025 (1).jpg"
+import i5 from "../assets/images/techEvents/webinar.jpeg"
+import i6 from "../assets/images/hackathon.jpeg"
 
 const departments = [
     {
@@ -44,12 +51,13 @@ const departments = [
     },
 ];
 
-const images = [image1, image2, image3, image4, image5, image3, image2];
 
 export default function TechnicalEvents() {
     return (
         <> 
-            <ImageCarousel images={images} />
+            <div style={{paddingTop:"70px"}}>
+            <PageTop img1={i3} img2={i2} img3={i5} img4={i1} img5={i4} img6={i6} text="TECH Events"/>
+            </div>
             <h1 className="title">Technical Events</h1>
             <div className="main">
                 <div className="cards-container">

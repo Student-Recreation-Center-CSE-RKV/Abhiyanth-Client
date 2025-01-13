@@ -1,14 +1,17 @@
 import React from "react";
 import { Typography } from "@mui/material";
 import Grid2 from "@mui/material/Grid2";
-import img1 from "../assets/images/gallary_img6.jpeg";
-import img2 from "../assets/images/gallary_img7.jpeg";
-import img3 from "../assets/images/gallary_img8.jpeg";
-import ImageCarousel from "../components/general/Carousel";
+import img3 from "../assets/images/stalls/bakery.jpg"
+import img2 from "../assets/images/stalls/biryani.jpg"
+import img6 from "../assets/images/stalls/ice_cream.avif"
+import img4 from "../assets/images/stalls/pavbaji.jpg"
+import img5 from "../assets/images/stalls/shawarma.jpg"
+import img1 from "../assets/images/stalls/tiffin.avif"
 import StallCard from "../components/stalls/stallCard";
+import PageTop from "../components/general/PageTop";
 
 export default function AllStalls() {
-	const images = [img1, img2, img3];
+	
 	const stallsData = [
 		{
 			id: 1,
@@ -92,7 +95,10 @@ export default function AllStalls() {
 				flexDirection: "column",
 			}}
 		>
-			<ImageCarousel images={images} />
+			<div style={{paddingTop:"70px"}}>
+			<PageTop text="FOOD Stalls" img1={img1} img2={img2} img3={img3} img4={img4} img5={img5} img6={img6}/>
+
+			</div>
 			<Typography
 				variant="h4"
 				component="h1"
