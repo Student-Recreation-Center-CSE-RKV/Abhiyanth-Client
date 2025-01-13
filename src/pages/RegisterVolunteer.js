@@ -11,56 +11,55 @@ const events = [
         image: image1,
         description: "Explore cutting-edge tech and software development.",
         volunteerFormLink: "https://forms.google.com/example1", // Replace with actual Google Form link
-        participantFormLink: "https://forms.google.com/example2", // Replace with actual Google Form link
+        
     },
     {
         name: "Event2",
         image: image3,
         description: "Dive into circuits and modern electronic devices.",
         volunteerFormLink: "https://forms.google.com/example1", // Replace with actual Google Form link
-        participantFormLink: "https://forms.google.com/example2", // Replace with actual Google Form link
+        
     },
     {
         name: "Event3",
         image: image5,
         description: "Focus on power systems and electrical technology.",
         volunteerFormLink: "https://forms.google.com/example1", // Replace with actual Google Form link
-        participantFormLink: "https://forms.google.com/example2", // Replace with actual Google Form link
+        
     },
     {
         name: "Event4",
         image: image2,
         description: "Discover machines, engines, and industrial automation.",
         volunteerFormLink: "https://forms.google.com/example1", // Replace with actual Google Form link
-        participantFormLink: "https://forms.google.com/example2", // Replace with actual Google Form link
+        
     },
     {
         name: "Event5",
         image: image4,
         description: "Learn about construction, design, and infrastructure.",
         volunteerFormLink: "https://forms.google.com/example1", // Replace with actual Google Form link
-        participantFormLink: "https://forms.google.com/example2", // Replace with actual Google Form link
+        
     },
     {
         name: "Event6",
         image: image2,
         description: "Study chemical processes and industrial chemistry.",
         volunteerFormLink: "https://forms.google.com/example1", // Replace with actual Google Form link
-        participantFormLink: "https://forms.google.com/example2", // Replace with actual Google Form link
     },
     {
         name: "Event7",
         image: image3,
         description: "Understand materials science and metallurgical processes.",
         volunteerFormLink: "https://forms.google.com/example1", // Replace with actual Google Form link
-        participantFormLink: "https://forms.google.com/example2", // Replace with actual Google Form link
+        
     },
     {
         name:"Event8",
         image:image3,
         description:"This is an event for having a good start for the event",
         volunteerFormLink: "https://forms.google.com/example1", // Replace with actual Google Form link
-        participantFormLink: "https://forms.google.com/example2", // Replace with actual Google Form link
+
 
     }
 ];
@@ -72,7 +71,7 @@ export default function RegisterVolunteer() {
         <> 
             <div style={{marginTop:"60px"}}>
             {/* <ImageCarousel images={images} /> */}
-            <h1 className="title">Register for the Event</h1>
+            <h1 className="title">Volunteer Registration</h1>
             <div className="main">
                 <div className="cards-container">
                     {events.map((dept, index) => (
@@ -86,12 +85,6 @@ export default function RegisterVolunteer() {
                                     onClick={() => window.open(dept.volunteerFormLink, "_blank")}
                                 >
                                     Register as a Volunteer
-                                </button>
-                                <button
-                                    className="view-events-button"
-                                    onClick={() => window.open(dept.participantFormLink, "_blank")}
-                                >
-                                    Register
                                 </button>
                             </div>
                         </div>
