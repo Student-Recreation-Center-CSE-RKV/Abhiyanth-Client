@@ -24,7 +24,7 @@ const technicalEventsSlice = createSlice({
   },
 });
 
-export const { setLoading, setError, setSuccess, resetStatus } = technicalEventsSlice.actions;
+export const { setLoading, setError, setSuccess } = technicalEventsSlice.actions;
 
 export const addTechnicalEvent = (data, department) => async (dispatch) => {
   dispatch(setLoading(true));

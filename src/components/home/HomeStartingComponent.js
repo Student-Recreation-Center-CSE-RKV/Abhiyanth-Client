@@ -215,7 +215,7 @@ export default function HomeStartingComponent() {
                         </Typography>
                     </motion.button>
                 </Box>
-                <Box sx={{ position: 'absolute', bottom: '10%', left: "0" }} onClick={()=>{navigate("/technicalEvents")}}>
+                <Box sx={{ position: 'absolute', bottom: '10%', left: "0" }} onClick={()=>{navigate("/register-volunteer")}}>
                     <motion.button
                         style={{ ...styles.buttonLeft, minWidth: "150px" }}
                         whileHover={{ scale: 1.1 }}

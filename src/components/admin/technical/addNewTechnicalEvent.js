@@ -43,16 +43,11 @@ function AddTechnicalEvent() {
     });
   };
 
-
-
-  
   const handlePrizeChange = (index, value) => {
     const newPrizes = [...formData.prizes];
     newPrizes[index] = value;
     setFormData({ ...formData, prizes: newPrizes });
   };
-
-
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
