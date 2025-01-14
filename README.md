@@ -36,7 +36,7 @@ Abhiyanth-Client is a React application developed for the **Abhiyanth** event of
 | Director msg                            | Not started     | ❌             |
 | AO msg                                  | Not started     | ❌             |
 | Payment integration                     | Not started     | ❌             |
-| Login using Firebase                    | In progress     | ❌             |
+| Login using Firebase                    | Started         | ❌             |
 | FireBase Functions                      | In progress     | ❌             |
 | Technical Projects Page                 | Not started     | ❌             |
 | Each project description page           | Not started     | ❌             |
@@ -53,7 +53,7 @@ Abhiyanth-Client is a React application developed for the **Abhiyanth** event of
 | Polls and surveys charts                | Not started     | ❌             |
 | Gallery Page caching                    | Done            | ✅             |
 | Shimmer UI's                            | In progress     | ❌             |
-| Events Page admin                       | In progress     | ❌             |
+| Events Page admin                       | Done            | ✅             |
 | Technical Events Admin                  | In progress     | ❌             |
 | Volunteer Admin and Integration with Firebase | In progress | ❌             |
 
