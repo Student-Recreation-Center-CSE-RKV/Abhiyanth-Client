@@ -1,9 +1,11 @@
+import { useEffect, useState } from "react";
 import image1 from "../assets/images/deptimage1.jpeg";
 import image2 from "../assets/images/deptimage2.jpeg";
 import image3 from "../assets/images/deptimage3.jpeg";
 import image4 from "../assets/images/deptimage4.jpeg";
 import image5 from "../assets/images/deptimage5.jpeg"; 
 import "../styles/technicalevents.css";
+import { getAllVolunteerEvents } from "../api/volunteer";
 
 const events = [
     {
@@ -59,30 +61,38 @@ const events = [
         image:image3,
         description:"This is an event for having a good start for the event",
         volunteerFormLink: "https://forms.google.com/example1", // Replace with actual Google Form link
-
-
     }
 ];
 
-const images = [image1, image2, image3, image4, image5, image3, image2];
 
 export default function RegisterVolunteer() {
+    const [volunteerEvents,setEvents]=useState([]);
+    const getData=async()=>{
+        try {
+            const res=await getAllVolunteerEvents();
+            setEvents(res);
+        } catch (error) {
+            
+        }
+    }
+    useEffect(()=>{
+        getData();
+    },[]);
     return (
         <> 
-            <div style={{marginTop:"60px"}}>
-            {/* <ImageCarousel images={images} /> */}
+            <div style={{marginTop:"70px"}}>
             <h1 className="title">Volunteer Registration</h1>
             <div className="main">
                 <div className="cards-container">
-                    {events.map((dept, index) => (
+                    {volunteerEvents.map((item, index) => (
                         <div key={index} className="card">
-                            <img src={dept.image} alt={dept.name} className="card-image" />
-                            <h2 className="card-title">{dept.name}</h2>
-                            <p className="card-description">{dept.description}</p>
+                            <img src={item.image} alt={item.eventName} className="card-image" />
+                            <h2 className="card-title">{item.eventName}</h2>
+                            <p className="card-description">{item.eventDescription}</p>
                             <div className="button-container">
                                 <button
                                     className="view-events-button"
-                                    onClick={() => window.open(dept.volunteerFormLink, "_blank")}
+                                    onClick={() => window.open(item.link, "_blank")}
                                 >
                                     Register as a Volunteer
                                 </button>

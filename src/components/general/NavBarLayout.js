@@ -16,6 +16,9 @@ import AcUnitIcon from '@mui/icons-material/AcUnit';
 import ImageUploader from '../../components/admin/sponsers/sponsersAdmin';
 import ManageEventsByAdmin from '../admin/ManageEventsByAdmin';
 import DepartmentCarouselImageUploader from '../admin/technical/DepartmentImageUpload';
+import AddTechnicalEvent from '../admin/technical/addNewTechnicalEvent';
+import AddVolunteer from '../admin/volunteer/addVolunteer';
+import AllVolunteers from '../admin/volunteer/allVolunteers';
 
 
 
@@ -33,6 +36,54 @@ const NAVIGATION = [
       {
         segment: 'addEvent',
         title: 'Add Event',
+      }
+    ],
+  },{
+    segment: 'TechnicalEvents',
+    title: 'Technical Events',
+    icon: <CelebrationIcon color='secondary' />,
+    children: [
+      {
+        segment: 'addEvent',
+        title: 'Add Event',
+      },
+      {
+        segment: 'cseTech',
+        title: 'CSE TECH',
+      },
+      {
+        segment: 'eceTech',
+        title: 'ECE TECH',
+      },{
+        segment: 'eeeTech',
+        title: 'EEE TECH',
+      },{
+        segment: 'chemTech',
+        title: 'CHEM TECH',
+      },{
+        segment: 'civilTech',
+        title: 'CIVIL TECH',
+      },{
+        segment: 'mechTech',
+        title: 'MECH TECH',
+      },{
+        segment: 'mmeTech',
+        title: 'MME TECH',
+      },
+    ],
+  },
+  {
+    segment: 'Volunteers',
+    title: 'Volunteers',
+    icon: <CelebrationIcon color='secondary' />,
+    children: [
+      {
+        segment: 'registration',
+        title: 'Add New',
+      },
+      {
+        segment: 'allVolunteers',
+        title: 'All Volunteers',
       }
     ],
   },
@@ -101,6 +152,15 @@ function DemoPageContent({ pathname }) {
       break;
     case "/Images/departmentCarousel":
       content=<DepartmentCarouselImageUploader/>
+      break;
+    case "/TechnicalEvents/addEvent":
+      content=<AddTechnicalEvent/>
+      break;
+    case "/Volunteers/registration":
+      content=<AddVolunteer/>
+      break;
+    case "/Volunteers/allVolunteers":
+      content=<AllVolunteers/>
       break;
     default:
       content = <div>{pathname}</div>;
