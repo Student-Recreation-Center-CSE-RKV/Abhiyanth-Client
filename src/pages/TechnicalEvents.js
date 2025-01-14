@@ -1,20 +1,10 @@
-<<<<<<< HEAD:src/components/eventDetails/technicalevents.js
-import image1 from "../../assets/images/deptimage1.jpeg";
-import image2 from "../../assets/images/deptimage2.jpeg";
-import image3 from "../../assets/images/deptimage3.jpeg";
-import image4 from "../../assets/images/deptimage4.jpeg";
-import image5 from "../../assets/images/deptimage5.jpeg"; 
-import image6 from "../../assets/images/deptimage6.jpeg"; 
-import image7 from "../../assets/images/deptimage7.jpeg"; 
-import ImageCarousel from "../general/Carousel";
-import "../../styles/technicalevents.css";
-=======
+
 import image1 from "../assets/images/deptimage1.jpeg";
 import image2 from "../assets/images/deptimage2.jpeg";
 import image3 from "../assets/images/deptimage3.jpeg";
 import image4 from "../assets/images/deptimage4.jpeg";
 import image5 from "../assets/images/deptimage5.jpeg"; 
-import ImageCarousel from "../components/general/Carousel";
+
 import PageTop from "../components/general/PageTop";
 import "../styles/technicalevents.css";
 import i1 from "../assets/images/techEvents/IMG-20241227-WA0009.jpg"
@@ -23,7 +13,7 @@ import i3 from "../assets/images/techEvents/IMG-20250101-WA0020.jpg"
 import i4 from "../assets/images/techEvents/IMG-20250101-WA0025 (1).jpg"
 import i5 from "../assets/images/techEvents/webinar.jpeg"
 import i6 from "../assets/images/hackathon.jpeg"
->>>>>>> 75c163e87c20488c93242195956db976b861a556:src/pages/TechnicalEvents.js
+
 
 const departments = [
     {
@@ -53,20 +43,16 @@ const departments = [
     },
     {
         name: "Chemical",
-        image: image6,
+        image: image1,
         description: "Study chemical processes and industrial chemistry.",
     },
     {
         name: "MME",
-        image: image7,
+        image: image2,
         description: "Understand materials science and metallurgical processes.",
     },
 ];
 
-<<<<<<< HEAD:src/components/eventDetails/technicalevents.js
-const images = [image1, image2, image3, image4, image5, image6, image7];
-=======
->>>>>>> 75c163e87c20488c93242195956db976b861a556:src/pages/TechnicalEvents.js
 
 export default function TechnicalEvents() {
     return (

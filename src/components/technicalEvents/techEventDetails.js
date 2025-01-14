@@ -7,7 +7,7 @@ import {
   CardMedia,
   Button,
 } from "@mui/material";
-export default function techEventDetails({event = {
+export default function TechEventDetails({event = {
     title: "Hackathon",
     date: "2025-01-21T13:26:59+05:30",
     venue: "CSE Department",
