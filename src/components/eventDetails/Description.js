@@ -91,11 +91,11 @@ function Description({ item }) {
           <Typography sx={contentTextStyles}>{item.mainDescription}</Typography>
           <Box>
             <img
-              src={dummyImage}
+              src={item.images.descImageLeft}
               alt="Event"
               style={{
                 width: "100%",
-                height: "auto",
+                height: "400px",
                 borderRadius: "16.718px",
                 boxShadow: "0px 0px 8.359px 1.672px #00B093"
               }}
@@ -105,7 +105,7 @@ function Description({ item }) {
         {!isSmallScreen && (
           <Box>
             <img
-              src={dummyImage}
+              src={item.images.descImageRight}
               alt="Event"
               style={{
                 width: "100%",
@@ -119,17 +119,18 @@ function Description({ item }) {
       </Box>
       <Box sx={styles.descriptionMain2}>
         <Typography sx={contentTextStyles}>{item.secondaryDescription}</Typography>
-        {item.images?.winnersImage && (
+        {item.images?.lastImage && (
           <Box>
             <img
-              src={dummyImage}
+              src={item.images.lastImage}
               alt="Winners"
               style={{
                 width: "100%",
-                height: "100%",
+                height: "500px",
                 borderRadius: "16.718px",
                 boxShadow: "0px 0px 8.359px 1.672px #00B093",
-                margin: "1%"
+                margin: "1%",
+                objectFit:"cover"
               }}
             />
           </Box>
@@ -161,6 +162,7 @@ function Description({ item }) {
         </Box>
       ) : null}
       {results.length > 0 && (
+        
         <Box>
           <Typography
             sx={{
@@ -180,6 +182,7 @@ function Description({ item }) {
             ))}
           </Box>
         </Box>
+        
       )}
       {organizers.length > 0 && (
         <Box>
