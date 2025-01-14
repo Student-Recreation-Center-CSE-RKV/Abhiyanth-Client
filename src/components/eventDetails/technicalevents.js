@@ -3,6 +3,8 @@ import image2 from "../../assets/images/deptimage2.jpeg";
 import image3 from "../../assets/images/deptimage3.jpeg";
 import image4 from "../../assets/images/deptimage4.jpeg";
 import image5 from "../../assets/images/deptimage5.jpeg"; 
+import image6 from "../../assets/images/deptimage6.jpeg"; 
+import image7 from "../../assets/images/deptimage7.jpeg"; 
 import ImageCarousel from "../general/Carousel";
 import "../../styles/technicalevents.css";
 
@@ -34,17 +36,17 @@ const departments = [
     },
     {
         name: "Chemical",
-        image: image2,
+        image: image6,
         description: "Study chemical processes and industrial chemistry.",
     },
     {
         name: "MME",
-        image: image3,
+        image: image7,
         description: "Understand materials science and metallurgical processes.",
     },
 ];
 
-const images = [image1, image2, image3, image4, image5, image3, image2];
+const images = [image1, image2, image3, image4, image5, image6, image7];
 
 export default function Technicalevents() {
     return (
