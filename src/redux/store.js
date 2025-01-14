@@ -1,12 +1,14 @@
 // redux/store.js
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from './slices/counterSlice';
 import eventsReducer from "./slices/eventsSlice"
+import techReducer from "./slices/technicalEventsSlice"
+import volunteerReducer from "./slices/volunteerSlice"
 
 const store = configureStore({
   reducer: {
-    counter: counterReducer,
     events: eventsReducer,
+    technicalEvents:techReducer,
+    volunteerEvents:volunteerReducer
   },
 });
 

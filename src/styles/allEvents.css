@@ -103,13 +103,7 @@
 	.alleventstopHeading {
 		margin-bottom: 1rem;
 		font-size: 30px;
-	}  background: linear-gradient(
-		to right, 
-		rgba(255, 255, 255, 0.04),   /* #FFFFFF0A */
-		rgba(101, 45, 192, 1),       /* #652DC0 with 100% opacity */
-		rgba(105, 84, 235, 0.79),    /* #6954EBC9 with 75% opacity */
-		rgba(207, 71, 202, 0.30)     /* #CF47CA7D with 48% opacity */
-	  );
+	} 
 	.alleventstext1 {
 		font-size: 28px;
 		padding-left: 0;

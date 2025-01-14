@@ -97,7 +97,7 @@ function Top({item}){
       </Box>
       <Box >
         <Box sx={styles.titleImage}>
-          <img src={dummyImage} alt="Event" style={{width:"100%", height:"auto", borderRadius: "16.718px"}}/>
+          <img src={item.images.mainImage} alt="Event" style={{width:"100%", height:"500px", borderRadius: "16.718px",objectFit: "cover"}}/>
         </Box>
       </Box>
     </Box>

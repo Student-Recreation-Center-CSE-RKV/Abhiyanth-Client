@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import CustomCard from "./eventCustomCard";
 import HorizontalScrollBox from "./HorizontalScrollBox";
 import { Grid } from "@mui/material";
-import Grid2 from "@mui/material/Grid2";
 import "../../styles/allEvents.css";
 import ShimmerCard from "./Shimmer";
 import img1 from "../../assets/images/eventsHeaderImg1.jpeg";
@@ -11,9 +10,10 @@ import img3 from "../../assets/images/gallery_main2.webp";
 import img4 from "../../assets/images/gallery_main1.webp";
 import img5 from "../../assets/images/eventsHeaderImg5.jpeg";
 import img6 from "../../assets/images/eventsHeaderImg6.jpeg";
-import abiyanthLogo from "../../assets/images/Abhiyanthlogo2.png";
+
 import { useDispatch, useSelector } from "react-redux";
 import { fetchEvents } from "../../redux/slices/eventsSlice";
+import PageTop from "../general/PageTop";
 
 
 const AllEvents = () => {
@@ -40,39 +40,7 @@ const AllEvents = () => {
 				marginTop: "70px",
 			}}
 		>
-			<div className="eventsHeader">
-				<div className="eventAbiyanthLogo">
-					<div className="duplicate123">
-						<img
-							src={abiyanthLogo}
-							alt="abiyanth logo"
-							className="abiyanthlogoimg"
-						></img>
-						<h3 className="alleventsculturalsheading">CULTURALS</h3>
-					</div>
-				</div>
-				<Grid2 container spacing={1}>
-					<Grid2 size={3}>
-						<img src={img4} alt="gallery img 3" className="imageInHeader" />
-					</Grid2>
-					<Grid2 size={3}>
-						<img src={img2} alt="gallery img 3" className="imageInHeader" />
-					</Grid2>
-					<Grid2 size={6}>
-						<img src={img1} className="imageInHeader" alt="gallery img 3" />
-					</Grid2>
-
-					<Grid2 size={6}>
-						<img src={img6} alt="gallery img 3" className="imageInHeader" />
-					</Grid2>
-					<Grid2 size={3}>
-						<img src={img5} alt="gallery img 3" className="imageInHeader" />
-					</Grid2>
-					<Grid2 size={3}>
-						<img src={img3} alt="gallery img 3" className="imageInHeader" />
-					</Grid2>
-				</Grid2>
-			</div>
+			<PageTop img1={img1} img2={img2} img3={img3} img4={img4} img5={img5} img6={img6} text="CULTURALS"/>
 
 			<div className="alleventscontainer">
 				{loading ? (

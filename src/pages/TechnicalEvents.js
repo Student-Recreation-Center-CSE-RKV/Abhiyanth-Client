@@ -1,3 +1,4 @@
+<<<<<<< HEAD:src/components/eventDetails/technicalevents.js
 import image1 from "../../assets/images/deptimage1.jpeg";
 import image2 from "../../assets/images/deptimage2.jpeg";
 import image3 from "../../assets/images/deptimage3.jpeg";
@@ -7,6 +8,22 @@ import image6 from "../../assets/images/deptimage6.jpeg";
 import image7 from "../../assets/images/deptimage7.jpeg"; 
 import ImageCarousel from "../general/Carousel";
 import "../../styles/technicalevents.css";
+=======
+import image1 from "../assets/images/deptimage1.jpeg";
+import image2 from "../assets/images/deptimage2.jpeg";
+import image3 from "../assets/images/deptimage3.jpeg";
+import image4 from "../assets/images/deptimage4.jpeg";
+import image5 from "../assets/images/deptimage5.jpeg"; 
+import ImageCarousel from "../components/general/Carousel";
+import PageTop from "../components/general/PageTop";
+import "../styles/technicalevents.css";
+import i1 from "../assets/images/techEvents/IMG-20241227-WA0009.jpg"
+import i2 from "../assets/images/techEvents/IMG-20241227-WA0011.jpg"
+import i3 from "../assets/images/techEvents/IMG-20250101-WA0020.jpg"
+import i4 from "../assets/images/techEvents/IMG-20250101-WA0025 (1).jpg"
+import i5 from "../assets/images/techEvents/webinar.jpeg"
+import i6 from "../assets/images/hackathon.jpeg"
+>>>>>>> 75c163e87c20488c93242195956db976b861a556:src/pages/TechnicalEvents.js
 
 const departments = [
     {
@@ -46,12 +63,17 @@ const departments = [
     },
 ];
 
+<<<<<<< HEAD:src/components/eventDetails/technicalevents.js
 const images = [image1, image2, image3, image4, image5, image6, image7];
+=======
+>>>>>>> 75c163e87c20488c93242195956db976b861a556:src/pages/TechnicalEvents.js
 
-export default function Technicalevents() {
+export default function TechnicalEvents() {
     return (
         <> 
-            <ImageCarousel images={images} />
+            <div style={{paddingTop:"70px"}}>
+            <PageTop img1={i3} img2={i2} img3={i5} img4={i1} img5={i4} img6={i6} text="TECH Events"/>
+            </div>
             <h1 className="title">Technical Events</h1>
             <div className="main">
                 <div className="cards-container">
