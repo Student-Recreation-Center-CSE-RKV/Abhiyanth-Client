@@ -19,6 +19,7 @@ import DepartmentCarouselImageUploader from '../admin/technical/DepartmentImageU
 import AddTechnicalEvent from '../admin/technical/addNewTechnicalEvent';
 import AddVolunteer from '../admin/volunteer/addVolunteer';
 import AllVolunteers from '../admin/volunteer/allVolunteers';
+import AllTechnicalEvents from '../admin/technical/allTechnicalEvents';
 
 
 
@@ -38,7 +39,7 @@ const NAVIGATION = [
         title: 'Add Event',
       }
     ],
-  },{
+  }, {
     segment: 'TechnicalEvents',
     title: 'Technical Events',
     icon: <CelebrationIcon color='secondary' />,
@@ -54,19 +55,19 @@ const NAVIGATION = [
       {
         segment: 'eceTech',
         title: 'ECE TECH',
-      },{
+      }, {
         segment: 'eeeTech',
         title: 'EEE TECH',
-      },{
+      }, {
         segment: 'chemTech',
         title: 'CHEM TECH',
-      },{
+      }, {
         segment: 'civilTech',
         title: 'CIVIL TECH',
-      },{
+      }, {
         segment: 'mechTech',
         title: 'MECH TECH',
-      },{
+      }, {
         segment: 'mmeTech',
         title: 'MME TECH',
       },
@@ -144,23 +145,44 @@ function DemoPageContent({ pathname }) {
     case "/Images/gallery":
       content = <ImageUploader name={"gallery"} />;
       break;
-      case "/Images/galleryCarousel":
-        content = <ImageUploader name={"galleryCarousel"} />;
-        break;
+    case "/Images/galleryCarousel":
+      content = <ImageUploader name={"galleryCarousel"} />;
+      break;
     case "/Culturals/addEvent":
-      content=<ManageEventsByAdmin/>;
+      content = <ManageEventsByAdmin />;
       break;
     case "/Images/departmentCarousel":
-      content=<DepartmentCarouselImageUploader/>
+      content = <DepartmentCarouselImageUploader />
       break;
     case "/TechnicalEvents/addEvent":
-      content=<AddTechnicalEvent/>
+      content = <AddTechnicalEvent />
       break;
     case "/Volunteers/registration":
-      content=<AddVolunteer/>
+      content = <AddVolunteer />
       break;
     case "/Volunteers/allVolunteers":
-      content=<AllVolunteers/>
+      content = <AllVolunteers />
+      break;
+    case "/TechnicalEvents/cseTech":
+      content = <AllTechnicalEvents key="CSE" department="CSE" />
+      break;
+    case "/TechnicalEvents/eceTech":
+      content = <AllTechnicalEvents key="ECE" department="ECE" />
+      break;
+    case "/TechnicalEvents/eeeTech":
+      content = <AllTechnicalEvents key="EEE" department="EEE" />
+      break;
+    case "/TechnicalEvents/mmeTech":
+      content = <AllTechnicalEvents key="MME" department="MME" />
+      break;
+    case "/TechnicalEvents/chemTech":
+      content = <AllTechnicalEvents key="Chemical" department="Chemical" />
+      break;
+    case "/TechnicalEvents/civilTech":
+      content = <AllTechnicalEvents key="civil" department="Civil" />
+      break;
+    case "/TechnicalEvents/mechTech":
+      content = <AllTechnicalEvents key="mechanical" department="Mechanical" />
       break;
     default:
       content = <div>{pathname}</div>;
@@ -189,26 +211,14 @@ function DemoPageContent({ pathname }) {
 DemoPageContent.propTypes = {
   pathname: PropTypes.string.isRequired,
 };
-function ToolbarActionsCalendar() {
-  const navigate = useNavigate();
-  return (
-    <Box sx={{ display: 'flex', flexDirection: 'row', gap: '8px', alignItems: 'center' }}>
-      <Tooltip title="Event Calendar">
-        <IconButton onClick={() => navigate('/event-calendar')}>
-          <CalendarMonthIcon />
-        </IconButton>
-      </Tooltip>
-      <ThemeSwitcher />
-    </Box>
-  );
-}
+
 function NavBarLayout(props) {
 
   const [session, setSession] = React.useState({
     user: {
-      name: 'Bharat Kashyap',
-      email: 'bharatkashyap@outlook.com',
-      image: 'https://avatars.githubusercontent.com/u/19550456',
+      name: 'Revanth Kumar',
+      email: 'jrevanth101@gmail.com',
+      image: 'https://avatars.githubusercontent.com/u/146642552?s=400&u=d94b12cfbbcb29b782a4e780eb4419b7932beb5f&v=4',
     },
   });
 
@@ -244,9 +254,7 @@ function NavBarLayout(props) {
         }}
       >
         <DashboardLayout
-          slots={{
-            toolbarActions: ToolbarActionsCalendar,
-          }}
+          
         >
           <DemoPageContent pathname={router.pathname} />
         </DashboardLayout>

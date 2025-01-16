@@ -9,9 +9,9 @@ import { useTheme,useMediaQuery } from "@mui/material";
 const ImageCarousel = ({ images }) => {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm")); // xs and sm screens
-  if (!images || images.length === 0) {
-    return <p>No images to display</p>;
-  }
+  // if (!images || images.length === 0) {
+  //   return <p>No images to display</p>;
+  // }
 
   return (
     <Swiper

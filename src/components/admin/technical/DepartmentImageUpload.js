@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import uploadImage from "../../../api/uploadImage";
 import { Box, Typography, Button, TextField, Avatar, MenuItem, Select, FormControl, InputLabel } from "@mui/material";
+import { addImageToDepartmentArray } from "../../../api/technicalEvents";
 
 const DepartmentCarouselImageUploader = () => {
   const [image, setImage] = useState(null);
@@ -28,8 +29,9 @@ const DepartmentCarouselImageUploader = () => {
 
     try {
       setMessage("Uploading...");
-      const imageUrl = await uploadImage(image, department); // Pass department as collection name
-      setMessage(`Image uploaded successfully`);
+      const imageUrl = await uploadImage(image, "departmentCarousel"); // Pass department as collection name
+      const res=await addImageToDepartmentArray(imageUrl,department);
+      setMessage(res.message);
       console.log("Image URL:", imageUrl);
       console.log("Department:", department);
     } catch (error) {

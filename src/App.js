@@ -31,11 +31,11 @@ function App() {
           <Route path="/ourTeam" element={<OurTeam />} />
           <Route path="/events" element={<AllEvents />} />
           <Route path="/events/:id" element={<EventDetails />} />
-          <Route path="/technicalEvents" element={<TechnicalEvents/>} />
           <Route path="/contactUs" element={<ContactUs/>} />
           <Route path="/stalls" element={< Stalls/>} />
-          <Route path="/dept-wise-events" element={<DeptWiseEvents/>} />
-          <Route path="/technicalEvent/:department/:id" element={<TechEventDetails/>} />
+          <Route path="/technicalEvents" element={<TechnicalEvents/>} />
+          <Route path="/technicalEvents/:department" element={<DeptWiseEvents/>} />
+          <Route path="/technicalEvents/:department/:id" element={<TechEventDetails/>} />
           <Route path="/register-volunteer" element={<RegisterVolunteer/>}/>
         </Route>
         <Route path="/admin" element={<Admin />}/>

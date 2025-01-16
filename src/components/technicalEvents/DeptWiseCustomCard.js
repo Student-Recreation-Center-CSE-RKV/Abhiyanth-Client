@@ -9,8 +9,12 @@ import {
   Chip,
 } from "@mui/material";
 import hackathon from "../../assets/images/hackathon.jpeg";
+import { extractDateTime } from "../../utils/timeStampToDate";
+import { useNavigate } from "react-router-dom";
 
-export default function CustomCard({ event }) {
+export default function CustomCard({ event,department }) {
+  const navigate=useNavigate();
+  const dd=extractDateTime(event.date)
   return (
     <Card
       sx={{
@@ -23,7 +27,6 @@ export default function CustomCard({ event }) {
         border: "1px solid #505050 ",
         borderRadius: "20px",
         position: "relative",
-        minHeight: "450px", // Ensures minimum height
         overflow: "hidden", // Prevents content overflow
         ["@media (max-width: 376px)"]: {
           maxWidth: "95%", // Adjust width for very small screens
@@ -70,7 +73,7 @@ export default function CustomCard({ event }) {
             textOverflow: "ellipsis",
           }}
         >
-          {event.name}
+          {event.title}
         </Typography>
         <Typography
           variant="body2"
@@ -89,7 +92,46 @@ export default function CustomCard({ event }) {
             overflow: "hidden",
           }}
         >
-          {event.description}
+          {event.short_description}
+        </Typography>
+
+        <Typography
+          variant="body2"
+          color="text.secondary"
+          sx={{
+            fontFamily: "Audiowide",
+            fontSize: { xs: "14px", sm: "16px" }, // Responsive font size
+            lineHeight: "1.5",
+            color: "white",
+            width: "100%",
+            overflowWrap: "break-word", // Handle long words
+            wordBreak: "break-word", // Handle long words
+            display: "-webkit-box",
+            WebkitLineClamp: 3, // Limits to 3 lines
+            WebkitBoxOrient: "vertical",
+            overflow: "hidden",
+          }}
+        >
+          Date:{dd.date}
+        </Typography>
+        <Typography
+          variant="body2"
+          color="text.secondary"
+          sx={{
+            fontFamily: "Audiowide",
+            fontSize: { xs: "14px", sm: "16px" }, // Responsive font size
+            lineHeight: "1.5",
+            color: "white",
+            width: "100%",
+            overflowWrap: "break-word", // Handle long words
+            wordBreak: "break-word", // Handle long words
+            display: "-webkit-box",
+            WebkitLineClamp: 3, // Limits to 3 lines
+            WebkitBoxOrient: "vertical",
+            overflow: "hidden",
+          }}
+        >
+          Time:{dd.time}
         </Typography>
 
         <Grid2 container spacing={1} sx={{ marginTop: "1rem" }}>
@@ -134,6 +176,7 @@ export default function CustomCard({ event }) {
             lineHeight: "1.2",
             color: " #00B093",
           }}
+          onClick={()=>{navigate(`/technicalEvents/${department}/${event.id}`)}}
         >
           Know more
         </Button>
