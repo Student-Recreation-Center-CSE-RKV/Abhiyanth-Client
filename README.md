@@ -22,7 +22,7 @@ Abhiyanth-Client is a React application developed for the **Abhiyanth** event of
 | Task/Module/Page/Component                        | Status          | API Integration|
 |-----------------------------------------|-----------------|----------------|
 | Contact Us                              | Done            | ✅             |
-| Stalls main Page                        | In progress     | ❌             |
+| Stalls main Page                        | test once       | ❔            |
 | Individual Stall Page                   | In progress     | ❌             |
 | Technical events main page              | Done            | ✅             |
 | Technical Events Individual Department page | Done        | ✅             |
