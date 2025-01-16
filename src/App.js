@@ -14,6 +14,9 @@ import ScrollToTop from './components/general/ScrollToTop';
 import ContactUs from './pages/ContactUs';
 import AllStalls from './components/allStalls';
 import DeptWiseEvents from './components/technicalEvents/DeptWiseEvents.js'
+import TechnicalEvents from "./pages/TechnicalEvents.js"
+import RegisterVolunteer from "./pages/RegisterVolunteer.js"
+import TechEventDetails from './components/technicalEvents/techEventDetails.js';
 
 function App() {
   
@@ -29,12 +32,19 @@ function App() {
           <Route path="/ourTeam" element={<OurTeam />} />
           <Route path="/events" element={<AllEvents />} />
           <Route path="/events/:id" element={<EventDetails />} />
+          <Route path="/technicalEvents" element={<TechnicalEvents/>} />
           <Route path="/contactUs" element={<ContactUs/>} />
+<<<<<<< HEAD
           <Route path="/stalls" element={< AllStalls/>} />
+=======
+          <Route path="/stalls" element={< Stalls/>} />
+>>>>>>> 84eddc2e25fb5113cc9b60dc7e8436df4e31ba8f
           <Route path="/dept-wise-events" element={<DeptWiseEvents/>} />
+          <Route path="/technicalEvent/:department/:id" element={<TechEventDetails/>} />
+          <Route path="/register-volunteer" element={<RegisterVolunteer/>}/>
         </Route>
-        {/* <Route path="/admin" element={<Admin />}/> */}
-         
+        <Route path="/admin" element={<Admin />}/>
+    
         
       </Routes>
     </BrowserRouter>
