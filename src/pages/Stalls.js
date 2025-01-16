@@ -1,21 +1,20 @@
 import React from "react";
 import { Typography } from "@mui/material";
 import Grid2 from "@mui/material/Grid2";
-import img3 from "../assets/images/stalls/bakery.jpg"
-import img2 from "../assets/images/stalls/biryani.jpg"
-import img6 from "../assets/images/stalls/ice_cream.avif"
-import img4 from "../assets/images/stalls/pavbaji.jpg"
-import img5 from "../assets/images/stalls/shawarma.jpg"
-import img1 from "../assets/images/stalls/tiffin.avif"
+import img1 from "../assets/images/gallary_img6.jpeg";
+import img2 from "../assets/images/gallary_img7.jpeg";
+import img3 from "../assets/images/gallary_img8.jpeg";
 import StallCard from "../components/stalls/stallCard";
-import PageTop from "../components/general/PageTop";
+import ImageCarousel from "../components/general/Carousel";
+
 
 export default function AllStalls() {
-	
+	const images = [img1, img2, img3];
 	const stallsData = [
 		{
 			id: 1,
 			name: "Stall 1",
+			menuPdfFile:"sample.pdf",
 			description:
 				"This is a short description of Stall 1.lscccccccccccccccccccccccccccccccccccccbz,jssssssssssss",
 			topImage:
@@ -28,6 +27,7 @@ export default function AllStalls() {
 		{
 			id: 2,
 			name: "Stall 2",
+			menuPdfFile:"sample.pdf",
 			description:
 				"This is a short description of Stall 2.xbsakueguUUUUUUUUUUUUUUUUUUUUUUUUUUHLDHSDLKbsdjl",
 			topImage:
@@ -40,6 +40,7 @@ export default function AllStalls() {
 		{
 			id: 3,
 			name: "Stall 3",
+			menuPdfFile:"sample.pdf",
 			description:
 				"This is a short description of Stall 2.xbsakueguUUUUUUUUUUUUUUUUUUUUUUUUUUHLDHSDLKbsdjl",
 			topImage:
@@ -52,6 +53,7 @@ export default function AllStalls() {
 		{
 			id: 4,
 			name: "Stall 4",
+			menuPdfFile:"sample.pdf",
 			description:
 				"This is a short description of Stall 2.xbsakueguUUUUUUUUUUUUUUUUUUUUUUUUUUHLDHSDLKbsdjl",
 			topImage:
@@ -64,6 +66,7 @@ export default function AllStalls() {
 		{
 			id: 5,
 			name: "Stall 5",
+			menuPdfFile:"sample.pdf",
 			description:
 				"This is a short description of Stall 2.xbsakueguUUUUUUUUUUUUUUUUUUUUUUUUUUHLDHSDLKbsdjl",
 			topImage:
@@ -76,6 +79,7 @@ export default function AllStalls() {
 		{
 			id: 6,
 			name: "Stall 6",
+			menuPdfFile:"sample.pdf",
 			description:
 				"This is a short description of Stall 2.xbsakueguUUUUUUUUUUUUUUUUUUUUUUUUUUHLDHSDLKbsdjl",
 			topImage:
@@ -95,10 +99,7 @@ export default function AllStalls() {
 				flexDirection: "column",
 			}}
 		>
-			<div style={{paddingTop:"70px"}}>
-			<PageTop text="FOOD Stalls" img1={img1} img2={img2} img3={img3} img4={img4} img5={img5} img6={img6}/>
-
-			</div>
+			<ImageCarousel images={images} />
 			<Typography
 				variant="h4"
 				component="h1"
