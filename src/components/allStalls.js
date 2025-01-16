@@ -13,6 +13,7 @@ export default function AllStalls() {
 		{
 			id: 1,
 			name: "Stall 1",
+			menuPdfFile:"sample.pdf",
 			description:
 				"This is a short description of Stall 1.lscccccccccccccccccccccccccccccccccccccbz,jssssssssssss",
 			topImage:
@@ -25,6 +26,7 @@ export default function AllStalls() {
 		{
 			id: 2,
 			name: "Stall 2",
+			menuPdfFile:"sample.pdf",
 			description:
 				"This is a short description of Stall 2.xbsakueguUUUUUUUUUUUUUUUUUUUUUUUUUUHLDHSDLKbsdjl",
 			topImage:
@@ -37,6 +39,7 @@ export default function AllStalls() {
 		{
 			id: 3,
 			name: "Stall 3",
+			menuPdfFile:"sample.pdf",
 			description:
 				"This is a short description of Stall 2.xbsakueguUUUUUUUUUUUUUUUUUUUUUUUUUUHLDHSDLKbsdjl",
 			topImage:
@@ -49,6 +52,7 @@ export default function AllStalls() {
 		{
 			id: 4,
 			name: "Stall 4",
+			menuPdfFile:"sample.pdf",
 			description:
 				"This is a short description of Stall 2.xbsakueguUUUUUUUUUUUUUUUUUUUUUUUUUUHLDHSDLKbsdjl",
 			topImage:
@@ -61,6 +65,7 @@ export default function AllStalls() {
 		{
 			id: 5,
 			name: "Stall 5",
+			menuPdfFile:"sample.pdf",
 			description:
 				"This is a short description of Stall 2.xbsakueguUUUUUUUUUUUUUUUUUUUUUUUUUUHLDHSDLKbsdjl",
 			topImage:
@@ -73,6 +78,7 @@ export default function AllStalls() {
 		{
 			id: 6,
 			name: "Stall 6",
+			menuPdfFile:"sample.pdf",
 			description:
 				"This is a short description of Stall 2.xbsakueguUUUUUUUUUUUUUUUUUUUUUUUUUUHLDHSDLKbsdjl",
 			topImage:
