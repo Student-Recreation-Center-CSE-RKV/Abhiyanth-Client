@@ -4,6 +4,7 @@ import image2 from "../assets/images/deptimage2.jpeg";
 import image3 from "../assets/images/deptimage3.jpeg";
 import image4 from "../assets/images/deptimage4.jpeg";
 import image5 from "../assets/images/deptimage5.jpeg"; 
+import { useNavigate } from "react-router-dom";
 
 import PageTop from "../components/general/PageTop";
 import "../styles/technicalevents.css";
@@ -55,6 +56,7 @@ const departments = [
 
 
 export default function TechnicalEvents() {
+    const navigate=useNavigate()
     return (
         <> 
             <div style={{paddingTop:"70px"}}>
@@ -68,7 +70,7 @@ export default function TechnicalEvents() {
                             <img src={dept.image} alt={dept.name} className="card-image" />
                             <h2 className="card-title">{dept.name}</h2>
                             <p className="card-description">{dept.description}</p>
-                            <button className="view-events-button">See All Events</button>
+                            <button className="view-events-button" onClick={()=>{navigate(`/technicalEvents/${dept.name}`)}}>See All Events</button>
                         </div>
                     ))}
                 </div>

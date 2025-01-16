@@ -56,6 +56,7 @@ export const updateDataById = async (collectionName, id, updatedData) => {
 
   export const getDataById = async (collectionName, id) => {
     try {
+      console.log(collectionName,id)
       const docRef = doc(db, collectionName, id); 
       const docSnapshot = await getDoc(docRef); 
       if (docSnapshot.exists()) {
