@@ -211,26 +211,14 @@ function DemoPageContent({ pathname }) {
 DemoPageContent.propTypes = {
   pathname: PropTypes.string.isRequired,
 };
-function ToolbarActionsCalendar() {
-  const navigate = useNavigate();
-  return (
-    <Box sx={{ display: 'flex', flexDirection: 'row', gap: '8px', alignItems: 'center' }}>
-      <Tooltip title="Event Calendar">
-        <IconButton onClick={() => navigate('/event-calendar')}>
-          <CalendarMonthIcon />
-        </IconButton>
-      </Tooltip>
-      <ThemeSwitcher />
-    </Box>
-  );
-}
+
 function NavBarLayout(props) {
 
   const [session, setSession] = React.useState({
     user: {
-      name: 'Bharat Kashyap',
-      email: 'bharatkashyap@outlook.com',
-      image: 'https://avatars.githubusercontent.com/u/19550456',
+      name: 'Revanth Kumar',
+      email: 'jrevanth101@gmail.com',
+      image: 'https://avatars.githubusercontent.com/u/146642552?s=400&u=d94b12cfbbcb29b782a4e780eb4419b7932beb5f&v=4',
     },
   });
 
@@ -266,9 +254,7 @@ function NavBarLayout(props) {
         }}
       >
         <DashboardLayout
-          slots={{
-            toolbarActions: ToolbarActionsCalendar,
-          }}
+          
         >
           <DemoPageContent pathname={router.pathname} />
         </DashboardLayout>
