@@ -5,7 +5,7 @@ import DeptWiseCustomCard from "./DeptWiseCustomCard.js";
 import { useParams } from 'react-router-dom';
 import { useEffect } from "react";
 import { Grid } from "@mui/material";
-import TechnicalShimmer from "../admin/technical/technicalShimmer.js";
+import TechnicalShimmer from "./technicalShimmer.js";
 import CarouselShimmer from "../gallery/CarouselShimmer.js";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchTechnicalEvents,fetchTechnicalCarousels } from "../../redux/slices/technicalEventsSlice.js";

@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
 import Stalls from './pages/Stalls';
-import Admin from './pages/Admin';
 import Main from './pages/Main';
 import Gallery from './pages/Gallery';
 import Sponsers from './pages/Sponsers';
@@ -40,9 +39,6 @@ function App() {
           <Route path="/technicalEvents/:department/:id" element={<TechEventDetails/>} />
           <Route path="/register-volunteer" element={<RegisterVolunteer/>}/>
         </Route>
-        <Route path="/admin" element={<Admin />}/>
-    
-        
       </Routes>
     </BrowserRouter>
   );
