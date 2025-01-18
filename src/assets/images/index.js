@@ -9,6 +9,7 @@ import aim from "./Aim.png";
 import vision from "./Group.png";
 import dummyImage from "./gallary_img7.jpeg"
 import pastSponsers from "./pastSponsers.png"
+import foodcourtMap from "./stalls/foodcourtmap.png"
 export {audience,
     abhiyanthLogo,
 gradient,
@@ -17,4 +18,4 @@ miniAbhiyanthLogo,
 sandAbLogo,
 roboRocket,
 aim,
-vision,dummyImage,pastSponsers}
+vision,dummyImage,pastSponsers,foodcourtMap};
