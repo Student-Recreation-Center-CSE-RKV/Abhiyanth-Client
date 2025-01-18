@@ -106,6 +106,7 @@ const StallCard = ({ stall }) => {
 						variant="outlined"
 						color="secondary"
 						sx={{ borderRadius: "10px" }}
+						href={`/stalls/${stall.id}`}
 					>
 						View More
 					</Button>
