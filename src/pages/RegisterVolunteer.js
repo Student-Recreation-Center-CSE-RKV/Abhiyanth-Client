@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "../styles/technicalevents.css";
-import { getAllVolunteerEvents } from "../api/volunteer";
-import TechnicalShimmer from "../components/admin/technical/technicalShimmer";
+import TechnicalShimmer from "../components/technicalEvents/technicalShimmer";
 import { Grid } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchVolunteers } from "../redux/slices/volunteerSlice";
