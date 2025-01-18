@@ -1,15 +1,12 @@
 import React from "react";
-import { Typography } from "@mui/material";
+import { Typography ,Box} from "@mui/material";
 import Grid2 from "@mui/material/Grid2";
-import img1 from "../assets/images/gallary_img6.jpeg";
-import img2 from "../assets/images/gallary_img7.jpeg";
-import img3 from "../assets/images/gallary_img8.jpeg";
-import StallCard from "../components/stalls/stallCard";
-import ImageCarousel from "../components/general/Carousel";
 
+import StallCard from "../components/stalls/stallCard";
+import { foodcourtMap } from "../assets/images/index";
 
 export default function AllStalls() {
-	const images = [img1, img2, img3];
+	
 	const stallsData = [
 		{
 			id: 1,
@@ -99,7 +96,13 @@ export default function AllStalls() {
 				flexDirection: "column",
 			}}
 		>
-			<ImageCarousel images={images} />
+				<Box sx={{border: "3px solid",
+				marginTop:"6%",
+				padding:"2%",
+				borderImageSlice: 1,
+        borderImageSource: 'linear-gradient(to right, #261E35, #C91C75, #EFE1EE, #E9C0DA, #E4AACC, #C91C75, #261E35)'}}>
+        <img src={foodcourtMap} alt="foodcourt map" style={{width:"100%"}} />
+        </Box>
 			<Typography
 				variant="h4"
 				component="h1"
