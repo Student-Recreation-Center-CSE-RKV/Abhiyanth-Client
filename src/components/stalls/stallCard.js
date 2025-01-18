@@ -9,6 +9,7 @@ import {
 	Button,
 	Box,
 } from "@mui/material";
+import { Link } from "react-router-dom";
 const StallCard = ({ stall }) => {
 	const truncateText = (text, wordLimit) => {
 		const words = text.split(" ");
@@ -102,14 +103,17 @@ const StallCard = ({ stall }) => {
 					>
 						Menu Card
 					</Button>
+					<Link to={`/stalls/${stall.id}`}>
 					<Button
 						variant="outlined"
 						color="secondary"
 						sx={{ borderRadius: "10px" }}
-						href={`/stalls/${stall.id}`}
 					>
+						
 						View More
+				
 					</Button>
+							</Link>
 				</Box>
 			</CardContent>
 		</Card>
