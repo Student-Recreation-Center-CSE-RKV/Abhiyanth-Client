@@ -1,7 +1,23 @@
-// src/components/GalleryShimmer.js
-import React from "react";
-import { Card, Skeleton, Grid } from "@mui/material";
 
+import React from "react";
+import { Card, Grid, Skeleton } from "@mui/material";
+import { styled } from "@mui/system";
+
+
+const GlowSkeleton = styled(Skeleton)(({ theme }) => ({
+  background: `linear-gradient(90deg, #505050 25%, #707070 50%, #505050 75%)`,
+  backgroundSize: "200% 100%",
+  animation: "glow 1.5s infinite",
+  borderRadius: "10px",
+  "@keyframes glow": {
+    "0%": {
+      backgroundPosition: "200% 0",
+    },
+    "100%": {
+      backgroundPosition: "-200% 0",
+    },
+  },
+}));
 
 const GalleryShimmer = () => {
   const shimmerCardStyle = {
@@ -13,27 +29,21 @@ const GalleryShimmer = () => {
   };
 
   return (
-    
     <Grid container spacing={2} sx={{ padding: "20px" }}>
       {[...Array(8)].map((_, index) => (
         <Grid item xs={12} sm={6} md={3} lg={3} key={index}>
           <Card sx={shimmerCardStyle}>
-            <Skeleton
+            <GlowSkeleton
               variant="rectangular"
               height={200}
-              animation="wave"
               sx={{
                 borderRadius: "10px",
-                backgroundColor: "#505050",
               }}
             />
-           
           </Card>
         </Grid>
       ))}
     </Grid>
-    
-    
   );
 };
 

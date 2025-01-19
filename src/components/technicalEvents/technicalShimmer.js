@@ -1,13 +1,26 @@
 import React from "react";
-import {
-  Card,
-  CardContent,
-  Skeleton,
-  Box,
-  Grid,
-} from "@mui/material";
+import { Card, CardContent, Box, Grid } from "@mui/material";
+import { styled } from "@mui/system";
 
-export default function TechnicalShimmer() {
+// Styled Skeleton with Glow Effect
+const GlowSkeleton = styled("div")(({ theme, width, height, borderRadius }) => ({
+  width: width || "100%",
+  height: height || "20px",
+  borderRadius: borderRadius || "4px",
+  background: `linear-gradient(90deg, #3a3a3a 25%, #505050 50%, #3a3a3a 75%)`,
+  backgroundSize: "200% 100%",
+  animation: "glow 1.5s infinite",
+  "@keyframes glow": {
+    "0%": {
+      backgroundPosition: "200% 0",
+    },
+    "100%": {
+      backgroundPosition: "-200% 0",
+    },
+  },
+}));
+
+const TechnicalShimmer = () => {
   return (
     <Card
       sx={{
@@ -17,7 +30,7 @@ export default function TechnicalShimmer() {
         color: "white",
         paddingTop: "1rem",
         paddingInline: "1rem",
-        border: "1px solid #505050 ",
+        border: "1px solid #505050",
         borderRadius: "20px",
         position: "relative",
         overflow: "hidden",
@@ -29,15 +42,10 @@ export default function TechnicalShimmer() {
       }}
     >
       {/* Shimmer for image */}
-      <Skeleton
-        variant="rectangular"
-        animation="wave"
-        height={150}
-        sx={{
-          border: "1px solid #00B093",
-          borderRadius: "10px",
-          marginBottom: "10px",
-        }}
+      <GlowSkeleton
+        height="150px"
+        borderRadius="10px"
+        style={{ border: "1px solid #00B093", marginBottom: "10px" }}
       />
 
       {/* Shimmer for content */}
@@ -51,96 +59,39 @@ export default function TechnicalShimmer() {
         }}
       >
         {/* Title shimmer */}
-        <Skeleton
-          variant="text"
-          animation="wave"
-          width="80%"
-          height={30}
-          sx={{ backgroundColor: "#3a3a3a" }}
-        />
+        <GlowSkeleton width="80%" height="30px" />
 
         {/* Short description shimmer */}
-        <Skeleton
-          variant="text"
-          animation="wave"
-          width="100%"
-          height={20}
-          sx={{ backgroundColor: "#3a3a3a" }}
-        />
-        <Skeleton
-          variant="text"
-          animation="wave"
-          width="90%"
-          height={20}
-          sx={{ backgroundColor: "#3a3a3a" }}
-        />
+        <GlowSkeleton width="100%" height="20px" />
+        <GlowSkeleton width="90%" height="20px" />
 
         {/* Date and time shimmer */}
-        <Skeleton
-          variant="text"
-          animation="wave"
-          width="50%"
-          height={20}
-          sx={{ backgroundColor: "#3a3a3a" }}
-        />
-        <Skeleton
-          variant="text"
-          animation="wave"
-          width="50%"
-          height={20}
-          sx={{ backgroundColor: "#3a3a3a" }}
-        />
+        <GlowSkeleton width="50%" height="20px" />
+        <GlowSkeleton width="50%" height="20px" />
 
         {/* Sponsors shimmer */}
         <Box sx={{ marginTop: "1rem", width: "100%" }}>
-          <Skeleton
-            variant="text"
-            animation="wave"
-            width="30%"
-            height={20}
-            sx={{ backgroundColor: "#3a3a3a" }}
-          />
+          <GlowSkeleton width="30%" height="20px" />
           <Grid container spacing={1} sx={{ marginTop: "0.5rem" }}>
             <Grid item>
-              <Skeleton
-                variant="rectangular"
-                animation="wave"
-                width={60}
-                height={30}
-                sx={{
-                  borderRadius: "15px",
-                  backgroundColor: "#3a3a3a",
-                }}
-              />
+              <GlowSkeleton width="60px" height="30px" borderRadius="15px" />
             </Grid>
             <Grid item>
-              <Skeleton
-                variant="rectangular"
-                animation="wave"
-                width={60}
-                height={30}
-                sx={{
-                  borderRadius: "15px",
-                  backgroundColor: "#3a3a3a",
-                }}
-              />
+              <GlowSkeleton width="60px" height="30px" borderRadius="15px" />
             </Grid>
           </Grid>
         </Box>
 
         {/* Button shimmer */}
-        <Skeleton
-          variant="rectangular"
-          animation="wave"
+        <GlowSkeleton
           width="60%"
-          height={40}
-          sx={{
-            marginTop: "1rem",
-            borderRadius: "10px",
-            backgroundColor: "#3a3a3a",
-          }}
+          height="40px"
+          borderRadius="10px"
+          style={{ marginTop: "1rem" }}
         />
       </CardContent>
     </Card>
   );
-}
+};
+
+export default TechnicalShimmer;
