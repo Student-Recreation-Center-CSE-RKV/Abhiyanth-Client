@@ -3,7 +3,7 @@ import image1 from "../assets/images/deptimage1.jpeg";
 import image2 from "../assets/images/deptimage2.jpeg";
 import image3 from "../assets/images/deptimage3.jpeg";
 import image4 from "../assets/images/deptimage4.jpeg";
-import image5 from "../assets/images/deptimage5.jpeg"; 
+import image5 from "../assets/images/deptimage5.jpeg";
 import { useNavigate } from "react-router-dom";
 
 import PageTop from "../components/general/PageTop";
@@ -14,6 +14,7 @@ import i3 from "../assets/images/techEvents/IMG-20250101-WA0020.jpg"
 import i4 from "../assets/images/techEvents/IMG-20250101-WA0025 (1).jpg"
 import i5 from "../assets/images/techEvents/webinar.jpeg"
 import i6 from "../assets/images/hackathon.jpeg"
+import { Button, Grid2 as Grid } from "@mui/material";
 
 
 const departments = [
@@ -56,13 +57,30 @@ const departments = [
 
 
 export default function TechnicalEvents() {
-    const navigate=useNavigate()
+    const navigate = useNavigate()
     return (
-        <> 
-            <div style={{paddingTop:"70px"}}>
-            <PageTop img1={i3} img2={i2} img3={i5} img4={i1} img5={i4} img6={i6} text="TECH Events"/>
+        <>
+            <div style={{ paddingTop: "70px" }}>
+                <PageTop img1={i3} img2={i2} img3={i5} img4={i1} img5={i4} img6={i6} text="TECH Events" />
             </div>
-            <h1 className="title">Technical Events</h1>
+            <Grid container spacing={2} alignItems="center" justifyContent="space-between" wrap="wrap" sx={{ padding: "15px" }}>
+                <Grid item>
+                    <h1 className="title" style={{ margin: 0 }}>Technical Events</h1>
+                </Grid>
+                <Grid item>
+                    <Button sx={{
+                        fontFamily: "Audiowide",
+                        color: "white !important",
+                        '&:hover': {
+                            backgroundColor: "#008a73", // Hover color
+                        },
+                        textTransform: "none",
+                        fontSize: { sm: 18, md: 20 },
+                        cursor: "pointer !important",
+                    }} onClick={()=>{navigate("/projectShowCase")}}>Our Students Tech Projects →</Button>
+                </Grid>
+            </Grid>
+
             <div className="main">
                 <div className="cards-container">
                     {departments.map((dept, index) => (
@@ -70,7 +88,7 @@ export default function TechnicalEvents() {
                             <img src={dept.image} alt={dept.name} className="card-image" />
                             <h2 className="card-title">{dept.name}</h2>
                             <p className="card-description">{dept.description}</p>
-                            <button className="view-events-button" onClick={()=>{navigate(`/technicalEvents/${dept.name}`)}}>See All Events</button>
+                            <button className="view-events-button" onClick={() => { navigate(`/technicalEvents/${dept.name}`) }}>See All Events</button>
                         </div>
                     ))}
                 </div>
