@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import projectsData from './projects.json';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import LanguageIcon from '@mui/icons-material/Language';
+
 
 import {
     Card,
@@ -24,15 +26,9 @@ const ProjectsPage = () => {
 
     useEffect(() => {
         setTimeout(() => {
-            const flattenedProjects = projectsData.flatMap((user) =>
-                user.Projects.map((project) => ({
-                    ...project,
-                    username: user.github_username,
-                }))
-            );
-            setAllProjects(flattenedProjects);
-            setFilteredProjects(flattenedProjects);
-            setVisibleProjects(flattenedProjects.slice(0, projectsPerPage));
+            setAllProjects(projectsData);
+            setFilteredProjects(projectsData);
+            setVisibleProjects(projectsData.slice(0, projectsPerPage));
             setIsLoading(false);
         }, 1500);
     }, []);
@@ -40,7 +36,7 @@ const ProjectsPage = () => {
     const handleSearch = (query) => {
         setSearchQuery(query);
         const filtered = allProjects.filter((project) =>
-            project.title.toLowerCase().includes(query.toLowerCase())
+            project.title.toLowerCase().includes(query.toLowerCase()) || project.username.toLowerCase().includes(query.toLowerCase())
         );
         setFilteredProjects(filtered);
         setVisibleProjects(filtered.slice(0, projectsPerPage));
@@ -95,7 +91,7 @@ const ProjectsPage = () => {
                 fullWidth
                 value={searchQuery}
                 onChange={(e) => handleSearch(e.target.value)}
-                placeholder="Search projects..."
+                placeholder="Search name/projects..."
                 sx={{
                     marginBottom: 4,
                     backgroundColor: '#282828',
@@ -128,7 +124,7 @@ const ProjectsPage = () => {
 };
 
 const ProjectCard = ({ project }) => {
-    const { title, description, tech, github_url, username, maker_image } = project;
+    const { title, description, tech, github_url, username, maker_image, live_url } = project;
 
     return (
         <Card
@@ -146,8 +142,8 @@ const ProjectCard = ({ project }) => {
                 alt={username}
                 sx={{
                     borderRadius: '50%',
-                    height: 50,
-                    width: 50,
+                    height: 60,
+                    width: 60,
                     margin: 2,
                     border: '2px solid #2196f3',
                 }}
@@ -156,7 +152,7 @@ const ProjectCard = ({ project }) => {
                 <Typography variant="h6" fontWeight="bold" gutterBottom>
                     {title}
                 </Typography>
-                <Typography variant="body2" gutterBottom>
+                <Typography variant="body2" gutterBottom sx={{ paddingBottom: "10px" }}>
                     {description}
                 </Typography>
                 <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, marginBottom: 2 }}>
@@ -175,18 +171,40 @@ const ProjectCard = ({ project }) => {
                         </Button>
                     ))}
                 </Box>
-                <Button
-                    href={github_url}
-                    target="_blank"
-                    rel="noreferrer"
-                    startIcon={<GitHubIcon style={{ fontSize: '24px', color: '#2196f3' }} />}
-                    sx={{
-                        color: '#2196f3',
-                        textTransform: 'capitalize',
-                    }}
-                >
-                    View on GitHub
-                </Button>
+                <Box sx={{
+                    width: '100%',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                }}>
+                    <Button
+                        href={github_url}
+                        target="_blank"
+                        rel="noreferrer"
+                        startIcon={<GitHubIcon style={{ fontSize: '24px', color: '#2196f3' }} />}
+                        sx={{
+                            color: '#2196f3',
+                            textTransform: 'capitalize',
+                        }}
+                    >
+                        View on GitHub
+                    </Button>
+                    {
+                        live_url && (<Button
+                            href={live_url}
+                            target="_blank"
+                            rel="noreferrer"
+                            startIcon={<LanguageIcon style={{ fontSize: '24px', color: '#2196f3' }} />}
+                            sx={{
+                                color: '#2196f3',
+                                textTransform: 'capitalize',
+                            }}
+                        >
+                            Live Link
+                        </Button>)
+                    }
+
+                </Box>
                 <Typography
                     variant="caption"
                     sx={{ marginTop: 2, display: 'block' }}
