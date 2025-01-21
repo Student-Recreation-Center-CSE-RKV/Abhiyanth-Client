@@ -29,6 +29,7 @@ const ProjectsPage = () => {
             setAllProjects(projectsData);
             setFilteredProjects(projectsData);
             setVisibleProjects(projectsData.slice(0, projectsPerPage));
+
             setIsLoading(false);
         }, 1500);
     }, []);
@@ -92,6 +93,7 @@ const ProjectsPage = () => {
                 value={searchQuery}
                 onChange={(e) => handleSearch(e.target.value)}
                 placeholder="Search name/projects..."
+
                 sx={{
                     marginBottom: 4,
                     backgroundColor: '#282828',
@@ -124,6 +126,7 @@ const ProjectsPage = () => {
 };
 
 const ProjectCard = ({ project }) => {
+
     const { title, description, tech, github_url, username, maker_image, live_url } = project;
 
     return (
