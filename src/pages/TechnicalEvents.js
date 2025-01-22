@@ -1,9 +1,11 @@
 
-import image1 from "../assets/images/deptimage1.jpeg";
-import image2 from "../assets/images/deptimage2.jpeg";
-import image3 from "../assets/images/deptimage3.jpeg";
-import image4 from "../assets/images/deptimage4.jpeg";
-import image5 from "../assets/images/deptimage5.jpeg";
+import cse from "../assets/images/departments/cse.jpg";
+import ece from "../assets/images/departments/ece.jpg";
+import eee from "../assets/images/departments/eee.jpg";
+import civil from "../assets/images/departments/civil.jpg";
+import chemical from "../assets/images/departments/chemical.jpg";
+import mme from "../assets/images/departments/mme.jpg";
+import mechanical from "../assets/images/departments/mechanical.jpg";
 import { useNavigate } from "react-router-dom";
 
 import PageTop from "../components/general/PageTop";
@@ -20,37 +22,37 @@ import { Button, Grid2 as Grid } from "@mui/material";
 const departments = [
     {
         name: "CSE",
-        image: image1,
+        image: cse,
         description: "Explore cutting-edge tech and software development.",
     },
     {
         name: "ECE",
-        image: image3,
+        image: ece,
         description: "Dive into circuits and modern electronic devices.",
     },
     {
         name: "EEE",
-        image: image5,
+        image: eee,
         description: "Focus on power systems and electrical technology.",
     },
     {
         name: "Mechanical",
-        image: image2,
+        image: mechanical,
         description: "Discover machines, engines, and industrial automation.",
     },
     {
         name: "Civil",
-        image: image4,
+        image: civil,
         description: "Learn about construction, design, and infrastructure.",
     },
     {
         name: "Chemical",
-        image: image1,
+        image: chemical,
         description: "Study chemical processes and industrial chemistry.",
     },
     {
         name: "MME",
-        image: image2,
+        image: mme,
         description: "Understand materials science and metallurgical processes.",
     },
 ];

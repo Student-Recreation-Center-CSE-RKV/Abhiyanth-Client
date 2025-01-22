@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import projectsData from './projects.json';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LanguageIcon from '@mui/icons-material/Language';
+import PersonIcon from '@mui/icons-material/Person';
 
 
 import {
@@ -128,6 +129,7 @@ const ProjectsPage = () => {
 const ProjectCard = ({ project }) => {
 
     const { title, description, tech, github_url, username, maker_image, live_url } = project;
+    const [imageError, setImageError] = React.useState(maker_image.length == 0);
 
     return (
         <Card
@@ -139,18 +141,38 @@ const ProjectCard = ({ project }) => {
                 height: '100%',
             }}
         >
-            <CardMedia
-                component="img"
-                image={maker_image}
-                alt={username}
-                sx={{
-                    borderRadius: '50%',
-                    height: 60,
-                    width: 60,
-                    margin: 2,
-                    border: '2px solid #2196f3',
-                }}
-            />
+            {
+                !imageError ? (
+                    <CardMedia
+                        component="img"
+                        image={maker_image}
+                        alt={username}
+                        onError={() => setImageError(true)}
+                        sx={{
+                            borderRadius: '50%',
+                            height: 60,
+                            width: 60,
+                            margin: 2,
+                            border: '2px solid #2196f3',
+                        }}
+                    />
+                ) : (
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            borderRadius: '50%',
+                            height: 60,
+                            width: 60,
+                            margin: 2,
+                            border: '2px solid #2196f3',
+                            backgroundColor: '#404040',
+                        }}
+                    >
+                        <PersonIcon style={{ fontSize: 40, color: '#2196f3' }} />
+                    </Box>
+                )}
             <CardContent>
                 <Typography variant="h6" fontWeight="bold" gutterBottom>
                     {title}
@@ -180,18 +202,22 @@ const ProjectCard = ({ project }) => {
                     justifyContent: 'space-between',
                     alignItems: 'center',
                 }}>
-                    <Button
-                        href={github_url}
-                        target="_blank"
-                        rel="noreferrer"
-                        startIcon={<GitHubIcon style={{ fontSize: '24px', color: '#2196f3' }} />}
-                        sx={{
-                            color: '#2196f3',
-                            textTransform: 'capitalize',
-                        }}
-                    >
-                        View on GitHub
-                    </Button>
+                    {
+                        github_url && (
+                            <Button
+                                href={github_url}
+                                target="_blank"
+                                rel="noreferrer"
+                                startIcon={<GitHubIcon style={{ fontSize: '24px', color: '#2196f3' }} />}
+                                sx={{
+                                    color: '#2196f3',
+                                    textTransform: 'capitalize',
+                                }}
+                            >
+                                View on GitHub
+                            </Button>
+                        )
+                    }
                     {
                         live_url && (<Button
                             href={live_url}
