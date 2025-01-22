@@ -31,22 +31,20 @@ Abhiyanth-Client is a React application developed for the **Abhiyanth** event of
 | Sports Page                             | Not started     | ❌             |
 | Home page technical,cultural,stalls                     | Not started     | ❌             |
 | Sponsors page                           | Not started     | ❌             |
-| Director, AO msg                            | Not started     | ❌             |
+| Director, AO msg                            | Done     | ✅             |
 | Payment integration                     | Not started     | ❌             |
 | Login using Firebase                    | Started         | ❌             |
-| Technical Projects Page                 | Not started     | ❌             |
+| Technical Projects Page                 |Done     |    ✅          |
 | Home Page Extravaganza improvement      | Not started     | ❌             |
 | Detailed culturals Schedule             | Not started     | ❌             |
 | PrEvents Schedule in technical events   | Not started     | ❌             |
 | College map integration                 | Not started     | ❌             |
 | User Profile and Edit Profile           | Not started     | ❌             |
-| Top Coders Page                         | Not started     | ❌             |
-| Top Contributors Page                   | Not started     | ❌             |
 | Latest News page                        | Not started     | ❌             |
 | Polls and surveys                       | Not started     | ❌             |
 | Polls and surveys charts                | Not started     | ❌             |
 | Gallery Page caching                    | Done            | ✅             |
-| Shimmer UI's                            | In progress     | ❌             |
+| Shimmer UI's                            | Done     | ✅             |
 | Events Page admin                       | Done            | ✅             |
 | Technical Events Admin                  |Done     | ✅             |
 | Volunteer Admin and Integration with Firebase | Done | ✅             |
