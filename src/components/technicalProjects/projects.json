@@ -28,5 +28,42 @@
             "TypeScript"
         ],
         "maker_image": "https://avatars.githubusercontent.com/u/146642552?s=400&u=d94b12cfbbcb29b782a4e780eb4419b7932beb5f&v=4"
+    },
+    {
+        "username": "Charan Kumar Naidu",
+        "github_url": "https://github.com/Yaddalapalli-Charan-Kumar-Naidu/ResumeCraft_frontend.git",
+        "live_url": "",
+        "title": "Resume Craft",
+        "description": "Build, edit, and manage professional resumes with customizable templates, real-time previews, and seamless updates",
+        "tech": [
+            "ReactJS",
+            "Node.js",
+            "Express.js",
+            "MongoDB",
+            "Tailwind CSS",
+            "Material UI"
+        ],
+        "maker_image": "https://avatars.githubusercontent.com/u/156291108?v=4"
+    },
+    {
+        "username": "Shaik Subahanullah",
+        "github_url": "",
+        "live_url": "",
+        "title": "Urban farming",
+        "description": "Urban farming innovation focuses on developing vertical farms, hydroponics, and aeroponics to maximize space and efficiency in cities.",
+        "tech": [],
+        "maker_image": ""
+    },
+    {
+        "username": "Girish Teja",
+        "github_url": "",
+        "live_url": "",
+        "title": "Lighting cement",
+        "description": "Generating or emmits light during night by absorbing sun light at day time",
+        "tech": [
+            "Cement",
+            "photoluminescent pigment"
+        ],
+        "maker_image": ""
     }
 ]

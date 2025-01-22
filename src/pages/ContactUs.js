@@ -8,16 +8,22 @@ import anil from "../assets/images/anil.png"
 
 const ContactUs = () => {
   return (
+    <Box sx={{background: `url(${audience}) center/cover no-repeat`, paddingTop:"70px",}}>
+        <Contact/>
+    </Box>
+  );
+};
+
+export const Contact=() => {
+  return (
     <div>
         <Box
       sx={{
         display: 'flex',
         flexDirection: {xs:'column',sm:'column',md:'row',lg:'row'},
-        background: `url(${audience}) center/cover no-repeat`,
         color: 'white',
         height:{sx:"auto",xs:"auto",md:"95vh",lg:"95vh"},
         padding: 2,
-        paddingTop:"70px",
       }}
     >
       {/* Left Section */}
@@ -103,5 +109,4 @@ const ContactUs = () => {
     </div>
   );
 };
-
 export default ContactUs;

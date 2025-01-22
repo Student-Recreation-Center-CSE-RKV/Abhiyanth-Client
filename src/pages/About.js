@@ -8,6 +8,8 @@ import MomentsGallary from "../components/about/gallary";
 import GradientBorderComponent from "../components/general/GradientBorderComponet";
 import ExtravaganzaAbout from '../components/about/ExtravaganzaAbout.js'
 import ParticipatingClubs from "../components/about/Clubs.js";
+import WelcomeMessages from "../components/about/welcomeMsg.js";
+import { Contact } from "./ContactUs.js";
 
 
 export default function About() {
@@ -17,6 +19,8 @@ export default function About() {
 				<AimVision />
 			</div>
 			<GradientBorderComponent/>
+			<WelcomeMessages/>
+			<GradientBorderComponent/>
 			<StatsComponent />
       		<ExtravaganzaAbout/>
 			<PreEventsCard />
@@ -24,6 +28,8 @@ export default function About() {
 			<DeptEvents />
 			<GradientBorderComponent/>
 			<MomentsGallary/>
+			<GradientBorderComponent/>
+			<Contact/>
 			<GradientBorderComponent/>
 			<ParticipatingClubs/>
 		</div>
