@@ -40,7 +40,7 @@ Abhiyanth-Client is a React application developed for the **Abhiyanth** event of
 | PrEvents Schedule in technical events   | Not started     | ❌             |
 | College map integration                 | Not started     | ❌             |
 | User Profile and Edit Profile           | Not started     | ❌             |
-| Latest News page                        | Not started     | ❌             |
+| Latest News page                        | Done    | ❌             |
 | Polls and surveys                       | Not started     | ❌             |
 | Polls and surveys charts                | Not started     | ❌             |
 | Gallery Page caching                    | Done            | ✅             |
