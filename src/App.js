@@ -28,6 +28,8 @@ import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { useState, useContext, createContext } from 'react';
 import { isInDb } from './api/users.js';
+import Payment from './pages/payment.js';
+import Cashfree from './components/CashFreeFold/cashFree.js';
 
 
 const provider = new GoogleAuthProvider();
@@ -51,7 +53,6 @@ function App() {
           <Route path="/events" element={<AllEvents />} />
           <Route path="/events/:id" element={<EventDetails />} />
           <Route path="/contactUs" element={<ContactUs/>} />
-          <Route path="/contactUs" element={<ContactUs />} />
           <Route path="/stalls" element={< Stalls />} />
           <Route path="/stalls/:id" element={<StallShowcase />} />
           <Route path="/technicalEvents" element={<TechnicalEvents />} />
@@ -61,6 +62,7 @@ function App() {
           <Route path="/projectShowCase" element={<ProjectsPage />} />
           <Route path='/news' element={<News/>}/>
           <Route path="/news/:id" element={<DetailedNews/>}/>
+          <Route path='/payment' element={<Cashfree/>}/>
         </Route>
         <Route path='auth/login' element={<SignInWrapper />} />
       </Routes>
