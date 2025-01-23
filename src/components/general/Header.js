@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -11,6 +11,15 @@ import MenuItem from '@mui/material/MenuItem';
 import MenuIcon from '@mui/icons-material/Menu';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { Typography } from '@mui/material';
+import { LoginPrompt } from '../login/LoginPrompt';
+import { logoutUser } from '../login/logout'; // Make sure to implement logoutUser to handle logout functionality
+import { auth } from '../../api/firebaseConfig';
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import { Avatar } from "@mui/material";
+import { LogoutPrompt } from '../login/LogoutPrompt';
+
+
 
 const styles = {
   menubar: {
@@ -29,7 +38,7 @@ const styles = {
     color: "white",
     textTransform: "none",
     fontSize: "17px",
-    
+
   },
   smallMenucontainer: {
     display: "flex",
@@ -44,7 +53,7 @@ const styles = {
     background: "linear-gradient(to right, purple, red )",
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
-    fontWeight:"bold",
+    fontWeight: "bold",
     fontSize: "19px"
   },
 
@@ -52,6 +61,7 @@ const styles = {
 }
 function BasicMenu() {
   const navigate = useNavigate();
+  const [user, setUser] = useState(null);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -60,6 +70,37 @@ function BasicMenu() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const handleBasicMenuLoginClick = () => {
+    navigate('/auth/login')
+  }
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUser(user);
+      } else {
+        setUser(null);
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  const handleLogout = async () => {
+    try {
+      await auth.signOut(); // Firebase signOut method
+      // setIsLogin(false); 
+      toast.success("Successfully logged out");
+      navigate('/');
+    } catch (error) {
+      console.error("Logout Error: ", error.message);
+      toast.error("Error during logout");
+    }
+  };
+
+
+
   return (
 
     <div style={styles.smallMenucontainer}>
@@ -100,6 +141,13 @@ function BasicMenu() {
         <MenuItem sx={styles.smallMenutext} onClick={() => { handleClose(); navigate("/sponsers") }}>Sponsors</MenuItem>
         <MenuItem sx={styles.smallMenutext} onClick={() => { handleClose(); navigate("/about") }}>About Us</MenuItem>
         <MenuItem sx={styles.smallMenutext} onClick={() => { handleClose(); navigate("/ourTeam") }}>Our Team</MenuItem>
+        {/* <MenuItem sx={styles.smallMenutext} onClick={() => { handleClose(); navigate("/ourTeam") }}>{isLogin ? "LogOut" :"LogIn"}</MenuItem> */}
+        {/* <MenuItem sx={styles.smallMenutext} onClick={isLogin ? handleLogout : () => { handleClose();  navigate("/auth/login") }}>
+          {isLogin ? "LogOut" : "LogIn"}
+        </MenuItem> */}
+
+        {user ? (<MenuItem sx={styles.smallMenutext} onClick={handleLogout}>Logout</MenuItem>) : (<MenuItem sx={styles.smallMenutext} onClick={handleBasicMenuLoginClick}>Login</MenuItem>)}
+
       </Menu>
     </div>
   );
@@ -111,6 +159,42 @@ function Header() {
   const navigate = useNavigate();
   const location = useLocation();
   const [isSelected, setIsSelected] = useState(1);
+  const [user, setUser] = useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUser(user);
+      } else {
+        setUser(null);
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleLogout = async () => {
+    try {
+      await auth.signOut(); // Firebase signOut
+      // setIsLogin(false);
+      console.log("Successfully logged out")
+      toast.success("Successfully logged out");
+      navigate('/');
+    } catch (error) {
+      console.error("Logout Error: ", error.message);
+      toast.error("Error during logout");
+    }
+  };
 
 
   const pathToNavMap = {
@@ -159,6 +243,26 @@ function Header() {
             </Button>
             {isSelected === 4 && <motion.div layoutId='underline' style={{ boxShadow: "0px 4px 2px 1px white", width: "100%" }} />}
           </nav>
+
+          <nav>
+            {user ? (
+          
+
+              <Button variant="text" sx={styles.textStyles}>
+                <LogoutPrompt user={user} handleClick={handleClick} anchorEl={anchorEl}
+                  open={open}
+                  onClose={handleClose}
+                  handleLogout={handleLogout}
+
+                />
+              </Button>
+            ) : (
+              <Button variant="text" sx={styles.textStyles}>
+                {/* {setIsLogin(true)} */}
+                <LoginPrompt />
+              </Button>
+            )}
+          </nav>
         </Toolbar>
       </AppBar>
     </Box>
@@ -166,6 +270,7 @@ function Header() {
 }
 
 function ResponsiveMenu() {
+
   const isSmallScreen = useMediaQuery('(max-width:650px)');
 
   return (
