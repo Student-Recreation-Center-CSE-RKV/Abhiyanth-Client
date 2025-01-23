@@ -1,5 +1,6 @@
 import { db } from "./firebaseConfig"; 
 import { collection,doc ,deleteDoc,setDoc,updateDoc,getDocs,getDoc} from "firebase/firestore";
+import { arrayUnion } from "firebase/firestore";
 
 export const addDataToCollection = async (collectionName, data) => {
     try {      
@@ -56,6 +57,7 @@ export const updateDataById = async (collectionName, id, updatedData) => {
 
   export const getDataById = async (collectionName, id) => {
     try {
+      console.log(collectionName,id)
       const docRef = doc(db, collectionName, id); 
       const docSnapshot = await getDoc(docRef); 
       if (docSnapshot.exists()) {
@@ -86,3 +88,24 @@ export const updateDataById = async (collectionName, id, updatedData) => {
     }
   };
   
+
+  export const addImageToArray = async (collectionName, docName, url) => {
+    try {
+      const docRef = doc(db, collectionName, docName);
+      const docSnapshot = await getDoc(docRef);
+  
+      if (docSnapshot.exists()) {
+        // Update the array field using arrayUnion
+        await updateDoc(docRef, {
+          images: arrayUnion(url),
+        });
+        return { status: true, message: "Image added successfully!" };
+      } else {
+        console.error("No such document!");
+        return { status: false, message: "No such document!" };
+      }
+    } catch (error) {
+      console.error("Error updating document:", error);
+      return { status: false, message: "Error updating document" };
+    }
+  };

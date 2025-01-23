@@ -1,80 +1,78 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../styles/DeptWiseEvents.css"
 import Carousel from "../general/Carousel.js";
-import hackathon from "../../assets/images/hackathon.jpeg";
-import enginix from "../../assets/images/enginix-2k24.jpg";
-import pyWorkShop from "../../assets/images/python-workshop-src.jpg";
-import srcEventManage from "../../assets/images/hackathon-src.jpg";
 import DeptWiseCustomCard from "./DeptWiseCustomCard.js";
+import { useParams } from 'react-router-dom';
+import { useEffect } from "react";
+import { Grid } from "@mui/material";
+import TechnicalShimmer from "./technicalShimmer.js";
+import CarouselShimmer from "../gallery/CarouselShimmer.js";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchTechnicalEvents,fetchTechnicalCarousels } from "../../redux/slices/technicalEventsSlice.js";
 
 const DeptWiseEvents = () => {
-  const carouselImages = [hackathon, enginix, pyWorkShop, srcEventManage];
-  const events = [
-    {
-      name: "Hackathon",
-      description:
-        "A competitive event to design and build robots to perform specific tasks",
-      sponsors: ["Nyra", "SBI", "Acer", "Dalmia"],
-    },
-    {
-      name: "Tech Talk",
-      description:
-        "An interactive session where industry leaders discuss the latest trends in technology",
-      sponsors: ["Intel", "Google", "Amazon"],
-    },
-    {
-      name: "Coding Bootcamp",
-      description:
-        "A hands-on coding workshop for beginners to learn web development and programming basics",
-      sponsors: ["Microsoft", "GitHub", "Wipro"],
-    },
-    {
-      name: "Data Science Symposium",
-      description:
-        "A conference for data enthusiasts to discuss the latest innovations in data analysis and machine learning",
-      sponsors: ["IBM", "NVIDIA", "Tesla"],
-    },
-    {
-      name: "AI Challenge",
-      description:
-        "A competition where participants create artificial intelligence systems to solve real-world problems",
-      sponsors: ["Tesla", "Google", "Oracle"],
-    },
-    {
-      name: "Blockchain Summit",
-      description:
-        "A summit focused on blockchain technology and its applications in various industries",
-      sponsors: ["Ethereum", "Coinbase", "Ripple"],
-    },
-    {
-      name: "Cloud Computing Expo",
-      description:
-        "An exhibition where cloud service providers showcase their latest offerings and solutions",
-      sponsors: ["AWS", "Microsoft Azure", "Google Cloud"],
-    },
-    {
-      name: "Mobile App Development Workshop",
-      description:
-        "A hands-on workshop for building mobile applications using modern technologies and frameworks",
-      sponsors: ["Apple", "Android", "Xiaomi"],
-    },
-  ];
+  const dispatch = useDispatch();
+  const { events, loading, error,carousels,carouselLoading } = useSelector((state) => state.technicalEvents);
+
+  const { department } = useParams();
+
+  const fetchDepartmentEvents = async (dept) => {
+    console.log(`Fetching events for department: ${dept}`);
+    try {
+      
+      dispatch(fetchTechnicalCarousels(dept))
+      if (!carouselLoading) {
+        console.log(carousels)
+        dispatch(fetchTechnicalEvents(dept));
+      }
+    } catch (error) {
+    } 
+
+  };
+
+
+  useEffect(() => {
+    if (department) {
+      fetchDepartmentEvents(department);
+    }
+  }, [department]);
 
   return (
     <div className="deptwise-events-container">
       <div className="deptwise-events-heading">
-        Computer science and Engineering
+        {department} Tech Events
       </div>
-
-      <div className="deptwise-events-carousel">
-        <Carousel images={carouselImages} />
-      </div>
-
-      <div className="deptwise-events-cards">
-        {events.map((event, index) => (
-          <DeptWiseCustomCard key={index} event={event} />
-        ))}
-      </div>
+      {
+        carouselLoading ? <CarouselShimmer /> : (<div className="deptwise-events-carousel">
+          <Carousel images={carousels[department]} />
+        </div>)
+      }
+      {
+        loading ? (
+          <Grid container spacing={3} sx={{ marginTop: "20px", marginBottom: "40px", padding: "5px" }}>
+            {[...Array(4)].map((_, index) => (
+              <Grid item xs={12} sm={6} md={3} key={index}>
+                <TechnicalShimmer />
+              </Grid>
+            ))}
+          </Grid>
+        ) : (<div className="deptwise-events-cards">
+          {events[department].length > 0 && events[department].map((event, index) => (
+            <DeptWiseCustomCard key={index} event={event} department={department} />
+          ))}
+        </div>)
+      }
+      {
+        events[department].length == 0 && (<div className="deptwise-events-heading" >
+          
+          Events Coming Soon
+          
+          
+        </div>)
+      }
+      {
+        error && (<div className="deptwise-events-heading" sx={{ paddingTop: "80px" }}>Network Error</div>)
+      }
     </div>
   );
 };

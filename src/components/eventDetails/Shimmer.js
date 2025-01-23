@@ -1,6 +1,22 @@
 // src/components/ShimmerCard.js
 import React from "react";
 import { Card, CardContent, Skeleton, Grid } from "@mui/material";
+import { styled } from "@mui/system";
+
+const GlowSkeleton = styled(Skeleton)(({ theme }) => ({
+  background: `linear-gradient(90deg, #505050 25%, #707070 50%, #505050 75%)`,
+  backgroundSize: "200% 100%",
+  animation: "glow 1.5s infinite",
+  borderRadius: "10px",
+  "@keyframes glow": {
+    "0%": {
+      backgroundPosition: "200% 0",
+    },
+    "100%": {
+      backgroundPosition: "-200% 0",
+    },
+  },
+}));
 
 const ShimmerCard = () => (
   <Card
@@ -16,62 +32,44 @@ const ShimmerCard = () => (
       position: "relative",
     }}
   >
-    <Skeleton
+    <GlowSkeleton
       variant="rectangular"
       height={150}
-      animation="wave"
       sx={{
-        borderRadius: "10px",
         marginBottom: "10px",
-        backgroundColor: "#505050",
       }}
     />
-    <Grid container spacing={1}> {/* Use Grid container for spacing */}
+    <Grid container spacing={1}>
       <Grid item xs={6}>
-        <Skeleton
+        <GlowSkeleton
           variant="rectangular"
           height={100}
-          animation="wave"
-          sx={{
-            borderRadius: "10px",
-            backgroundColor: "#505050",
-          }}
         />
       </Grid>
       <Grid item xs={6}>
-        <Skeleton
+        <GlowSkeleton
           variant="rectangular"
           height={100}
-          animation="wave"
-          sx={{
-            borderRadius: "10px",
-            backgroundColor: "#505050",
-          }}
         />
       </Grid>
     </Grid>
     <CardContent>
-      <Skeleton
+      <GlowSkeleton
         variant="text"
         height={30}
         width="80%"
-        animation="wave"
-        sx={{ backgroundColor: "#505050" }}
       />
-      <Skeleton
+      <GlowSkeleton
         variant="text"
         height={20}
         width="90%"
-        animation="wave"
-        sx={{ backgroundColor: "#505050", marginTop: "10px" }}
+        sx={{ marginTop: "10px" }}
       />
-      <Skeleton
+      <GlowSkeleton
         variant="rectangular"
         height={40}
         width="60%"
-        animation="wave"
         sx={{
-          backgroundColor: "#505050",
           marginTop: "20px",
           borderRadius: "20px",
         }}

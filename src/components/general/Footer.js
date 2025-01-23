@@ -38,16 +38,17 @@ const Footer = () => {
                         <li onClick={() => navigate("/")}>Home</li>
                         <li onClick={() => navigate("/gallery")}>Gallery</li>
                         <li onClick={() => navigate("/sponsers")}>Sponsors</li>
-                        <li>Stalls</li>
-                    </ul>
-                    <ul>
-                        <li>Technical Events</li>
-                        <li>Hackathons</li>
-                        <li>Webinars</li>
-                        <li>Workshops</li>
-                    </ul>
-                    <ul>
                         <li onClick={() => navigate("/about")}>About Us</li>
+                    </ul>
+                    <ul>
+                        <li onClick={() => navigate("/technicalEvents")}>Technical Events</li>
+                        <li onClick={() => navigate("/projectShowCase")}>Projects</li>
+                        <li onClick={() => navigate("/events")}>Culturals</li>
+                        <li onClick={() => navigate("/stalls")}>Stalls</li>
+                       
+                    </ul>
+                    <ul>
+                        
                         <li onClick={() => navigate("/ourTeam")}>Our Dev Team</li>
                         <li onClick={() => navigate("/contactUs")} >Contact us</li>
 
@@ -69,7 +70,7 @@ const Footer = () => {
                         creativity, and community, offering a dynamic platform for showcasing talent, exchanging ideas,
                         and creating unforgettable experiences.
                     </p>
-                    <div style={{ display: "flex", flexDirection: "row", alignItems: "center", paddingTop: "20px", justifyContent: "center" }}>
+                    <div style={{ display: "flex", flexDirection: "row", alignItems: "center", paddingTop: "20px", justifyContent: "center",cursor: "pointer" }} onClick={() => window.open("https://www.linkedin.com/company/src-rgukt-rkvalley/", "_blank")}> 
                         <img
                             src={src_logo}
                             alt="SRC Logo"

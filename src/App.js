@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
 import Stalls from './pages/Stalls';
-import Admin from './pages/Admin';
 import Main from './pages/Main';
 import Gallery from './pages/Gallery';
 import Sponsers from './pages/Sponsers';
@@ -16,6 +15,9 @@ import DeptWiseEvents from './components/technicalEvents/DeptWiseEvents.js'
 import TechnicalEvents from "./pages/TechnicalEvents.js"
 import RegisterVolunteer from "./pages/RegisterVolunteer.js"
 import TechEventDetails from './components/technicalEvents/techEventDetails.js';
+import StallShowcase from './components/stalls/StallShowCase.js';
+import ProjectsPage from './components/technicalProjects/ProjectShowcase.jsx';
+import Profile from './components/user/Profile.js';
 
 function App() {
   
@@ -31,16 +33,17 @@ function App() {
           <Route path="/ourTeam" element={<OurTeam />} />
           <Route path="/events" element={<AllEvents />} />
           <Route path="/events/:id" element={<EventDetails />} />
-          <Route path="/technicalEvents" element={<TechnicalEvents/>} />
           <Route path="/contactUs" element={<ContactUs/>} />
           <Route path="/stalls" element={< Stalls/>} />
-          <Route path="/dept-wise-events" element={<DeptWiseEvents/>} />
-          <Route path="/technicalEvent/:department/:id" element={<TechEventDetails/>} />
+          <Route path="/stalls/:id" element={<StallShowcase/>} />
+          <Route path="/technicalEvents" element={<TechnicalEvents/>} />
+          <Route path="/technicalEvents/:department" element={<DeptWiseEvents/>} />
+          <Route path="/technicalEvents/:department/:id" element={<TechEventDetails/>} />
           <Route path="/register-volunteer" element={<RegisterVolunteer/>}/>
+          <Route path="/projectShowCase" element={<ProjectsPage/>}/>
+          <Route path="/Profile" element={<Profile/>}/>
+          
         </Route>
-        <Route path="/admin" element={<Admin />}/>
-    
-        
       </Routes>
     </BrowserRouter>
   );

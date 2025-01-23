@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { addVolunteerEvent } from "../../api/volunteer";
-
+import { getAllVolunteerEvents } from "../../api/volunteer";
 
 const initialState={
+  volunteerEvents:[],
     loading: false,
   error: null,
   success: false,
@@ -13,6 +14,9 @@ const volunteerEventSlice= createSlice({
     name:"volunteerEvents",
     initialState,
     reducers:{
+      setEvents: (state, action) => {
+        state.volunteerEvents = action.payload;
+      },
         setLoading:(state,action)=>{
             state.loading=action.payload;
         },
@@ -25,7 +29,7 @@ const volunteerEventSlice= createSlice({
     }
 })
 
-export const { setLoading, setError, setSuccess } = volunteerEventSlice.actions;
+export const { setLoading, setError, setSuccess,setEvents } = volunteerEventSlice.actions;
 
 export const addVolunteer = (data) => async (dispatch) => {
   dispatch(setLoading(true));
@@ -39,6 +43,25 @@ export const addVolunteer = (data) => async (dispatch) => {
   } catch (error) {
     dispatch(setError(error.message));
   } finally {
+    dispatch(setLoading(false));
+  }
+};
+
+export const fetchVolunteers = () => async (dispatch, getState) => {
+  const { volunteerEvents } = getState().volunteerEvents;
+  console.log(volunteerEvents)
+  if (volunteerEvents.length > 0) {
+    return; 
+  }
+
+  dispatch(setLoading(true));
+  try {
+    const res = await getAllVolunteerEvents();
+    // console.log(res)
+    dispatch(setEvents(res));  
+    dispatch(setLoading(false));
+  } catch (error) {
+    dispatch(setError(error.message));
     dispatch(setLoading(false));
   }
 };

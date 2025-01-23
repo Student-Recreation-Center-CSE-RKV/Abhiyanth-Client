@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography } from "@mui/material";
+import { Typography, Box } from "@mui/material";
 import Grid2 from "@mui/material/Grid2";
 import img1 from "../assets/images/gallary_img6.jpeg";
 import img2 from "../assets/images/gallary_img7.jpeg";
@@ -7,14 +7,14 @@ import img3 from "../assets/images/gallary_img8.jpeg";
 import StallCard from "../components/stalls/stallCard";
 import ImageCarousel from "../components/general/Carousel";
 
-
 export default function AllStalls() {
 	const images = [img1, img2, img3];
 	const stallsData = [
 		{
 			id: 1,
 			name: "Stall 1",
-			menuPdfFile:"https://firebasestorage.googleapis.com/v0/b/abhiyanth-a8d4c.firebasestorage.app/o/pdfs%2FAdmitCard_101211.pdf?alt=media&token=1b1deb85-710a-4c57-9de5-a98261ea812b",
+			menuPdfFile:
+				"https://firebasestorage.googleapis.com/v0/b/abhiyanth-a8d4c.firebasestorage.app/o/pdfs%2FAdmitCard_101211.pdf?alt=media&token=1b1deb85-710a-4c57-9de5-a98261ea812b",
 			description:
 				"This is a short description of Stall 1.lsccccccccccc ccccccccccc cccccccccc cccccbz,jssssssssssss laoeguyd joidssegyyyyyu  cnsssss ss ssssssss sssssssl",
 			topImage:
@@ -27,7 +27,8 @@ export default function AllStalls() {
 		{
 			id: 2,
 			name: "Stall 2",
-			menuPdfFile:"https://firebasestorage.googleapis.com/v0/b/abhiyanth-a8d4c.firebasestorage.app/o/pdfs%2FAdmitCard_101211.pdf?alt=media&token=1b1deb85-710a-4c57-9de5-a98261ea812b",
+			menuPdfFile:
+				"https://firebasestorage.googleapis.com/v0/b/abhiyanth-a8d4c.firebasestorage.app/o/pdfs%2FAdmitCard_101211.pdf?alt=media&token=1b1deb85-710a-4c57-9de5-a98261ea812b",
 			description:
 				"This is a short description of Stall 2.xbsakueguUUUUUUUUUUUUUUUUUUUUUUUUUUHLDHSDLKbsdjl",
 			topImage:
@@ -40,7 +41,8 @@ export default function AllStalls() {
 		{
 			id: 3,
 			name: "Stall 3",
-			menuPdfFile:"https://firebasestorage.googleapis.com/v0/b/abhiyanth-a8d4c.firebasestorage.app/o/pdfs%2FAdmitCard_101211.pdf?alt=media&token=1b1deb85-710a-4c57-9de5-a98261ea812b",
+			menuPdfFile:
+				"https://firebasestorage.googleapis.com/v0/b/abhiyanth-a8d4c.firebasestorage.app/o/pdfs%2FAdmitCard_101211.pdf?alt=media&token=1b1deb85-710a-4c57-9de5-a98261ea812b",
 			description:
 				"This is a short description of Stall 2.xbsakueguUUUUUUUUUUUUUUUUUUUUUUUUUUHLDHSDLKbsdjl",
 			topImage:
@@ -53,7 +55,8 @@ export default function AllStalls() {
 		{
 			id: 4,
 			name: "Stall 4",
-			menuPdfFile:"https://firebasestorage.googleapis.com/v0/b/abhiyanth-a8d4c.firebasestorage.app/o/pdfs%2FAdmitCard_101211.pdf?alt=media&token=1b1deb85-710a-4c57-9de5-a98261ea812b",
+			menuPdfFile:
+				"https://firebasestorage.googleapis.com/v0/b/abhiyanth-a8d4c.firebasestorage.app/o/pdfs%2FAdmitCard_101211.pdf?alt=media&token=1b1deb85-710a-4c57-9de5-a98261ea812b",
 			description:
 				"This is a short description of Stall 2.xbsakueguUUUUUUUUUUUUUUUUUUUUUUUUUUHLDHSDLKbsdjl",
 			topImage:
@@ -66,7 +69,8 @@ export default function AllStalls() {
 		{
 			id: 5,
 			name: "Stall 5",
-			menuPdfFile:"https://firebasestorage.googleapis.com/v0/b/abhiyanth-a8d4c.firebasestorage.app/o/pdfs%2FAdmitCard_101211.pdf?alt=media&token=1b1deb85-710a-4c57-9de5-a98261ea812b",
+			menuPdfFile:
+				"https://firebasestorage.googleapis.com/v0/b/abhiyanth-a8d4c.firebasestorage.app/o/pdfs%2FAdmitCard_101211.pdf?alt=media&token=1b1deb85-710a-4c57-9de5-a98261ea812b",
 			description:
 				"This is a short description of Stall 2.xbsakueguUUUUUUUUUUUUUUUUUUUUUUUUUUHLDHSDLKbsdjl",
 			topImage:
@@ -79,7 +83,8 @@ export default function AllStalls() {
 		{
 			id: 6,
 			name: "Stall 6",
-			menuPdfFile:"https://firebasestorage.googleapis.com/v0/b/abhiyanth-a8d4c.firebasestorage.app/o/pdfs%2FAdmitCard_101211.pdf?alt=media&token=1b1deb85-710a-4c57-9de5-a98261ea812b",
+			menuPdfFile:
+				"https://firebasestorage.googleapis.com/v0/b/abhiyanth-a8d4c.firebasestorage.app/o/pdfs%2FAdmitCard_101211.pdf?alt=media&token=1b1deb85-710a-4c57-9de5-a98261ea812b",
 			description:
 				"This is a short description of Stall 2.xbsakueguUUUUUUUUUUUUUUUUUUUUUUUUUUHLDHSDLKbsdjl",
 			topImage:
@@ -115,7 +120,16 @@ export default function AllStalls() {
 			>
 				All Stalls
 			</Typography>
-			<Grid2 container spacing={3} sx={{display:"flex",alignItems:"center",justifyContent:"center",marginBottom:"3rem"}}>
+			<Grid2
+				container
+				spacing={3}
+				sx={{
+					display: "flex",
+					alignItems: "center",
+					justifyContent: "center",
+					marginBottom: "3rem",
+				}}
+			>
 				{stallsData.map((stall) => (
 					<Grid2 size={{ xs: "12", sm: "12", md: "4", lg: "3" }} key={stall.id}>
 						<StallCard stall={stall} />
