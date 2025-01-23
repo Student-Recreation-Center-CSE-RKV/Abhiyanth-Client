@@ -17,6 +17,9 @@ import RegisterVolunteer from "./pages/RegisterVolunteer.js"
 import TechEventDetails from './components/technicalEvents/techEventDetails.js';
 import StallShowcase from './components/stalls/StallShowCase.js';
 import ProjectsPage from './components/technicalProjects/ProjectShowcase.jsx';
+import News from './pages/News.js';
+import NewsBox from './components/news/NewsBox.js';
+import DetailedNews from './components/news/DetailedNews.js';
 
 function App() {
   
@@ -40,6 +43,8 @@ function App() {
           <Route path="/technicalEvents/:department/:id" element={<TechEventDetails/>} />
           <Route path="/register-volunteer" element={<RegisterVolunteer/>}/>
           <Route path="/projectShowCase" element={<ProjectsPage/>}/>
+          <Route path='/news' element={<News/>}/>
+          <Route path="/news/:id" element={<DetailedNews/>}/>
           
         </Route>
       </Routes>
