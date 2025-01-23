@@ -1,6 +1,6 @@
 
-import cse from "../assets/images/departments/cse.jpg";
-import ece from "../assets/images/departments/ece.jpg";
+import cse from "../assets/images/hackathon.jpeg";
+import ece from "../assets/images/departments/ece.jpeg";
 import eee from "../assets/images/departments/eee.jpg";
 import civil from "../assets/images/departments/civil.jpg";
 import chemical from "../assets/images/departments/chemical.jpg";
