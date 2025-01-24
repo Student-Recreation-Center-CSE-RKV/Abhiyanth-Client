@@ -32,7 +32,7 @@
     {
         "username": "Charan Kumar Naidu",
         "github_url": "https://github.com/Yaddalapalli-Charan-Kumar-Naidu/ResumeCraft_frontend.git",
-        "live_url": "https://resume-craft-frontend-three.vercel.app/",
+        "live_url": "",
         "title": "Resume Craft",
         "description": "Build, edit, and manage professional resumes with customizable templates, real-time previews, and seamless updates",
         "tech": [
@@ -44,83 +44,6 @@
             "Material UI"
         ],
         "maker_image": "https://avatars.githubusercontent.com/u/156291108?v=4"
-    },
-    {
-        "username": "P A NAGASUDHA",
-        "github_url": "",
-        "live_url": "https://www.linkedin.com/posts/p-a-nagasudha_nxtwave-ccbp-ccbpian-activity-7273242439673389056-Nlp7?utm_source=share&utm_medium=member_android",
-        "title": "Hostel Management",
-        "description": "Digital Hostel Connect: Connecting students, wardens & security for streamlining outpass,complaints and announcements",
-        "tech": [
-            "React",
-            "Css",
-            "Node js",
-            "Express js",
-            "Mongo DB"
-        ],
-        "maker_image": "https://media.licdn.com/dms/image/v2/D4E03AQEpxzb7UQGB8g/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1697374295971?e=1743033600&v=beta&t=x17E3dEaz_OaSeDFrzn1F1W9PpbG8tQR9BwAIIOiNFY"
-    },
-    {
-        "username": "SIMHALA DHANUNJAYA",
-        "github_url": "",
-        "live_url": "https://www.linkedin.com/posts/simhala-dhanunjaya-b16739305_aromatic-polypropylene-polyolefin-activity-7287675904334479360--dwJ?utm_source=share&utm_medium=member_android",
-        "title": "FiberReinforced CRAM",
-        "description": "FiberReinforced ColdRecycled Asphalt Mixtures enhance strength, durability, and sustainability using 100% RAP, synthetic fibers, and advanced testing.",
-        "tech": [
-            "Advanced cold recycling methods","synthetic fibers",
-            "polypropylene",
-            "ITSM and ITS tests",
-            "UCC tests",
-            "ITF tests",
-            "SEM analysis"    
-        ],
-        "maker_image": "https://media.licdn.com/dms/image/v2/D5603AQEu4uQMLBJ1tA/profile-displayphoto-shrink_400_400/B56ZQQ1P8uG8Ak-/0/1735449187850?e=1743033600&v=beta&t=2jwtzMmYrRZvbQ-y5UsVi60ZmZks0HVn9OyqcDtfovU"
-    },
-    {
-        "username": "SANTHAPETA POOJITHA",
-        "github_url": "",
-        "live_url": "https://www.linkedin.com/posts/simhala-dhanunjaya-b16739305_aromatic-polypropylene-polyolefin-activity-7287675904334479360--dwJ?utm_source=share&utm_medium=member_android",
-        "title": "FiberReinforced CRAM",
-        "description": "FiberReinforced ColdRecycled Asphalt Mixtures enhance strength, durability, and sustainability using 100% RAP, synthetic fibers, and advanced testing.",
-        "tech": [
-            "Advanced cold recycling methods","synthetic fibers",
-            "polypropylene",
-            "ITSM and ITS tests",
-            "UCC tests",
-            "ITF tests",
-            "SEM analysis"
-        ],
-        "maker_image": "https://media.licdn.com/dms/image/v2/D5603AQGVhbLlBCFvLQ/profile-displayphoto-shrink_400_400/B56ZRZr55FHoAg-/0/1736671482891?e=1743033600&v=beta&t=QfakSQXhB74xA-fmcYdOW0I8Et8qAbRmcq3dd6G1Bno"
-    },
-    {
-        "username": "Yeddula Hemanth",
-        "github_url": "",
-        "live_url": "",
-        "title": "Geopolymer Concrete",
-        "description": "Geopolymer concrete: eco-friendly, durable alternative to cement using industrial by-products, reducing carbon emissions and promoting sustainability.",
-        "tech": [
-            "Alkali Activation Technology","Concrete Testing Equipment",
-            "flexural strength",
-            "Thermal Analysis Instruments","Life Cycle Assessment (LCA) Software","Rheology Testing Tools","Curing Technology"
-        ],
-        "maker_image": "https://media.licdn.com/dms/image/v2/D4E03AQEF22-vuru8ZQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1718242955088?e=1743033600&v=beta&t=x1ckljgRFIde24kLDVArmwUIfIHz0Au3kkxE82BcUHw"
-    },
-    {
-        "username": "Tharun",
-        "github_url": "https://github.com/Tharunk043/Medical-Shop-Automation",
-        "live_url": "https://tharunk043.github.io/Medical-Shop-Automation/",
-        "title": "Online Medical Store",
-        "description": "Acts as Interface Between the Customers ,Vendors,Sellers,And Retailers Etc",
-        "tech": [
-            "Java",
-            "JSP",
-            "CSS",
-            "JavaScript",
-            "Bootstrap",
-            "HTML",
-            "Servlets"
-        ],
-        "maker_image": "https://avatars.githubusercontent.com/u/135613245?v=4"
     },
     {
         "username": "Shaik Subahanullah",
@@ -142,18 +65,5 @@
             "photoluminescent pigment"
         ],
         "maker_image": ""
-    },
-    {
-        "username": "JILAKARA REVANTH KUMAR",
-        "github_url": "",
-        "live_url": "https://revanthkumarj.github.io/my-portfolio/",
-        "title": "Portfolio",
-        "description": "My Portfolio showcasing my skills, certificates, education and experience",
-        "tech": [
-            "React Js",
-            "Material Ui",
-            "GitHub"
-        ],
-        "maker_image": "https://avatars.githubusercontent.com/u/146642552?s=400&u=d94b12cfbbcb29b782a4e780eb4419b7932beb5f&v=4"
     }
 ]

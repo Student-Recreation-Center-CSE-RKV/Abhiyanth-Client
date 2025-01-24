@@ -7,12 +7,15 @@ import cultural from "../../assets/images/culturals_image.png";
 import stalls from "../../assets/images/stalls_image.png";
 import bgHome from "../../assets/images/bg_home.png";
 import { useNavigate } from "react-router-dom";
-
+import { transform } from "framer-motion";
 
 const HomeCards = () => {
     const navigate = useNavigate();  // Use navigate hook for navigation
 
-    
+    // Function to handle click and navigate to specific route
+    const handleClick = (route) => {
+        navigate(route);  // Navigate to the passed route
+    };
     const titleStyles = {
         fontFamily: "Audiowide",
         fontSize: "28px",
@@ -108,13 +111,13 @@ const HomeCards = () => {
                     <CustomCard
                         title="Technical Events"
                         image={techevents}
-                        content={[{ label: "", value: "As a part of Abhiyanth, various technical events are conducted to foster innovation and technical skills. These include webinars, hackathons, tech expos, coding contests, and more. Explore a world of knowledge and creativity." }]}
+                        content={[{ label: "About", value: "As a part of Abhiyanth, various technical events are conducted to foster innovation and technical skills. These include webinars, hackathons, tech expos, coding contests, and more. Explore a world of knowledge and creativity." }]}
                         footer="See All Technical Events"
                         titleStyles={titleStyles}
                         contentStyles={contentStyles}
                         cardStyles={cardStyles}
                         footerButtonStyles={footerButtonStyles}
-                        onFooterClick={()=>navigate("/technicalEvents")}
+                        onFooterClick={()=>handleClick("/technicalEvents")}
                     />
                 </Grid2>
                 <Grid2
@@ -124,13 +127,13 @@ const HomeCards = () => {
                     <CustomCard
                         title="Cultural Events"
                         image={cultural}
-                        content={[{ label: "", value: "Experience the joy and vibrancy of Abhiyanth with cultural and recreational events. Highlights include dances, flash mobs, singing performances, and other fun activities that bring everyone together." }]}
+                        content={[{ label: "About", value: "Experience the joy and vibrancy of Abhiyanth with cultural and recreational events. Highlights include dances, flash mobs, singing performances, and other fun activities that bring everyone together." }]}
                         footer="See All Cultural Events"
                         titleStyles={titleStyles}
                         contentStyles={contentStyles}
                         cardStyles={cardStyles}
                         footerButtonStyles={footerButtonStyles}
-                        onFooterClick={()=>navigate("/events")}
+                        onFooterClick={()=>handleClick("/events")}
                     />
                 </Grid2>
                 <Grid2
@@ -140,13 +143,14 @@ const HomeCards = () => {
                     <CustomCard
                         title="Stalls"
                         image={stalls}
-                        content={[{ label: "", value: "Relish delicious food and unique items at the Abhiyanth stalls. From local delicacies to fun games, our stalls have something for everyone to enjoy." }]}
+                        content={[{ label: "About", value: "Relish delicious food and unique items at the Abhiyanth stalls. From local delicacies to fun games, our stalls have something for everyone to enjoy." }]}
                         footer="See All Stalls"
                         titleStyles={titleStyles}
                         contentStyles={contentStyles}
                         cardStyles={cardStyles}
                         footerButtonStyles={footerButtonStyles}
-                        onFooterClick={()=>navigate("/stalls")}
+                        onFooterClick={()=>handleClick("/stalls")}
+
                     />
                 </Grid2>
             </Grid2>
