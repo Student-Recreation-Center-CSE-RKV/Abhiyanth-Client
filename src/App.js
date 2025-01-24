@@ -30,6 +30,7 @@ import { useState, useContext, createContext } from 'react';
 import { isInDb } from './api/users.js';
 import Payment from './pages/payment.js';
 import Cashfree from './components/CashFreeFold/cashFree.js';
+import RegisteredEvents from "./components/userprofile/RegisteredEvents.js"
 
 
 const provider = new GoogleAuthProvider();
@@ -63,6 +64,8 @@ function App() {
           <Route path='/news' element={<News/>}/>
           <Route path="/news/:id" element={<DetailedNews/>}/>
           <Route path='/payment' element={<Cashfree/>}/>
+          <Route path="/profile" element={<Profile/>}/>
+          <Route path="/Registered" element={<RegisteredEvents/>}/>
         </Route>
         <Route path='auth/login' element={<SignInWrapper />} />
       </Routes>
