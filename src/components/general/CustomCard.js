@@ -82,7 +82,7 @@ const CustomCard = ({
                 ...contentStyles,
               }}
             >
-              {label}: {value}
+              {label && (`${label} :`)} {value}
             </Typography>
           ))}
       </CardContent>
