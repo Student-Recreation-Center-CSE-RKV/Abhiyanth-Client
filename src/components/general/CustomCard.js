@@ -1,8 +1,10 @@
 import React from "react";
 import { Card, CardContent, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 
 const CustomCard = ({ 
   title, // Main title of the card 
+  image,//image url
   subtitle, // Optional subtitle
   content, // Array of key-value pairs for displaying dynamic content
   footer, // Footer text or actions
@@ -10,6 +12,7 @@ const CustomCard = ({
   cardStyles, // Custom styles for the card
   titleStyles, // Custom styles for the title
   contentStyles, // Custom styles for content
+  footerButtonStyles,
 }) => {
   return (
     <Card
@@ -40,6 +43,20 @@ const CustomCard = ({
           >
             {title}
           </Typography>
+        )}
+         {image && (
+          <Box
+            component="img"
+            src={image}
+            alt="Card Image"
+            sx={{
+              width: "100%",
+              borderRadius: "20px",
+              border: "2px solid #00b093", 
+              marginBlock: "20px",
+              boxShadow: "0px 0px 15px #00b093",
+            }}
+          />
         )}
         {subtitle && (
           <Typography
@@ -85,7 +102,8 @@ const CustomCard = ({
             cursor: "pointer",
             display: "block",
             textAlign: "center",
-            marginBottom: 1,
+            marginBottom: 3,
+            ...footerButtonStyles
           }}
           onClick={onFooterClick}
         >
