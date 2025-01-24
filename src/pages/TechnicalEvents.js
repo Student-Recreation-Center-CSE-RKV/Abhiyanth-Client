@@ -1,6 +1,6 @@
 
-import cse from "../assets/images/departments/cse.jpg";
-import ece from "../assets/images/departments/ece.jpg";
+import cse from "../assets/images/hackathon.jpeg";
+import ece from "../assets/images/departments/ece.jpeg";
 import eee from "../assets/images/departments/eee.jpg";
 import civil from "../assets/images/departments/civil.jpg";
 import chemical from "../assets/images/departments/chemical.jpg";
@@ -17,6 +17,7 @@ import i4 from "../assets/images/techEvents/IMG-20250101-WA0025 (1).jpg"
 import i5 from "../assets/images/techEvents/webinar.jpeg"
 import i6 from "../assets/images/hackathon.jpeg"
 import { Button, Grid2 as Grid } from "@mui/material";
+import RollingGallery from "../components/general/RollingGallery";
 
 
 const departments = [
@@ -62,6 +63,7 @@ export default function TechnicalEvents() {
     const navigate = useNavigate()
     return (
         <>
+        <RollingGallery images={[cse,eee,ece,chemical,mme,civil]}/>
             <div style={{ paddingTop: "70px" }}>
                 <PageTop img1={i3} img2={i2} img3={i5} img4={i1} img5={i4} img6={i6} text="TECH Events" />
             </div>
