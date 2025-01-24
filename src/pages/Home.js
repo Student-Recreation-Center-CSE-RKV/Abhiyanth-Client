@@ -2,6 +2,7 @@ import React from "react";
 import Sponsers from "../components/home/Sponsers";
 import HomeStartingComponent from "../components/home/HomeStartingComponent";
 import Extravaganza from "../components/home/Extravaganza";
+import HomeCards from "../components/home/homeCards";
 
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
         <div>
           <HomeStartingComponent />
           {/* <Extravaganza /> */}
+          <HomeCards/>
           <Sponsers />
         </div>
       </div>
