@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@cashfreepayments/cashfree-js": "^1.0.5",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@fontsource/aubrey": "^5.1.0",
@@ -17,6 +18,7 @@
     "@testing-library/user-event": "^13.5.0",
     "@toolpad/core": "^0.10.0",
     "canvas-confetti": "^1.9.3",
+    "cashfree-pg": "^4.3.10",
     "firebase": "^11.2.0",
     "framer-motion": "^11.15.0",
     "motion": "^11.15.0",

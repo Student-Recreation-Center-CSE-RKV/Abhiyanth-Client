@@ -1,0 +1,38 @@
+.main{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    margin-top: 20px;
+    font-size: 20px;
+    color: white;
+    background-color: #0D94FB;
+    border: none;
+    padding: 8px 5px;
+    border-radius: 10px;
+    &:hover{
+        opacity: 0.8;
+    }
+}
+
+
+.center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+label{
+    text-align: start !important;
+}
+input{
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 10px;
+    border: 1px solid lightgray;
+}

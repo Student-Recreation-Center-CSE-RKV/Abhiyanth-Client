@@ -1,6 +1,7 @@
-import { db } from "./firebaseConfig"; 
+import { db ,storage} from "./firebaseConfig"; 
 import { collection,doc ,deleteDoc,setDoc,updateDoc,getDocs,getDoc} from "firebase/firestore";
 import { arrayUnion } from "firebase/firestore";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 export const addDataToCollection = async (collectionName, data) => {
     try {      
@@ -95,7 +96,6 @@ export const updateDataById = async (collectionName, id, updatedData) => {
       const docSnapshot = await getDoc(docRef);
   
       if (docSnapshot.exists()) {
-        // Update the array field using arrayUnion
         await updateDoc(docRef, {
           images: arrayUnion(url),
         });
@@ -107,5 +107,29 @@ export const updateDataById = async (collectionName, id, updatedData) => {
     } catch (error) {
       console.error("Error updating document:", error);
       return { status: false, message: "Error updating document" };
+    }
+  };
+
+  export const uploadPdf = async (file) => {
+    try {
+      if (!file || file.type !== "application/pdf") {
+        throw new Error("Invalid file type. Please upload a PDF file.");
+      }
+  
+      // 1. Create a reference to the storage location
+      const storageRef = ref(storage, `pdfs/${file.name}`);
+  
+      // 2. Upload the file to Firebase Storage
+      const snapshot = await uploadBytes(storageRef, file);
+      console.log("File uploaded successfully:", snapshot);
+  
+      // 3. Get the download URL for the uploaded file
+      const downloadURL = await getDownloadURL(snapshot.ref);
+      console.log("Download URL:", downloadURL);
+  
+      return downloadURL;
+    } catch (error) {
+      console.error("Error uploading PDF:", error);
+      throw error; // Rethrow the error for further handling
     }
   };
