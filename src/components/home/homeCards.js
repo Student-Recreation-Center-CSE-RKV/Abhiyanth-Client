@@ -7,6 +7,7 @@ import cultural from "../../assets/images/culturals_image.png";
 import stalls from "../../assets/images/stalls_image.png";
 import bgHome from "../../assets/images/bg_home.png";
 import { useNavigate } from "react-router-dom";
+import { transform } from "framer-motion";
 
 const HomeCards = () => {
     const navigate = useNavigate();  // Use navigate hook for navigation
@@ -46,6 +47,12 @@ const HomeCards = () => {
         border: "0.2px solid gray",
         color: "white",
         display: "flex",
+        '&:hover': {
+            transform: "scale(1.05)", // Scale the card on hover
+            transition: "transform 0.3s ease-in-out", // Smooth transition for the scale effect
+            boxShadow: "0 20px 20px rgba(224, 222, 222, 0.3)",
+           backdropFilter: "none", // Glass effect blur
+        },
         flexDirection: "column", // Ensure the content inside the card stretches
         minHeight: "300px", // Set a minimum height for all cards
         flexGrow: 1, // Allow cards to grow in height equally
