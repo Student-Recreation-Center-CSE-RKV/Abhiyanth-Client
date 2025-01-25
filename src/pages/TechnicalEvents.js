@@ -63,7 +63,7 @@ export default function TechnicalEvents() {
     const navigate = useNavigate()
     return (
         <>
-        <RollingGallery images={[cse,eee,ece,chemical,mme,civil]}/>
+        {/* <RollingGallery images={[cse,eee,ece,chemical,mme,civil]}/> */}
             <div style={{ paddingTop: "70px" }}>
                 <PageTop img1={i3} img2={i2} img3={i5} img4={i1} img5={i4} img6={i6} text="TECH Events" />
             </div>

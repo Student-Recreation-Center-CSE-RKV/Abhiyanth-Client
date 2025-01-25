@@ -16,7 +16,7 @@ export default function Home() {
       >
         <div>
           <HomeStartingComponent />
-          {/* <Extravaganza /> */}
+          <Extravaganza />
           <HomeCards/>
           <Sponsers />
         </div>
