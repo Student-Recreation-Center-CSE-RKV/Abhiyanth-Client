@@ -7,7 +7,10 @@ import specialofferIcon from "../../assets/images/stalls/offer.png";
 import img1 from "../../assets/images/stalls/bakery.jpg";
 import img2 from "../../assets/images/stalls/biryani.jpg";
 import img3 from "../../assets/images/stalls/ice_cream.avif";
-
+import { useParams } from "react-router-dom";
+import { getStallById } from "../../redux/slices/stallsSlice";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 const styles={
   titleContainer:{
@@ -67,20 +70,40 @@ const styles={
   }
 }
 
-function StallShowcase({stallname = "Crispy Snackers",
-    items=["icecream","biryani","shawarma","Potato spring roll","mirchi bajji","pepper corn"] ,
-    offers=[ "buy idli get sambar" ," buy 2 biryani get 1 chicken lolipop",],
-    stallImages=[img1,img2,img3], stalllocation="1", stallrating="5", 
-    stalltype="snackers",
-    belongTo="Rajesh",
-  timings="10:00 AM to 10:00 PM"}) {
+function StallShowcase() {
+
+    const { id } = useParams();
+    const dispatch = useDispatch();
+      
+      const { stall, loading } = useSelector((state) => state.stalls);
+
+      const fetchStall = async () => {
+          
+          try {
+            
+            dispatch(getStallById(id))
+          } catch (error) {
+          } 
+        
+          };
+      
+        useEffect(() => {
+          
+            fetchStall();
+          
+          },[]);
   
   const isSmallScreen = useMediaQuery('(max-width:600px)');
+
+  if(stall==null)
+  {
+    return  <></>
+  }
   return (
     <Box sx={{margin:"6% 1% 1% 1%"}}>
       <Box sx={styles.titleContainer}>
         <Typography sx={styles.title}> 
-          {stallname}
+          {stall.name}
         </Typography>
         <motion.div
         sx={{color:"white",fontSize:"20px",fontWeight:"bold"}}
@@ -90,8 +113,8 @@ function StallShowcase({stallname = "Crispy Snackers",
           <Box sx={{display:"flex",gap:"10px",alignItems:"center"}}>
           <img src={specialofferIcon} style={{height:"50px"}} alt="Offer"/>
           { 
-            offers &&
-            offers.map((offer) => (
+            stall.offers &&
+            stall.offers.map((offer) => (
               <>
                 <Typography sx={styles.subHeading}>
                   {offer}
@@ -109,7 +132,7 @@ function StallShowcase({stallname = "Crispy Snackers",
           {
             isSmallScreen && (
               <Box id="menu" sx={{width:"100%"}}>
-            <ImageCarousel images={stallImages} />
+            <ImageCarousel images={[stall.image,stall.imageLeft,stall.imageRight]} />
           </Box>
             )
           }
@@ -117,16 +140,12 @@ function StallShowcase({stallname = "Crispy Snackers",
             <Box>
               <Typography sx={styles.content}>
                 <Box sx={{color:"yellow",fontSize:"20px",fontWeight:"bold"}}>
-                  TRY ONE
+                  {stall.name}
                 </Box>
-                  spicy crispy flavours of {stallname}. We deliver the best taste to your plate.
-                  spicy crispy flavours of {stallname}. We deliver the best taste to your plate.
-                  spicy crispy flavours of {stallname}. We deliver the best taste to your plate.
-                  spicy crispy flavours of {stallname}. We deliver the best taste to your plate.
-                  spicy crispy flavours of {stallname}. We deliver the best taste to your plate.
+                  {stall.main_description}
               </Typography>
               <Box > 
-          <Button component="a" href="#menu" sx={{
+          <Button component="a" href={stall.menu_card} sx={{
                   background: "linear-gradient(180deg, #FF6AB7 0%, #6AE4FF 100%)",
                   color: "black",
                   fontFamily: "Audiowide",
@@ -136,7 +155,7 @@ function StallShowcase({stallname = "Crispy Snackers",
             <Typography sx={{...styles.subHeading,fontSize:"20px",color:"gold",marginBottom:"2%"}}>Items Available:</Typography>
             <Box sx={{display:"flex",gap:"10px",alignItems:"center",flexDirection:isSmallScreen ? "column" : "row",flexWrap:"wrap"}}>
               
-            { items && items.map((item)=>(
+            { stall.items && stall.items.split(",").map((item)=>(
               <Chip label={item} variant="outlined" color="secondary" sx={styles.subHeading} />
             
             ))
@@ -145,14 +164,12 @@ function StallShowcase({stallname = "Crispy Snackers",
           </Box>
             </Box>
             <Box>
-              <Typography sx={styles.subHeading}>
-                Stall No :{stalllocation}
-              </Typography>
+              
               <Typography sx={styles.content}>
-                Timings:{timings}
+                Timings:{stall.timings}
                 </Typography>
               <Typography sx={styles.content}>
-                Owned By :{belongTo}
+                Owned By :{stall.belongTo}
               </Typography>
               
             </Box>
@@ -161,8 +178,8 @@ function StallShowcase({stallname = "Crispy Snackers",
                 Contact Info
               </Box>
               <Box>
-                <Typography sx={styles.content}> <LocalPhoneIcon color="info"/> +91 0000000000</Typography>
-                <Typography sx={styles.content}> <WhatsAppIcon color="success"/> +91 0000000000 </Typography>
+                <Typography sx={styles.content}> <LocalPhoneIcon color="info"/> +91 {stall.contact.mobile}</Typography>
+                <Typography sx={styles.content}> <WhatsAppIcon color="success"/> +91 {stall.contact.whatsApp} </Typography>
               </Box>
             </Box>
           </Box>
@@ -170,24 +187,11 @@ function StallShowcase({stallname = "Crispy Snackers",
           <Box sx={{width:"70%", position: "relative",border: "3px solid",borderImageSlice: 1,
               borderImageSource: 'linear-gradient(to right, #261E35, #C91C75, #EFE1EE, #E9C0DA, #E4AACC, #C91C75, #261E35)'}}>
                   <Typography sx={{...styles.subHeading, marginBottom:"0%"}}>Our Specials spotlights:</Typography>
-                <ImageCarousel images={stallImages} />
+                <ImageCarousel images={[stall.image,stall.imageLeft,stall.imageRight]} />
               </Box>
           )}
         </Box>
       </Box>
-      { !isSmallScreen ?(
-      <Box  id="menu" >
-        <Box sx={{width:"100%"}}>
-              <ImageCarousel images={stallImages} />
-            </Box>
-      </Box>):(
-        <Box sx={{width:"100%", position: "relative",border: "3px solid",borderImageSlice: 1,
-              borderImageSource: 'linear-gradient(to right, #261E35, #C91C75, #EFE1EE, #E9C0DA, #E4AACC, #C91C75, #261E35)'}}>
-            <Box >
-              <Typography sx={{...styles.subHeading, marginBottom:"0%"}}>Our Specials spotlights:</Typography>
-            </Box>
-              <ImageCarousel images={stallImages} />
-        </Box>)}
     </Box>
   )
 
