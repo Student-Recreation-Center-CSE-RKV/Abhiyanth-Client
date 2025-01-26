@@ -60,7 +60,7 @@ export default function TechnicalEvents() {
 	const navigate = useNavigate();
 	return (
 		<>
-			<RollingGallery images={[cse, eee, ece, chemical, mme, civil]} />
+			{/* <RollingGallery images={[cse,eee,ece,chemical,mme,civil]}/> */}
 			<div style={{ paddingTop: "70px" }}>
 				<PageTop
 					img1={i3}
@@ -81,7 +81,7 @@ export default function TechnicalEvents() {
 				sx={{ padding: "15px" }}
 			>
 				<Grid item>
-					<h1 className="tech-title" style={{ margin: 0 }}>
+					<h1 className="title" style={{ margin: 0 }}>
 						Technical Events
 					</h1>
 				</Grid>
@@ -110,7 +110,11 @@ export default function TechnicalEvents() {
 				<div className="tech-cards-container">
 					{departments.map((dept, index) => (
 						<div key={index} className="tech-card">
-							<img src={dept.image} alt={dept.name} className="tech-card-image" />
+							<img
+								src={dept.image}
+								alt={dept.name}
+								className="tech-card-image"
+							/>
 							<h2 className="tech-card-title">{dept.name}</h2>
 							<p className="tech-card-description">{dept.description}</p>
 							<button

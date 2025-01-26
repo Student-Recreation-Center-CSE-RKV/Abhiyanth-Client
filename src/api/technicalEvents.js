@@ -34,6 +34,6 @@ export const addImageToDepartmentArray=async (url,departmentName)=>{
 }
 
 export const getDepartmentCarousels=async (departmentName)=>{
-    const res=await fetchFirebaseDoc("department_carousels",departmentName);
+    const res=await fetchFirebaseDoc("department_carousels",departmentName.toUpperCase());
     return res.data ? res.data :[];
 }
