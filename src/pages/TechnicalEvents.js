@@ -1,4 +1,3 @@
-
 import cse from "../assets/images/hackathon.jpeg";
 import ece from "../assets/images/departments/ece.jpeg";
 import eee from "../assets/images/departments/eee.jpg";
@@ -10,56 +9,55 @@ import { useNavigate } from "react-router-dom";
 
 import PageTop from "../components/general/PageTop";
 import "../styles/technicalevents.css";
-import i1 from "../assets/images/techEvents/IMG-20241227-WA0009.jpg"
-import i2 from "../assets/images/techEvents/IMG-20241227-WA0011.jpg"
-import i3 from "../assets/images/techEvents/IMG-20250101-WA0020.jpg"
-import i4 from "../assets/images/techEvents/IMG-20250101-WA0025 (1).jpg"
-import i5 from "../assets/images/techEvents/webinar.jpeg"
-import i6 from "../assets/images/hackathon.jpeg"
+import i1 from "../assets/images/techEvents/IMG-20241227-WA0009.jpg";
+import i2 from "../assets/images/techEvents/IMG-20241227-WA0011.jpg";
+import i3 from "../assets/images/techEvents/IMG-20250101-WA0020.jpg";
+import i4 from "../assets/images/techEvents/IMG-20250101-WA0025 (1).jpg";
+import i5 from "../assets/images/techEvents/webinar.jpeg";
+import i6 from "../assets/images/hackathon.jpeg";
 import { Button, Grid2 as Grid } from "@mui/material";
 import RollingGallery from "../components/general/RollingGallery";
 
-
 const departments = [
-    {
-        name: "CSE",
-        image: cse,
-        description: "Explore cutting-edge tech and software development.",
-    },
-    {
-        name: "ECE",
-        image: ece,
-        description: "Dive into circuits and modern electronic devices.",
-    },
-    {
-        name: "EEE",
-        image: eee,
-        description: "Focus on power systems and electrical technology.",
-    },
-    {
-        name: "Mechanical",
-        image: mechanical,
-        description: "Discover machines, engines, and industrial automation.",
-    },
-    {
-        name: "Civil",
-        image: civil,
-        description: "Learn about construction, design, and infrastructure.",
-    },
-    {
-        name: "Chemical",
-        image: chemical,
-        description: "Study chemical processes and industrial chemistry.",
-    },
-    {
-        name: "MME",
-        image: mme,
-        description: "Understand materials science and metallurgical processes.",
-    },
+	{
+		name: "CSE",
+		image: cse,
+		description: "Explore cutting-edge tech and software development.",
+	},
+	{
+		name: "ECE",
+		image: ece,
+		description: "Dive into circuits and modern electronic devices.",
+	},
+	{
+		name: "EEE",
+		image: eee,
+		description: "Focus on power systems and electrical technology.",
+	},
+	{
+		name: "Mechanical",
+		image: mechanical,
+		description: "Discover machines, engines, and industrial automation.",
+	},
+	{
+		name: "Civil",
+		image: civil,
+		description: "Learn about construction, design, and infrastructure.",
+	},
+	{
+		name: "Chemical",
+		image: chemical,
+		description: "Study chemical processes and industrial chemistry.",
+	},
+	{
+		name: "MME",
+		image: mme,
+		description: "Understand materials science and metallurgical processes.",
+	},
 ];
 
-
 export default function TechnicalEvents() {
+
     const navigate = useNavigate()
     return (
         <>
@@ -85,18 +83,25 @@ export default function TechnicalEvents() {
                 </Grid>
             </Grid>
 
-            <div className="main">
-                <div className="cards-container">
-                    {departments.map((dept, index) => (
-                        <div key={index} className="card">
-                            <img src={dept.image} alt={dept.name} className="card-image" />
-                            <h2 className="card-title">{dept.name}</h2>
-                            <p className="card-description">{dept.description}</p>
-                            <button className="view-events-button" onClick={() => { navigate(`/technicalEvents/${dept.name}`) }}>See All Events</button>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </>
-    );
+			<div className="tech-main">
+				<div className="tech-cards-container">
+					{departments.map((dept, index) => (
+						<div key={index} className="tech-card">
+							<img src={dept.image} alt={dept.name} className="tech-card-image" />
+							<h2 className="tech-card-title">{dept.name}</h2>
+							<p className="tech-card-description">{dept.description}</p>
+							<button
+								className="tech-view-events-button"
+								onClick={() => {
+									navigate(`/technicalEvents/${dept.name}`);
+								}}
+							>
+								See All Events
+							</button>
+						</div>
+					))}
+				</div>
+			</div>
+		</>
+	);
 }

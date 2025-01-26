@@ -1,4 +1,4 @@
-.title{
+.tech-title{
     font-family: Audiowide;
     color: white;
     font-weight: 450;
@@ -7,42 +7,60 @@
     text-align: center;
     font-size: 40px;
 }
-.main{
+.tech-main{
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.cards-container {
+.tech-cards-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1rem;
     width: 100%;
     padding: 10px;
 }
-
-.card {
+.tech-card {
     height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: 'rgba(217, 217, 217, 0)';
-    border: 1px solid  #FF6AB7;
+    background: rgba(217, 217, 217, 0);
+    border: 1px solid #00FFF0;
     width: 250px;
     border-radius: 25px;
     padding-bottom: 10px;
     box-shadow: 0px 4px 15px rgba(173, 216, 230, 0.5);
     text-align: center;
     cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    position: relative;
+    overflow: hidden;
 }
 
-.card-image {
+/* Fancy hover effect */
+.tech-card:hover {
+    border-color: #00FFF0;
+    box-shadow: 0px 0px 10px rgba(0, 255, 240, 0.9), 0px 0px 12px rgba(255, 106, 183, 0.8);
+    transform: translateY(-2px) scale(1.01);
+}
+/* Text styling effect */
+.tech-card:hover h3, 
+.tech-card:hover p {
+    color: #00FFF0;
+    text-shadow: 0px 0px 10px #00FFF0;
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+}
+
+.tech-card-image {
     width: 100%;
     height: 150px;
-    border-radius: 10px;
+    border-top-left-radius: 25px;
+    border-top-right-radius:25px;
     margin-bottom: 1rem;
 }
 
-.card-title {
+.tech-card-title {
     font-family: Audiowide;
     color: white;
     font-size: 1.2rem;
@@ -50,7 +68,7 @@
     margin-bottom: 0.5rem;
 }
 
-.card-description {
+.tech-card-description {
     font-family: Audiowide;
     color: white;
     overflow: visible;
@@ -61,7 +79,7 @@
     padding: 5px;
 }
 
-.view-events-button {
+.tech-view-events-button {
     font-family: Audiowide;
     padding: 0.5rem 1rem;
     background: linear-gradient(
@@ -79,7 +97,7 @@
     transition: background-color 0.3s;
 }
 
-.view-events-button:hover {
+.tech-view-events-button:hover {
     background: linear-gradient(
         to right, 
         rgba(101, 45, 192, 1),    
@@ -88,7 +106,7 @@
       );
 }
 
-.button-container
+.tech-button-container
 {
     display: flex;
     flex-direction: column;
@@ -96,7 +114,7 @@
     margin-top: 10px;
 }
 @media only screen and (max-width: 650px) {
-    .title{
+    .tech-title{
         font-size: 30px;
     }
 }
@@ -113,7 +131,7 @@
 }  */
 
 @media only screen and (max-width: 650px) {
-    .view-events-button {
+    .tech-view-events-button {
         white-space: normal; /* Allow text to wrap */
         text-align: center;  /* Keep the text centered */
         padding: 0.6rem 0.8rem; /* Adjust padding */

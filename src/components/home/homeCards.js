@@ -13,7 +13,6 @@ import { useNavigate } from "react-router-dom";
 const HomeCards = () => {
     const navigate = useNavigate();  // Use navigate hook for navigation
 
-
     const titleStyles = {
         fontFamily: "Audiowide",
         fontSize: "28px",
@@ -132,6 +131,7 @@ const HomeCards = () => {
                         cardStyles={cardStyles}
                         footerButtonStyles={footerButtonStyles}
                         onFooterClick={() => navigate("/events")}
+
                     />
                 </Grid2>
                 <Grid2
