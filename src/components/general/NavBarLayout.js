@@ -20,6 +20,7 @@ import AddTechnicalEvent from '../admin/technical/addNewTechnicalEvent';
 import AddVolunteer from '../admin/volunteer/addVolunteer';
 import AllVolunteers from '../admin/volunteer/allVolunteers';
 import AllTechnicalEvents from '../admin/technical/allTechnicalEvents';
+import NotificationForm from '../admin/other/Notification';
 
 
 
@@ -28,6 +29,17 @@ const NAVIGATION = [
     segment: 'Dashboard',
     title: 'Dashboard',
     icon: <DashboardIcon />,
+  },
+  {
+    segment: 'Announcemnets',
+    title: 'Announcements',
+    icon: <CelebrationIcon color='secondary' />,
+    children: [
+      {
+        segment: 'notifiaction',
+        title: 'Send Notification',
+      }
+    ],
   },
   {
     segment: 'Culturals',
@@ -183,6 +195,9 @@ function DemoPageContent({ pathname }) {
       break;
     case "/TechnicalEvents/mechTech":
       content = <AllTechnicalEvents key="mechanical" department="Mechanical" />
+      break;
+    case "/Announcemnets/notifiaction":
+      content= <NotificationForm/>
       break;
     default:
       content = <div>{pathname}</div>;
