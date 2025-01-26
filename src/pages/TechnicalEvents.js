@@ -83,14 +83,14 @@ export default function TechnicalEvents() {
                 </Grid>
             </Grid>
 
-            <div className="main">
-                <div className="cards-container">
+            <div className="technical-main">
+                <div className="technical-cards-container">
                     {departments.map((dept, index) => (
-                        <div key={index} className="card">
-                            <img src={dept.image} alt={dept.name} className="card-image" />
-                            <h2 className="card-title">{dept.name}</h2>
-                            <p className="card-description">{dept.description}</p>
-                            <button className="view-events-button" onClick={() => { navigate(`/technicalEvents/${dept.name}`) }}>See All Events</button>
+                        <div key={index} className="technical-card">
+                            <img src={dept.image} alt={dept.name} className="technical-card-image" />
+                            <h2 className="technical-card-title">{dept.name}</h2>
+                            <p className="technical-card-description">{dept.description}</p>
+                            <button className="technical-view-events-button" onClick={() => { navigate(`/technicalEvents/${dept.name}`) }}>See All Events</button>
                         </div>
                     ))}
                 </div>
