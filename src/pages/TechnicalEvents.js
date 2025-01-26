@@ -57,37 +57,64 @@ const departments = [
 ];
 
 export default function TechnicalEvents() {
-
-    const navigate = useNavigate()
-    return (
-        <>
-        {/* <RollingGallery images={[cse,eee,ece,chemical,mme,civil]}/> */}
-            <div style={{ paddingTop: "70px" }}>
-                <PageTop img1={i3} img2={i2} img3={i5} img4={i1} img5={i4} img6={i6} text="TECH Events" />
-            </div>
-            <Grid container spacing={2} alignItems="center" justifyContent="space-between" wrap="wrap" sx={{ padding: "15px" }}>
-                <Grid item>
-                    <h1 className="title" style={{ margin: 0 }}>Technical Events</h1>
-                </Grid>
-                <Grid item>
-                    <Button sx={{
-                        fontFamily: "Audiowide",
-                        color: "white !important",
-                        '&:hover': {
-                            backgroundColor: "#008a73", // Hover color
-                        },
-                        textTransform: "none",
-                        fontSize: { sm: 18, md: 20 },
-                        cursor: "pointer !important",
-                    }} onClick={()=>{navigate("/projectShowCase")}}>Our Students Tech Projects →</Button>
-                </Grid>
-            </Grid>
+	const navigate = useNavigate();
+	return (
+		<>
+			{/* <RollingGallery images={[cse,eee,ece,chemical,mme,civil]}/> */}
+			<div style={{ paddingTop: "70px" }}>
+				<PageTop
+					img1={i3}
+					img2={i2}
+					img3={i5}
+					img4={i1}
+					img5={i4}
+					img6={i6}
+					text="TECH Events"
+				/>
+			</div>
+			<Grid
+				container
+				spacing={2}
+				alignItems="center"
+				justifyContent="space-between"
+				wrap="wrap"
+				sx={{ padding: "15px" }}
+			>
+				<Grid item>
+					<h1 className="title" style={{ margin: 0 }}>
+						Technical Events
+					</h1>
+				</Grid>
+				<Grid item>
+					<Button
+						sx={{
+							fontFamily: "Audiowide",
+							color: "white !important",
+							"&:hover": {
+								backgroundColor: "#008a73", // Hover color
+							},
+							textTransform: "none",
+							fontSize: { sm: 18, md: 20 },
+							cursor: "pointer !important",
+						}}
+						onClick={() => {
+							navigate("/projectShowCase");
+						}}
+					>
+						Our Students Tech Projects →
+					</Button>
+				</Grid>
+			</Grid>
 
 			<div className="tech-main">
 				<div className="tech-cards-container">
 					{departments.map((dept, index) => (
 						<div key={index} className="tech-card">
-							<img src={dept.image} alt={dept.name} className="tech-card-image" />
+							<img
+								src={dept.image}
+								alt={dept.name}
+								className="tech-card-image"
+							/>
 							<h2 className="tech-card-title">{dept.name}</h2>
 							<p className="tech-card-description">{dept.description}</p>
 							<button
