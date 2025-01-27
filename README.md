@@ -22,32 +22,32 @@ Abhiyanth-Client is a React application developed for the **Abhiyanth** event of
 | Task/Module/Page/Component                        | Status          | API Integration|
 |-----------------------------------------|-----------------|----------------|
 | Contact Us                              | Done            | ✅             |
-| Stalls main Page                        | test once       | ❔            |
-| Individual Stall Page                   | Done     | ✅             |
+| Stalls main Page                        | Done            | ✅             |
+| Individual Stall Page                   | Done            | ✅             |
 | Technical events main page              | Done            | ✅             |
 | Technical Events Individual Department page | Done        | ✅             |
-| Technical Events Individual Event page  | Done     | ✅             |
+| Technical Events Individual Event page  | Done            | ✅             |
 | Volunteer registration                  | Done            | ✅             |
 | Sports Page                             | Not started     | ❌             |
-| Home page technical,cultural,stalls                     | Not started     | ❌             |
+| Home page technical,cultural,stalls     | Done            | ✅             |
 | Sponsors page                           | Not started     | ❌             |
-| Director, AO msg                            | Done     | ✅             |
+| Director, AO msg                        | Done            | ✅             |
 | Payment integration                     | Not started     | ❌             |
 | Login using Firebase                    | Started         | ❌             |
-| Technical Projects Page                 |Done     |    ✅          |
+| Technical Projects Page                 |Done             | ✅             |
 | Home Page Extravaganza improvement      | Not started     | ❌             |
 | Detailed culturals Schedule             | Not started     | ❌             |
 | PrEvents Schedule in technical events   | Not started     | ❌             |
 | College map integration                 | Not started     | ❌             |
 | User Profile and Edit Profile           | Not started     | ❌             |
-| Latest News page                        | Not started     | ❌             |
+| Latest News page                        | Done            | ❌             |
 | Polls and surveys                       | Not started     | ❌             |
 | Polls and surveys charts                | Not started     | ❌             |
 | Gallery Page caching                    | Done            | ✅             |
-| Shimmer UI's                            | Done     | ✅             |
+| Shimmer UI's                            | Done            | ✅             |
 | Events Page admin                       | Done            | ✅             |
-| Technical Events Admin                  |Done     | ✅             |
-| Volunteer Admin and Integration with Firebase | Done | ✅             |
+| Technical Events Admin                  |Done             | ✅             |
+| Volunteer Admin and Integration with Firebase | Done      | ✅             |
 
 
 ✅: Functioning properly  
