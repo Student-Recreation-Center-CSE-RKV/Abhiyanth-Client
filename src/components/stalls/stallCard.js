@@ -47,7 +47,7 @@ const StallCard = ({ stall }) => {
 					border: "1px solid rgb(68, 68, 68)",
 					boxShadow: "1px 1px 5px rgb(48, 17, 33)",
 					"&:hover": {
-						boxShadow: "3px 3px 15px #c91c75",
+						boxShadow: "2px 2px 5px rgb(47, 241, 228)",
 						borderColor: "#444444",
 					},
 				}}
