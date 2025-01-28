@@ -40,7 +40,7 @@ const ManageEventsByAdmin = () => {
 
   useEffect(() => {
     fetchEvents();
-  }, []);
+  }, []); 
 
   const handleCloseEditDialog = () => {
     setEditOpenDialog(false);

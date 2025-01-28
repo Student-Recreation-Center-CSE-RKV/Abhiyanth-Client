@@ -4,6 +4,7 @@ import { uploadPdf } from "../../../api/uploadPdf";
 import uploadImage from "../../../api/uploadImage";
 import { addStall } from "../../../api/stalls";
 import { getAllStalls } from "../../../api/stalls";
+import { handleInputChange , handleContactChange  , updateOffers , processImageChange} from "./stallsServices/stallsServices";
 
 export const AddNewStall = () => {
   const [file, setFile] = useState(null);
@@ -11,7 +12,6 @@ export const AddNewStall = () => {
   const [image, setImage] = useState(null);
   const [imageLeft, setImageLeft] = useState(null);
   const [imageRight, setImageRight] = useState(null);
-  const [imagePreview, setImagePreview] = useState(null); // For image preview
   const [stalls, setStalls] = useState([])
   const [numberOfOffers ,setNumberOfOffers] = useState(0)
 
@@ -33,16 +33,12 @@ export const AddNewStall = () => {
     timings: ""
   });
 
-
-  console.log(formData)
-
   useEffect(() => {
 
     const fetchStalls = async () => {
       try {
         const apistalls = await getAllStalls();
         setStalls(apistalls)
-        console.log(stalls);
 
       }
       catch (error) {
@@ -63,61 +59,33 @@ export const AddNewStall = () => {
   const handleImageChange = (event, field) => {
     const file = event.target.files[0];
   
-    if (!file) return; // Exit if no file is selected.
+    if (!file) return;
   
-    // Ensure the file is an image.
     if (!file.type.startsWith("image/")) {
       alert("Please select a valid image file.");
       return;
     }
   
-    // Update the local state for preview purposes.
-    const previewUrl = URL.createObjectURL(file);
     if (field === "image") setImage(file);
     if (field === "imageLeft") setImageLeft(file);
     if (field === "imageRight") setImageRight(file);
   
-    // Read file as base64 and update the formData dynamically.
     const reader = new FileReader();
     reader.onload = () => {
       setFormData((prev) => ({
         ...prev,
-        [field]: reader.result, // Dynamically update the correct field (image, imageLeft, or imageRight).
+        [field]: reader.result,
       }));
     };
     reader.readAsDataURL(file);
   };
   
 
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
+      const handleOffersChange = (index, value) => {
+          updateOffers(index, value, setFormData);
+        };
 
 
-  const handleOffersChange= (index, value) =>{
-
-    setFormData((prev) =>{
-      const updatedOffers = [...prev.offers];
-      updatedOffers[index] = value
-      return {...prev  , offers:updatedOffers}
-    })
-  }
-
-   const handleContactChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      contact: {
-        ...prev.contact,
-        [name]: value,
-      },
-    }));
-  };
   const handleUpload = async () => {
     if (!file || !image) {
       alert("Please select a file to upload.(Image or pdf should not be empty)");
@@ -133,7 +101,6 @@ export const AddNewStall = () => {
       const menuCardUrl = await uploadPdf(file, "stallsPdfs");
       const updatedFormData = { ...formData, menu_card: menuCardUrl, image: imageUrl , imageLeft : imageLeftUrl  ,imageRight : imageRightUrl };
       const res = await addStall(updatedFormData)
-
       alert("Stall Added successfully!");
     } catch (error) {
       alert("Error Occured")
@@ -156,7 +123,7 @@ export const AddNewStall = () => {
             label="Stall Name"
             name="name"
             value={formData.name}
-            onChange={handleInputChange}
+             onChange={(e) => handleInputChange(e, setFormData)}
           />
         </Grid>
 
@@ -170,7 +137,7 @@ export const AddNewStall = () => {
             label="Number of Offers"
             value={numberOfOffers}
             onChange={(e) => {
-              const value = Math.max(0, parseInt(e.target.value) || 0); // Ensure non-negative number
+              const value = Math.max(0, parseInt(e.target.value) || 0);
               setNumberOfOffers(value);
               setFormData((prev) => ({
                 ...prev,
@@ -236,7 +203,7 @@ export const AddNewStall = () => {
             label="Belong To"
             name="belongTo"
             value={formData.belongTo}
-            onChange={handleInputChange}
+             onChange={(e) => handleInputChange(e, setFormData)}
           />
         </Grid>
         <Grid item xs={12}>
@@ -245,7 +212,7 @@ export const AddNewStall = () => {
             label="Short Description"
             name="short_description"
             value={formData.short_description}
-            onChange={handleInputChange}
+             onChange={(e) => handleInputChange(e, setFormData)}
           />
         </Grid>
         <Grid item xs={12}>
@@ -254,7 +221,7 @@ export const AddNewStall = () => {
             label="Main Description"
             name="main_description"
             value={formData.main_description}
-            onChange={handleInputChange}
+             onChange={(e) => handleInputChange(e, setFormData)}
             multiline
             rows={4}
           />
@@ -265,19 +232,18 @@ export const AddNewStall = () => {
             label="Items (comma-separated)"
             name="items"
             value={formData.items}
-            onChange={handleInputChange}
+             onChange={(e) => handleInputChange(e, setFormData)}
             multiline
           />
         </Grid>
 
-       {/* Contact Fields */}
        <Grid item xs={6}>
           <TextField
             fullWidth
             label="Mobile"
             name="mobile"
             value={formData.contact.mobile}
-            onChange={handleContactChange}
+             onChange={(e) => handleContactChange(e, setFormData)}
           />
         </Grid>
         <Grid item xs={6}>
@@ -286,7 +252,7 @@ export const AddNewStall = () => {
             label="WhatsApp"
             name="whatsApp"
             value={formData.contact.whatsApp}
-            onChange={handleContactChange}
+             onChange={(e) => handleContactChange(e, setFormData)}
           />
         </Grid>
 
@@ -296,7 +262,7 @@ export const AddNewStall = () => {
             label="Timings"
             name="timings"
             value={formData.timings}
-            onChange={handleInputChange}
+             onChange={(e) => handleInputChange(e, setFormData)}
           />
         </Grid>
         <Grid item xs={12}>

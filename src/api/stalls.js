@@ -16,12 +16,12 @@ export const addStall=async(data)=>{
     return res;
 }
 
-export const deleteEvent=async(id)=>{
+export const deleteStall=async(id)=>{
     const res=await deleteDataById(collectionName,id);
     return res;
 }
 
-export const updateEvent=async(id,updatedData)=>{
+export const updateStall=async(id,updatedData)=>{
     const res=await updateDataById(collectionName,id,updatedData);
     return res;
 }
