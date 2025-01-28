@@ -20,7 +20,8 @@ import AddTechnicalEvent from '../admin/technical/addNewTechnicalEvent';
 import AddVolunteer from '../admin/volunteer/addVolunteer';
 import AllVolunteers from '../admin/volunteer/allVolunteers';
 import AllTechnicalEvents from '../admin/technical/allTechnicalEvents';
-
+import {AddNewStall} from "../admin/stalls/addNewStall.js"
+import StallsDisplay from '../admin/stalls/getAllStalls.js';
 
 
 const NAVIGATION = [
@@ -39,7 +40,8 @@ const NAVIGATION = [
         title: 'Add Event',
       }
     ],
-  }, {
+  },
+   {
     segment: 'TechnicalEvents',
     title: 'Technical Events',
     icon: <CelebrationIcon color='secondary' />,
@@ -109,6 +111,21 @@ const NAVIGATION = [
       {
         segment: 'departmentCarousel',
         title: 'Department Carousel',
+      }
+    ],
+  },
+  {
+    segment: 'stalls',
+    title: 'Stalls',
+    icon: <CelebrationIcon color='secondary' />,
+    children: [
+      {
+        segment: 'addStall',
+        title: 'Add stall',
+      },
+      {
+        segment: 'allStalls',
+        title: 'All stalls',
       }
     ],
   },
@@ -183,6 +200,12 @@ function DemoPageContent({ pathname }) {
       break;
     case "/TechnicalEvents/mechTech":
       content = <AllTechnicalEvents key="mechanical" department="Mechanical" />
+      break;
+    case "/stalls/addStall":
+      content = <AddNewStall />
+      break;
+      case "/stalls/allStalls":
+      content = <StallsDisplay />
       break;
     default:
       content = <div>{pathname}</div>;
