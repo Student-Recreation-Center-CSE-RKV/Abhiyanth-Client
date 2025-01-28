@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import hackathon from "../../assets/images/hackathon.jpeg"
+
 import {
   Box,
   Typography,
@@ -34,9 +34,10 @@ export default function TechEventDetails() {
 
 
   useEffect(() => {
-    if (department, id) {
+    if (department && id) {
       fetchDepartmentEvent(department, id);
     }
+    // eslint-disable-next-line
   }, [department, id]);
 
 

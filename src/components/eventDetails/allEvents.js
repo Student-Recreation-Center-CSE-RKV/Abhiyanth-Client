@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import CustomCard from "./eventCustomCard";
 import HorizontalScrollBox from "./HorizontalScrollBox";
 import { Grid } from "@mui/material";

@@ -1,9 +1,5 @@
-import { Box, Typography,Rating} from "@mui/material";
-import { useState } from "react";
+import { Box, Typography} from "@mui/material";
 import { motion } from 'framer-motion';
-import StarIcon from '@mui/icons-material/Star';
-import {dummyImage} from "../../assets/images/index";
-import {useMediaQuery}  from "@mui/material";
 import { extractDateTime } from "../../utils/timeStampToDate";
 
 const styles={

@@ -39,7 +39,8 @@ export const Contact=() => {
           
         }}
       >
-        <img src={logo}/>
+        {/* eslint-disable-next-line */}
+        <img src={logo} alt='abhiyanthImage'/>
         <Typography variant="h1" sx={{ fontSize: '3rem', fontWeight: 'bold', margin: 0 ,fontFamily:"Autowide"}}>
           ABHIYANTH 2K25
         </Typography>

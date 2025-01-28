@@ -16,7 +16,6 @@ import i4 from "../assets/images/techEvents/IMG-20250101-WA0025 (1).jpg";
 import i5 from "../assets/images/techEvents/webinar.jpeg";
 import i6 from "../assets/images/hackathon.jpeg";
 import { Button, Grid2 as Grid } from "@mui/material";
-import RollingGallery from "../components/general/RollingGallery";
 
 const departments = [
 	{

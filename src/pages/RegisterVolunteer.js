@@ -15,13 +15,20 @@ export default function RegisterVolunteer() {
     useEffect(() => {
         dispatch(fetchVolunteers());  
         console.log(volunteerEvents)
+    // eslint-disable-next-line
       }, [dispatch]);
+
+
+    if(error)
+        {
+            return <div>Error</div>
+        }  
 
     return (
         <> 
         {
             loading && (
-                <Grid container spacing={3} sx={{ marginTop: "20px",marginBottom:"40px",marginTop:"80px",padding:"5px" }}>
+                <Grid container spacing={3} sx={{ marginBottom:"40px",marginTop:"80px",padding:"5px" }}>
                 {[...Array(4)].map((_, index) => (
                   <Grid item xs={12} sm={6} md={3} key={index}>
                     <TechnicalShimmer/>

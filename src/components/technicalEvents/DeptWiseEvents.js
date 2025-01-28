@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React  from "react";
 import "../../styles/DeptWiseEvents.css"
 import Carousel from "../general/Carousel.js";
 import DeptWiseCustomCard from "./DeptWiseCustomCard.js";
@@ -35,6 +35,7 @@ const DeptWiseEvents = () => {
     if (department) {
       fetchDepartmentEvents(department);
     }
+    // eslint-disable-next-line
   }, [department]);
 
   return (
@@ -63,7 +64,7 @@ const DeptWiseEvents = () => {
         </div>)
       }
       {
-        events[department].length == 0 && (<div className="deptwise-events-heading" >
+        events[department].length === 0 && (<div className="deptwise-events-heading" >
           
           Events Coming Soon
           

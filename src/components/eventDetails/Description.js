@@ -1,5 +1,4 @@
-import { Box, Typography, Button } from "@mui/material"; // Import Button
-import { dummyImage } from "../../assets/images/index";
+import { Box, Typography, Button } from "@mui/material"; 
 import { useMediaQuery } from "@mui/material";
 import { extractDateTime } from "../../utils/timeStampToDate";
 
