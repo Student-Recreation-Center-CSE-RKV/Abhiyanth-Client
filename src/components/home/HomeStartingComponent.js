@@ -4,12 +4,9 @@ import logo from "../../assets/images/Rgukt_Logo_White.png";
 import { Box, Typography, useMediaQuery } from '@mui/material';
 import { motion } from 'framer-motion';
 import CountdownTimer from './timer';
-import { useNavigate } from 'react-router-dom';
-
-
 
 export default function HomeStartingComponent() {
-    const navigate=useNavigate()
+    
     const styles = {
         heroContainer: {
             position: 'relative',
@@ -92,7 +89,6 @@ export default function HomeStartingComponent() {
         },
         timer: {
             fontFamily: 'Audiowide',
-            fontSize: { xs: '22px', sm: '30px', md: '45px', lg: "50px" },
             padding:{xs:"0"},
             margin:{xs:"0"},
             fontSize: { xs: '18px', sm: '27px', md: '45px', lg: "50px" },

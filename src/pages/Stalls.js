@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, Box, CardMedia } from "@mui/material";
+import { Typography, Box } from "@mui/material";
 import Grid2 from "@mui/material/Grid2";
 import bakery from "../assets/images/stalls/bakery.jpg";
 import pavbaji from "../assets/images/stalls/pavbaji.jpg";
@@ -29,7 +29,15 @@ export default function AllStalls() {
 
 	useEffect(() => {
 		fetchAllStalls();
+		// eslint-disable-next-line
 	}, []);
+
+	if(error)
+	{
+		return <div>
+			Error
+		</div>
+	}
 
 	if (loading) {
 		<Grid
@@ -98,7 +106,7 @@ export default function AllStalls() {
 				))}
 			</Grid2>
 
-			<img src={foodCourtMap}></img>
+			<img src={foodCourtMap} alt="abhiyanthImage"></img>
 
 			<Box
 				sx={{
@@ -119,7 +127,6 @@ export default function AllStalls() {
 						color:"#23f7d4",
 						fontWeight: "bold",
 						textShadow: "2px 2px 10px rgba(255, 255, 255, 0.3)",
-						marginBottom: { xs: "20px", md: "0" },
 						fontFamily: "Orbitron",
 						marginBottom:"1rem",
 						fontSize:{xs:"2rem",md:"2.5rem",lg:"3rem"}

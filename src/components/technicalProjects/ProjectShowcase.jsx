@@ -67,6 +67,7 @@ const ProjectsPage = () => {
 
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
+        // eslint-disable-next-line
     }, [visibleProjects, isLoading, filteredProjects]);
 
     return (

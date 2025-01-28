@@ -1,4 +1,4 @@
-import { getAllData,addDataToCollection,deleteDataById,updateDataById, getDataById } from "./general"
+import { getAllData,addDataToCollection,deleteDataById,updateDataById } from "./general"
 
 export const addVolunteerEvent=async(data)=>{
     const res=await addDataToCollection("VolunteerRegistration",data);

@@ -18,17 +18,15 @@ import TechEventDetails from './components/technicalEvents/techEventDetails.js';
 import StallShowcase from './components/stalls/StallShowCase.js';
 import ProjectsPage from './components/technicalProjects/ProjectShowcase.jsx';
 import News from './pages/News.js';
-import NewsBox from './components/news/NewsBox.js';
 import DetailedNews from './components/news/DetailedNews.js';
 import Profile from './components/user/Profile.js';
 import SignIn from './pages/SignIn.js';
 import { auth } from "./api/firebaseConfig.js"
-import { signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import { useState, useContext, createContext } from 'react';
+import { useState } from 'react';
 import { isInDb } from './api/users.js';
-import Payment from './pages/payment.js';
 import Cashfree from './components/CashFreeFold/cashFree.js';
 import RegisteredEvents from "./components/userprofile/RegisteredEvents.js"
 import TechnicalEventsPage from './components/technicalEvents/MainTechnicalEvents.js';
@@ -38,9 +36,6 @@ const provider = new GoogleAuthProvider();
 
 
 function App() {
-
-
-
   return (
     <BrowserRouter>
       <ToastContainer />
@@ -80,7 +75,7 @@ function App() {
 
 function SignInWrapper() {
   const navigate = useNavigate();
-  const [user, setUser] = useState(false);
+  
   const  [isloading , setIsLoading] = useState(false);
   console.log(isloading);
 
@@ -88,18 +83,14 @@ function SignInWrapper() {
     setIsLoading(true);
     try {
       const result = await signInWithPopup(auth, provider);
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
       const user = result.user;
 
       const userData = {
         name: user.displayName,
         email: user.email,
-        // Add other user data fields as needed
       };
 
       const check = await isInDb(user.uid, userData);
-      setUser(user);
       toast.success("Successfully logged in");
       localStorage.setItem("Users", check ? "true" : "false");
       localStorage.setItem("id", user.uid);

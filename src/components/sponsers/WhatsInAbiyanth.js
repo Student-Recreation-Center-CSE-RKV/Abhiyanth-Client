@@ -70,7 +70,6 @@ export default function WhatsInAbiyanth() {
 						>
 							<img
 								src={row.img1}
-								alt={`Image ${rowIndex + 1}-1`}
 								style={{
 									maxWidth: "80%",
 									height: "auto",
@@ -109,7 +108,8 @@ export default function WhatsInAbiyanth() {
 						>
 							<img
 								src={row.img2}
-								alt={`Image ${rowIndex + 1}-2`}
+								// eslint-disable-next-line
+								alt="abhiyanthImage"
 								style={{
 									maxWidth: "70%",
 									height: "auto",

@@ -50,6 +50,7 @@ function EventDetails() {
 
   useEffect(() => {
     getEventDetails();
+  // eslint-disable-next-line
   }, []);
 
   if (loading) {

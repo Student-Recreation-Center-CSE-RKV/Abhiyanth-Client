@@ -1,12 +1,11 @@
 import React from 'react';
 import Header from '../components/general/Header';
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Footer from '../components/general/Footer';
 
-export default function Main({flag}) {
-  const location = useLocation();
-  const showHeaderAndFooter = location.pathname !== "/";
-
+export default function Main() {
+  
+  
   const styles = {
     mainContainer: {
       display: 'flex',

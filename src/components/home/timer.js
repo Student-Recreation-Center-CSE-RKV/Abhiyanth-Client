@@ -21,6 +21,7 @@ const CountdownTimer = ({ targetDate }) => {
     }, 1000);
 
     return () => clearInterval(timer);
+    // eslint-disable-next-line
   }, [targetDate]);
 
   if (!timeLeft) {

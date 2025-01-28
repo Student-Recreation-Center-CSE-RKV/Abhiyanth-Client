@@ -2,7 +2,6 @@ import {
 	Box,
 	Button,
 	Chip,
-	Rating,
 	Typography,
 	useMediaQuery,
 } from "@mui/material";
@@ -91,10 +90,15 @@ function StallShowcase() {
 	};
 	useEffect(() => {
 		fetchStall();
+	// eslint-disable-next-line
 	}, []);
 
 	const isSmallScreen = useMediaQuery("(max-width:600px)");
 
+	if(loading)
+	{
+		return <div>Loading</div>
+	}
 	if (stall == null) {
 		return <></>;
 	}
