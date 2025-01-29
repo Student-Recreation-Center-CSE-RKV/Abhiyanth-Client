@@ -106,6 +106,7 @@ export default function AllStalls() {
 				))}
 			</Grid2>
 
+
 			<Box
 				sx={{
 					display: "flex",
