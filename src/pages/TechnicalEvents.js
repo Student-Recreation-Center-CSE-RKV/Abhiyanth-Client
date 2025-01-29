@@ -75,7 +75,7 @@ export default function TechnicalEvents() {
 				container
 				spacing={2}
 				alignItems="center"
-				justifyContent="space-between"
+				justifyContent={{sx:"center",sm:"center",md:"space-between"}}
 				wrap="wrap"
 				sx={{ padding: "15px" }}
 			>
@@ -106,7 +106,7 @@ export default function TechnicalEvents() {
 			</Grid>
 
 			<div className="tech-main">
-				<div className="tech-cards-container">
+				<div className="tech-cards-container" >
 					{departments.map((dept, index) => (
 						<div key={index} className="tech-card">
 							<img
