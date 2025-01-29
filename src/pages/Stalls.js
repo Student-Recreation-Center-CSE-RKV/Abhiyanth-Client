@@ -106,7 +106,6 @@ export default function AllStalls() {
 				))}
 			</Grid2>
 
-			<img src={foodCourtMap} alt="abhiyanthImage"></img>
 
 			<Box
 				sx={{
