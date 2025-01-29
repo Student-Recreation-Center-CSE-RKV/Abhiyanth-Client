@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../components/general/Header';
 import { Outlet } from "react-router-dom";
 import Footer from '../components/general/Footer';
+import ErrorBoundary from './ErrorBoundary';
 
 export default function Main() {
   
@@ -21,7 +22,8 @@ export default function Main() {
   };
 
   return (
-    <div style={styles.mainContainer}>
+    <ErrorBoundary>
+      <div style={styles.mainContainer}>
       <Header />
       <div style={styles.contentContainer}>
         <Outlet />
@@ -32,5 +34,6 @@ export default function Main() {
         </div>
     
     </div>
+    </ErrorBoundary>
   );
 }

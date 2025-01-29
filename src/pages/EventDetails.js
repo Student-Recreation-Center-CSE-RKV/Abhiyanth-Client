@@ -5,6 +5,7 @@ import Top from "../components/eventDetails/Top";
 import { Box, Typography, CircularProgress } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import ErrorBoundary from "./ErrorBoundary";
 
 const styles = {
   container: {
@@ -55,14 +56,18 @@ function EventDetails() {
 
   if (loading) {
     return (
-      <Box sx={styles.loaderContainer}>
+      <ErrorBoundary>
+        <Box sx={styles.loaderContainer}>
         <CircularProgress />
       </Box>
+      </ErrorBoundary>
+      
     );
   }
 
   return (
-    <div>
+    <ErrorBoundary>
+      <div>
       <Box sx={styles.container}>
         <Box>
           <Top item={eventDetails} />
@@ -82,6 +87,8 @@ function EventDetails() {
         </Typography>
       </Box>
     </div>
+    </ErrorBoundary>
+    
   );
 }
 

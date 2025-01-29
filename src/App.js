@@ -30,6 +30,9 @@ import { isInDb } from './api/users.js';
 import Cashfree from './components/CashFreeFold/cashFree.js';
 import RegisteredEvents from "./components/userprofile/RegisteredEvents.js"
 import TechnicalEventsPage from './components/technicalEvents/MainTechnicalEvents.js';
+import PaymentSuccess from './components/payment/PaymentSuccess.js';
+import PaymentFailure from './components/payment/PaymentFailure.js';
+import PageNotFound from './pages/ErrorPage.js';
 
 
 const provider = new GoogleAuthProvider();
@@ -63,8 +66,11 @@ function App() {
           <Route path='/payment' element={<Cashfree/>}/>
           <Route path="/profile" element={<Profile/>}/>
           <Route path="/Registered" element={<RegisteredEvents/>}/>
+          <Route path="/payment/success" element={<PaymentSuccess/>}/>
+          <Route path="/payment/failure" element={<PaymentFailure/>}/>
         </Route>
         <Route path='auth/login' element={<SignInWrapper />} />
+        <Route path="*" element={<PageNotFound/>} />
       </Routes>
     </BrowserRouter>
     

@@ -19,6 +19,11 @@ import { Button, Grid2 as Grid } from "@mui/material";
 
 const departments = [
 	{
+		name: "Main Events",
+		image: cse,
+		description: "Top Events Conducted by RGUKT",
+	},
+	{
 		name: "CSE",
 		image: cse,
 		description: "Explore cutting-edge tech and software development.",
@@ -119,7 +124,15 @@ export default function TechnicalEvents() {
 							<button
 								className="tech-view-events-button"
 								onClick={() => {
-									navigate(`/technicalEvents/${dept.name}`);
+									if(dept.name==="Main Events")
+									{
+										navigate("/mainTechnicalEvents");
+									}
+									else
+									{
+										navigate(`/technicalEvents/${dept.name}`);
+									}
+									
 								}}
 							>
 								See All Events

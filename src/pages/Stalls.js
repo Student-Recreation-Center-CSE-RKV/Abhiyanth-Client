@@ -15,6 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import PageTop from "../components/general/PageTop";
 import TechnicalShimmer from "../components/technicalEvents/technicalShimmer";
 import { Grid } from "swiper/modules";
+import ErrorBoundary from "./ErrorBoundary";
 
 export default function AllStalls() {
 	const dispatch = useDispatch();
@@ -40,7 +41,8 @@ export default function AllStalls() {
 	}
 
 	if (loading) {
-		<Grid
+		<ErrorBoundary>
+			<Grid
 			container
 			spacing={3}
 			sx={{ marginTop: "20px", marginBottom: "40px", padding: "5px" }}
@@ -50,11 +52,13 @@ export default function AllStalls() {
 					<TechnicalShimmer />
 				</Grid>
 			))}
-		</Grid>;
+		</Grid>
+		</ErrorBoundary>
 	}
 
 	return (
-		<div
+		<ErrorBoundary>
+			<div
 			style={{
 				minHeight: "100vh",
 				width: "98vw",
@@ -148,5 +152,6 @@ export default function AllStalls() {
 			</Box>
 
 		</div>
+		</ErrorBoundary>
 	);
 }

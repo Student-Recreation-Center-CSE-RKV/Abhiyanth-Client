@@ -9,11 +9,13 @@ import BeAPartner from '../components/sponsers/BeAPartner'
 
 import PerksAndBenifitsInSponsers from '../components/sponsers/perksAndBenifitsInSponsers'
 import CurrentSponsors from '../components/sponsers/CurrentSponsors'
+import ErrorBoundary from './ErrorBoundary'
 
 
 export default function Sponsers() {
   return (
-    <div>
+    <ErrorBoundary>
+      <div>
       <WhatsAbhiyanth/>
       <GradientBorderComponent/>
       <div style={{paddingTop:"40px"}}>
@@ -30,5 +32,6 @@ export default function Sponsers() {
       <PastSponsers/>
      
     </div>
+    </ErrorBoundary>
   )
 }
