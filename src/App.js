@@ -30,6 +30,7 @@ import { isInDb } from './api/users.js';
 import Cashfree from './components/CashFreeFold/cashFree.js';
 import RegisteredEvents from "./components/userprofile/RegisteredEvents.js"
 import TechnicalEventsPage from './components/technicalEvents/MainTechnicalEvents.js';
+import EditProfile from './components/user/EditProfile.js';
 
 
 const provider = new GoogleAuthProvider();
@@ -63,6 +64,7 @@ function App() {
           <Route path='/payment' element={<Cashfree/>}/>
           <Route path="/profile" element={<Profile/>}/>
           <Route path="/Registered" element={<RegisteredEvents/>}/>
+          <Route path="/EditProfile" element={<EditProfile/>}/>
         </Route>
         <Route path='auth/login' element={<SignInWrapper />} />
       </Routes>
