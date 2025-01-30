@@ -67,9 +67,11 @@ function App() {
           <Route path='/payment' element={<Cashfree/>}/>
           <Route path="/profile" element={<Profile/>}/>
           <Route path="/Registered" element={<RegisteredEvents/>}/>
+
           <Route path="/schedule" element={<Schedule/>}/>
           <Route path="/payment/success" element={<PaymentSuccess/>}/>
-          <Route path="/payment/failure" element={<PaymentFailure/>}/>        </Route>
+          <Route path="/payment/failure" element={<PaymentFailure/>}/>       
+        </Route>
         <Route path='auth/login' element={<SignInWrapper />} />
         <Route path="*" element={<PageNotFound/>} />
       </Routes>
