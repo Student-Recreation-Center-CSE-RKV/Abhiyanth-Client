@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import CustomCard from "./eventCustomCard";
 import HorizontalScrollBox from "./HorizontalScrollBox";
 import { Grid } from "@mui/material";
@@ -22,9 +22,9 @@ const AllEvents = () => {
 	const dispatch = useDispatch();
   const { completed, ongoing, upcoming, loading, error } = useSelector((state) => state.events);
 
-//   useEffect(() => {
-//     dispatch(fetchEvents());  
-//   }, [dispatch]);
+  useEffect(() => {
+    dispatch(fetchEvents());  
+  }, [dispatch]);
 
   
   if (error) return <div>Error: {error}</div>;  
@@ -79,14 +79,6 @@ const AllEvents = () => {
 							</div>
 						)}
 
-						{/* {(events.ongoing.length > 0 || events.upcoming.length > 0) && (
-							<div className="alleventstext1 eventsContainer">
-								<a href="#" style={{ textDecoration: "none", color: "white" }}>
-									FULL SCHEDULE -&gt;
-								</a>
-							</div>
-						)} */}
-
 						{completed.length > 0 && (
 							<div className="eventsContainer">
 								<h3 className="alleventstopHeading">COMPLETED</h3>
@@ -106,3 +98,4 @@ const AllEvents = () => {
 };
 
 export default AllEvents;
+

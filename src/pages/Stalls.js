@@ -15,46 +15,6 @@ import { fetchStalls } from "../redux/slices/stallsSlice";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import PageTop from "../components/general/PageTop";
-
-import TechnicalEvents from "./TechnicalEvents";
-import TechnicalShimmer from "../components/technicalEvents/technicalShimmer";
-import { Grid } from "swiper/modules";
-
-
-export default function AllStalls() {
-	const dispatch = useDispatch();
-	
-	const { stalls, loading, error } = useSelector((state) => state.stalls);
-	
-
-
-	const fetchAllStalls = async () => {
-		
-		try {
-		  
-		  dispatch(fetchStalls())
-		} catch (error) {
-		} 
-	
-	  };
-
-	useEffect(() => {
-		
-		  fetchAllStalls();
-		
-	  },[]);
-	
-	  if(loading)
-	  {
-		<Grid container spacing={3} sx={{ marginTop: "20px", marginBottom: "40px", padding: "5px" }}>
-            {[...Array(4)].map((_, index) => (
-              <Grid item xs={12} sm={6} md={3} key={index}>
-                <TechnicalShimmer />
-              </Grid>
-            ))}
-          </Grid>
-	  }
-
 import TechnicalShimmer from "../components/technicalEvents/technicalShimmer";
 import { Grid } from "swiper/modules";
 
@@ -139,8 +99,6 @@ export default function AllStalls() {
 					</Grid2>
 				))}
 			</Grid2>
-
-			<img src={foodCourtMap}></img>
 
 			<Box
 				sx={{
