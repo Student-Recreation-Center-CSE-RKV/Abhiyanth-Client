@@ -38,10 +38,10 @@ const ProjectsPage = () => {
 
     useEffect(() => {
         setTimeout(() => {
-            const proj = shuffleArray(projectsData)
-            setAllProjects(proj);
-            setFilteredProjects(proj);
-            setVisibleProjects(proj.slice(0, projectsPerPage));
+
+            setAllProjects(projectsData);
+            setFilteredProjects(projectsData);
+            setVisibleProjects(projectsData.slice(0, projectsPerPage));
             setIsLoading(false);
         }, 1500);
     }, []);
