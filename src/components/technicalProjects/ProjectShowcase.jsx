@@ -19,6 +19,15 @@ import {
     Divider,
 } from '@mui/material';
 
+const shuffleArray = (array) => {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+};
+
 const ProjectsPage = () => {
     const [allProjects, setAllProjects] = useState([]);
     const [filteredProjects, setFilteredProjects] = useState([]);
@@ -29,9 +38,10 @@ const ProjectsPage = () => {
 
     useEffect(() => {
         setTimeout(() => {
-            setAllProjects(projectsData);
-            setFilteredProjects(projectsData);
-            setVisibleProjects(projectsData.slice(0, projectsPerPage));
+            const proj = shuffleArray(projectsData)
+            setAllProjects(proj);
+            setFilteredProjects(proj);
+            setVisibleProjects(proj.slice(0, projectsPerPage));
             setIsLoading(false);
         }, 1500);
     }, []);
@@ -59,7 +69,7 @@ const ProjectsPage = () => {
         const handleScroll = () => {
             if (
                 window.innerHeight + document.documentElement.scrollTop >=
-                document.documentElement.offsetHeight - 200
+                document.documentElement.offsetHeight - 350
             ) {
                 loadMoreProjects();
             }
@@ -67,6 +77,7 @@ const ProjectsPage = () => {
 
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
+        // eslint-disable-next-line
     }, [visibleProjects, isLoading, filteredProjects]);
 
     return (

@@ -28,6 +28,7 @@ export default function CustomCard({ event,department }) {
         borderRadius: "20px",
         position: "relative",
         overflow: "hidden", // Prevents content overflow
+        // eslint-disable-next-line
         ["@media (max-width: 376px)"]: {
           maxWidth: "95%", // Adjust width for very small screens
           paddingInline: "0.5rem",

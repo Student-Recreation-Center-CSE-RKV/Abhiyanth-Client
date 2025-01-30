@@ -9,8 +9,10 @@ import {
 	Box,
 } from "@mui/material";
 import DailogBox from "../general/Dialog";
+import { useNavigate } from "react-router-dom";
 
 const StallCard = ({ stall }) => {
+	const navigate=useNavigate()
 	const [open, setOpen] = useState(false);
 	const handleOpen = () => {
 		setOpen(true);
@@ -26,11 +28,16 @@ const StallCard = ({ stall }) => {
 			: text;
 	};
 
+	if(stall===null)
+	{
+		<>Error</>
+	}
+
 	return (
 		<>
 			<Card
 				sx={{
-					maxWidth: 345,
+					width: 300,
 					margin: "auto",
 					padding: "10px",
 					backgroundColor: "inherit",
@@ -40,7 +47,7 @@ const StallCard = ({ stall }) => {
 					border: "1px solid rgb(68, 68, 68)",
 					boxShadow: "1px 1px 5px rgb(48, 17, 33)",
 					"&:hover": {
-						boxShadow: "3px 3px 15px #c91c75",
+						boxShadow: "2px 2px 5px rgb(47, 241, 228)",
 						borderColor: "#444444",
 					},
 				}}
@@ -48,7 +55,7 @@ const StallCard = ({ stall }) => {
 				<CardMedia
 					component="img"
 					height="150"
-					image={stall.topImage}
+					image={stall.image}
 					alt={`${stall.name} top image`}
 					sx={{
 						marginTop: "15px",
@@ -63,7 +70,7 @@ const StallCard = ({ stall }) => {
 						<CardMedia
 							component="img"
 							height="100"
-							image={stall.bottomLeftImage}
+							image={stall.imageLeft}
 							alt={`${stall.name} bottom left image`}
 							sx={{ border: "1px solid #00b093" }}
 						/>
@@ -72,7 +79,7 @@ const StallCard = ({ stall }) => {
 						<CardMedia
 							component="img"
 							height="100"
-							image={stall.bottomRightImage}
+							image={stall.imageRight}
 							alt={`${stall.name} bottom right image`}
 							sx={{ border: "1px solid #00b093" }}
 						/>
@@ -97,7 +104,7 @@ const StallCard = ({ stall }) => {
 							wordBreak: "break-word",
 						}}
 					>
-						{truncateText(stall.description, 20)}
+						{truncateText(stall.short_description, 20)}
 					</Typography>
 					<Box display="flex" justifyContent="space-between">
 						<Button
@@ -112,6 +119,7 @@ const StallCard = ({ stall }) => {
 							variant="outlined"
 							color="secondary"
 							sx={{ borderRadius: "10px" }}
+							onClick={()=>{navigate(`/stalls/${stall.id}`)}}
 						>
 							View More
 						</Button>

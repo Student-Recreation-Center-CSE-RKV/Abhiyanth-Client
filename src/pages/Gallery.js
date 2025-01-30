@@ -9,6 +9,7 @@ import gallery_main4 from "../assets/images/gallary_img2.jpeg";
 import ImageCarousel from "../components/general/Carousel";
 import CarouselShimmer from "../components/gallery/CarouselShimmer";
 import { fetchFirebaseDoc } from "../api/general";
+import ErrorBoundary from "./ErrorBoundary";
 
 function MomentsOfPreviousAbhiyath() {
   
@@ -211,7 +212,8 @@ function MomentsOfPreviousAbhiyath() {
   };
 
   return (
-    <>
+    <ErrorBoundary>
+      <>
       {isLoadingCarousels ? (
         <div style={{marginTop:"60px"}}>
           <CarouselShimmer/>
@@ -283,6 +285,7 @@ function MomentsOfPreviousAbhiyath() {
         )}
       </div>
     </>
+    </ErrorBoundary>
   );
 }
 

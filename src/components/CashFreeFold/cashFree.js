@@ -3,10 +3,9 @@ import axios from 'axios';
 import { cashfree } from './util'
 import './paypal.css';
 
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 const Cashfree = () => {
-    const navigate = useNavigate();
     const params = useParams()
     const isSessionId = params.sessionid
     const [loading, setLoading] = useState('');

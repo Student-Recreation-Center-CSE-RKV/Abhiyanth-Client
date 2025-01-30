@@ -74,7 +74,7 @@ const DailogBox = ({open,handleClose,stall}) => {
 					}}
 				>
 					<iframe
-						src={`${stall.menuPdfFile}#toolbar=0&navpanes=0&scrollbar=0`}
+						src={`${stall.menu_card}#toolbar=0&navpanes=0&scrollbar=0`}
 						title="Menu PDF"
 						width="100%"
 						height="500px"

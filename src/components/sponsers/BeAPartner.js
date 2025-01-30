@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { Box, Typography } from '@mui/material';
 
 const sponsorshipData = [
     { category: "Category", acceptability: "Acceptability" },

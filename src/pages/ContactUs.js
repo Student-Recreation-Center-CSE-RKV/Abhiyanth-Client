@@ -4,13 +4,17 @@ import { Box, Typography, Avatar } from '@mui/material';
 import logo from "../assets/images/Abhiyanthlogo2.png"
 import audience from "../assets/images/audience.png"
 import anil from "../assets/images/anil.png"
+import ErrorBoundary from './ErrorBoundary';
 
 
 const ContactUs = () => {
   return (
-    <Box sx={{background: `url(${audience}) center/cover no-repeat`, paddingTop:"70px",}}>
+    <ErrorBoundary>
+      <Box sx={{background: `url(${audience}) center/cover no-repeat`, paddingTop:"70px",}}>
         <Contact/>
     </Box>
+    </ErrorBoundary>
+    
   );
 };
 
@@ -39,7 +43,8 @@ export const Contact=() => {
           
         }}
       >
-        <img src={logo}/>
+        {/* eslint-disable-next-line */}
+        <img src={logo} alt='abhiyanthImage'/>
         <Typography variant="h1" sx={{ fontSize: '3rem', fontWeight: 'bold', margin: 0 ,fontFamily:"Autowide"}}>
           ABHIYANTH 2K25
         </Typography>
@@ -109,4 +114,5 @@ export const Contact=() => {
     </div>
   );
 };
+
 export default ContactUs;

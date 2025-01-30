@@ -4,6 +4,7 @@ import TechnicalShimmer from "../components/technicalEvents/technicalShimmer";
 import { Grid } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchVolunteers } from "../redux/slices/volunteerSlice";
+import ErrorBoundary from "./ErrorBoundary";
 
 export default function RegisterVolunteer() {
     // const [volunteerEvents,setEvents]=useState([]);
@@ -15,13 +16,21 @@ export default function RegisterVolunteer() {
     useEffect(() => {
         dispatch(fetchVolunteers());  
         console.log(volunteerEvents)
+    // eslint-disable-next-line
       }, [dispatch]);
 
+
+    if(error)
+        {
+            return <div>Error</div>
+        }  
+
     return (
-        <> 
+        <ErrorBoundary>
+            <> 
         {
             loading && (
-                <Grid container spacing={3} sx={{ marginTop: "20px",marginBottom:"40px",marginTop:"80px",padding:"5px" }}>
+                <Grid container spacing={3} sx={{ marginBottom:"40px",marginTop:"80px",padding:"5px" }}>
                 {[...Array(4)].map((_, index) => (
                   <Grid item xs={12} sm={6} md={3} key={index}>
                     <TechnicalShimmer/>
@@ -55,5 +64,6 @@ export default function RegisterVolunteer() {
 
         </div>
         </>
+        </ErrorBoundary>
     );
 }

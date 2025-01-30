@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import CustomCard from "./eventCustomCard";
 import HorizontalScrollBox from "./HorizontalScrollBox";
 import { Grid } from "@mui/material";
@@ -14,7 +14,6 @@ import img6 from "../../assets/images/eventsHeaderImg6.jpeg";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchEvents } from "../../redux/slices/eventsSlice";
 import PageTop from "../general/PageTop";
-import EventsComingSoon from "../general/EventsComingSoon";
 
 
 const AllEvents = () => {
@@ -22,9 +21,9 @@ const AllEvents = () => {
 	const dispatch = useDispatch();
   const { completed, ongoing, upcoming, loading, error } = useSelector((state) => state.events);
 
-//   useEffect(() => {
-//     dispatch(fetchEvents());  
-//   }, [dispatch]);
+  useEffect(() => {
+    dispatch(fetchEvents());  
+  }, [dispatch]);
 
   
   if (error) return <div>Error: {error}</div>;  
@@ -43,7 +42,7 @@ const AllEvents = () => {
 		>
 			<PageTop img1={img1} img2={img2} img3={img3} img4={img4} img5={img5} img6={img6} text="CULTURALS"/>
 
-			<EventsComingSoon/>
+			
 			<div className="alleventscontainer">
 				{loading ? (
 					<Grid container spacing={3} sx={{ marginTop: "20px" }}>
@@ -78,14 +77,6 @@ const AllEvents = () => {
 								/>
 							</div>
 						)}
-
-						{/* {(events.ongoing.length > 0 || events.upcoming.length > 0) && (
-							<div className="alleventstext1 eventsContainer">
-								<a href="#" style={{ textDecoration: "none", color: "white" }}>
-									FULL SCHEDULE -&gt;
-								</a>
-							</div>
-						)} */}
 
 						{completed.length > 0 && (
 							<div className="eventsContainer">
