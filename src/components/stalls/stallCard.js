@@ -28,10 +28,9 @@ const StallCard = ({ stall }) => {
 			: text;
 	};
 
-	if(stall===null)
-	{
-		<>Error</>
-	}
+	if (!stall) {
+		return <Typography color="error">Error: Stall data missing</Typography>;
+	  }
 
 	return (
 		<>
@@ -113,7 +112,7 @@ const StallCard = ({ stall }) => {
 							sx={{ borderRadius: "10px" }}
 							onClick={handleOpen}
 						>
-							Menu Card
+							Price Card
 						</Button>
 						<Button
 							variant="outlined"
