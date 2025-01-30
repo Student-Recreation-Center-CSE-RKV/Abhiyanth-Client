@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import hackathon from "../../assets/images/hackathon.jpeg"
+
 import {
   Box,
   Typography,
@@ -11,12 +11,14 @@ import { getTechnicalEventById } from "../../api/technicalEvents";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { extractDateTime } from "../../utils/timeStampToDate";
+import TeamRegistrationForm from "../registrationForms/TeamRegistrationForm";
 
 export default function TechEventDetails() {
 
   const { department, id } = useParams();
   const [event, setEvent] = useState(null)
   const [loading, setLoading] = useState(false);
+  const [openDialog, setOpenDialog] = useState(false);
 
   const fetchDepartmentEvent = async (dept, id) => {
     console.log(`Fetching events for department: ${dept} ${id}`);
@@ -34,9 +36,10 @@ export default function TechEventDetails() {
 
 
   useEffect(() => {
-    if (department, id) {
+    if (department && id) {
       fetchDepartmentEvent(department, id);
     }
+    // eslint-disable-next-line
   }, [department, id]);
 
 
@@ -124,10 +127,20 @@ export default function TechEventDetails() {
       <Typography variant="body1" sx={{ marginBottom: 2, fontFamily: "Audiowide", color: "white", fontSize: { sm: 20, md: 22 } }}>
         &nbsp; &nbsp;&nbsp;{event.description}
       </Typography>
+
+      <Typography variant="body1" sx={{ fontSize: { sm: 31, md: 35 },
+        color: "#00B093",
+        textAlign: "center",
+        fontFamily: "Audiowide",
+        marginBottom: 2}}>
+          Registration Fee : {(event.registrationFee===0)?"Free":`${event.registrationFee} /-`}
+        </Typography>
       <Typography varient="h3" sx={{ color: "#C91C75", textAlign: "center", marginBottom: 1, fontFamily: "Audiowide", fontSize: 30 }}>
         Event Details
       </Typography>
+      
       <Box>
+      
         <Typography variant="body1" sx={{ marginBottom: 1, fontFamily: "Audiowide", color: "white", fontSize: { sm: 20, md: 25 } }}>
           Date : {extractDateTime(event.date).date}
         </Typography>
@@ -145,7 +158,8 @@ export default function TechEventDetails() {
         }
       </Typography>
       <Box sx={{ textAlign: "center", marginTop: 2 }}>
-        <Button
+        
+        {event.registration_link && (<Button
           href={event.registration_link}
           target="_blank"
           disabled={!event.registration_link}
@@ -162,7 +176,24 @@ export default function TechEventDetails() {
           }}
         >
           Register
-        </Button>
+        </Button>)}
+
+        {!event.registration_link && (<Button
+          onClick={()=>setOpenDialog(true)}
+          sx={{
+            fontFamily: "Audiowide",
+            color: "white !important",
+            backgroundColor: "#00B093",
+            '&:hover': {
+              backgroundColor: "#008a73", // Hover color
+            },
+            textTransform: "none",
+            fontSize: { sm: 18, md: 20 },
+            cursor: "pointer !important",
+          }}
+        >
+          Register
+        </Button>)}
 
       </Box>
       {
@@ -179,7 +210,8 @@ export default function TechEventDetails() {
           </Box>
         )
       }
-
+      <TeamRegistrationForm open={openDialog} onClose={() => setOpenDialog(false)} eventName={event.title} amount={event.registrationFee} />
+      
     </Box>
   )
 

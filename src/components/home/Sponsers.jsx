@@ -39,7 +39,7 @@ export default function Sponsers() {
 					WHEN WE CELEBRATE ABHIYANTH?
 					<img
 						src="images/image40g.png"
-						alt="abc image"
+						alt="abhiyanthImage"
 						className="image1"
 					/>
 				</h2>
@@ -48,7 +48,7 @@ export default function Sponsers() {
 						Abhiyanth takes place every spring, transforming our university into a vibrant hub of innovation and creativity. From hackathons to cultural showcases, this event fosters connections among tech enthusiasts, performers, and innovators. Abhiyanth 2024 promises an exhilarating experience, offering something for everyone.
 						<img
 							src="images/image2.png"
-							alt="abc image"
+							alt="abhiyanthImage"
 							className="image2"
 						/>
 					</div>

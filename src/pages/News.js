@@ -2,6 +2,7 @@ import { Box, Chip, Typography } from '@mui/material';
 import FeaturedNews from '../components/news/FeaturedNews';
 import NewsBox from '../components/news/NewsBox';
 import NewsCard from '../components/news/NewsCard'
+import ErrorBoundary from './ErrorBoundary';
 const styles={
   ColumnContainer:{
     display:"flex",
@@ -28,7 +29,8 @@ const styles={
 }
 function News(){
   return(
-    <>
+    <ErrorBoundary>
+      <>
     <Box sx={{...styles.ColumnContainer,marginTop:"3%",}} >
       <Box sx={{...styles.RowContainer, flexDirection: { xs: 'column', md: 'row' } }}>
         <FeaturedNews />
@@ -58,6 +60,7 @@ function News(){
       </Box>
     </Box>
     </>
+    </ErrorBoundary>
   )
 }
 export default News;

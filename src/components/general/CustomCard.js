@@ -17,16 +17,18 @@ const CustomCard = ({
   return (
     <Card
       sx={{
-        width: "300px",
+        width: "280px",
         display: "flex",
         flexDirection: "column",
-        height: "auto",
+        height: "95%",
         backgroundColor: "rgba(217, 217, 217, 0)",
         boxShadow: "0px 5px 15px rgba(173, 216, 230, 0.5)",
         border: "1px solid  #FF6AB7",
         color: "white",
         fontFamily: "Audiowide",
         ...cardStyles,
+        marginBottom:"30px",
+        paddingBottom:"20px"
       }}
     >
       <CardContent>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -12,11 +12,10 @@ import MenuIcon from '@mui/icons-material/Menu';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { Typography } from '@mui/material';
 import { LoginPrompt } from '../login/LoginPrompt';
-import { logoutUser } from '../login/logout'; // Make sure to implement logoutUser to handle logout functionality
 import { auth } from '../../api/firebaseConfig';
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import { Avatar } from "@mui/material";
+
 import { LogoutPrompt } from '../login/LogoutPrompt';
 
 
@@ -141,10 +140,7 @@ function BasicMenu() {
         <MenuItem sx={styles.smallMenutext} onClick={() => { handleClose(); navigate("/sponsers") }}>Sponsors</MenuItem>
         <MenuItem sx={styles.smallMenutext} onClick={() => { handleClose(); navigate("/about") }}>About Us</MenuItem>
         <MenuItem sx={styles.smallMenutext} onClick={() => { handleClose(); navigate("/ourTeam") }}>Our Team</MenuItem>
-        {/* <MenuItem sx={styles.smallMenutext} onClick={() => { handleClose(); navigate("/ourTeam") }}>{isLogin ? "LogOut" :"LogIn"}</MenuItem> */}
-        {/* <MenuItem sx={styles.smallMenutext} onClick={isLogin ? handleLogout : () => { handleClose();  navigate("/auth/login") }}>
-          {isLogin ? "LogOut" : "LogIn"}
-        </MenuItem> */}
+        
 
         {user ? (<MenuItem sx={styles.smallMenutext} onClick={handleLogout}>Logout</MenuItem>) : (<MenuItem sx={styles.smallMenutext} onClick={handleBasicMenuLoginClick}>Login</MenuItem>)}
 
@@ -208,6 +204,7 @@ function Header() {
   useEffect(() => {
     const currentPath = location.pathname;
     setIsSelected(pathToNavMap[currentPath] || 1);
+    // eslint-disable-next-line
   }, [location.pathname]);
 
   return (

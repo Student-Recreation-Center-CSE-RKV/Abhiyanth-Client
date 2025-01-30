@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, Box, CardMedia } from "@mui/material";
+import { Typography, Box } from "@mui/material";
 import Grid2 from "@mui/material/Grid2";
 import bakery from "../assets/images/stalls/bakery.jpg";
 import pavbaji from "../assets/images/stalls/pavbaji.jpg";
@@ -8,15 +8,14 @@ import icecream from "../assets/images/stalls/ice_cream.avif";
 import shawarma from "../assets/images/stalls/shawarma.jpg";
 import tiffin from "../assets/images/stalls/tiffin.avif";
 import StallCard from "../components/stalls/stallCard";
-
 import foodCourtMap from "../assets/images/stalls/foodcourtmap.png"
-
 import { fetchStalls } from "../redux/slices/stallsSlice";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import PageTop from "../components/general/PageTop";
 import TechnicalShimmer from "../components/technicalEvents/technicalShimmer";
 import { Grid } from "swiper/modules";
+import ErrorBoundary from "./ErrorBoundary";
 
 export default function AllStalls() {
 	const dispatch = useDispatch();
@@ -31,10 +30,19 @@ export default function AllStalls() {
 
 	useEffect(() => {
 		fetchAllStalls();
+		// eslint-disable-next-line
 	}, []);
 
+	if(error)
+	{
+		return <div>
+			Error
+		</div>
+	}
+
 	if (loading) {
-		<Grid
+		<ErrorBoundary>
+			<Grid
 			container
 			spacing={3}
 			sx={{ marginTop: "20px", marginBottom: "40px", padding: "5px" }}
@@ -44,11 +52,13 @@ export default function AllStalls() {
 					<TechnicalShimmer />
 				</Grid>
 			))}
-		</Grid>;
+		</Grid>
+		</ErrorBoundary>
 	}
 
 	return (
-		<div
+		<ErrorBoundary>
+			<div
 			style={{
 				minHeight: "100vh",
 				width: "98vw",
@@ -119,7 +129,6 @@ export default function AllStalls() {
 						color:"#23f7d4",
 						fontWeight: "bold",
 						textShadow: "2px 2px 10px rgba(255, 255, 255, 0.3)",
-						marginBottom: { xs: "20px", md: "0" },
 						fontFamily: "Orbitron",
 						marginBottom:"1rem",
 						fontSize:{xs:"2rem",md:"2.5rem",lg:"3rem"}
@@ -142,5 +151,6 @@ export default function AllStalls() {
 			</Box>
 
 		</div>
+		</ErrorBoundary>
 	);
 }

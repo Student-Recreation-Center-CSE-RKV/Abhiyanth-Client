@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Typography, Grid2 } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 import cse from "../../assets/images/departments/cse.jpg";
 import ece from "../../assets/images/departments/ece.jpeg";
 import eee from "../../assets/images/departments/eee.jpg";

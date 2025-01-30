@@ -34,6 +34,7 @@ const TechnicalShimmer = () => {
         borderRadius: "20px",
         position: "relative",
         overflow: "hidden",
+        // eslint-disable-next-line
         ["@media (max-width: 376px)"]: {
           maxWidth: "95%",
           paddingInline: "0.5rem",

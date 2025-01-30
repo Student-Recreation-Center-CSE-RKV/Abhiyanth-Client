@@ -16,9 +16,13 @@ import i4 from "../assets/images/techEvents/IMG-20250101-WA0025 (1).jpg";
 import i5 from "../assets/images/techEvents/webinar.jpeg";
 import i6 from "../assets/images/hackathon.jpeg";
 import { Button, Grid2 as Grid } from "@mui/material";
-import RollingGallery from "../components/general/RollingGallery";
 
 const departments = [
+	{
+		name: "Main Events",
+		image: cse,
+		description: "Top Events Conducted by RGUKT",
+	},
 	{
 		name: "CSE",
 		image: cse,
@@ -76,7 +80,7 @@ export default function TechnicalEvents() {
 				container
 				spacing={2}
 				alignItems="center"
-				justifyContent="space-between"
+				justifyContent={{sx:"center",sm:"center",md:"space-between"}}
 				wrap="wrap"
 				sx={{ padding: "15px" }}
 			>
@@ -107,7 +111,7 @@ export default function TechnicalEvents() {
 			</Grid>
 
 			<div className="tech-main">
-				<div className="tech-cards-container">
+				<div className="tech-cards-container" >
 					{departments.map((dept, index) => (
 						<div key={index} className="tech-card">
 							<img
@@ -120,7 +124,15 @@ export default function TechnicalEvents() {
 							<button
 								className="tech-view-events-button"
 								onClick={() => {
-									navigate(`/technicalEvents/${dept.name}`);
+									if(dept.name==="Main Events")
+									{
+										navigate("/mainTechnicalEvents");
+									}
+									else
+									{
+										navigate(`/technicalEvents/${dept.name}`);
+									}
+									
 								}}
 							>
 								See All Events
