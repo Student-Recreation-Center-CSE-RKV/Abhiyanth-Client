@@ -1,20 +1,5 @@
 [
     {
-        "username": "Ramesh",
-        "github_url": "https://github.com/rameshbanala/fixitfrontend",
-        "live_url": "https://fixitfrontend.vercel.app/",
-        "title": "Fixit",
-        "description": "FixIt: A platform connecting homeowners with skilled workers to browse profiles, check ratings, and book services for all your home repair needs.",
-        "tech": [
-            "React Js",
-            "Node js",
-            "express",
-            "Bootstrap",
-            "MySql"
-        ],
-        "maker_image": "https://media.licdn.com/dms/image/v2/D5603AQFGaM25hHeZew/profile-displayphoto-shrink_800_800/B56ZSYTL48HQAc-/0/1737721963075?e=1743638400&v=beta&t=wbZvVuE4z93Nwz9HBJuT2Dth5lj_HIc2J0QS4ZgIMAA"
-    },
-    {
         "username": "JILAKARA REVANTH KUMAR",
         "github_url": "https://github.com/revanthkumarJ/kisan_connect_client",
         "live_url": "https://www.linkedin.com/posts/jilakararevanthkumar_react-materialui-express-activity-7272200105061953536-w_wy?utm_source=share&utm_medium=member_desktop",
@@ -28,6 +13,21 @@
             "TypeScript"
         ],
         "maker_image": "https://avatars.githubusercontent.com/u/146642552?s=400&u=d94b12cfbbcb29b782a4e780eb4419b7932beb5f&v=4"
+    },
+    {
+        "username": "Ramesh",
+        "github_url": "https://github.com/rameshbanala/fixitfrontend",
+        "live_url": "https://fixitfrontend.vercel.app/",
+        "title": "Fixit",
+        "description": "FixIt: A platform connecting homeowners with skilled workers to browse profiles, check ratings, and book services for all your home repair needs.",
+        "tech": [
+            "React Js",
+            "Node js",
+            "express",
+            "Bootstrap",
+            "MySql"
+        ],
+        "maker_image": "https://media.licdn.com/dms/image/v2/D5603AQFGaM25hHeZew/profile-displayphoto-shrink_800_800/B56ZSYTL48HQAc-/0/1737721963075?e=1743638400&v=beta&t=wbZvVuE4z93Nwz9HBJuT2Dth5lj_HIc2J0QS4ZgIMAA"
     },
     {
         "username": "Charan Kumar Naidu",
@@ -60,51 +60,7 @@
         ],
         "maker_image": "https://media.licdn.com/dms/image/v2/D4E03AQEpxzb7UQGB8g/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1697374295971?e=1743033600&v=beta&t=x17E3dEaz_OaSeDFrzn1F1W9PpbG8tQR9BwAIIOiNFY"
     },
-    {
-        "username": "SIMHALA DHANUNJAYA",
-        "github_url": "",
-        "live_url": "https://www.linkedin.com/posts/simhala-dhanunjaya-b16739305_aromatic-polypropylene-polyolefin-activity-7287675904334479360--dwJ?utm_source=share&utm_medium=member_android",
-        "title": "FiberReinforced CRAM",
-        "description": "FiberReinforced ColdRecycled Asphalt Mixtures enhance strength, durability, and sustainability using 100% RAP, synthetic fibers, and advanced testing.",
-        "tech": [
-            "Advanced cold recycling methods","synthetic fibers",
-            "polypropylene",
-            "ITSM and ITS tests",
-            "UCC tests",
-            "ITF tests",
-            "SEM analysis"    
-        ],
-        "maker_image": "https://media.licdn.com/dms/image/v2/D5603AQEu4uQMLBJ1tA/profile-displayphoto-shrink_400_400/B56ZQQ1P8uG8Ak-/0/1735449187850?e=1743033600&v=beta&t=2jwtzMmYrRZvbQ-y5UsVi60ZmZks0HVn9OyqcDtfovU"
-    },
-    {
-        "username": "SANTHAPETA POOJITHA",
-        "github_url": "",
-        "live_url": "https://www.linkedin.com/posts/simhala-dhanunjaya-b16739305_aromatic-polypropylene-polyolefin-activity-7287675904334479360--dwJ?utm_source=share&utm_medium=member_android",
-        "title": "FiberReinforced CRAM",
-        "description": "FiberReinforced ColdRecycled Asphalt Mixtures enhance strength, durability, and sustainability using 100% RAP, synthetic fibers, and advanced testing.",
-        "tech": [
-            "Advanced cold recycling methods","synthetic fibers",
-            "polypropylene",
-            "ITSM and ITS tests",
-            "UCC tests",
-            "ITF tests",
-            "SEM analysis"
-        ],
-        "maker_image": "https://media.licdn.com/dms/image/v2/D5603AQGVhbLlBCFvLQ/profile-displayphoto-shrink_400_400/B56ZRZr55FHoAg-/0/1736671482891?e=1743033600&v=beta&t=QfakSQXhB74xA-fmcYdOW0I8Et8qAbRmcq3dd6G1Bno"
-    },
-    {
-        "username": "Yeddula Hemanth",
-        "github_url": "",
-        "live_url": "",
-        "title": "Geopolymer Concrete",
-        "description": "Geopolymer concrete: eco-friendly, durable alternative to cement using industrial by-products, reducing carbon emissions and promoting sustainability.",
-        "tech": [
-            "Alkali Activation Technology","Concrete Testing Equipment",
-            "flexural strength",
-            "Thermal Analysis Instruments","Life Cycle Assessment (LCA) Software","Rheology Testing Tools","Curing Technology"
-        ],
-        "maker_image": "https://media.licdn.com/dms/image/v2/D4E03AQEF22-vuru8ZQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1718242955088?e=1743033600&v=beta&t=x1ckljgRFIde24kLDVArmwUIfIHz0Au3kkxE82BcUHw"
-    },
+    
     {
         "username": "Tharun",
         "github_url": "https://github.com/Tharunk043/Medical-Shop-Automation",
@@ -136,6 +92,47 @@
         "maker_image": "https://media.licdn.com/dms/image/v2/D4E03AQH_uNwUeED39g/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1689048861941?e=1743638400&v=beta&t=5CexnRfmalrha0orn6bx1T5fCNV5k4VmuNT18UakpF8"
     },
     {
+        "username": "Akula Vishnu Vardhan Reddy",
+        "github_url": "https://github.com/AkulaVishnuVardhanReddy/VSR_Frontend",
+        "live_url": "https://vsr-booking.onrender.com",
+        "title": "VSR Booking",
+        "description": "VSR Booking System project is a MERN stack application that allows users to book buses, trains, airplanes, and hotels",
+        "tech": [
+            "ReactJs",
+            "NodeJs",
+            "Bootstrap",
+            "MongoDB",
+            "Express"
+        ],
+        "maker_image": "https://media.licdn.com/dms/image/v2/D4D03AQEUbVC_K3IcvQ/profile-displayphoto-shrink_800_800/B4DZQ8SKPwHUAg-/0/1736178182190?e=1743638400&v=beta&t=IeDOtmsOXCXHpn4Bg-gGeZsdKTt-ncSZGFMZgasCqWI"
+    },
+    {
+        "username": "Rameswara Reddy",
+        "github_url": "",
+        "live_url": "",
+        "title": "OCR-digitRecognition",
+        "description": "Project is to create a model which can able to recognise the handwritten digits and process them to text",
+        "tech": [
+            "Tensor flow",
+            "python",
+            "deep learning",
+            "convolutional neural networks"
+        ],
+        "maker_image": "https://media.licdn.com/dms/image/v2/D5603AQG51Bnia5jT0g/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1722865804920?e=2147483647&v=beta&t=5ELd1xFUpuIPCzn8zhNAewKkoQSA9Xen9Zj0NPxqV7g"
+    },
+    {
+        "username": "K.Chakradhar",
+        "github_url": "https://github.com/chakri8826/PostForm",
+        "live_url": "https://www.linkedin.com/posts/chakradharkommu_reactjs-appwrite-redux-activity-7284800362073464832-Lw_r?utm_source=share&utm_medium=member_desktop",
+        "title": "POST-HUB",
+        "description": "PostHub is a React app using Appwrite for auth, storage, and backend, enabling users to sign up, log in, upload, edit, and delete files.",
+        "tech": [
+            "REACT JS",
+            "TAILWIND CSS"
+        ],
+        "maker_image": "https://media.licdn.com/dms/image/v2/D5635AQEzDVHgKzyqMg/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1721666123411?e=1738771200&v=beta&t=EqvjiG6QF7w89BBAfE5nNNkX7_Eiblh2qwfpSu4ASdY"
+    },
+    {
         "username": "JILAKARA REVANTH KUMAR",
         "github_url": "",
         "live_url": "https://revanthkumarj.github.io/my-portfolio/",
@@ -147,6 +144,49 @@
             "GitHub"
         ],
         "maker_image": "https://avatars.githubusercontent.com/u/146642552?s=400&u=d94b12cfbbcb29b782a4e780eb4419b7932beb5f&v=4"
+    },
+    {
+        "username": "Rameswara Reddy",
+        "github_url": "",
+        "live_url": "",
+        "title": "cancer prediction",
+        "description": "Breast cancer a serious disease, created a model which can predict whether the person is diseased with breast cancer or not based on some data",
+        "tech": [
+            "Tensor flow",
+            "keras",
+            "artificial neural networks",
+            "deep learning"
+        ],
+        "maker_image": "https://media.licdn.com/dms/image/v2/D5603AQG51Bnia5jT0g/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1722865804920?e=2147483647&v=beta&t=5ELd1xFUpuIPCzn8zhNAewKkoQSA9Xen9Zj0NPxqV7g"
+    },
+    {
+        "username": "Abdul Sammed",
+        "github_url": "https://github.com/Abdul9010150809/Projects/blob/main/Code/Quiz.html",
+        "live_url": "",
+        "title": "Quiz",
+        "description": "This type of web page is used in the competative exams.",
+        "tech": [
+            "CSS",
+            "HTML"
+        ],
+        "maker_image": "https://avatars.githubusercontent.com/u/187489269?v=4"
+    },
+    
+    {
+        "username": "SIMHALA DHANUNJAYA",
+        "github_url": "",
+        "live_url": "https://www.linkedin.com/posts/simhala-dhanunjaya-b16739305_aromatic-polypropylene-polyolefin-activity-7287675904334479360--dwJ?utm_source=share&utm_medium=member_android",
+        "title": "FiberReinforced CRAM",
+        "description": "FiberReinforced ColdRecycled Asphalt Mixtures enhance strength, durability, and sustainability using 100% RAP, synthetic fibers, and advanced testing.",
+        "tech": [
+            "Advanced cold recycling methods","synthetic fibers",
+            "polypropylene",
+            "ITSM and ITS tests",
+            "UCC tests",
+            "ITF tests",
+            "SEM analysis"    
+        ],
+        "maker_image": "https://media.licdn.com/dms/image/v2/D5603AQEu4uQMLBJ1tA/profile-displayphoto-shrink_400_400/B56ZQQ1P8uG8Ak-/0/1735449187850?e=1743033600&v=beta&t=2jwtzMmYrRZvbQ-y5UsVi60ZmZks0HVn9OyqcDtfovU"
     },
     {
         "username": "Abdul Sammed",
@@ -162,16 +202,33 @@
         "maker_image": "https://avatars.githubusercontent.com/u/187489269?v=4"
     },
     {
-        "username": "Abdul Sammed",
-        "github_url": "https://github.com/Abdul9010150809/Projects/blob/main/Code/Quiz.html",
-        "live_url": "",
-        "title": "Quiz",
-        "description": "This type of web page is used in the competative exams.",
+        "username": "SANTHAPETA POOJITHA",
+        "github_url": "",
+        "live_url": "https://www.linkedin.com/posts/simhala-dhanunjaya-b16739305_aromatic-polypropylene-polyolefin-activity-7287675904334479360--dwJ?utm_source=share&utm_medium=member_android",
+        "title": "FiberReinforced CRAM",
+        "description": "FiberReinforced ColdRecycled Asphalt Mixtures enhance strength, durability, and sustainability using 100% RAP, synthetic fibers, and advanced testing.",
         "tech": [
-            "CSS",
-            "HTML"
+            "Advanced cold recycling methods","synthetic fibers",
+            "polypropylene",
+            "ITSM and ITS tests",
+            "UCC tests",
+            "ITF tests",
+            "SEM analysis"
         ],
-        "maker_image": "https://avatars.githubusercontent.com/u/187489269?v=4"
+        "maker_image": "https://media.licdn.com/dms/image/v2/D5603AQGVhbLlBCFvLQ/profile-displayphoto-shrink_400_400/B56ZRZr55FHoAg-/0/1736671482891?e=1743033600&v=beta&t=QfakSQXhB74xA-fmcYdOW0I8Et8qAbRmcq3dd6G1Bno"
+    },
+    {
+        "username": "Yeddula Hemanth",
+        "github_url": "",
+        "live_url": "",
+        "title": "Geopolymer Concrete",
+        "description": "Geopolymer concrete: eco-friendly, durable alternative to cement using industrial by-products, reducing carbon emissions and promoting sustainability.",
+        "tech": [
+            "Alkali Activation Technology","Concrete Testing Equipment",
+            "flexural strength",
+            "Thermal Analysis Instruments","Life Cycle Assessment (LCA) Software","Rheology Testing Tools","Curing Technology"
+        ],
+        "maker_image": "https://media.licdn.com/dms/image/v2/D4E03AQEF22-vuru8ZQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1718242955088?e=1743033600&v=beta&t=x1ckljgRFIde24kLDVArmwUIfIHz0Au3kkxE82BcUHw"
     },
     {
         "username": "Shaik Subahanullah",

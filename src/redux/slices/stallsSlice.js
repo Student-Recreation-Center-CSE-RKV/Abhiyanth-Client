@@ -1,6 +1,7 @@
 // redux/slices/eventsSlice.js
 import { createSlice } from '@reduxjs/toolkit';
 import { getAllStalls } from '../../api/stalls';
+import { shuffleArray } from '../../api/getAllGalleryImages';
 
 const initialState = {
   stalls:[],
@@ -44,7 +45,7 @@ export const fetchStalls = () => async (dispatch, getState) => {
   try {
     const res = await getAllStalls();
     console.log(res);
-    dispatch(setStalls(res));  // Update Redux state
+    dispatch(setStalls(shuffleArray(res)));  // Update Redux state
     dispatch(setLoading(false));
   } catch (error) {
     dispatch(setError(error.message));
