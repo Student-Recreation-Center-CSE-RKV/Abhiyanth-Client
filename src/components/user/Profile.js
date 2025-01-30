@@ -27,7 +27,7 @@ export default function Profile() {
                     <p><strong>ID:</strong> {userProfile.id}</p>
                     <p><strong>Mobile Number:</strong> {userProfile.mobile_number}</p>
                     <div className="button-container">
-                        <button href="/EditProfile" className="view-events-button">Edit Profile</button>
+                        <button href="editProfile" className="view-events-button">Edit Profile</button>
                     </div>
                 </div>
             </div>
