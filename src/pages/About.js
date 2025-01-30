@@ -10,11 +10,13 @@ import ExtravaganzaAbout from '../components/about/ExtravaganzaAbout.js'
 import ParticipatingClubs from "../components/about/Clubs.js";
 import WelcomeMessages from "../components/about/welcomeMsg.js";
 import { Contact } from "./ContactUs.js";
+import ErrorBoundary from "./ErrorBoundary.js";
 
 
 export default function About() {
 	return (
-		<div className="gif-background">
+		<ErrorBoundary>
+			<div className="gif-background">
 			<div style={{width:"100vw"}}>
 				<AimVision />
 			</div>
@@ -33,5 +35,6 @@ export default function About() {
 			<GradientBorderComponent/>
 			<ParticipatingClubs/>
 		</div>
+		</ErrorBoundary>
 	);
 }

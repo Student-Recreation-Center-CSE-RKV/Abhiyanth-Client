@@ -19,7 +19,7 @@ export default function CustomCard({ item }) {
 	return (
 		<Card
 			sx={{
-				maxWidth: 345,
+				maxWidth:290,
 				margin: "auto",
 				backgroundColor: "black",
 				color: "white",
@@ -98,8 +98,8 @@ export default function CustomCard({ item }) {
 					gutterBottom
 					sx={{
 						fontFamily: "Audiowide",
-						fontSize: "28px",
-						lineHeight: "35.7px",
+						fontSize: "26px",
+						lineHeight: "34.7px",
 						color: " #00B093",
 						width: "100%",
 						whiteSpace: "nowrap",  // Prevent wrapping
@@ -114,8 +114,8 @@ export default function CustomCard({ item }) {
 					color="text.secondary"
 					sx={{
 						fontFamily: "Audiowide",
-						fontSize: "17px",
-						lineHeight: "30.6px",
+						fontSize: "16px",
+						lineHeight: "29.6px",
 						color: "white",
 						width: "100%",
     					whiteSpace: "normal",
@@ -138,8 +138,8 @@ export default function CustomCard({ item }) {
 							gutterBottom
 							sx={{
 								fontFamily: "Audiowide",
-								fontSize: "25px",
-								lineHeight: "30.7px",
+								fontSize: "23px",
+								lineHeight: "29.7px",
 								color: " #C91C75",
 								marginTop: "1rem",
 
@@ -153,7 +153,7 @@ export default function CustomCard({ item }) {
 							gutterBottom
 							sx={{
 								fontFamily: "Audiowide",
-								fontSize: "20px",
+								fontSize: "18px",
 								color: " #C91C75",
 							}}
 						>
@@ -164,7 +164,7 @@ export default function CustomCard({ item }) {
 							color="text.secondary"
 							sx={{
 								fontFamily: "Audiowide",
-								fontSize: "17px",
+								fontSize: "16px",
 								lineHeight: "30.6px",
 								color: "white",
 								width: "90%",
@@ -182,8 +182,8 @@ export default function CustomCard({ item }) {
 					sx={{
 						marginTop: 2,
 						fontFamily: "Audiowide",
-						fontSize: "18px",
-						lineHeight: "20.6px",
+						fontSize: "17px",
+						lineHeight: "19.6px",
 						color: " #00B093",
 
 					}}

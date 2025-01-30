@@ -2,11 +2,13 @@ import React from "react";
 import Sponsers from "../components/home/Sponsers";
 import HomeStartingComponent from "../components/home/HomeStartingComponent";
 import HomeCards from "../components/home/homeCards";
+import ErrorBoundary from "./ErrorBoundary";
 
 
 export default function Home() {
   return (
-    <div>
+    <ErrorBoundary>
+      <div>
       <div
         style={{
           position: "relative",
@@ -21,5 +23,6 @@ export default function Home() {
         </div>
       </div>
     </div>
+    </ErrorBoundary>
   );
 }

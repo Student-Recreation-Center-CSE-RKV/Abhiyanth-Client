@@ -2,11 +2,13 @@ import * as React from "react";
 import Stack from "@mui/material/Stack";
 import SignInCard from "../components/login/SignInCard";
 import Content from "../components/login/Content";
+import ErrorBoundary from "./ErrorBoundary";
 
 
 export default function SignIn({handleUserLogin , loading}) {
   return (
-    <Stack
+    <ErrorBoundary>
+      <Stack
       direction="column"
       component="main"
       sx={[
@@ -51,5 +53,6 @@ export default function SignIn({handleUserLogin , loading}) {
         </Stack>
       </Stack>
     </Stack>
+    </ErrorBoundary>
   );
 }
