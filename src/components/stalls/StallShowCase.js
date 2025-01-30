@@ -153,6 +153,9 @@ function StallShowcase() {
 											color: "yellow",
 											fontSize: "20px",
 											fontWeight: "bold",
+											whiteSpace: isSmallScreen ? "normal" : "nowrap",
+											overflow: isSmallScreen ? "visible" : "hidden",
+											textOverflow: isSmallScreen ? "clip" : "ellipsis",
 										}}
 									>
 										{stall.name}
@@ -201,7 +204,7 @@ function StallShowcase() {
 														label={item}
 														variant="outlined"
 														color="secondary"
-														sx={styles.subHeading}
+														sx={{...styles.subHeading,fontSize:isSmallScreen?"14px":"18px"}}
 													/>
 												))}
 									</Box>

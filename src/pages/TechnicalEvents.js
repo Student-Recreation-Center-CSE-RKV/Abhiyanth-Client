@@ -110,6 +110,7 @@ export default function TechnicalEvents() {
 				</Grid>
 			</Grid>
 
+
 			<div className="tech-main">
 				<div className="tech-cards-container" >
 					{departments.map((dept, index) => (
