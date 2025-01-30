@@ -37,12 +37,8 @@ const StallsDisplay = () => {
   useEffect(() => {
     fetchStalls();
 
-    const debounceTimer = setTimeout(() => {
-      handleSearch();
-    }, 3000); 
-    return () => clearTimeout(debounceTimer);
 
-  }, [searchText])
+  }, [])
 
 
 
