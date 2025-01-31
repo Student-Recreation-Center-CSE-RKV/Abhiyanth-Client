@@ -7,12 +7,9 @@ import { AppProvider } from '@toolpad/core/AppProvider';
 import { DashboardLayout, ThemeSwitcher } from '@toolpad/core/DashboardLayout';
 import { useDemoRouter } from '@toolpad/core/internal';
 import CelebrationIcon from '@mui/icons-material/Celebration';
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-import Tooltip from '@mui/material/Tooltip';
-import IconButton from '@mui/material/IconButton';
 import { useNavigate } from 'react-router-dom';
 import AcUnitIcon from '@mui/icons-material/AcUnit';
-
+import { useEffect } from 'react';
 import ImageUploader from '../../components/admin/sponsers/sponsersAdmin';
 import ManageEventsByAdmin from '../admin/ManageEventsByAdmin';
 import DepartmentCarouselImageUploader from '../admin/technical/DepartmentImageUpload';
@@ -20,7 +17,11 @@ import AddTechnicalEvent from '../admin/technical/addNewTechnicalEvent';
 import AddVolunteer from '../admin/volunteer/addVolunteer';
 import AllVolunteers from '../admin/volunteer/allVolunteers';
 import AllTechnicalEvents from '../admin/technical/allTechnicalEvents';
-
+import { AddNewStall } from "../admin/stalls/addNewStall.js"
+import StallsDisplay from '../admin/stalls/getAllStalls.js';
+import { auth } from '../../api/firebaseConfig.js';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const NAVIGATION = [
@@ -39,7 +40,8 @@ const NAVIGATION = [
         title: 'Add Event',
       }
     ],
-  }, {
+  },
+  {
     segment: 'TechnicalEvents',
     title: 'Technical Events',
     icon: <CelebrationIcon color='secondary' />,
@@ -109,6 +111,21 @@ const NAVIGATION = [
       {
         segment: 'departmentCarousel',
         title: 'Department Carousel',
+      }
+    ],
+  },
+  {
+    segment: 'stalls',
+    title: 'Stalls',
+    icon: <CelebrationIcon color='secondary' />,
+    children: [
+      {
+        segment: 'addStall',
+        title: 'Add stall',
+      },
+      {
+        segment: 'allStalls',
+        title: 'All stalls',
       }
     ],
   },
@@ -184,6 +201,12 @@ function DemoPageContent({ pathname }) {
     case "/TechnicalEvents/mechTech":
       content = <AllTechnicalEvents key="mechanical" department="Mechanical" />
       break;
+    case "/stalls/addStall":
+      content = <AddNewStall />
+      break;
+    case "/stalls/allStalls":
+      content = <StallsDisplay />
+      break;
     default:
       content = <div>{pathname}</div>;
   }
@@ -192,13 +215,13 @@ function DemoPageContent({ pathname }) {
     <Box
       sx={{
         py: 4,
-        px: 2, // Optional padding on the sides
+        px: 2,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         textAlign: 'center',
-        backgroundColor: 'background.default', // Use the theme's background color
-        color: 'text.primary', // Use the theme's text color
+        backgroundColor: 'background.default',
+        color: 'text.primary',
       }}
     >
       {content}
@@ -213,33 +236,69 @@ DemoPageContent.propTypes = {
 };
 
 function NavBarLayout(props) {
+  const navigate = useNavigate();
+  const [user, setUser] = React.useState(null);
 
-  const [session, setSession] = React.useState({
-    user: {
-      name: 'Revanth Kumar',
-      email: 'jrevanth101@gmail.com',
-      image: 'https://avatars.githubusercontent.com/u/146642552?s=400&u=d94b12cfbbcb29b782a4e780eb4419b7932beb5f&v=4',
-    },
-  });
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUser(user);
+        setSession({
+          user: {
+            name: user.displayName || "Guest",
+            email: user.email || "No email",
+            image: user.photoURL || "https://avatars.githubusercontent.com/u/19550456",
+          },
+        });
+        toast.success("Successfully logged in");
+      } else {
+        setUser(null);
+        setSession(null);
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+
+
+  const [session, setSession] = React.useState();
 
   const authentication = React.useMemo(() => {
     return {
       signIn: () => {
-        setSession({
-          user: {
-            name: 'Bharat Kashyap',
-            email: 'bharatkashyap@outlook.com',
-            image: 'https://avatars.githubusercontent.com/u/19550456',
-          },
-        });
+        if (!user) {
+          toast.info("Please log in first.");
+          navigate('/auth/login')
+          return;
+        }
       },
-      signOut: () => {
-        setSession(null);
+      signOut: async () => {
+        try {
+          await auth.signOut();
+          setSession(null);
+          toast.success("Successfully logged out", { toastId: "logout-toast" });
+          navigate('/');
+        } catch (error) {
+          toast.error("Error during logout");
+        }
       },
     };
-  }, []);
+  }, [user, navigate]);
+
+
+
 
   const router = useDemoRouter('/dashboard');
+
+  const ProtectedRoute = ({ children }) => {
+    if (!session) {
+      toast.warn("Please log in first!", { toastId: "login-toast" });
+      return null;
+    }
+    return children;
+  };
   return (
     <ThemeProvider theme={demoTheme}>
       <AppProvider
@@ -254,10 +313,24 @@ function NavBarLayout(props) {
         }}
       >
         <DashboardLayout
-          
+
         >
-          <DemoPageContent pathname={router.pathname} />
+          <ProtectedRoute>
+            <DemoPageContent pathname={router.pathname} />
+          </ProtectedRoute>
         </DashboardLayout>
+        <ToastContainer
+          position="bottom-left"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
       </AppProvider>
     </ThemeProvider>
   );

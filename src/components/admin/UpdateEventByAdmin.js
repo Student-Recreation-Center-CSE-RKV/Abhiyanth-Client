@@ -76,7 +76,7 @@ const UpdateEventByAdmin = ({
     setNumResults(editEvent.results.length); // Ensure to sync results
   }, [editEvent]);
 
-  const [numOrganizers, setNumOrganizers] = useState(2);
+  const [numOrganizers, setNumOrganizers] = useState(editEvent.organizers.length);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
