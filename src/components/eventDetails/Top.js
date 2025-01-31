@@ -86,17 +86,31 @@ function Top({item}){
   };
  
   return (
-    <Box sx={styles.TopLayout} >
-      <Box sx={styles.titleLayout}>
-        <Typography variant="h2"  sx={styles.title}>{item.name}</Typography>
-        <Typography variant="h3" sx={{...styles.eventStatus,color:"#F00"}}> {getStatusText()}</Typography>
-      </Box>
-      <Box >
-        <Box sx={styles.titleImage}>
-          <img src={item.images.mainImage} alt="Event" style={{width:"100%", height:"500px", borderRadius: "16.718px",objectFit: "cover"}}/>
-        </Box>
-      </Box>
+    <Box sx={styles.TopLayout}>
+  <Box sx={styles.titleLayout}>
+    <Typography variant="h2" sx={styles.title}>{item.name}</Typography>
+    <Typography variant="h3" sx={{ ...styles.eventStatus, color: "#F00" }}>
+      {getStatusText()}
+    </Typography>
+  </Box>
+  
+  <Box>
+    <Box sx={{ 
+      width: { xs: "100%", sm: "50%" }, // 100% on small screens, 50% on larger screens
+      borderRadius: "16.718px",
+      objectFit: "cover",
+      display: "block",
+      margin: "0 auto" // Centers the image horizontally
+    }}>
+      <img 
+        src={item.images.mainImage} 
+        alt="Event" 
+        style={{ width: "100%", borderRadius: "16.718px", objectFit: "cover" }} 
+      />
     </Box>
+  </Box>
+</Box>
+
   )
 }
 export default Top;
