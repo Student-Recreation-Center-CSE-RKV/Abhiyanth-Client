@@ -34,7 +34,8 @@
     "react-vertical-timeline-component": "^3.5.3",
     "slick-carousel": "^1.8.1",
     "swiper": "^11.2.0",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "xlsx": "^0.18.5"
   },
   "scripts": {
     "start": "react-scripts start",
