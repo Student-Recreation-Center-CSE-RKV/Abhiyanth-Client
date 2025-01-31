@@ -34,6 +34,7 @@ import Schedule from './pages/Schedule.js';
 import PaymentSuccess from './components/payment/PaymentSuccess.js';
 import PaymentFailure from './components/payment/PaymentFailure.js';
 import PageNotFound from './pages/ErrorPage.js';
+import ScheduleUpload from './components/schedule/ScheduleUpload.js';
 
 
 const provider = new GoogleAuthProvider();
@@ -70,7 +71,8 @@ function App() {
 
           <Route path="/schedule" element={<Schedule/>}/>
           <Route path="/payment/success" element={<PaymentSuccess/>}/>
-          <Route path="/payment/failure" element={<PaymentFailure/>}/>       
+          <Route path="/payment/failure" element={<PaymentFailure/>}/>   
+          <Route path="/scheduleUpload" element={<ScheduleUpload/>}/>    
         </Route>
         <Route path='auth/login' element={<SignInWrapper />} />
         <Route path="*" element={<PageNotFound/>} />

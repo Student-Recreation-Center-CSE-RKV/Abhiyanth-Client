@@ -2,16 +2,21 @@ import Grid from '@mui/material/Grid2';
 const styles={
   Heading:{
     color:"#c91c75",
-    fontSize:{sm:"16px",md:"18px",lg:"28px"},
+    fontSize:{sm:"18px",md:"18px",lg:"28px"},
     fontFamily:"DM Sans",
+    justifyContent:"center",
+    padding:"10px 5px ",
     fontWeight:"bold",
     border:"2px solid #c91c75",
+    textAlign:"center",
   },
   Eventname:{
-    color:"#23f7d4",
+    color:"white",
 			fontWeight: "bold",
       fontSize:{sm:"16px",md:"18px",lg:"28px"},
-      padding:"5px",
+      padding:"10px 5px ",
+      justiifyContent:"center",
+      textAlign:"center",
 			textShadow: "2px 2px 10px rgba(255, 255, 255, 0.3)",
       fontFamily: "Orbitron",
       border:"2px solid #c91c75",
@@ -39,7 +44,7 @@ export default function ScheduleTable(){
     },
   
   ];
-  const deptname = "CSE";
+  const deptname = "Computer Science Engineering";
   return(
     
     <div style={{margin:"6% 2% 1% 1%"}}>
