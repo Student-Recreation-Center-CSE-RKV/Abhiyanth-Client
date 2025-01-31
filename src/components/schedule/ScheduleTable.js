@@ -49,6 +49,7 @@ export default function ScheduleTable(){
     
     <div style={{margin:"6% 2% 1% 1%"}}>
       <h1 style={{...styles.Eventname,textAlign:"center"}}>{deptname} </h1>
+      
       <Grid container
         direction="row"
         sx={{
