@@ -1,0 +1,36 @@
+[debug] [2025-01-31T10:53:08.633Z] ----------------------------------------------------------------------
+[debug] [2025-01-31T10:53:08.649Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\jreva\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2025-01-31T10:53:08.652Z] CLI Version:   13.29.1
+[debug] [2025-01-31T10:53:08.653Z] Platform:      win32
+[debug] [2025-01-31T10:53:08.654Z] Node Version:  v22.2.0
+[debug] [2025-01-31T10:53:08.656Z] Time:          Fri Jan 31 2025 16:23:08 GMT+0530 (India Standard Time)
+[debug] [2025-01-31T10:53:08.656Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-01-31T10:53:09.089Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-01-31T10:53:09.091Z] > authorizing via signed-in user (jrevanth101@gmail.com)
+[debug] [2025-01-31T10:53:09.091Z] [iam] checking project abhiyanth-a8d4c for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-01-31T10:53:09.098Z] Checked if tokens are valid: false, expires at: 1738265744770
+[debug] [2025-01-31T10:53:09.099Z] Checked if tokens are valid: false, expires at: 1738265744770
+[debug] [2025-01-31T10:53:09.101Z] > refreshing access token with scopes: []
+[debug] [2025-01-31T10:53:09.121Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-01-31T10:53:09.122Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-01-31T10:53:10.155Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-01-31T10:53:10.156Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-01-31T10:53:10.202Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/abhiyanth-a8d4c:testIamPermissions [none]
+[debug] [2025-01-31T10:53:10.202Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/abhiyanth-a8d4c:testIamPermissions x-goog-quota-user=projects/abhiyanth-a8d4c
+[debug] [2025-01-31T10:53:10.203Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/abhiyanth-a8d4c:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-01-31T10:53:12.286Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/abhiyanth-a8d4c:testIamPermissions 200
+[debug] [2025-01-31T10:53:12.286Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/abhiyanth-a8d4c:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-01-31T10:53:12.289Z] Checked if tokens are valid: true, expires at: 1738324389157
+[debug] [2025-01-31T10:53:12.289Z] Checked if tokens are valid: true, expires at: 1738324389157
+[debug] [2025-01-31T10:53:12.291Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/abhiyanth-a8d4c [none]
+[debug] [2025-01-31T10:53:13.178Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/abhiyanth-a8d4c 200
+[debug] [2025-01-31T10:53:13.178Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/abhiyanth-a8d4c {"projectId":"abhiyanth-a8d4c","projectNumber":"677897623427","displayName":"Abhiyanth","name":"projects/abhiyanth-a8d4c","resources":{"hostingSite":"abhiyanth-a8d4c"},"state":"ACTIVE","etag":"1_0be55c82-9423-477e-96de-d13af90e2033"}
+[info] 
+[info] === Deploying to 'abhiyanth-a8d4c'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2025-01-31T10:53:13.209Z] Checked if tokens are valid: true, expires at: 1738324389157
+[debug] [2025-01-31T10:53:13.210Z] Checked if tokens are valid: true, expires at: 1738324389157
+[debug] [2025-01-31T10:53:13.210Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/abhiyanth-a8d4c/versions [none]
+[debug] [2025-01-31T10:53:13.210Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/abhiyanth-a8d4c/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}

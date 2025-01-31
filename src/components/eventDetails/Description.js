@@ -76,10 +76,10 @@ function Description({ item }) {
     fontSize: dynamicFontSize
   };
 
-  const { results, organizers, links } = item;
+  const { results, organizers, links,register_link } = item;
 
-  const handleRegisterClick = () => {
-    window.open("https://forms.gle/your-google-form-id", "_blank"); // Replace with your Google Form URL
+  const handleRegisterClick = (link) => {
+    window.open(link, "_blank"); // Replace with your Google Form URL
   };
 
   return (
@@ -213,7 +213,7 @@ function Description({ item }) {
           item.status!=="completed"?(<Button
             variant="contained"
             sx={styles.registerButton}
-            onClick={handleRegisterClick}
+            onClick={()=>{handleRegisterClick(register_link)}}
           >
             Register
           </Button>):<></>
