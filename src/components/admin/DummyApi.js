@@ -9,5 +9,6 @@ export const emptyObject = {
     organizers: [],
     links: [],
     results: [],
+    register_link:"",
     images: {},
 }

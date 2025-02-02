@@ -3,6 +3,7 @@ import { addEvent, getAllTechnicalEvents,getDepartmentCarousels } from '../../ap
 
 const initialState = {
   events: {
+    MainEvents:[],
     CSE: [],
     ECE: [],
     EEE: [],
@@ -12,6 +13,7 @@ const initialState = {
     MME: [],
   },
   carousels:{
+    MainEvents:[],
     CSE: [],
     ECE: [],
     EEE: [],

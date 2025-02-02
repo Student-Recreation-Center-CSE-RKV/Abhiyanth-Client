@@ -10,10 +10,11 @@ import { useEffect, useState } from "react";
 import {
   extractDateTimeFromTimestamp,
   convertDateTimeToFirebaseTimestamp,
-  extractDateTime,
 } from "../../utils/timeStampToDate";
 
 import uploadImage from "../../api/uploadImage";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const currencies = [
   { value: "completed", label: "Completed" },
   { value: "ongoing", label: "Ongoing" },
@@ -60,20 +61,15 @@ const UpdateEventByAdmin = ({
   ];
 
   useEffect(() => {
-    // setUpdate(editEvent);
 
     if (editEvent?.date && editEvent?.time) {
-      console.log(editEvent.time);
-      console.log(editEvent.date);
       const { date, time } = extractDateTimeFromTimestamp(editEvent.date);
-      console.log(time);
-      console.log(date);
       setUpdate((prev) => ({ ...prev, date, time }));
     } else {
       setUpdate(editEvent);
     }
-    setNumLinks(editEvent.links.length); // Make sure to sync links
-    setNumResults(editEvent.results.length); // Ensure to sync results
+    setNumLinks(editEvent.links.length); 
+    setNumResults(editEvent.results.length); 
   }, [editEvent]);
 
   const [numOrganizers, setNumOrganizers] = useState(editEvent.organizers.length);
@@ -81,7 +77,7 @@ const UpdateEventByAdmin = ({
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setUpdate((prev) => ({ ...prev, [name]: value }));
-    // setFormData({ ...formData, id: e.target.value })
+    
   };
 
   const handleNumOrganizersChange = (e) => {
@@ -106,12 +102,7 @@ const UpdateEventByAdmin = ({
     setUpdate((prev) => ({ ...prev, results }));
   };
 
-  const handleImageChange = (field, value) => {
-    setUpdate((prev) => ({
-      ...prev,
-      images: { ...prev.images, [field]: value },
-    }));
-  };
+
 
   const handleImageUpload = async (field, file) => {
     if (!file) return;
@@ -121,30 +112,24 @@ const UpdateEventByAdmin = ({
       setImagePreviewLeft(URL.createObjectURL(file));
     if (field === "descImageRight")
       setImagePreviewRight(URL.createObjectURL(file));
-    setIsUploading(true); // Show uploading state
+    setIsUploading(true); 
     try {
-      const url = await uploadImage(file, "culturalGallery"); // Upload image and get URL
-      console.log(url); // Log the uploaded image URL
+      const url = await uploadImage(file, "culturalGallery");
+      console.log(url); 
       setUpdate((prev) => ({
         ...prev,
         images: { ...prev.images, [field]: url },
       }));
-      console.log("main image is uploaded:", url); // Confirm upload
+      console.log("main image is uploaded:", url);
     } catch (error) {
       console.error("Error uploading image:", error.message);
       alert("Failed to upload image. Please try again.");
     } finally {
-      setIsUploading(false); // Hide uploading state
+      setIsUploading(false); 
     }
   };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   onUpdateEvent(update);
-  //   // handleClose();
-  //   onCloseEditDialog();
 
-  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -154,6 +139,7 @@ const UpdateEventByAdmin = ({
         update.time
       );
       onUpdateEvent({ ...update, date: firebaseTimestamp });
+      toast.success("Event updated successfully")
       onCloseEditDialog();
     } catch (error) {
       console.error("Error converting date/time:", error.message);
@@ -362,6 +348,19 @@ const UpdateEventByAdmin = ({
                 onChange={(e) => handleResultsChange(index, e.target.value)}
               />
             ))}
+
+
+            <TextField
+              margin="dense"
+              id="register_link"
+              name="register_link"
+              label="registration Link"
+              type="text"
+              fullWidth
+              variant="outlined"
+              value={update.register_link}
+              onChange={handleInputChange}
+            />
             {/* Images */}
 
             {imagesData.map((image, idx) => (
@@ -384,7 +383,6 @@ const UpdateEventByAdmin = ({
                 />
                 {(image.preview || update.images?.[image.field]) && (
                   <Avatar
-                    // src={URL.createObjectURL(update.images[image.field])}
                     src={update.images[image.field] || image.preview}
                     variant="rounded"
                     sx={{
@@ -405,6 +403,8 @@ const UpdateEventByAdmin = ({
           </DialogActions>
         </form>
       </Dialog>
+
+      <ToastContainer position="top-right" autoClose={3000} />
     </React.Fragment>
   );
 };

@@ -20,6 +20,10 @@ import {
   CardActions,
 } from "@mui/material";
 import { emptyObject } from "./DummyApi.js";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import CircularProgress from "@mui/material/CircularProgress";
+
 
 const ManageEventsByAdmin = () => {
   const [events, setEvents] = useState([]);
@@ -29,22 +33,31 @@ const ManageEventsByAdmin = () => {
   const [openDialog, setOpenDialog] = useState(false);
   const [editOpenDialog, setEditOpenDialog] = useState(false);
   const [searchText, setSearchText] = useState("");
+  const [dataLoading , setDataLoading] = useState(false)
 
   const fetchEvents = async () => {
-    const data = await getAllEvents();
-    const allEvents = [...data.completed, ...data.ongoing, ...data.upcoming];
-    setEvents(allEvents);
-    setFilteredEvents(allEvents);
-    console.log("Fetched Events:", allEvents); // Log here to confirm updated state
+    try{
+      setDataLoading(true)
+      const data = await getAllEvents();
+      const allEvents = [...data.completed, ...data.ongoing, ...data.upcoming];
+      setEvents(allEvents);
+      setFilteredEvents(allEvents);
+      setDataLoading(false)
+
+    }
+    catch(error){
+      console.log("Error fetching events")
+    }
+   
   };
 
   useEffect(() => {
     fetchEvents();
-  }, []); 
+  }, []);
 
   const handleCloseEditDialog = () => {
     setEditOpenDialog(false);
-    setEditEvent(null); // Clear the edit event data
+    setEditEvent(null); 
   };
 
   const handleAddEvent = async (eventData) => {
@@ -57,6 +70,7 @@ const ManageEventsByAdmin = () => {
 
   const handleDeleteEvent = async (id) => {
     await deleteEvent(id);
+    toast.success("deleted")
     const updatedEvents = events.filter((event) => event.id !== id);
     setEvents(updatedEvents);
     setFilteredEvents(updatedEvents);
@@ -65,12 +79,13 @@ const ManageEventsByAdmin = () => {
 
   const handleUpdateEvent = async (updatedData) => {
     const updatedEvent = await updateEvent(editEvent.id, updatedData);
+    //  toast.success("Event updated successfully")
+    alert("Event updated successfully")
     const updatedEvents = events.map((event) =>
       event.id === editEvent.id ? { ...event, ...updatedEvent } : event
     );
     setEvents(updatedEvents);
     setFilteredEvents(updatedEvents);
-    console.log(events);
     setEditEvent(null);
     fetchEvents();
   };
@@ -87,8 +102,14 @@ const ManageEventsByAdmin = () => {
     setSearchText("");
   };
 
+
+  if(dataLoading){
+    return <CircularProgress  size={24}/>
+  }
+
   return (
     <React.Fragment>
+
       <Box sx={{ padding: "2rem" }}>
         {/* Top Cards */}
         <Grid container spacing={2} mb={4}>
@@ -147,6 +168,12 @@ const ManageEventsByAdmin = () => {
         </Box>
         {/* Event Cards */}
         <Grid container spacing={2}>
+           {
+                  filteredEvents.length === 0 && (<Typography variant="h6" gutterBottom sx={{marginLeft:"20rem"}} >
+                    No Events found
+                  </Typography>)
+                }
+
           {filteredEvents.map((event) => (
             <Grid item xs={12} sm={6} md={4}>
               <Card
@@ -181,7 +208,7 @@ const ManageEventsByAdmin = () => {
                     color="primary"
                     onClick={() => {
                       setEditEvent(event);
-                      setEditOpenDialog(true); // Properly call the function to close the dialog
+                      setEditOpenDialog(true); 
                     }}
                   >
                     Edit
@@ -206,11 +233,22 @@ const ManageEventsByAdmin = () => {
         <UpdateEventByAdmin
           editEvent={editEvent}
           openEditDialog={editOpenDialog}
-          // onCloseEditDialog={() => setEditOpenDialog(false)}
           onCloseEditDialog={handleCloseEditDialog}
           onUpdateEvent={handleUpdateEvent}
         />
       )}
+      <ToastContainer
+        position="bottom-left"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </React.Fragment>
   );
 };

@@ -5,10 +5,14 @@ import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
-import { MenuItem, Typography, Avatar, Box } from "@mui/material";
+import { MenuItem, Typography, Box } from "@mui/material";
 import { useState } from "react";
 import uploadImage from "../../api/uploadImage";
 import { convertDateTimeToFirebaseTimestamp } from "../../utils/timeStampToDate";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { CircularProgress } from "@mui/material";
+
 
 const currencies = [
   { value: "completed", label: "Completed" },
@@ -23,7 +27,6 @@ const AddEventByAdmin = ({
   openDialog,
   onCloseDialog,
 }) => {
-  const [open, setOpen] = React.useState(false);
   const [numOrganizers, setNumOrganizers] = React.useState(2);
   const [formData, setFormData] = useState(newEvent);
   const [numLinks, setNumLinks] = useState(1);
@@ -32,7 +35,8 @@ const AddEventByAdmin = ({
   const [imagePreviewRight, setImagePreviewRight] = useState("");
   const [imagePreviewLast, setImagePreviewLast] = useState("");
   const [imagePreviewLeft, setImagePreviewLeft] = useState("");
-  const [isUploading, setIsUploading] = useState(false);
+  const [uploading, setUploading] = useState(false);
+
 
   const imagesData = [
     {
@@ -62,7 +66,7 @@ const AddEventByAdmin = ({
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    // setFormData({ ...formData, id: e.target.value })
+   
   };
 
   const handleNumOrganizersChange = (e) => {
@@ -87,12 +91,15 @@ const AddEventByAdmin = ({
     setFormData((prev) => ({ ...prev, results }));
   };
 
-  const handleImageChange = (field, value) => {
-    setFormData((prev) => ({
-      ...prev,
-      images: { ...prev.images, [field]: value },
-    }));
-  };
+  const handleCloseDialog = () => {
+    setFormData(newEvent);
+    setImagePreviewMain("");
+    setImagePreviewRight("");
+    setImagePreviewLast("");
+    setImagePreviewLeft("");
+    onCloseDialog();
+  }
+
 
   const handleImageUpload = async (field, file) => {
     if (!file) return;
@@ -102,28 +109,30 @@ const AddEventByAdmin = ({
       setImagePreviewLeft(URL.createObjectURL(file));
     if (field === "descImageRight")
       setImagePreviewRight(URL.createObjectURL(file));
-    setIsUploading(true); // Show uploading state
+    setUploading(true); 
     try {
-      const url = await uploadImage(file, "culturalGallery"); // Upload image and get URL
-      console.log(url); // Log the uploaded image URL
+      const url = await uploadImage(file, "culturalGallery"); 
+      console.log(url); 
       setFormData((prev) => ({
         ...prev,
         images: { ...prev.images, [field]: url },
       }));
-      console.log("main image is uploaded:", url); // Confirm upload
+      console.log("main image is uploaded:", url); 
     } catch (error) {
       console.error("Error uploading image:", error.message);
       alert("Failed to upload image. Please try again.");
     } finally {
-      setIsUploading(false); // Hide uploading state
+      setUploading(false); 
     }
   };
 
   const handleSubmit = (e) => {
+
+
     e.preventDefault();
 
     try {
-      // Convert date and time to Firebase Timestamp
+
       const firebaseTimestamp = convertDateTimeToFirebaseTimestamp(
         formData.date,
         formData.time
@@ -131,35 +140,30 @@ const AddEventByAdmin = ({
 
       console.log(firebaseTimestamp);
 
-      // Update the formData with the Firebase Timestamp
+  
       const updatedFormData = {
         ...formData,
-        date: firebaseTimestamp, // Assuming you combine date and time into one field
+        date: firebaseTimestamp, images: {
+          ...formData.images,
+          lastImage: formData.images?.lastImage || "", 
+        }, 
       };
 
-      onAddEvent(updatedFormData); // Pass the updated event data to the parent component
-      setFormData(newEvent); // Reset the form data
-      onCloseDialog(); // Close the dialog
+      onAddEvent(updatedFormData); 
+      toast.success("Event added Successfully")
+      // alert("Event added successfully")
+      setFormData(newEvent); 
+      setImagePreviewMain("");
+      setImagePreviewRight("");
+      setImagePreviewLast("");
+      setImagePreviewLeft("");
+      onCloseDialog(); 
     } catch (error) {
       console.error("Error converting date and time:", error.message);
     }
   };
 
-  //   const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   onAddEvent(formData); // Pass the new event data to the parent component
-  //   setFormData(newEvent)
-  //   // handleClose();
-  //   onCloseDialog();
 
-  // };
-
-  const handleClickOpen = () => {
-    setOpen(true);
-    setFormData(newEvent);
-  };
-
-  const handleClose = () => setOpen(false);
 
   return (
     <React.Fragment>
@@ -291,9 +295,6 @@ const AddEventByAdmin = ({
               <div key={index}>
                 <TextField
                   margin="dense"
-                  // id={organizer-name-${index}}
-                  // name={organizers.${index}.name}
-                  // label={Organizer ${index + 1} Name}
                   id={`organizer-name-${index}`}
                   name={`organizers.${index}.name`}
                   label={`Organizer ${index + 1} Name`}
@@ -346,7 +347,7 @@ const AddEventByAdmin = ({
                 />
               </div>
             ))}
-            {/* Results */}
+            
             <TextField
               margin="dense"
               label="Number of Results"
@@ -364,13 +365,25 @@ const AddEventByAdmin = ({
                 onChange={(e) => handleResultsChange(index, e.target.value)}
               />
             ))}
+
+
+            <TextField
+              margin="dense"
+              id="register_link"
+              name="register_link"
+              label="registration Link"
+              type="text"
+              fullWidth
+              variant="outlined"
+              value={formData.register_link}
+              onChange={handleInputChange}
+            />
             {imagesData.map(({ label, field, preview }, index) => (
               <Box key={index} sx={{ mb: 4 }}>
                 <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold" }}>
                   {label}
                 </Typography>
                 <TextField
-                  required
                   type="file"
                   inputProps={{ accept: "image/*" }}
                   onChange={(e) => handleImageUpload(field, e.target.files[0])}
@@ -381,29 +394,29 @@ const AddEventByAdmin = ({
                     },
                   }}
                 />
-                {preview && (
-                  <Avatar
-                    src={preview}
-                    alt={label}
-                    variant="rounded"
-                    sx={{
-                      width: 200,
-                      height: 200,
-                      margin: "10px auto",
-                      border: "1px solid #ccc",
-                      boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
-                    }}
-                  />
+                {preview &&  (
+                  <Box>
+                    {uploading ? (
+                      <CircularProgress />
+                    ) : (
+                      <img src={preview} alt={label} style={{ width: "100%", maxHeight: "200px", objectFit: "cover" }} />
+                    )}
+                  </Box>
                 )}
               </Box>
             ))}
           </DialogContent>
           <DialogActions>
-            <Button onClick={onCloseDialog}>Cancel</Button>
-            <Button type="submit">Add Event</Button>
+            <Button onClick={handleCloseDialog}>Cancel</Button>
+            <Button type="submit"
+              disabled={!imagePreviewMain || !imagePreviewLeft || !imagePreviewRight}
+            >
+              Add Event 
+            </Button>
           </DialogActions>
         </form>
       </Dialog>
+      <ToastContainer position="top-right" autoClose={3000} />
     </React.Fragment>
   );
 };

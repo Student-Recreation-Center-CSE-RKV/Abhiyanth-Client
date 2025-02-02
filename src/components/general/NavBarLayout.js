@@ -63,6 +63,10 @@ const NAVIGATION = [
         title: 'Add Event',
       },
       {
+        segment: 'mainEvent',
+        title: 'Main Events',
+      },
+      {
         segment: 'cseTech',
         title: 'CSE TECH',
       },
@@ -191,6 +195,9 @@ function DemoPageContent({ pathname }) {
       break;
     case "/Volunteers/allVolunteers":
       content = <AllVolunteers />
+      break;
+      case "/TechnicalEvents/mainEvent":
+      content = <AllTechnicalEvents key="MAIN" department="MainEvents" />
       break;
     case "/TechnicalEvents/cseTech":
       content = <AllTechnicalEvents key="CSE" department="CSE" />

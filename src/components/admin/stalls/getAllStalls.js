@@ -86,7 +86,7 @@ const StallsDisplay = () => {
             label="Search Events"
             variant="outlined"
             size="small"
-            sx={{ width: "48.5rem" }}
+            sx={{ width: "57rem" }}
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
           />
