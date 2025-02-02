@@ -41,7 +41,7 @@ const StallCard = ({ stall, onUpdateStall, setEditStall, stalls, setStalls, setF
             height: "100%",
             display: "flex",
             flexDirection: "column",
-            width: "247.3px",
+            width: "300.3px",
           }}
         >
           <CardMedia

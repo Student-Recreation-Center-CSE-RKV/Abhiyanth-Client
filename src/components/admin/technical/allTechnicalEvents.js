@@ -12,20 +12,21 @@ import {
   DialogActions,
   TextField,
   CircularProgress,
+  MenuItem
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { getAllTechnicalEvents, editTechnicalEvent, deleteTechnicalEvent } from '../../../api/technicalEvents';
 import uploadImage from '../../../api/uploadImage';
-import { extractDateTimeFromTimestamp,convertDateTimeCombinedToFirebaseTimestamp } from '../../../utils/timeStampToDate';
+import { extractDateTimeFromTimestamp, convertDateTimeCombinedToFirebaseTimestamp } from '../../../utils/timeStampToDate';
 
 
-export default function AllTechnicalEvents({department}) {
+export default function AllTechnicalEvents({ department }) {
   const [technicalEvents, setTechnicalEvents] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [openDialog, setOpenDialog] = useState(false);
   const [loading, setLoading] = useState(false);
   const [imageFile, setImageFile] = useState(null);
-  const [dataLoading,setDataLoading]=useState(false);
+  const [dataLoading, setDataLoading] = useState(false);
   const [formData, setFormData] = useState({
     title: '',
     date: '',
@@ -36,16 +37,18 @@ export default function AllTechnicalEvents({department}) {
     prizes: ['', '', ''],
     sponsors: ['', ''],
     result: ['', '', ''],
+    amount: '',
     image: '',
+    isTeam: false
   });
   const [previewImage, setPreviewImage] = useState('');
 
   // Fetch data
   const getData = async () => {
     try {
-        setDataLoading(true);
+      setDataLoading(true);
       const res = await getAllTechnicalEvents(department);
-      
+
       setTechnicalEvents(res);
       setDataLoading(false)
     } catch (error) {
@@ -62,15 +65,21 @@ export default function AllTechnicalEvents({department}) {
     setSelectedEvent(event);
     setFormData({
       title: event.title,
-      date: event.date,
-      venue: event.venue,
+      venue: event.venue, 
       short_description: event.short_description,
       description: event.description,
       registration_link: event.registration_link,
       prizes: event.prizes,
       sponsors: event.sponsors,
       result: event.result,
+      amount: event.amount,
       image: event.image,
+      isTeam: event.isTeam
+
+    });
+    setFormData({
+      ...event,
+      date: extractDateTimeFromTimestamp(event.date).date + "T" + extractDateTimeFromTimestamp(event.date).time
     });
     setPreviewImage(event.image);
     setOpenDialog(true);
@@ -79,7 +88,7 @@ export default function AllTechnicalEvents({department}) {
   // Handle Delete
   const handleDelete = async (id) => {
     try {
-      await deleteTechnicalEvent(id,department);
+      await deleteTechnicalEvent(id, department);
       getData();
     } catch (error) {
       console.error('Error deleting technical event:', error);
@@ -123,7 +132,9 @@ export default function AllTechnicalEvents({department}) {
       prizes: ['', '', ''],
       sponsors: ['', ''],
       result: ['', '', ''],
+      amount: '',
       image: '',
+      isTeam: false,
     });
     setPreviewImage('');
   };
@@ -138,8 +149,8 @@ export default function AllTechnicalEvents({department}) {
       if (imageFile) {
         imageUrl = await uploadImage(imageFile, 'technical');
       }
-      const updatedEvent = { ...formData, image: imageUrl || formData.image,date:convertDateTimeCombinedToFirebaseTimestamp(formData.date) };
-      await editTechnicalEvent(selectedEvent.id, updatedEvent,department);
+      const updatedEvent = { ...formData, image: imageUrl || formData.image, date: convertDateTimeCombinedToFirebaseTimestamp(formData.date) };
+      await editTechnicalEvent(selectedEvent.id, updatedEvent, department);
       getData(); // Refresh the list
       handleClose();
     } catch (error) {
@@ -149,10 +160,9 @@ export default function AllTechnicalEvents({department}) {
     }
   };
 
-  if(dataLoading)
-  {
-    return(
-        <>Loading .....</>
+  if (dataLoading) {
+    return (
+      <>Loading .....</>
     );
   }
   return (
@@ -161,9 +171,9 @@ export default function AllTechnicalEvents({department}) {
         Technical Events
       </Typography>
       {
-        technicalEvents.length===0 && (<Typography variant="h3" gutterBottom>
-            No Events Added Till now
-          </Typography>)
+        technicalEvents.length === 0 && (<Typography variant="h3" gutterBottom>
+          No Events Added Till now
+        </Typography>)
       }
       {technicalEvents.map((event) => (
         <Accordion key={event.id}>
@@ -185,7 +195,7 @@ export default function AllTechnicalEvents({department}) {
               <strong>Venue:</strong> {event.venue}
             </Typography>
             <Typography variant="body2" gutterBottom>
-              <strong>Date:</strong> {extractDateTimeFromTimestamp(event.date).date} 
+              <strong>Date:</strong> {extractDateTimeFromTimestamp(event.date).date}
             </Typography>
             <Typography variant="body2" gutterBottom>
               <strong>Time:</strong>  {extractDateTimeFromTimestamp(event.date).time}
@@ -198,6 +208,12 @@ export default function AllTechnicalEvents({department}) {
             </Typography>
             <Typography variant="body2" gutterBottom>
               <strong>Sponsors:</strong> {event.sponsors.join(', ')}
+            </Typography>
+            <Typography variant="body2" gutterBottom>
+              <strong>Amount:</strong> {event.amount}
+            </Typography>
+            <Typography variant="body2" gutterBottom>
+              <strong>Team:</strong> {event.isTeam ? "Yes" : "No"}
             </Typography>
             <Typography variant="body2" gutterBottom>
               <strong>Result:</strong> {event.result.join(', ')}
@@ -318,6 +334,28 @@ export default function AllTechnicalEvents({department}) {
               setFormData({ ...formData, result: e.target.value.split(',').map((r) => r.trim()) })
             }
           />
+          <TextField
+            label="amount"
+            name="amount"
+            variant="outlined"
+            fullWidth
+            margin="normal"
+            value={formData.amount}
+            onChange={handleChange}
+          />
+          <TextField
+            label="Is Team?"
+            name="isTeam"
+            variant="outlined"
+            fullWidth
+            select
+            value={formData.isTeam}
+            onChange={(e) => setFormData({ ...formData, isTeam: e.target.value === 'true' })}
+            sx={{ input: { color: 'white' } }}
+          >
+            <MenuItem value="true">True</MenuItem>
+            <MenuItem value="false">False</MenuItem>
+          </TextField>
           <Typography variant="body1" gutterBottom>
             Current Image:
           </Typography>
