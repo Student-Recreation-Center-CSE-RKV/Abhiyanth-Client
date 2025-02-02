@@ -11,14 +11,14 @@ import {
   CircularProgress,
 } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
-import { addTechnicalEvent } from '../../../redux/slices/technicalEventsSlice'; 
-import uploadImage from '../../../api/uploadImage'; 
+import { addTechnicalEvent } from '../../../redux/slices/technicalEventsSlice';
+import uploadImage from '../../../api/uploadImage';
 import { convertDateTimeCombinedToFirebaseTimestamp } from '../../../utils/timeStampToDate';
 
 function AddTechnicalEvent() {
-    const dispatch = useDispatch();
-    const [imageFile, setImageFile] = useState(null);
-   const { loading, error, success } = useSelector((state) => state.technicalEvents);
+  const dispatch = useDispatch();
+  const [imageFile, setImageFile] = useState(null);
+  const { loading, error, success } = useSelector((state) => state.technicalEvents);
   const [formData, setFormData] = useState({
     date: '',
     description: '',
@@ -31,10 +31,12 @@ function AddTechnicalEvent() {
     sponsors: ['', ''],
     title: '',
     venue: '',
-    department: '', 
+    department: '',
+    amount: '',
+    isTeam: false,
   });
 
-  
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -67,31 +69,33 @@ function AddTechnicalEvent() {
     try {
       let imageUrl = '';
       if (imageFile) {
-        imageUrl = await uploadImage(imageFile, 'technical'); 
+        imageUrl = await uploadImage(imageFile, 'technical');
       }
-      const eventData={
-        image:imageUrl,
-        date:convertDateTimeCombinedToFirebaseTimestamp(formData.date),
-        description:formData.description,
-        short_description:formData.short_description,
-        prizes:formData.prizes,
-        result:formData.result,
-        registration_link:formData.registration_link,
-        sponsors:formData.sponsors,
-        venue:formData.venue,
-        title:formData.title
+      const eventData = {
+        image: imageUrl,
+        date: convertDateTimeCombinedToFirebaseTimestamp(formData.date),
+        description: formData.description,
+        short_description: formData.short_description,
+        prizes: formData.prizes,
+        result: formData.result,
+        registration_link: formData.registration_link,
+        sponsors: formData.sponsors,
+        venue: formData.venue,
+        title: formData.title,
+        amount: formData.amount,
+        isTeam: formData.isTeam, // Include in final data
       }
 
-      
-      dispatch(addTechnicalEvent(eventData,formData.department));
+
+      dispatch(addTechnicalEvent(eventData, formData.department));
     } catch (err) {
       console.error('Error submitting form:', err);
     }
   };
 
-  
+
   const handleSponsorCountChange = (e) => {
-    const numSponsors = Math.max(0, parseInt(e.target.value, 10)); 
+    const numSponsors = Math.max(0, parseInt(e.target.value, 10));
     const updatedSponsors = Array(numSponsors).fill('');
     setFormData({ ...formData, sponsors: updatedSponsors });
   };
@@ -151,7 +155,7 @@ function AddTechnicalEvent() {
               onChange={handleChange}
               sx={{ input: { color: 'white' } }}
             >
-              {['CSE', 'ECE', 'EEE', 'Civil', 'MME', 'Chemical', 'Mechanical'].map((dept) => (
+              {['MainEvents', 'CSE', 'ECE', 'EEE', 'Civil', 'MME', 'Chemical', 'Mechanical'].map((dept) => (
                 <MenuItem key={dept} value={dept}>
                   {dept}
                 </MenuItem>
@@ -159,7 +163,7 @@ function AddTechnicalEvent() {
             </TextField>
           </Grid2>
 
-          
+
           <Grid2 item xs={12}>
             <TextField
               label="Short Description"
@@ -173,7 +177,7 @@ function AddTechnicalEvent() {
             />
           </Grid2>
 
-          
+
           <Grid2 item xs={12}>
             <input
               type="file"
@@ -194,7 +198,7 @@ function AddTechnicalEvent() {
             )}
           </Grid2>
 
-          
+
           <Grid2 item xs={12}>
             <TextField
               label="Description"
@@ -209,7 +213,7 @@ function AddTechnicalEvent() {
             />
           </Grid2>
 
-          
+
           <Grid2 item xs={12}>
             <Typography variant="h6" sx={{ color: 'white', marginBottom: 2 }}>
               Prizes
@@ -229,7 +233,7 @@ function AddTechnicalEvent() {
             </Grid2>
           </Grid2>
 
-          
+
           <Grid2 item xs={12}>
             <Typography variant="h6" sx={{ color: 'white', marginBottom: 2 }}>
               Results
@@ -299,9 +303,37 @@ function AddTechnicalEvent() {
               ))}
             </Grid2>
           </Grid2>
+          <Grid2 item xs={12} sm={3}>
+            <TextField
+              label="amount"
+              name="amount"
+              variant="outlined"
+              fullWidth
+              value={formData.amount}
+              onChange={handleChange}
+              sx={{ input: { color: 'white' } }}
+            />
+          </Grid2>
+
+          <Grid2 item xs={12} sm={3}>
+            <TextField
+              label="Is Team?"
+              name="isTeam"
+              variant="outlined"
+              fullWidth
+              select
+              value={formData.isTeam}
+              onChange={(e) => setFormData({ ...formData, isTeam: e.target.value === 'true' })}
+              sx={{ input: { color: 'white' } }}
+            >
+              <MenuItem value="true">True</MenuItem>
+              <MenuItem value="false">False</MenuItem>
+            </TextField>
+          </Grid2>
+
 
           <Grid2 item xs={12}>
-             <Button
+            <Button
               variant="contained"
               color="primary"
               type="submit"
@@ -313,17 +345,17 @@ function AddTechnicalEvent() {
           </Grid2>
         </Grid2>
 
-      
+
         {error && (
-            <Grid2 item xs={12}>
-              <Typography color="error">{error}</Typography>
-            </Grid2>
-          )}
-           {success && (
-            <Grid2 item xs={12}>
-              <Typography color="success.main">Event added successfully!</Typography>
-            </Grid2>
-          )}
+          <Grid2 item xs={12}>
+            <Typography color="error">{error}</Typography>
+          </Grid2>
+        )}
+        {success && (
+          <Grid2 item xs={12}>
+            <Typography color="success.main">Event added successfully!</Typography>
+          </Grid2>
+        )}
       </form>
     </Box>
   );
