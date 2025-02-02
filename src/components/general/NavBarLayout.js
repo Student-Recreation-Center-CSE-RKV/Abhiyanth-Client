@@ -17,6 +17,7 @@ import AddTechnicalEvent from '../admin/technical/addNewTechnicalEvent';
 import AddVolunteer from '../admin/volunteer/addVolunteer';
 import AllVolunteers from '../admin/volunteer/allVolunteers';
 import AllTechnicalEvents from '../admin/technical/allTechnicalEvents';
+import NotificationForm from '../admin/other/Notification';
 import { AddNewStall } from "../admin/stalls/addNewStall.js"
 import StallsDisplay from '../admin/stalls/getAllStalls.js';
 import { auth } from '../../api/firebaseConfig.js';
@@ -29,6 +30,17 @@ const NAVIGATION = [
     segment: 'Dashboard',
     title: 'Dashboard',
     icon: <DashboardIcon />,
+  },
+  {
+    segment: 'Announcemnets',
+    title: 'Announcements',
+    icon: <CelebrationIcon color='secondary' />,
+    children: [
+      {
+        segment: 'notifiaction',
+        title: 'Send Notification',
+      }
+    ],
   },
   {
     segment: 'Culturals',
@@ -213,6 +225,9 @@ function DemoPageContent({ pathname }) {
       break;
     case "/stalls/allStalls":
       content = <StallsDisplay />
+      break;
+    case "/Announcemnets/notifiaction":
+      content= <NotificationForm/>
       break;
     default:
       content = <div>{pathname}</div>;
