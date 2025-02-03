@@ -19,6 +19,11 @@ import { Button, Grid2 as Grid } from "@mui/material";
 
 const departments = [
 	{
+		name: "Main Events",
+		image: cse,
+		description: "Top Events Conducted by RGUKT",
+	},
+	{
 		name: "CSE",
 		image: cse,
 		description: "Explore cutting-edge tech and software development.",
@@ -75,7 +80,7 @@ export default function TechnicalEvents() {
 				container
 				spacing={2}
 				alignItems="center"
-				justifyContent="space-between"
+				justifyContent={{sx:"center",sm:"center",md:"space-between"}}
 				wrap="wrap"
 				sx={{ padding: "15px" }}
 			>
@@ -105,8 +110,9 @@ export default function TechnicalEvents() {
 				</Grid>
 			</Grid>
 
+
 			<div className="tech-main">
-				<div className="tech-cards-container">
+				<div className="tech-cards-container" >
 					{departments.map((dept, index) => (
 						<div key={index} className="tech-card">
 							<img
@@ -119,7 +125,15 @@ export default function TechnicalEvents() {
 							<button
 								className="tech-view-events-button"
 								onClick={() => {
-									navigate(`/technicalEvents/${dept.name}`);
+									if(dept.name==="Main Events")
+									{
+										navigate("/mainTechnicalEvents");
+									}
+									else
+									{
+										navigate(`/technicalEvents/${dept.name}`);
+									}
+									
 								}}
 							>
 								See All Events

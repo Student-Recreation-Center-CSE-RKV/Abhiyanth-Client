@@ -19,7 +19,7 @@ import StallShowcase from './components/stalls/StallShowCase.js';
 import ProjectsPage from './components/technicalProjects/ProjectShowcase.jsx';
 import News from './pages/News.js';
 import DetailedNews from './components/news/DetailedNews.js';
-import Profile from './components/user/Profile.js';
+import Profile from './components/userprofile/Profile.js';
 import SignIn from './pages/SignIn.js';
 import { auth } from "./api/firebaseConfig.js"
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
@@ -62,9 +62,7 @@ function App() {
           <Route path='/news' element={<News/>}/>
           <Route path="/news/:id" element={<DetailedNews/>}/>
           <Route path='/payment' element={<Cashfree/>}/>
-          <Route path="/profile" element={<Profile/>}/>
           <Route path="/Registered" element={<RegisteredEvents/>}/>
-          <Route path="/EditProfile" element={<EditProfile/>}/>
         </Route>
         <Route path='auth/login' element={<SignInWrapper />} />
       </Routes>

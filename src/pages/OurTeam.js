@@ -54,6 +54,20 @@ export default function OurTeam() {
             instagramURL: '',
             email: "tsrikanth866@gmail.com"
         },
+        {
+            image: rakshitha,
+            name: 'S. Rakshita',
+            githubURL: 'https://github.com/Rakshita4121',
+            linkdeinURL: 'https://www.linkedin.com/in/rakshita-reddy-singam-8136a7280/',
+            instagramURL: 'https://www.instagram.com/singam_rakshitareddy/',
+        },
+        {
+            image: tanisha,
+            name: 'N. Thanisha',
+            githubURL: 'https://github.com/thanishanitturu',
+            linkdeinURL: 'https://www.linkedin.com/in/thanisha-nitturu-0412b22a2',
+            instagramURL: 'https://www.instagram.com/niitturu_thanisha_reddy/',
+        }
         
     ];
 
@@ -64,18 +78,6 @@ export default function OurTeam() {
             githubURL: 'https://github.com/Azad99-9',
             linkdeinURL: 'https://www.linkedin.com/in/shaik-azad-4505b7240/',
             instagramURL: 'https://instagram.com/revanth_kumar_j',
-        },{
-            image: tanisha,
-            name: 'N. Thanisha',
-            githubURL: 'https://github.com/thanishanitturu',
-            linkdeinURL: 'https://www.linkedin.com/in/thanisha-nitturu-0412b22a2',
-            instagramURL: 'https://www.instagram.com/niitturu_thanisha_reddy/',
-        },{
-            image: rakshitha,
-            name: 'S. Rakshita',
-            githubURL: 'https://github.com/Rakshita4121',
-            linkdeinURL: 'https://www.linkedin.com/in/rakshita-reddy-singam-8136a7280/',
-            instagramURL: 'https://www.instagram.com/singam_rakshitareddy/',
         },
         {
             image: nagarjuna,
@@ -199,7 +201,7 @@ export default function OurTeam() {
             <Box sx={{ padding: "1rem" }}>
     
                 <Typography variant="h5" sx={typographyStyles}>
-                    FrontEnd Team
+                    Web Development Team
                 </Typography>
                 {renderTeam(frontendTeam)}
     

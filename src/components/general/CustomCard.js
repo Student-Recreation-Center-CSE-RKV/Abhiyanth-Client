@@ -84,6 +84,7 @@ const CustomCard = ({
                 ...contentStyles,
               }}
             >
+
               {label && (`${label} :`)} {value}
             </Typography>
           ))}
@@ -104,7 +105,7 @@ const CustomCard = ({
             cursor: "pointer",
             display: "block",
             textAlign: "center",
-            marginBottom: 3,
+            marginBottom: 2,
             ...footerButtonStyles
           }}
           onClick={onFooterClick}
