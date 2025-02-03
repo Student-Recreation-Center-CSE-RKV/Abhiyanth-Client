@@ -4,9 +4,10 @@ import logo from "../../assets/images/Rgukt_Logo_White.png";
 import { Box, Typography, useMediaQuery } from '@mui/material';
 import { motion } from 'framer-motion';
 import CountdownTimer from './timer';
+import { useNavigate } from 'react-router-dom';
 
 export default function HomeStartingComponent() {
-    
+
     const styles = {
         heroContainer: {
             position: 'relative',
@@ -89,8 +90,8 @@ export default function HomeStartingComponent() {
         },
         timer: {
             fontFamily: 'Audiowide',
-            padding:{xs:"0"},
-            margin:{xs:"0"},
+            padding: { xs: "0" },
+            margin: { xs: "0" },
             fontSize: { xs: '18px', sm: '27px', md: '45px', lg: "50px" },
             fontWeight: 500,
             color: 'white',
@@ -99,8 +100,9 @@ export default function HomeStartingComponent() {
     };
 
     const istitleVisible = useMediaQuery('(max-width:800px)');
+    const navigate = useNavigate();
 
-    
+
     return (
         <div>
             <Box sx={styles.heroContainer}>
@@ -176,7 +178,7 @@ export default function HomeStartingComponent() {
                                 height: 'auto',
                                 objectFit: "fill",
                                 bottom: "40px",
-                                paddingLeft: "20px", 
+                                paddingLeft: "20px",
                             }}
                             animate={{ y: [0, -50, 0] }} // Up and down movement only
                             transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
@@ -191,46 +193,142 @@ export default function HomeStartingComponent() {
                         <Typography sx={styles.subtitle}>#AbhiyathKashor</Typography>
                     </>
                 )}
-                {/* <Box sx={{ position: 'absolute', top: '30%', left: "0" }} onClick={()=>{navigate("/technicalEvents")}} >
+                <Box
+                    sx={{
+                        position: "absolute",
+                        top: { xs: "30%", sm: "20%", md: "30%" },
+                        left: "0",
+                    }}
+                    onClick={() => navigate("/technicalEvents")}
+                >
                     <motion.button
-                        style={styles.buttonLeft}
+                        style={{
+                            padding: "8px 16px",
+                            fontSize: "clamp(12px, 2vw, 16px)", // Adjust font size based on viewport width
+                            cursor: "pointer",
+                            borderRadius: "0 0 30px 0",
+                            background: "transparent",
+                            border: "2px solid white",
+                        }}
                         whileHover={{ scale: 1.1 }}
                     >
-                        <Typography component="span" sx={styles.buttonText}>
+                        <Typography
+                            sx={{
+                                fontFamily: "Audiowide",
+                                fontSize: { xs: "18px", sm: "22px", md: "28px" },
+                                fontWeight: 400,
+                                lineHeight: "1.2",
+                                textAlign: "left",
+
+                            }}
+                        >
                             Technical Events
                         </Typography>
                     </motion.button>
-                </Box> */}
-                {/* <Box sx={{ position: 'absolute', top: '30%', right: "0" }} onClick={()=>{navigate("/events")}}>
+                </Box>
+
+                {/* Stalls */}
+                <Box
+                    sx={{
+                        position: "absolute",
+                        bottom: { xs: "10%", sm: "8%", md: "15%" },
+                        left: "0",
+                    }}
+                    onClick={() => navigate("/stalls")}
+                >
                     <motion.button
-                        style={styles.buttonRight}
+                        style={{
+                            padding: "8px 16px",
+                            fontSize: "clamp(12px, 2vw, 16px)",
+                            cursor: "pointer",
+                            borderRadius: "0 30px 0 0",
+                            background: "transparent",
+                            border: "2px solid white",
+                        }}
                         whileHover={{ scale: 1.1 }}
                     >
-                        <Typography component="span" sx={{ ...styles.buttonText, minWidth: "100px" }}>
-                            Events
-                        </Typography>
-                    </motion.button>
-                </Box> */}
-                {/* <Box sx={{ position: 'absolute', bottom: '10%', left: "0" }} onClick={()=>{navigate("/register-volunteer")}}>
-                    <motion.button
-                        style={{ ...styles.buttonLeft, minWidth: "150px" }}
-                        whileHover={{ scale: 1.1 }}
-                    >
-                        <Typography component="span" sx={{ ...styles.buttonText }}>
-                        Volunteers
-                        </Typography>
-                    </motion.button>
-                </Box> */}
-                {/* <Box sx={{ position: 'absolute', bottom: '10%', right: "0" }} onClick={()=>{navigate("/stalls")}}>
-                    <motion.button
-                        style={{ ...styles.buttonRight, width: "150px" }}
-                        whileHover={{ scale: 1.1 }}
-                    >
-                        <Typography sx={styles.buttonText}>
+                        <Typography
+                            sx={{
+                                fontFamily: "Audiowide",
+                                fontSize: { xs: "18px", sm: "22px", md: "28px" },
+                                fontWeight: 400,
+                                lineHeight: "1.2",
+                                textAlign: "left",
+                            }}
+                        >
                             Stalls
                         </Typography>
                     </motion.button>
-                </Box> */}
+                </Box>
+
+                {/* Culturals */}
+                <Box
+                    sx={{
+                        position: "absolute",
+                        top: { xs: "30%", sm: "20%", md: "30%" },
+                        right: "0",
+                    }}
+                    onClick={() => navigate("/events")}
+                >
+                    <motion.button
+                        style={{
+                            padding: "8px 16px",
+                            fontSize: "clamp(12px, 2vw, 16px)",
+                            cursor: "pointer",
+                            borderRadius: "0 0 0 30px",
+                            background: "transparent",
+                            border: "2px solid white",
+                        }}
+                        whileHover={{ scale: 1.1 }}
+                    >
+                        <Typography
+                            sx={{
+                                fontFamily: "Audiowide",
+                                fontSize: { xs: "18px", sm: "22px", md: "28px" },
+                                fontWeight: 400,
+                                lineHeight: "1.2",
+                                textAlign: "left",
+                            }}
+                        >
+                            Culturals
+                        </Typography>
+                    </motion.button>
+                </Box>
+
+                {/* Sports */}
+                <Box
+                    sx={{
+                        position: "absolute",
+                        bottom: { xs: "10%", sm: "8%", md: "15%" },
+                        right: "0",
+                    }}
+                    onClick={() => navigate("/projectShowCase")}
+                >
+                    <motion.button
+                        style={{
+                            padding: "8px 16px",
+                            fontSize: "clamp(12px, 2vw, 16px)",
+                            cursor: "pointer",
+                            borderRadius: "30px 0 0 0",
+                            background: "transparent",
+                            border: "2px solid white",
+
+                        }}
+                        whileHover={{ scale: 1.1 }}
+                    >
+                        <Typography
+                            sx={{
+                                fontFamily: "Audiowide",
+                                fontSize: { xs: "18px", sm: "22px", md: "28px" },
+                                fontWeight: 400,
+                                lineHeight: "1.2",
+                                textAlign: "left",
+                            }}
+                        >
+                            Explore Projects
+                        </Typography>
+                    </motion.button>
+                </Box>
             </Box>
         </div>
     );
