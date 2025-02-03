@@ -12,7 +12,7 @@ import DailogBox from "../general/Dialog";
 import { useNavigate } from "react-router-dom";
 
 const StallCard = ({ stall }) => {
-	const navigate=useNavigate()
+	const navigate = useNavigate();
 	const [open, setOpen] = useState(false);
 	const handleOpen = () => {
 		setOpen(true);
@@ -30,7 +30,7 @@ const StallCard = ({ stall }) => {
 
 	if (!stall) {
 		return <Typography color="error">Error: Stall data missing</Typography>;
-	  }
+	}
 
 	return (
 		<>
@@ -38,7 +38,10 @@ const StallCard = ({ stall }) => {
 				sx={{
 					width: 300,
 					margin: "auto",
+					height:"530px",
 					padding: "10px",
+					display: "flex",
+					flexDirection: "column",
 					backgroundColor: "inherit",
 					color: "white",
 					borderTopLeftRadius: "50px",
@@ -84,11 +87,18 @@ const StallCard = ({ stall }) => {
 						/>
 					</Grid>
 				</Grid>
-				<CardContent>
+				<CardContent
+					sx={{
+						flexGrow: 1, // Allows the content to take up equal space in all cards
+						display: "flex",
+						flexDirection: "column",
+						justifyContent: "space-between", // Ensures spacing for buttons at the bottom
+					}}
+				>
 					<Typography
 						variant="h5"
 						component="div"
-						sx={{ color: "#c91c75", textShadow: "1px 1px 5px rgb(91, 90, 90)" }}
+						sx={{ color: "#c91c75", textShadow: "1px 1px 5px rgb(91, 90, 90)",height:"60px" }}
 					>
 						{stall.name}
 					</Typography>
@@ -96,16 +106,17 @@ const StallCard = ({ stall }) => {
 						variant="body2"
 						color="text.secondary"
 						sx={{
-							marginBottom: 2,
+							flexGrow: 1, // Ensures text fills space evenly
 							color: "white",
 							whiteSpace: "normal",
 							overflowWrap: "break-word",
 							wordBreak: "break-word",
+							height: "90px", 
 						}}
 					>
 						{truncateText(stall.short_description, 20)}
 					</Typography>
-					<Box display="flex" justifyContent="space-between">
+					<Box display="flex" justifyContent="space-between" sx={{marginBlock:"1rem"}}>
 						<Button
 							variant="contained"
 							color="secondary"
@@ -118,13 +129,16 @@ const StallCard = ({ stall }) => {
 							variant="outlined"
 							color="secondary"
 							sx={{ borderRadius: "10px" }}
-							onClick={()=>{navigate(`/stalls/${stall.id}`)}}
+							onClick={() => {
+								navigate(`/stalls/${stall.id}`);
+							}}
 						>
 							View More
 						</Button>
 					</Box>
 				</CardContent>
 			</Card>
+
 			<DailogBox open={open} handleClose={handleClose} stall={stall} />
 		</>
 	);
