@@ -8,7 +8,6 @@ import {
   Grid2,
   Chip,
 } from "@mui/material";
-import hackathon from "../../assets/images/hackathon.jpeg";
 import { extractDateTime } from "../../utils/timeStampToDate";
 import { useNavigate } from "react-router-dom";
 
@@ -40,7 +39,7 @@ export default function CustomCard({ event,department }) {
       <CardMedia
         component="img"
         height="150"
-        image={hackathon}
+        image={event.image}
         alt="Top full-width image"
         sx={{
           border: "1px solid #00B093",
@@ -136,7 +135,7 @@ export default function CustomCard({ event,department }) {
         </Typography>
 
         <Grid2 container spacing={1} sx={{ marginTop: "1rem" }}>
-          <Typography
+          {event.sponsors.length>0 && (<Typography
             variant="body2"
             color="text.secondary"
             sx={{
@@ -151,7 +150,7 @@ export default function CustomCard({ event,department }) {
             }}
           >
             Sponsored by:
-          </Typography>
+          </Typography>)}
           {event.sponsors.map((sponsor, index) => (
             <Grid2 key={index}>
               <Chip

@@ -12,8 +12,8 @@ const PaymentFailure = () => {
     window.history.replaceState(null, "", "/payment/failure");
 
     const timer = setTimeout(() => {
-      navigate("/profile", { replace: true });
-      window.location.replace("/profile"); // Hard reset to remove all history
+      navigate("/", { replace: true });
+      window.location.replace("/"); // Hard reset to remove all history
     }, 3000);
 
     return () => clearTimeout(timer);
