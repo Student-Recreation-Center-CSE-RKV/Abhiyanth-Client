@@ -16,7 +16,6 @@ import { CircularProgress } from "@mui/material";
 
 const currencies = [
   { value: "completed", label: "Completed" },
-  { value: "ongoing", label: "Ongoing" },
   { value: "live", label: "Live" },
   { value: "upcoming", label: "Upcoming" },
 ];
@@ -150,8 +149,8 @@ const AddEventByAdmin = ({
       };
 
       onAddEvent(updatedFormData); 
-      toast.success("Event added Successfully")
-      // alert("Event added successfully")
+      // toast.success("Event added Successfully")
+      alert("Event added successfully")
       setFormData(newEvent); 
       setImagePreviewMain("");
       setImagePreviewRight("");
