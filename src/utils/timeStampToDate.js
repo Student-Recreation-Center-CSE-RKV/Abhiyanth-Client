@@ -1,5 +1,5 @@
 import { Timestamp } from "firebase/firestore";
-
+import { formatDistanceToNow } from "date-fns"; 
 export const extractDateTime = (timestamp) => {
     const date = timestamp.toDate();
     const day = date.getDate(); 
@@ -71,4 +71,17 @@ export const extractDateTimeFromTimestamp = (timestamp) => {
   const time = dateObject.toLocaleTimeString('en-GB', { hour12: false }); // Format as HH:mm:ss
 
   return { date, time };
+};
+
+
+
+
+
+export const extractRelativeTime = (timestamp) => {
+  if (!timestamp || !(timestamp.toDate instanceof Function)) {
+    console.error("Invalid timestamp:", timestamp);
+    return "Invalid Date";
+  }
+
+  return formatDistanceToNow(timestamp.toDate(), { addSuffix: true });
 };
