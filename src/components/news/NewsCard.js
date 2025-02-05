@@ -7,24 +7,48 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import newsImage from '../../assets/images/news/news1.jpeg'
 import { Avatar, CardHeader } from '@mui/material';
+import { extractDateTimeFromTimestamp } from '../../utils/timeStampToDate';
+import { extractRelativeTime } from '../../utils/timeStampToDate';
+import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
-const styles = { HeadingContent:{
-  fontFamily:"DM Sans",
-  fontStyle:"italic",
-  fontWeight:"400",
-},
-  textContent:{
-  fontFamily:"Poppins",
-  border:"1px solid #FF6AB7",
-  borderRadius:"20px",
+const styles = {
+  HeadingContent: {
+    fontFamily: "DM Sans",
+    fontStyle: "italic",
+    fontWeight: "400",
+  },
+  textContent: {
+    fontFamily: "Poppins",
+    border: "1px solid #FF6AB7",
+    borderRadius: "20px",
 
-}}
-export default function NewsCard() {
-  const id = 1;
+  }
+}
+export default function NewsCard({ id, title, sub_title, description, image, date }) {
+
+
+  const navigate = useNavigate();
+
+  const { date: formattedDate } = extractDateTimeFromTimestamp(date);
+  const [relativeTime, setRelativeTime] = useState(extractRelativeTime(date))
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setRelativeTime(extractRelativeTime(date))
+    }, 60000)
+    return () => clearInterval(interval)
+  }, [date])
+  const handleReadMore = () => {
+    navigate(`/news/${id}`);
+  };
+
   return (
-    <Card sx={{ maxWidth: 345, border: "2px solid  #FF6AB7",
+    <Card sx={{
+      maxWidth: 345, border: "2px solid  #FF6AB7",
       bordeRadius: "30px",
-      boxShadow:" 0px 4px 15px rgba(173, 216, 230, 0.5)" }}>
+      boxShadow: " 0px 4px 15px rgba(173, 216, 230, 0.5)"
+    }}>
       <CardMedia
         component="img"
         alt="green iguana"
@@ -33,25 +57,21 @@ export default function NewsCard() {
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div" sx={styles.HeadingContent}>
-          Abhiyanth Ignition Launch Graced by Honourable Director Prof.AVSS Kumara Swamy Gupta 
+          {description}
         </Typography>
-        {/* <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-        Abhiyanth Ignition Launch Graced by Honourable Director Prof.AVSS Kumara Swamy Gupta Ayyapu
-        Abhiyanth Ignition Launch Graced by Honourable Director Prof.AVSS Kumara Swamy Gupta Ayyapu
-        </Typography> */}
       </CardContent>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: "red[500]" }} aria-label="recipe">
-            R
+
           </Avatar>
         }
-        title="Shrimp and Chorizo Paella"
-        subheader={`September 14, 2016  • ${5}min read`}
+        title={title}
+        subheader={`${formattedDate} • ${relativeTime}`}
       />
       <CardActions>
         <Button size="small" sx={styles.textContent}>Share</Button>
-        <Button size="small" sx={styles.textContent} href={`/news/${id}`}>Read More</Button>
+        <Button size="small" sx={styles.textContent} onClick={handleReadMore}>Read More</Button>
       </CardActions>
     </Card>
   );

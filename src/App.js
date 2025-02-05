@@ -18,7 +18,7 @@ import TechEventDetails from './components/technicalEvents/techEventDetails.js';
 import StallShowcase from './components/stalls/StallShowCase.js';
 import ProjectsPage from './components/technicalProjects/ProjectShowcase.jsx';
 import News from './pages/News.js';
-import DetailedNews from './components/news/DetailedNews.js';
+import NewsDetails from './components/news/newsDetails.js';
 import Profile from './components/user/Profile.js';
 import SignIn from './pages/SignIn.js';
 import { auth } from "./api/firebaseConfig.js"
@@ -64,7 +64,7 @@ function App() {
           <Route path="/register-volunteer" element={<RegisterVolunteer />} />
           <Route path="/projectShowCase" element={<ProjectsPage />} />
           <Route path='/news' element={<News/>}/>
-          <Route path="/news/:id" element={<DetailedNews/>}/>
+          <Route path="/news/:id" element={<NewsDetails/>}/>
           <Route path='/payment' element={<Cashfree/>}/>
           <Route path="/profile" element={<Profile/>}/>
           <Route path="/Registered" element={<RegisteredEvents/>}/>
