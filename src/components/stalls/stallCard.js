@@ -9,11 +9,14 @@ import {
 	Box,
 } from "@mui/material";
 import DailogBox from "../general/Dialog";
+import ReviewDialog from "../general/ReviewDialog";
 import { useNavigate } from "react-router-dom";
 
 const StallCard = ({ stall }) => {
 	const navigate = useNavigate();
 	const [open, setOpen] = useState(false);
+	const [openReviewDialog, setOpenReviewDialog] = useState(false);
+  	const [review, setReview] = useState("");
 	const handleOpen = () => {
 		setOpen(true);
 	};
@@ -21,6 +24,24 @@ const StallCard = ({ stall }) => {
 	const handleClose = () => {
 		setOpen(false);
 	};
+	const handleReviewDialogOpen = () => {
+		setOpenReviewDialog(true);
+	  };
+	
+	  const handleReviewDialogClose = () => {
+		setOpenReviewDialog(false);
+		setReview("");
+	  };
+	
+	  const handleReviewSubmit = async () => {
+		try{
+		  const updatedReviews = [...(stall.reviews || []), review];
+		  console.log("Updated Reviews:", updatedReviews);
+		} catch (error) {
+		  console.error("Failed to submit review:", error);
+		}
+		handleReviewDialogClose();
+	  };
 	const truncateText = (text, wordLimit) => {
 		const words = text.split(" ");
 		return words.length > wordLimit
@@ -38,7 +59,7 @@ const StallCard = ({ stall }) => {
 				sx={{
 					width: 300,
 					margin: "auto",
-					height:"530px",
+					height:"570px",
 					padding: "10px",
 					display: "flex",
 					flexDirection: "column",
@@ -135,11 +156,22 @@ const StallCard = ({ stall }) => {
 						>
 							View More
 						</Button>
+						
 					</Box>
+					<Button
+            			variant="contained"
+            			color="secondary"
+            			sx={{ borderRadius: "10px" ,width:"125px"}}
+            			onClick={handleReviewDialogOpen}
+          				>
+            				Add Review
+          				</Button>
 				</CardContent>
 			</Card>
 
 			<DailogBox open={open} handleClose={handleClose} stall={stall} />
+			{/* Review Dialog */}
+			<ReviewDialog openReviewDialog={openReviewDialog} handleReviewDialogClose={handleReviewDialogClose} stall={stall}  handleReviewSubmit={handleReviewSubmit} review={review} setReview={setReview}/>
 		</>
 	);
 };
