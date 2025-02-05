@@ -65,7 +65,7 @@ const DepartmentCarouselImageUploader = () => {
           onChange={handleDepartmentChange}
           label="Select Department"
         >
-          {["CSE", "ECE", "EEE", "MECHANICAL", "CHEMICAL", "CIVIL","MME"].map((dept) => (
+          {["CSE", "ECE", "EEE", "MECHANICAL", "CHEMICAL", "CIVIL","MME","MainEvents"].map((dept) => (
             <MenuItem key={dept} value={dept}>
               {dept}
             </MenuItem>

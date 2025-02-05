@@ -1,24 +1,41 @@
 import React, { useEffect, useState } from "react";
 import { Button, TextField, TextareaAutosize, Card, CardContent, Typography } from "@mui/material";
 import {sendNotifications} from "../../../api/sendNotification"
-
+import uploadImage from "../../../api/uploadImage"
 
 const NotificationForm = () => {
   const [title, setTitle] = useState("");
   const [subTitle, setSubTitle] = useState("");
   const [description, setDescription] = useState("");
   const [image, setImage] = useState(null);
+  const [loading,setLoading]=useState(false);
 
-  const handleSendNotification = () => {
+  const handleSendNotification = async() => {
+    try{
+      setLoading(true);
+      let imageURL=null;
+    if(image)
+    imageURL= await uploadImage(image,"Notifications")
     const notificationData = {
       title,
       sub_title: subTitle,
       description,
-      image: image ? URL.createObjectURL(image) : null,
+      image: imageURL,
     };
-
-    console.log("Notification Data:", notificationData);
+    console.log(notificationData)
+    await sendNotifications(notificationData);
+    
     alert("Notification sent successfully!");
+
+    setImage(null);
+    }catch(error)
+    {
+      alert("")
+    }finally{
+      setLoading(false);
+    }
+    
+
   };
 
   const handleImageChange = (e) => {
@@ -26,15 +43,7 @@ const NotificationForm = () => {
     setImage(file);
   };
 
-  const handleSubmit = (e)=>{
-    try{
-
-    }
-    catch(error)
-    {
-        
-    }
-  }
+  
 
   useEffect(()=>{
     sendNotifications()
@@ -106,7 +115,7 @@ const NotificationForm = () => {
           
           onClick={handleSendNotification}
         >
-          Send Notification
+          {loading ?"Sending ...":"Send Notification"}
         </Button>
       </CardContent>
     </Card>
