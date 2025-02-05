@@ -4,6 +4,7 @@ import {
 	Chip,
 	Typography,
 	useMediaQuery,
+
 } from "@mui/material";
 import { motion } from "framer-motion";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
@@ -15,6 +16,7 @@ import { getStallById } from "../../redux/slices/stallsSlice";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import DailogBox from "../general/Dialog";
+import ReviewDialog from "../general/ReviewDialog";
 
 const styles = {
 	titleContainer: {
@@ -55,7 +57,6 @@ const styles = {
 		display: "flex",
 		flexDirection: "column",
 		justifyContent: "space-between",
-
 		margin: "1%",
 		width: "60%",
 		gap: "1",
@@ -71,17 +72,39 @@ const styles = {
 		margin: "1%",
 	},
 };
-
+ let reviews= [
+	{ "user": "John Doe", "comment": "Great food! jbndvjbszjjbdzf sbvjzndjnvskmvnjzsv zfvzkjvjkz" },
+	{ "user": "Alice", "comment": "Loved the service!"}
+  ]
 function StallShowcase() {
 	const { id } = useParams();
 	const dispatch = useDispatch();
 	const [open, setOpen] = useState(false);
+	const [openReviewDialog, setOpenReviewDialog] = useState(false);
+  	const [review, setReview] = useState("");
 	const handleOpen = () => {
 		setOpen(true);
 	};
 	const handleClose = () => {
 		setOpen(false);
 	};
+	const handleReviewDialogOpen = () => {
+		setOpenReviewDialog(true);
+	  };
+	
+	  const handleReviewDialogClose = () => {
+		setOpenReviewDialog(false);
+		setReview("");
+	  };
+	  const handleReviewSubmit = async () => {
+		try{
+		  const updatedReviews = [...(stall.reviews || []), review];
+		  console.log("Updated Reviews:", updatedReviews);
+		} catch (error) {
+		  console.error("Failed to submit review:", error);
+		}
+		handleReviewDialogClose();
+	  };
 	const { stall, loading } = useSelector((state) => state.stalls);
 	const fetchStall = async () => {
 		try {
@@ -176,7 +199,19 @@ function StallShowcase() {
 									>
 										View Menu
 									</Button>
-
+									<Button
+										component="a"
+										sx={{
+											background:
+												"linear-gradient(180deg, #FF6AB7 0%, #6AE4FF 100%)",
+											color: "black",
+											fontFamily: "Audiowide",
+											margin: "10px",
+										}}
+										onClick={handleReviewDialogOpen}
+									>
+										Add Review
+									</Button>
 									<Typography
 										sx={{
 											...styles.subHeading,
@@ -253,9 +288,65 @@ function StallShowcase() {
 							</Box>
 						)}
 					</Box>
+					<Box sx={{ marginTop: "4%" }}>
+  						<Typography
+    						sx={{
+      							fontSize: "30px",
+     							fontWeight: "bold",
+      							color: "white",
+      							textAlign: "center",
+								fontFamily:"Averia Sans Libre",
+      							paddingBottom: "10px",
+      							marginBottom: "20px",
+    						}}
+  						>
+    						Customer Reviews
+  						</Typography>
+
+  						{reviews && reviews.length > 0 ? (
+    					<Box
+      						sx={{
+        						display: "flex",
+        						flexDirection: "column",
+        						gap: "15px",
+        						padding: "10px",
+        						borderRadius: "10px",
+								fontFamily:"Averia Sans Libre",
+        						backgroundColor: "rgba(255, 255, 255, 0.1)",
+        						border: "1px solid #FF6AB7",
+								margin:"3%"
+      						}}
+   						 >
+      						{reviews.map((review, index) => (
+        				<Box
+          					key={index}
+          					sx={{
+            					padding: "10px",
+            					borderRadius: "5px",
+            					backgroundColor: "rgba(255, 255, 255, 0.1)",
+            					border: "1px solid rgba(255, 255, 255, 0.3)",
+								fontFamily:"Averia Sans Libre",
+          					}}
+        				>
+          					<Typography sx={{ color: "#FFD700", fontSize: "24px", fontFamily:"Averia Sans Libre",fontWeight: "bold" }}>
+            					{review.user}
+          					</Typography>
+          					<Typography sx={{ color: "white",fontFamily:"Averia Sans Libre", fontSize: {sm:"18px",md:"20px"} }}>{review.comment}</Typography>
+        				</Box>
+      					))}
+   					 </Box>
+  					) : (
+    					<Typography sx={{ color: "white", textAlign: "center", fontSize: "16px" ,fontFamily:"Averia Sans Libre"}}>
+      							No reviews yet. Be the first to review!
+   						 </Typography>
+  					)}
+					</Box>
 				</Box>
+
 			</Box>
 			<DailogBox open={open} handleClose={handleClose} stall={stall} />
+			{/* Review dialog */}
+			<ReviewDialog openReviewDialog={openReviewDialog} handleReviewDialogClose={handleReviewDialogClose} stall={stall}  handleReviewSubmit={handleReviewSubmit} review={review} setReview={setReview}/>
 		</>
 	);
 }

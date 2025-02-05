@@ -77,5 +77,3 @@ const RegisteredEvents = () => {
 };
 
 export default RegisteredEvents;
-
-
