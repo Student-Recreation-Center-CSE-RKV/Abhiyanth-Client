@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { getUser } from "../../utils/getUser";
 
 import {
   Box,
@@ -12,10 +13,12 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { extractDateTime } from "../../utils/timeStampToDate";
 import TeamRegistrationForm from "../registrationForms/TeamRegistrationForm";
+import IndividualRegistrationForm from "../registrationForms/cseIndividual";
 
 export default function TechEventDetails() {
 
   const { department, id } = useParams();
+  const [user,setUser]=useState(null);
   const [event, setEvent] = useState(null)
   const [loading, setLoading] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
@@ -39,6 +42,7 @@ export default function TechEventDetails() {
     if (department && id) {
       fetchDepartmentEvent(department, id);
     }
+    getUser().then(setUser).catch(console.error);
     // eslint-disable-next-line
   }, [department, id]);
 
@@ -67,7 +71,16 @@ export default function TechEventDetails() {
     return suffixes[(value - 20) % 10] || suffixes[value] || suffixes[0];
   }
 
-
+  const handleClick=()=>{
+    if(user)
+    {
+    setOpenDialog(true)
+    }
+    else
+    {
+      alert("Please Login Before Registering")
+    }
+  }
   return (
     <Box sx={{
       width: "90%",
@@ -113,14 +126,14 @@ export default function TechEventDetails() {
           </Box>
         )}
       </Card>
-      <Typography variant="h6" sx={{
+      {event.sponsors.length>0 &&(<Typography variant="h6" sx={{
         fontSize: { sm: 20, md: 25 },
         color: "white",
         fontFamily: "Audiowide"
       }}>
         Sponsored by : &nbsp;
         {event.sponsors.join(", ")}
-      </Typography>
+      </Typography>)}
       <Typography variant="h6" sx={{ marginBottom: 1, fontFamily: "Audiowide", color: "white", fontSize: { sm: 20, md: 25 } }}>
         Description :
       </Typography>
@@ -133,7 +146,7 @@ export default function TechEventDetails() {
         textAlign: "center",
         fontFamily: "Audiowide",
         marginBottom: 2}}>
-          Registration Fee : {(event.registrationFee===0)?"Free":`${event.registrationFee} /-`}
+          Registration Fee : {(event.amount==="Free")?"Free":`${event.amount} /-`}
         </Typography>
       <Typography varient="h3" sx={{ color: "#C91C75", textAlign: "center", marginBottom: 1, fontFamily: "Audiowide", fontSize: 30 }}>
         Event Details
@@ -179,13 +192,13 @@ export default function TechEventDetails() {
         </Button>)}
 
         {!event.registration_link && (<Button
-          onClick={()=>setOpenDialog(true)}
+          onClick={handleClick}
           sx={{
             fontFamily: "Audiowide",
             color: "white !important",
             backgroundColor: "#00B093",
             '&:hover': {
-              backgroundColor: "#008a73", // Hover color
+              backgroundColor: "#008a73", 
             },
             textTransform: "none",
             fontSize: { sm: 18, md: 20 },
@@ -210,7 +223,14 @@ export default function TechEventDetails() {
           </Box>
         )
       }
-      <TeamRegistrationForm open={openDialog} onClose={() => setOpenDialog(false)} eventName={event.title} amount={event.registrationFee} />
+      {
+  event.isTeam ? (
+    <TeamRegistrationForm open={openDialog} onClose={() => setOpenDialog(false)} eventName={event.title} amount={event.amount}  department={department}/>
+  ) : (
+    <IndividualRegistrationForm open={openDialog} onClose={() => setOpenDialog(false)} eventName={event.title} amount={event.amount} department={department}/>
+  )
+}
+
       
     </Box>
   )
