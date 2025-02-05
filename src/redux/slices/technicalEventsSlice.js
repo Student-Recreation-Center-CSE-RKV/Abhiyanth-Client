@@ -68,6 +68,7 @@ export const addTechnicalEvent = (data, department) => async (dispatch) => {
     console.error("Error adding technical event:", error);
   } finally {
     dispatch(setLoading(false));
+    dispatch(setSuccess(false));
   }
 };
 

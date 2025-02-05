@@ -17,7 +17,6 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const currencies = [
   { value: "completed", label: "Completed" },
-  { value: "ongoing", label: "Ongoing" },
   { value: "live", label: "Live" },
   { value: "upcoming", label: "Upcoming" },
 ];
