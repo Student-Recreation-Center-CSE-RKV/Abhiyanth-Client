@@ -71,10 +71,17 @@ strong {
         font-size: 30px;
     }
 
-    .view-events-button {
+    
+}
+.save-cancel-button {
         white-space: normal;
         text-align: center;
         padding: 0.6rem 0.8rem;
         font-size: 0.9rem;
+        background:linear-gradient(
+            rgb(229, 121, 199),
+            rgb(152, 124, 236),
+            rgba(180, 33, 197, 0.7)
+        );
     }
-}
+
