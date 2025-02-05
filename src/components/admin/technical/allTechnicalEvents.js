@@ -98,10 +98,23 @@ export default function AllTechnicalEvents({ department }) {
   // Handle Input Change
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+    if (name === "amount") {
+      // Ensure value is a number and within the range
+      const numValue = value.replace(/\D/g, ""); // Remove non-numeric characters
+      const maxAmount = 10000; // Set your max limit
+  
+      if (numValue === "" || (parseInt(numValue, 10) >= 0 && parseInt(numValue, 10) <= maxAmount)) {
+        setFormData({
+          ...formData,
+          [name]: numValue,
+        });
+      }
+    } else {
+      setFormData({
+        ...formData,
+        [name]: value,
+      });
+    }
   };
 
   // Handle Image Change
@@ -339,6 +352,7 @@ export default function AllTechnicalEvents({ department }) {
             name="amount"
             variant="outlined"
             fullWidth
+            type='text'
             margin="normal"
             value={formData.amount}
             onChange={handleChange}

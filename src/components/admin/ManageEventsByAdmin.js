@@ -79,8 +79,8 @@ const ManageEventsByAdmin = () => {
 
   const handleUpdateEvent = async (updatedData) => {
     const updatedEvent = await updateEvent(editEvent.id, updatedData);
-    //  toast.success("Event updated successfully")
-    alert("Event updated successfully")
+     toast.success("Event updated successfully")
+    // alert("Event updated successfully")
     const updatedEvents = events.map((event) =>
       event.id === editEvent.id ? { ...event, ...updatedEvent } : event
     );

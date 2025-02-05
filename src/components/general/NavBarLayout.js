@@ -23,8 +23,13 @@ import StallsDisplay from '../admin/stalls/getAllStalls.js';
 import { auth } from '../../api/firebaseConfig.js';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-
+import {AddNews} from '../admin/news/addNews.js';
+import AnnouncementIcon from '@mui/icons-material/Announcement';
+import NewspaperIcon from '@mui/icons-material/Newspaper';
+import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
+import PermMediaIcon from '@mui/icons-material/PermMedia';
+import StoreIcon from '@mui/icons-material/Store';
+import LaptopIcon from '@mui/icons-material/Laptop';
 const NAVIGATION = [
   {
     segment: 'Dashboard',
@@ -34,11 +39,22 @@ const NAVIGATION = [
   {
     segment: 'Announcemnets',
     title: 'Announcements',
-    icon: <CelebrationIcon color='secondary' />,
+    icon: <AnnouncementIcon color='secondary' />,
     children: [
       {
         segment: 'notifiaction',
         title: 'Send Notification',
+      }
+    ],
+  },
+  {
+    segment: 'news',
+    title: 'news',
+    icon: <NewspaperIcon color='secondary' />,
+    children: [
+      {
+        segment: 'addNews',
+        title: 'Add News',
       }
     ],
   },
@@ -56,7 +72,7 @@ const NAVIGATION = [
   {
     segment: 'TechnicalEvents',
     title: 'Technical Events',
-    icon: <CelebrationIcon color='secondary' />,
+    icon: <LaptopIcon color='secondary' />,
     children: [
       {
         segment: 'addEvent',
@@ -94,7 +110,7 @@ const NAVIGATION = [
   {
     segment: 'Volunteers',
     title: 'Volunteers',
-    icon: <CelebrationIcon color='secondary' />,
+    icon: <VolunteerActivismIcon color='secondary' />,
     children: [
       {
         segment: 'registration',
@@ -109,7 +125,7 @@ const NAVIGATION = [
   {
     segment: 'Images',
     title: 'Images',
-    icon: <AcUnitIcon color='secondary' />,
+    icon: <PermMediaIcon color='secondary' />,
     children: [
       {
         segment: 'sponsers',
@@ -133,7 +149,7 @@ const NAVIGATION = [
   {
     segment: 'stalls',
     title: 'Stalls',
-    icon: <CelebrationIcon color='secondary' />,
+    icon: <StoreIcon color='secondary' />,
     children: [
       {
         segment: 'addStall',
@@ -228,6 +244,9 @@ function DemoPageContent({ pathname }) {
       break;
     case "/Announcemnets/notifiaction":
       content= <NotificationForm/>
+      break;
+    case "/news/addNews":
+      content= <AddNews/>
       break;
     default:
       content = <div>{pathname}</div>;

@@ -1,5 +1,3 @@
-
-
 import React, { useState } from 'react';
 import {
   TextField,
@@ -14,6 +12,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addTechnicalEvent } from '../../../redux/slices/technicalEventsSlice';
 import uploadImage from '../../../api/uploadImage';
 import { convertDateTimeCombinedToFirebaseTimestamp } from '../../../utils/timeStampToDate';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function AddTechnicalEvent() {
   const dispatch = useDispatch();
@@ -37,12 +37,27 @@ function AddTechnicalEvent() {
   });
 
 
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+
+    if (name === "amount") {
+
+      const numValue = value.replace(/\D/g, "");
+      const maxAmount = 10000;
+
+      if (numValue === "" || (parseInt(numValue, 10) >= 0 && parseInt(numValue, 10) <= maxAmount)) {
+        setFormData({
+          ...formData,
+          [name]: parseInt(numValue, 10),
+        });
+      }
+    } else {
+      setFormData({
+        ...formData,
+        [name]: value,
+      });
+    }
   };
 
   const handlePrizeChange = (index, value) => {
@@ -83,11 +98,30 @@ function AddTechnicalEvent() {
         venue: formData.venue,
         title: formData.title,
         amount: formData.amount,
-        isTeam: formData.isTeam, // Include in final data
+        isTeam: formData.isTeam,
       }
 
 
       dispatch(addTechnicalEvent(eventData, formData.department));
+      if (!loading) toast.success('Technical event added successfully!');
+      setFormData({
+        date: '',
+        description: '',
+        id: '',
+        image: '',
+        prizes: ['', '', ''],
+        registration_link: '',
+        result: ['', '', ''],
+        short_description: '',
+        sponsors: ['', ''],
+        title: '',
+        venue: '',
+        department: '',
+        amount: '',
+        isTeam: false,
+
+      })
+
     } catch (err) {
       console.error('Error submitting form:', err);
     }
@@ -271,7 +305,6 @@ function AddTechnicalEvent() {
             />
           </Grid2>
 
-          {/* Sponsors */}
           <Grid2 item xs={12}>
             <Typography variant="h6" sx={{ color: 'white', marginBottom: 2 }}>
               Sponsors
@@ -309,6 +342,7 @@ function AddTechnicalEvent() {
               name="amount"
               variant="outlined"
               fullWidth
+              type='text'
               value={formData.amount}
               onChange={handleChange}
               sx={{ input: { color: 'white' } }}
@@ -357,6 +391,19 @@ function AddTechnicalEvent() {
           </Grid2>
         )}
       </form>
+
+      <ToastContainer
+        position="bottom-left"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </Box>
   );
 }
