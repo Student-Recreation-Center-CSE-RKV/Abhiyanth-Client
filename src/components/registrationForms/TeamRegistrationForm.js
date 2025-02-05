@@ -1,41 +1,118 @@
 import React, { useState, useEffect } from "react";
 import { Dialog, DialogTitle, DialogContent, TextField, MenuItem, Button, Box, Typography } from "@mui/material";
 import { getUser } from "../../utils/getUser";
+import axios from 'axios';
+import { cashfree } from "../CashFreeFold/util";
+import { addDataToCollection } from "../../api/general";
 
-const TeamRegistrationForm = ({ open, onClose, eventName, amount }) => {
+const TeamRegistrationForm = ({ open, onClose, eventName, amount,department }) => {
   const [user, setUser] = useState(null);
 
+  const [loading, setLoading] = useState('');
   useEffect(() => {
     getUser().then(setUser).catch(console.error);
   }, []);
-
+  
   const [formData, setFormData] = useState({
     teamName: "",
     teamSize: 2,
     teamMembers: Array(2).fill({ name: "", studentId: "" }),
-    email: user?.email || "", // Email field for the team
+    email: user?.email || "user@gmail.com", // Email field for the team
+    mobile: user?.phoneNumber || "0000000000"
   });
+    
+    const getSessionId = async () => {
+      try {
+        
+          setLoading(true);
+          const res = await axios.post('https://us-central1-abhiyanth-a8d4c.cloudfunctions.net/createOrderProd', {
+              cust_id: "jbbhbzx",
+              email: user?.email || "user@gmail.com",
+              phone: formData.mobile.toString(),
+              name: formData.teamName.trim(),
+              amount: parseInt(amount,10) || 1,
+              note: "Event Registration",
+              event:eventName,
+              department:department,
+              isTeam:"true"
+          });
+
+          setLoading(false);
+
+          if (res.data.payment_session_id && res.data.order_id) {
+              await handlePayment(res.data.payment_session_id, res.data.order_id);
+          } else {
+              console.error("Payment session ID or order ID missing");
+          }
+      } catch (error) {
+          setLoading(false);
+          console.error("Error fetching session ID:", error);
+          // toast.error("Failed to initiate payment. Please try again.");
+      }
+  };
+
+
+const handlePayment = (sessionId)=>{
+        let checkoutOptions = {
+            paymentSessionId: sessionId,
+            returnUrl: "https://us-central1-abhiyanth-a8d4c.cloudfunctions.net/checkStatusForWebProd/{order_id} ",
+            
+        }  
+        cashfree.checkout(checkoutOptions).then(function(result){
+            console.log(result)
+            if(result.error){
+                alert(result.error.message);
+            }
+            if(result.redirect){
+                // navigate("/");
+                console.log("Redirection")
+                console.log(result);
+            }
+        });
+    }
+
+
+
+ 
+
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
+  
     if (name === "teamSize") {
-      setFormData({
-        ...formData,
-        teamSize: value,
-        teamMembers: Array(value).fill({ name: "", studentId: "" }),
+      const newSize = parseInt(value, 10);
+      
+      setFormData((prevData) => {
+        const newMembers = Array.from({ length: newSize }, (_, index) => 
+          prevData.teamMembers[index] || { name: "", studentId: "" }
+        );
+        
+        return { ...prevData, teamSize: newSize, teamMembers: newMembers };
       });
-    } else if (name.includes("teamMember")) {
-      const [key, index] = name.split("-");
-
-      const updatedMembers = [...formData.teamMembers];
-      updatedMembers[index][key] = value;
-
-      setFormData({ ...formData, teamMembers: updatedMembers });
+  
+    } else if (name.startsWith("teamMember")) {
+      const [, field, index] = name.split("-"); 
+      const idx = parseInt(index, 10);
+  
+      setFormData((prevData) => ({
+        ...prevData,
+        teamMembers: prevData.teamMembers.map((member, i) =>
+          i === idx ? { ...member, [field]: value } : member
+        ),
+      }));
+  
     } else {
-      setFormData({ ...formData, [name]: value });
+      setFormData((prevData) => ({ ...prevData, [name]: value }));
     }
   };
+  
+
+  const handleSubmit= async ()=>{
+    await addDataToCollection("Teams",{...formData,email:user?.email})
+    await getSessionId();
+  }
+
 
   const isFormValid = formData.teamName && formData.teamMembers.every(member => member.name && member.studentId);
 
@@ -58,9 +135,10 @@ const TeamRegistrationForm = ({ open, onClose, eventName, amount }) => {
             margin="normal"
             label="Email"
             name="email"
-            value={formData.email}
+            value={user?.email || ""}
             InputProps={{ readOnly: true }}
           />
+          <TextField fullWidth margin="normal" label="Mobile" name="mobile" value={formData.mobile} onChange={handleChange} />
 
           <TextField
             select
@@ -100,14 +178,15 @@ const TeamRegistrationForm = ({ open, onClose, eventName, amount }) => {
           <Typography variant="h6" sx={{ mt: 2 }}>Amount: ₹{amount}</Typography>
           
           <Button
-            fullWidth
-            variant="contained"
-            color="primary"
-            sx={{ mt: 2 }}
-            disabled={!isFormValid}
-          >
-            Pay Now
-          </Button>
+                                  fullWidth
+                                  variant="contained"
+                                  color="primary"
+                                  sx={{ mt: 2 }}
+                                  disabled={!isFormValid || loading}
+                                  onClick={handleSubmit}
+                              >
+                                  {loading ? "Processing..." : "Pay Now"}
+                              </Button>
         </Box>
       </DialogContent>
     </Dialog>

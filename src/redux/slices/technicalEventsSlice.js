@@ -10,6 +10,7 @@ const initialState = {
     Civil: [],
     Chemical: [],
     MME: [],
+    MainEvents:[]
   },
   carousels:{
     CSE: [],
@@ -19,6 +20,7 @@ const initialState = {
     Civil: [],
     Chemical: [],
     MME: [],
+    MainEvents:[]
   },
   carouselLoading:false,
   loading: false,
