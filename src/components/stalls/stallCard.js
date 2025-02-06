@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 import Grid from "@mui/material/Grid2";
 import {
 	Card,
@@ -11,16 +11,22 @@ import {
 import DailogBox from "../general/Dialog";
 import ReviewDialog from "../general/ReviewDialog";
 import { useNavigate } from "react-router-dom";
+import { addReviewToStall } from "../../api/addReview";
+import { updateReview } from "../../redux/slices/stallsSlice";
+import { useDispatch } from "react-redux";
 
-const StallCard = ({ stall }) => {
+const StallCard = ({ user,stall }) => {
+	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const [open, setOpen] = useState(false);
 	const [openReviewDialog, setOpenReviewDialog] = useState(false);
   	const [review, setReview] = useState("");
+	  
 	const handleOpen = () => {
 		setOpen(true);
 	};
 
+	
 	const handleClose = () => {
 		setOpen(false);
 	};
@@ -33,10 +39,13 @@ const StallCard = ({ stall }) => {
 		setReview("");
 	  };
 	
+
 	  const handleReviewSubmit = async () => {
-		try{
-		  const updatedReviews = [...(stall.reviews || []), review];
-		  console.log("Updated Reviews:", updatedReviews);
+		try {
+		  const newReview = { user: user?.displayName || "User", comment: review };
+		  await addReviewToStall(stall.id, newReview);
+		  dispatch(updateReview(stall.id, newReview));
+		  alert("Review added successfully");
 		} catch (error) {
 		  console.error("Failed to submit review:", error);
 		}

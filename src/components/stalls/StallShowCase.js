@@ -19,6 +19,7 @@ import DailogBox from "../general/Dialog";
 import ReviewDialog from "../general/ReviewDialog";
 import { addReviewToStall } from "../../api/addReview";
 import { getUser } from "../../utils/getUser";
+import { updateReview } from "../../redux/slices/stallsSlice";
 
 const styles = {
 	titleContainer: {
@@ -97,16 +98,28 @@ function StallShowcase() {
 		setOpenReviewDialog(false);
 		setReview("");
 	  };
+	 
+
 	  const handleReviewSubmit = async () => {
-		try{
-		  await addReviewToStall(stall.id,{user:user?.displayName || "User", comment:review});
-		  alert("Review added successfully")
-		  setUpdatedReviews([{user:user?.displayName || "User", comment:review},...updatedReviews])
+		try {
+		  const newReview = { user: user?.displayName || "User", comment: review };
+	  
+		  console.log("Calling Firebase Function...");
+		  await addReviewToStall(stall.id, newReview);
+		  console.log("Firebase Function Completed!");
+	  
+		  console.log("Calling Redux Action...");
+		  dispatch(updateReview(stall.id, newReview));
+		  console.log("Redux Action Dispatched!");
+	  
+		//   setUpdatedReviews([newReview, ...updatedReviews]);
+		  alert("Review added successfully");
 		} catch (error) {
 		  console.error("Failed to submit review:", error);
 		}
 		handleReviewDialogClose();
 	  };
+	  
 	const { stall, loading } = useSelector((state) => state.stalls);
 	const fetchStall = async () => {
 		try {
@@ -343,23 +356,7 @@ function StallShowcase() {
           					<Typography sx={{ color: "white",fontFamily:"Averia Sans Libre", fontSize: {sm:"18px",md:"20px"} }}>{review.comment}</Typography>
         				</Box>
       					))}
-						{updatedReviews.map((review, index) => (
-        				<Box
-          					key={index}
-          					sx={{
-            					padding: "10px",
-            					borderRadius: "5px",
-            					backgroundColor: "rgba(255, 255, 255, 0.1)",
-            					border: "1px solid rgba(255, 255, 255, 0.3)",
-								fontFamily:"Averia Sans Libre",
-          					}}
-        				>
-          					<Typography sx={{ color: "#FFD700", fontSize: "24px", fontFamily:"Averia Sans Libre",fontWeight: "bold" }}>
-            					{review.user}
-          					</Typography>
-          					<Typography sx={{ color: "white",fontFamily:"Averia Sans Libre", fontSize: {sm:"18px",md:"20px"} }}>{review.comment}</Typography>
-        				</Box>
-      					))}
+						
    					 </Box>
   					) : (
     					<Typography sx={{ color: "white", textAlign: "center", fontSize: "16px" ,fontFamily:"Averia Sans Libre"}}>
