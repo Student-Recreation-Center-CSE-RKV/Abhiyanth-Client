@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Dialog, DialogTitle, DialogContent, TextField, MenuItem, Button, Box, Typography } from "@mui/material";
+import { Dialog, DialogTitle, DialogContent,DialogActions, TextField, MenuItem, Button, Box, Typography ,} from "@mui/material";
 import { getUser } from "../../utils/getUser";
 import axios from 'axios';
 import { cashfree } from "../CashFreeFold/util";
@@ -87,20 +87,103 @@ const IndividualRegistrationForm = ({ open, onClose, eventName, amount,departmen
     const isFormValid = formData.name && formData.studentId && formData.batch;
 
     return (
-        <Dialog open={open} onClose={onClose} fullWidth maxWidth="sm">
-            <DialogTitle>Registering for {eventName}</DialogTitle>
+        <Dialog open={open} onClose={onClose} fullWidth maxWidth="sm"
+            sx={{
+                "& .MuiDialog-paper": {
+                    backgroundColor: "rgba(217, 217, 217, 0) !important",
+                    boxShadow: "0px 5px 15px rgba(173, 216, 230, 0.5) !important",
+                    border: "1px solid #FF6AB7 !important",
+                    backdropFilter: "blur(10px)",
+                },
+                "& .MuiTypography-root, & .MuiDialogTitle-root, & .MuiDialogContent-root, & .MuiDialogActions-root": {
+                    color: "white !important",
+                },
+            }}
+        >
+            <DialogTitle sx={{ fontSize: "1.5rem", fontWeight: "bold" }}>Registering for {eventName}</DialogTitle>
             <DialogContent>
                 <Box sx={{ p: 2 }}>
-                    <TextField fullWidth margin="normal" label="Name" name="name" value={formData.name} onChange={handleChange} />
-                    <TextField fullWidth margin="normal" label="Email" name="email" value={user?.email || ""} InputProps={{ readOnly: true }} />
-                    <TextField fullWidth margin="normal" label="Student ID" name="studentId" value={formData.studentId} onChange={handleChange} />
-                    <TextField fullWidth margin="normal" label="Mobile" name="mobile" value={formData.mobile} onChange={handleChange} />
-                    <TextField select fullWidth margin="normal" label="Batch" name="batch" value={formData.batch} onChange={handleChange}>
-                        {["P1", "P2", "E1", "E2", "E3", "E4"].map((option) => (
-                            <MenuItem key={option} value={option}>{option}</MenuItem>
-                        ))}
-                    </TextField>
-                    <Typography variant="h6" sx={{ mt: 2 }}>Amount: ₹{amount}</Typography>
+                    <TextField 
+                        fullWidth 
+                        margin="normal" 
+                        label="Name" 
+                        name="name" 
+                        value={formData.name} 
+                        onChange={handleChange}
+                        sx={{
+                            backgroundColor: "rgba(255, 255, 255, 0.1)", 
+                            borderRadius: "10px",
+                            mb:2,
+                            input: { color: "white" }, 
+                            "& .MuiInputLabel-root": { color: "white !important" }, 
+                            "& .MuiOutlinedInput-root": {
+                                "& fieldset": { borderColor: "white !important" }, 
+                                "&:hover fieldset": { borderColor: "#00ffc8 !important" },
+                                "&.Mui-focused fieldset": { borderColor: "#00ffc8 !important" },
+                            },
+                        }}
+                    />
+                    <TextField 
+                        fullWidth 
+                        margin="normal" 
+                        label="Email" 
+                        name="email" 
+                        value={user?.email || ""} 
+                        InputProps={{ readOnly: true }}
+                        sx={{
+                            backgroundColor: "rgba(255, 255, 255, 0.1)", 
+                            borderRadius: "10px",
+                            mb:2,
+                            input: { color: "white" }, 
+                            "& .MuiInputLabel-root": { color: "white !important" }, 
+                            "& .MuiOutlinedInput-root": {
+                                "& fieldset": { borderColor: "white !important" }, 
+                                "&:hover fieldset": { borderColor: "#00ffc8 !important" },
+                                "&.Mui-focused fieldset": { borderColor: "#00ffc8 !important" },
+                            },
+                        }}
+                    />
+                    <TextField 
+                        fullWidth 
+                        margin="normal" 
+                        label="Student ID" 
+                        name="studentId" 
+                        value={formData.studentId} 
+                        onChange={handleChange}
+                        sx={{
+                            backgroundColor: "rgba(255, 255, 255, 0.1)", 
+                            borderRadius: "10px",
+                            input: { color: "white" }, 
+                            mb:2,
+                            "& .MuiInputLabel-root": { color: "white !important" }, 
+                            "& .MuiOutlinedInput-root": {
+                                "& fieldset": { borderColor: "white !important" }, 
+                                "&:hover fieldset": { borderColor: "#00ffc8 !important" },
+                                "&.Mui-focused fieldset": { borderColor: "#00ffc8 !important" },
+                            },
+                        }}
+                    />
+                    <TextField 
+                        fullWidth 
+                        margin="normal" 
+                        label="Mobile" 
+                        name="mobile" 
+                        value={formData.mobile} 
+                        onChange={handleChange}
+                        sx={{
+                            backgroundColor: "rgba(255, 255, 255, 0.1)", 
+                            borderRadius: "10px",
+                            input: { color: "white" }, 
+                            mb:2,
+                            "& .MuiInputLabel-root": { color: "white !important" }, 
+                            "& .MuiOutlinedInput-root": {
+                                "& fieldset": { borderColor: "white !important" }, 
+                                "&:hover fieldset": { borderColor: "#00ffc8 !important" },
+                                "&.Mui-focused fieldset": { borderColor: "#00ffc8 !important" },
+                            },
+                        }}
+                    />
+                    <Typography variant="h6" sx={{ mt: 2, color: "white"}}>Amount: ₹{amount}</Typography>
                     <Button
                         fullWidth
                         variant="contained"
@@ -113,7 +196,11 @@ const IndividualRegistrationForm = ({ open, onClose, eventName, amount,departmen
                     </Button>
                 </Box>
             </DialogContent>
+            <DialogActions sx={{ px: 3, pb: 2 }}>
+                <Button onClick={onClose} sx={{ color: "white !important" }}>Cancel</Button>
+            </DialogActions>
         </Dialog>
+        
     );
 };
 
