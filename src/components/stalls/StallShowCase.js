@@ -303,7 +303,7 @@ function StallShowcase() {
     						Customer Reviews
   						</Typography>
 
-  						{reviews && reviews.length > 0 ? (
+  						{stall?.reviews && stall.reviews.length > 0 ? (
     					<Box
       						sx={{
         						display: "flex",
@@ -317,7 +317,7 @@ function StallShowcase() {
 								margin:"3%"
       						}}
    						 >
-      						{reviews.map((review, index) => (
+      						{stall.reviews.map((review, index) => (
         				<Box
           					key={index}
           					sx={{
