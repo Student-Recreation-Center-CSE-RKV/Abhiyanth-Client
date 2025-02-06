@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Dialog, DialogTitle, DialogContent, TextField, MenuItem, Button, Box, Typography } from "@mui/material";
+import { Dialog, DialogTitle, DialogContent,DialogActions, TextField, MenuItem, Button, Box, Typography } from "@mui/material";
 import { getUser } from "../../utils/getUser";
 import axios from 'axios';
 import { cashfree } from "../CashFreeFold/util";
@@ -117,79 +117,178 @@ const handlePayment = (sessionId)=>{
   const isFormValid = formData.teamName && formData.teamMembers.every(member => member.name && member.studentId);
 
   return (
-    <Dialog open={open} onClose={onClose} fullWidth maxWidth="sm">
-      <DialogTitle>Registering for {eventName}</DialogTitle>
-      <DialogContent>
+    <Dialog open={open} onClose={onClose} fullWidth maxWidth="sm"
+    sx={{
+        "& .MuiDialog-paper": {
+            backgroundColor: "rgba(217, 217, 217, 0) !important",
+            boxShadow: "0px 5px 15px rgba(173, 216, 230, 0.5) !important",
+            border: "1px solid #FF6AB7 !important",
+            backdropFilter: "blur(10px)",
+        },
+        "& .MuiTypography-root, & .MuiDialogTitle-root, & .MuiDialogContent-root, & .MuiDialogActions-root": {
+            color: "white !important",
+        },
+    }}
+>
+    <DialogTitle sx={{ fontSize: "1.5rem", fontWeight: "bold" }}>Registering for {eventName}</DialogTitle>
+    <DialogContent>
         <Box sx={{ p: 2 }}>
-          <TextField
-            fullWidth
-            margin="normal"
-            label="Team Name"
-            name="teamName"
-            value={formData.teamName}
-            onChange={handleChange}
-          />
-          
-          <TextField
-            fullWidth
-            margin="normal"
-            label="Email"
-            name="email"
-            value={user?.email || ""}
-            InputProps={{ readOnly: true }}
-          />
-          <TextField fullWidth margin="normal" label="Mobile" name="mobile" value={formData.mobile} onChange={handleChange} />
-
-          <TextField
-            select
-            fullWidth
-            margin="normal"
-            label="Team Size"
-            name="teamSize"
-            value={formData.teamSize}
-            onChange={handleChange}
-          >
-            {[2, 3, 4, 5, 6].map((size) => (
-              <MenuItem key={size} value={size}>{size}</MenuItem>
+            <TextField
+                fullWidth
+                margin="normal"
+                label="Team Name"
+                name="teamName"
+                value={formData.teamName}
+                onChange={handleChange}
+                sx={{
+                    backgroundColor: "rgba(255, 255, 255, 0.1)", 
+                    borderRadius: "10px",
+                    input: { color: "white" }, 
+                    mb: 2,
+                    "& .MuiInputLabel-root": { color: "white !important" }, 
+                    "& .MuiOutlinedInput-root": {
+                        "& fieldset": { borderColor: "white !important" }, 
+                        "&:hover fieldset": { borderColor: "#00ffc8 !important" },
+                        "&.Mui-focused fieldset": { borderColor: "#00ffc8 !important" },
+                    },
+                }}
+            />
+            
+            <TextField
+                fullWidth
+                margin="normal"
+                label="Email"
+                name="email"
+                value={user?.email || ""}
+                InputProps={{ readOnly: true }}
+                sx={{
+                    backgroundColor: "rgba(255, 255, 255, 0.1)", 
+                    borderRadius: "10px",
+                    input: { color: "white" }, 
+                    mb: 2,
+                    "& .MuiInputLabel-root": { color: "white !important" }, 
+                    "& .MuiOutlinedInput-root": {
+                        "& fieldset": { borderColor: "white !important" }, 
+                        "&:hover fieldset": { borderColor: "#00ffc8 !important" },
+                        "&.Mui-focused fieldset": { borderColor: "#00ffc8 !important" },
+                    },
+                }}
+            />
+            
+            <TextField
+                fullWidth
+                margin="normal"
+                label="Mobile"
+                name="mobile"
+                value={formData.mobile}
+                onChange={handleChange}
+                sx={{
+                    backgroundColor: "rgba(255, 255, 255, 0.1)", 
+                    borderRadius: "10px",
+                    input: { color: "white" }, 
+                    mb: 2,
+                    "& .MuiInputLabel-root": { color: "white !important" }, 
+                    "& .MuiOutlinedInput-root": {
+                        "& fieldset": { borderColor: "white !important" }, 
+                        "&:hover fieldset": { borderColor: "#00ffc8 !important" },
+                        "&.Mui-focused fieldset": { borderColor: "#00ffc8 !important" },
+                    },
+                }}
+            />
+            <TextField
+                        select
+                        fullWidth
+                        margin="normal"
+                        label="Team Size"
+                        name="teamSize"
+                        value={formData.teamSize || 2}
+                        onChange={handleChange}
+                        sx={{
+                            backgroundColor: "rgba(255, 255, 255, 0.1)", 
+                            borderRadius: "10px",
+                            input: { color: "white !important" }, 
+                            mb: 2,
+                            "& .MuiInputLabel-root": { color: "white !important" }, 
+                            "& .MuiOutlinedInput-root": {
+                                "& fieldset": { borderColor: "white !important" }, 
+                                "&:hover fieldset": { borderColor: "#00ffc8 !important" },
+                                "&.Mui-focused fieldset": { borderColor: "#00ffc8 !important" },
+                            },
+                            "& .MuiSelect-icon": { 
+                                color: "white !important",
+                            },
+                            "& .MuiSelect-select": { 
+                              color: "white !important",
+                          },
+                        }}
+                    >
+                        {[2, 3, 4, 5, 6].map((size) => (
+                            <MenuItem key={size} value={size}>{size} </MenuItem>
+                        ))}
+                    </TextField>
+            {Array.from({ length: formData.teamSize }).map((_, index) => (
+                <Box key={index} sx={{ mb: 2 }}>
+                    <TextField
+                        fullWidth
+                        margin="normal"
+                        label={`Member ${index + 1} Name`}
+                        name={`teamMember-name-${index}`}
+                        value={formData.teamMembers[index].name}
+                        onChange={handleChange}
+                        sx={{
+                            backgroundColor: "rgba(255, 255, 255, 0.1)", 
+                            borderRadius: "10px",
+                            input: { color: "white" }, 
+                            mb: 2,
+                            "& .MuiInputLabel-root": { color: "white !important" }, 
+                            "& .MuiOutlinedInput-root": {
+                                "& fieldset": { borderColor: "white !important" }, 
+                                "&:hover fieldset": { borderColor: "#00ffc8 !important" },
+                                "&.Mui-focused fieldset": { borderColor: "#00ffc8 !important" },
+                            },
+                        }}
+                    />
+                    <TextField
+                        fullWidth
+                        margin="normal"
+                        label={`Member ${index + 1} Student ID`}
+                        name={`teamMember-studentId-${index}`}
+                        value={formData.teamMembers[index].studentId}
+                        onChange={handleChange}
+                        sx={{
+                            backgroundColor: "rgba(255, 255, 255, 0.1)", 
+                            borderRadius: "10px",
+                            input: { color: "white" }, 
+                            mb: 2,
+                            "& .MuiInputLabel-root": { color: "white !important" }, 
+                            "& .MuiOutlinedInput-root": {
+                                "& fieldset": { borderColor: "white !important" }, 
+                                "&:hover fieldset": { borderColor: "#00ffc8 !important" },
+                                "&.Mui-focused fieldset": { borderColor: "#00ffc8 !important" },
+                            },
+                        }}
+                    />
+                </Box>
             ))}
-          </TextField>
 
-          {Array.from({ length: formData.teamSize }).map((_, index) => (
-            <Box key={index} sx={{ mb: 2 }}>
-              <TextField
+            <Typography variant="h6" sx={{ mt: 2, color: "white" }}>Amount: ₹{amount}</Typography>
+            
+            <Button
                 fullWidth
-                margin="normal"
-                label={`Member ${index + 1} Name`}
-                name={`teamMember-name-${index}`}
-                value={formData.teamMembers[index].name}
-                onChange={handleChange}
-              />
-              <TextField
-                fullWidth
-                margin="normal"
-                label={`Member ${index + 1} Student ID`}
-                name={`teamMember-studentId-${index}`}
-                value={formData.teamMembers[index].studentId}
-                onChange={handleChange}
-              />
-            </Box>
-          ))}
-
-          <Typography variant="h6" sx={{ mt: 2 }}>Amount: ₹{amount}</Typography>
-          
-          <Button
-                                  fullWidth
-                                  variant="contained"
-                                  color="primary"
-                                  sx={{ mt: 2 }}
-                                  disabled={!isFormValid || loading}
-                                  onClick={handleSubmit}
-                              >
-                                  {loading ? "Processing..." : "Pay Now"}
-                              </Button>
+                variant="contained"
+                color="primary"
+                sx={{ mt: 2 }}
+                disabled={!isFormValid || loading}
+                onClick={handleSubmit}
+            >
+                {loading ? "Processing..." : "Pay Now"}
+            </Button>
         </Box>
-      </DialogContent>
-    </Dialog>
+    </DialogContent>
+    <DialogActions sx={{ px: 3, pb: 2 }}>
+        <Button onClick={onClose} sx={{ color: "white !important" }}>Cancel</Button>
+    </DialogActions>
+  </Dialog> 
   );
 };
 
