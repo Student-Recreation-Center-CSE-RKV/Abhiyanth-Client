@@ -1,13 +1,38 @@
-/* Profile container centered layout */
-.profile-container {
+/* Main container to hold profile and transactions */
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 80%;
+    margin: auto;
+}
+
+/* Section title (Profile & Transaction) */
+.section-title {
+    font-family: Audiowide;
+    font-size: 32px;
+    font-weight: bold;
+    color: rgb(183, 90, 225);
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Left section (Profile) */
+.left-container, .right-container {
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    color: white;
-    font-family: Audiowide;
-    text-align: center; /* Ensure text aligns centrally */
-    gap: 20px; /* Add spacing between elements */
+    text-align: center;
+    padding: 20px;
+}
+
+/* Profile container inside left section */
+.profile-container, .transactions-container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
 }
 
 /* Profile image */
@@ -16,65 +41,137 @@
     height: 150px;
     object-fit: cover;
     border-radius: 50%;
-    margin-bottom: 20px;
-    /* border: 2px solid rgba(101, 45, 192, 1); */
     border: 2px solid rgb(177, 86, 233);
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Profile details center alignment */
+/* Profile details */
 .profile-details {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center-align text content */
-    gap: 10px; /* Add spacing between text items */
+    align-items: center;
+    gap: 10px;
+    font-family: "AudiWide";
 }
 
-.profile-details h2 {
-    margin: 0;
-    font-size: 24px;
-    text-align: center; /* Explicitly center text */
-}
-
-.profile-details p {
-    font-size: 16px;
-    margin: 5px 0;
-    text-align: center; /* Explicitly center text */
-}
-
-strong {
+.label {
     font-weight: bold;
 }
 
-/* Button container with spacing */
+/* Button styling */
 .button-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
     margin-top: 10px;
 }
 
-/* Title styling */
-.title {
-    font-family: Audiowide;
-    color: rgb(183, 90, 225);
-    font-weight: 600;
-    margin-top: 10px;
-    margin-bottom: 10px;
+.edit-button {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.9rem;
+    border-radius: 10px;
+    background: linear-gradient(rgb(229, 121, 199), rgb(152, 124, 236), rgba(180, 33, 197, 0.7));
+    cursor: pointer;
+}
+
+/* Transactions list */
+.transactions-container ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+.transactions-container li {
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     text-align: center;
-    font-size: 40px;
 }
 
-/* Responsive design */
-@media only screen and (max-width: 650px) {
-    .title {
-        font-size: 30px;
+/* Responsive Design */
+@media only screen and (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        align-items: center;
     }
+    
+    .left-container, .right-container {
+        width: 100%;
+    }
+}
 
-    .view-events-button {
-        white-space: normal;
-        text-align: center;
-        padding: 0.6rem 0.8rem;
-        font-size: 0.9rem;
-    }
+/* .profile-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.profile-table td {
+    padding: 8px 12px;
+    text-align: left;
+}
+
+.profile-table .label {
+    font-weight: bold;
+    white-space: nowrap;
+    width: 30%;
+} */
+
+ /* .profile-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(68, 65, 65, 0.1); 
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.profile-table td {
+    padding: 10px;
+    text-align: left;
+    color: white; 
+}
+
+.profile-table .label {
+    font-weight: bold;
+    white-space: nowrap;
+    width: 30%;
+}
+td:nth-child(2n) {
+    background-color: #26264f;
+}
+
+.profile-table tr:last-child td {
+    border-bottom: none;
+} 
+ */
+.profile-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(68, 65, 65, 0.1);
+    border-radius: 10px;
+    padding: 10px;
+    font-family: "AudioWide";
+    table-layout: fixed;  /* Ensure columns adjust properly */
+}
+
+.profile-table td {
+    padding: 12px 15px; /* Increase padding */
+    text-align: left;
+    color: white;
+    font-size: 18px; /* Increase font size */
+    word-wrap: break-word; /* Ensure text does not overflow */
+}
+
+.profile-table .label {
+    font-weight: bold;
+    white-space: nowrap; /* Prevents the label from wrapping */
+    width: 35%; /* Increase width slightly for better alignment */
+}
+
+.profile-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Optional: Set min-width for table cells */
+.profile-table td:nth-child(2) {
+    min-width: 200px; /* Adjust according to your needs */
+}
+
+td:nth-child(2n) {
+    background-color: #26264f;
 }
