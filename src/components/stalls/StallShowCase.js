@@ -17,6 +17,8 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import DailogBox from "../general/Dialog";
 import ReviewDialog from "../general/ReviewDialog";
+import { addReviewToStall } from "../../api/addReview";
+import { getUser } from "../../utils/getUser";
 
 const styles = {
 	titleContainer: {
@@ -72,16 +74,15 @@ const styles = {
 		margin: "1%",
 	},
 };
- let reviews= [
-	{ "user": "John Doe", "comment": "Great food! jbndvjbszjjbdzf sbvjzndjnvskmvnjzsv zfvzkjvjkz" },
-	{ "user": "Alice", "comment": "Loved the service!"}
-  ]
+
 function StallShowcase() {
 	const { id } = useParams();
 	const dispatch = useDispatch();
 	const [open, setOpen] = useState(false);
 	const [openReviewDialog, setOpenReviewDialog] = useState(false);
   	const [review, setReview] = useState("");
+	const [updatedReviews,setUpdatedReviews]=useState([]);
+	const [user,setUser]=useState(null);
 	const handleOpen = () => {
 		setOpen(true);
 	};
@@ -98,8 +99,9 @@ function StallShowcase() {
 	  };
 	  const handleReviewSubmit = async () => {
 		try{
-		  const updatedReviews = [...(stall.reviews || []), review];
-		  console.log("Updated Reviews:", updatedReviews);
+		  await addReviewToStall(stall.id,{user:user?.displayName || "User", comment:review});
+		  alert("Review added successfully")
+		  setUpdatedReviews([{user:user?.displayName || "User", comment:review},...updatedReviews])
 		} catch (error) {
 		  console.error("Failed to submit review:", error);
 		}
@@ -109,10 +111,17 @@ function StallShowcase() {
 	const fetchStall = async () => {
 		try {
 			dispatch(getStallById(id));
+			
+			
 		} catch (error) {}
 	};
+
+	const fetchAll=async ()=>{
+		await fetchStall();
+	}
 	useEffect(() => {
-		fetchStall();
+		fetchAll()
+		getUser().then(setUser).catch(console.error);
 	// eslint-disable-next-line
 	}, []);
 
@@ -288,7 +297,7 @@ function StallShowcase() {
 							</Box>
 						)}
 					</Box>
-					<Box sx={{ marginTop: "4%" }}>
+					<Box sx={{ marginTop: "4%",width:"100%" }}>
   						<Typography
     						sx={{
       							fontSize: "30px",
@@ -318,6 +327,23 @@ function StallShowcase() {
       						}}
    						 >
       						{stall.reviews.map((review, index) => (
+        				<Box
+          					key={index}
+          					sx={{
+            					padding: "10px",
+            					borderRadius: "5px",
+            					backgroundColor: "rgba(255, 255, 255, 0.1)",
+            					border: "1px solid rgba(255, 255, 255, 0.3)",
+								fontFamily:"Averia Sans Libre",
+          					}}
+        				>
+          					<Typography sx={{ color: "#FFD700", fontSize: "24px", fontFamily:"Averia Sans Libre",fontWeight: "bold" }}>
+            					{review.user}
+          					</Typography>
+          					<Typography sx={{ color: "white",fontFamily:"Averia Sans Libre", fontSize: {sm:"18px",md:"20px"} }}>{review.comment}</Typography>
+        				</Box>
+      					))}
+						{updatedReviews.map((review, index) => (
         				<Box
           					key={index}
           					sx={{
