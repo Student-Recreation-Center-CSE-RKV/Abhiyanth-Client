@@ -30,6 +30,12 @@ import { isInDb } from './api/users.js';
 import Cashfree from './components/CashFreeFold/cashFree.js';
 import RegisteredEvents from "./components/userprofile/RegisteredEvents.js"
 import TechnicalEventsPage from './components/technicalEvents/MainTechnicalEvents.js';
+import Schedule from './pages/Schedule.js';
+import PaymentSuccess from './components/payment/PaymentSuccess.js';
+import PaymentFailure from './components/payment/PaymentFailure.js';
+import PageNotFound from './pages/ErrorPage.js';
+import ScheduleUpload from './components/schedule/ScheduleUpload.js';
+import ContributorsPage from './components/ourTeam/contributorsPage.js';
 import EditProfile from './components/user/EditProfile.js';
 
 
@@ -63,6 +69,12 @@ function App() {
           <Route path="/news/:id" element={<NewsDetails/>}/>
           <Route path='/payment' element={<Cashfree/>}/>
           <Route path="/Registered" element={<RegisteredEvents/>}/>
+
+          <Route path="/schedule" element={<Schedule/>}/>
+          <Route path="/payment/success" element={<PaymentSuccess/>}/>
+          <Route path="/payment/failure" element={<PaymentFailure/>}/>   
+          <Route path="/scheduleUpload" element={<ScheduleUpload/>}/>  
+          <Route path="/contributors" element={<ContributorsPage/>}/>   
           <Route path="/EditProfile" element={<EditProfile/>}/>
           <Route path="/Profile" element={<Profile/>}/>
         </Route>
