@@ -35,6 +35,8 @@ import PaymentSuccess from './components/payment/PaymentSuccess.js';
 import PaymentFailure from './components/payment/PaymentFailure.js';
 import PageNotFound from './pages/ErrorPage.js';
 import ScheduleUpload from './components/schedule/ScheduleUpload.js';
+import ContributorsPage from './components/ourTeam/contributorsPage.js';
+import EditProfile from './components/user/EditProfile.js';
 
 
 const provider = new GoogleAuthProvider();
@@ -66,16 +68,17 @@ function App() {
           <Route path='/news' element={<News/>}/>
           <Route path="/news/:id" element={<NewsDetails/>}/>
           <Route path='/payment' element={<Cashfree/>}/>
-          <Route path="/profile" element={<Profile/>}/>
           <Route path="/Registered" element={<RegisteredEvents/>}/>
 
           <Route path="/schedule" element={<Schedule/>}/>
           <Route path="/payment/success" element={<PaymentSuccess/>}/>
           <Route path="/payment/failure" element={<PaymentFailure/>}/>   
-          <Route path="/scheduleUpload" element={<ScheduleUpload/>}/>    
+          <Route path="/scheduleUpload" element={<ScheduleUpload/>}/>  
+          <Route path="/contributors" element={<ContributorsPage/>}/>   
+          <Route path="/EditProfile" element={<EditProfile/>}/>
+          <Route path="/Profile" element={<Profile/>}/>
         </Route>
         <Route path='auth/login' element={<SignInWrapper />} />
-        <Route path="*" element={<PageNotFound/>} />
       </Routes>
     </BrowserRouter>
     
@@ -114,6 +117,9 @@ function SignInWrapper() {
       setIsLoading(false);
     }
   };
+
+
+
 
   return <SignIn handleUserLogin={handleUserLogin} loading={isloading} />;
 }

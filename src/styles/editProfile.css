@@ -1,0 +1,91 @@
+/* Profile container centered layout */
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: Audiowide;
+    text-align: center; /* Ensure text aligns centrally */
+    gap: 20px; /* Add spacing between elements */
+}
+
+body{
+    font-family: AudioWide;
+}
+
+/* Profile image */
+.profile-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    /* border: 2px solid rgba(101, 45, 192, 1); */
+    border: 2px solid rgb(177, 86, 233);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Profile details center alignment */
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center-align text content */
+    gap: 10px; /* Add spacing between text items */
+}
+
+.profile-details h2 {
+    margin: 0;
+    font-size: 24px;
+    text-align: center; /* Explicitly center text */
+}
+
+.profile-details p {
+    font-size: 16px;
+    margin: 5px 0;
+    text-align: center; /* Explicitly center text */
+}
+
+strong {
+    font-weight: bold;
+}
+
+/* Button container with spacing */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Title styling */
+.title {
+    font-family: Audiowide;
+    color: rgb(183, 90, 225);
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 40px;
+}
+
+/* Responsive design */
+@media only screen and (max-width: 650px) {
+    .title {
+        font-size: 30px;
+    }
+
+    
+}
+.save-cancel-button {
+        white-space: normal;
+        text-align: center;
+        padding: 0.6rem 0.8rem;
+        font-size: 0.9rem;
+        background:linear-gradient(
+            rgb(229, 121, 199),
+            rgb(152, 124, 236),
+            rgba(180, 33, 197, 0.7)
+        );
+    }
+
