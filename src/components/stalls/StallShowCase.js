@@ -297,13 +297,14 @@ function StallShowcase() {
       							textAlign: "center",
 								fontFamily:"Averia Sans Libre",
       							paddingBottom: "10px",
-      							marginBottom: "20px",
     						}}
   						>
     						Customer Reviews
   						</Typography>
 
-  						{reviews && reviews.length > 0 ? (
+  						
+				</Box>
+				{reviews && reviews.length > 0 ? (
     					<Box
       						sx={{
         						display: "flex",
@@ -314,7 +315,10 @@ function StallShowcase() {
 								fontFamily:"Averia Sans Libre",
         						backgroundColor: "rgba(255, 255, 255, 0.1)",
         						border: "1px solid #FF6AB7",
-								margin:"3%"
+								margin:"3%",
+								width:"90%",
+								marginRight:"6%",
+								marginLeft:"6%"
       						}}
    						 >
       						{reviews.map((review, index) => (
@@ -326,6 +330,7 @@ function StallShowcase() {
             					backgroundColor: "rgba(255, 255, 255, 0.1)",
             					border: "1px solid rgba(255, 255, 255, 0.3)",
 								fontFamily:"Averia Sans Libre",
+								width:"100%"
           					}}
         				>
           					<Typography sx={{ color: "#FFD700", fontSize: "24px", fontFamily:"Averia Sans Libre",fontWeight: "bold" }}>
@@ -341,7 +346,6 @@ function StallShowcase() {
    						 </Typography>
   					)}
 					</Box>
-				</Box>
 
 			</Box>
 			<DailogBox open={open} handleClose={handleClose} stall={stall} />

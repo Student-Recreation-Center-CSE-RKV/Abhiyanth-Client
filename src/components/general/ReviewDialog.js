@@ -23,7 +23,7 @@ function ReviewDialog({openReviewDialog,handleReviewDialogClose,stall,handleRevi
 				"& .MuiTypography-root, & .MuiDialogTitle-root, & .MuiDialogContent-root, & .MuiDialogActions-root": {
 					color: "white !important",
 				  },
-			}}>
+			}} fullWidth maxWidth="sm">
         		<DialogTitle sx={{ fontSize: "1.5rem", fontWeight: "bold",}}>Add a Review</DialogTitle>
         		<DialogContent>
           		<TextField
@@ -66,4 +66,4 @@ function ReviewDialog({openReviewDialog,handleReviewDialogClose,stall,handleRevi
      );
 }
 
-export default ReviewDialog;
+export default ReviewDialog; 
