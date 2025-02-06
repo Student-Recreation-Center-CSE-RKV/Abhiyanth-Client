@@ -26,7 +26,6 @@ const ContributorsPage = () => {
           deletions: contributor.weeks.reduce((sum, week) => sum + week.d, 0),
         }));
 
-        // Sort by commits (descending order)
         formattedContributors.sort((a, b) => b.commits - a.commits);
 
         setContributors(formattedContributors);
