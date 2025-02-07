@@ -159,8 +159,8 @@ td:nth-child(2n) {
 
 .profile-table .label {
     font-weight: bold;
-    white-space: nowrap; /* Prevents the label from wrapping */
-    width: 35%; /* Increase width slightly for better alignment */
+    white-space: nowrap;
+    width: 35%;
 }
 
 .profile-table tr:last-child td {
@@ -175,3 +175,4 @@ td:nth-child(2n) {
 td:nth-child(2n) {
     background-color: #26264f;
 }
+
