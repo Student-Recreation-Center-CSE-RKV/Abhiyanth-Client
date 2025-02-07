@@ -277,7 +277,15 @@ const handlePayment = (sessionId)=>{
                 fullWidth
                 variant="contained"
                 color="primary"
-                sx={{ mt: 2 }}
+                sx={{
+                    mt: 2,
+                    "&:disabled": {
+                        backgroundColor: (theme) =>
+                            theme.palette.primary.main, // Keeps primary color
+                        opacity: 0.6, // Slightly faded effect
+                        color: "white",
+                    },
+                }}
                 disabled={!isFormValid || loading}
                 onClick={handleSubmit}
             >

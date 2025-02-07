@@ -84,7 +84,7 @@ const IndividualRegistrationForm = ({ open, onClose, eventName, amount,departmen
         await getSessionId();
     };
 
-    const isFormValid = formData.name && formData.studentId && formData.batch;
+    const isFormValid = formData.name && formData.studentId && formData.mobile;
 
     return (
         <Dialog open={open} onClose={onClose} fullWidth maxWidth="sm"
@@ -188,7 +188,15 @@ const IndividualRegistrationForm = ({ open, onClose, eventName, amount,departmen
                         fullWidth
                         variant="contained"
                         color="primary"
-                        sx={{ mt: 2 }}
+                        sx={{
+                            mt: 2,
+                            "&:disabled": {
+                                backgroundColor: (theme) =>
+                                    theme.palette.primary.main, // Keeps primary color
+                                opacity: 0.6, // Slightly faded effect
+                                color: "white",
+                            },
+                        }}
                         disabled={!isFormValid || loading}
                         onClick={handleSubmit}
                     >

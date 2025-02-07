@@ -1,6 +1,7 @@
 import React from "react";
 import { Avatar, Menu, MenuItem } from "@mui/material";
 import LogoutIcon from "@mui/icons-material/Logout";
+import { useNavigate } from "react-router-dom";
 const styles = {
     smallMenutext: {
         background: "linear-gradient(to right, purple, red )",
@@ -11,7 +12,9 @@ const styles = {
     },
 }
 
+
 export const LogoutPrompt = ({ user, handleClick, anchorEl, open, onClose, handleLogout }) => {
+    const navigate=useNavigate()
 
     return (
         <>
@@ -41,6 +44,18 @@ export const LogoutPrompt = ({ user, handleClick, anchorEl, open, onClose, handl
                     horizontal: 'right',
                 }}
             >
+                <MenuItem
+                    sx={{
+                        ...styles.smallMenutext, // Include the styles from `styles.smallMenutext`
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 1,
+                    }}
+                    onClick={()=>navigate("/profile")}
+                >
+                    
+                    See Profile
+                </MenuItem>
                 <MenuItem
                     sx={{
                         ...styles.smallMenutext, // Include the styles from `styles.smallMenutext`
