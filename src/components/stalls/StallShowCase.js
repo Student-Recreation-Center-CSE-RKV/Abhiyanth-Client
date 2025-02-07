@@ -82,7 +82,7 @@ function StallShowcase() {
 	const [open, setOpen] = useState(false);
 	const [openReviewDialog, setOpenReviewDialog] = useState(false);
   	const [review, setReview] = useState("");
-	const [updatedReviews,setUpdatedReviews]=useState([]);
+	
 	const [user,setUser]=useState(null);
 	const handleOpen = () => {
 		setOpen(true);
