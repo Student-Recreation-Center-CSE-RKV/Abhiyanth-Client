@@ -1,5 +1,5 @@
 import { getAllData } from "./general"
-const collectionName="news"
+const collectionName=process.env.REACT_APP_FIREBASE_NEWS_COLLECTION
 
 export const getAllNews=async()=>{
     try {
