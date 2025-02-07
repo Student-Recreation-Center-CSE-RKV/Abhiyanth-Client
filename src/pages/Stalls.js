@@ -9,7 +9,7 @@ import shawarma from "../assets/images/stalls/shawarma.jpg";
 import tiffin from "../assets/images/stalls/tiffin.avif";
 import StallCard from "../components/stalls/stallCard";
 import foodCourtMap from "../assets/images/stalls/foodcourtmap.png"
-import { fetchStalls ,updateReview} from "../redux/slices/stallsSlice";
+import { fetchStalls} from "../redux/slices/stallsSlice";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import PageTop from "../components/general/PageTop";

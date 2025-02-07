@@ -33,7 +33,6 @@ import TechnicalEventsPage from './components/technicalEvents/MainTechnicalEvent
 import Schedule from './pages/Schedule.js';
 import PaymentSuccess from './components/payment/PaymentSuccess.js';
 import PaymentFailure from './components/payment/PaymentFailure.js';
-import PageNotFound from './pages/ErrorPage.js';
 import ScheduleUpload from './components/schedule/ScheduleUpload.js';
 import ContributorsPage from './components/ourTeam/contributorsPage.js';
 import EditProfile from './components/user/EditProfile.js';

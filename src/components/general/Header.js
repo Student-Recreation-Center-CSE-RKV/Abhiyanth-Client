@@ -135,14 +135,20 @@ function BasicMenu() {
         }}
       >
 
+{user ? (<><MenuItem sx={styles.smallMenutext} onClick={()=>{handleClose(); navigate("/profile")}}>See Profile</MenuItem><MenuItem sx={styles.smallMenutext} onClick={handleLogout}>Logout</MenuItem></>) : (<MenuItem sx={styles.smallMenutext} onClick={handleBasicMenuLoginClick}>Login</MenuItem>)}
+
         <MenuItem sx={styles.smallMenutext} onClick={() => { handleClose(); navigate("") }}>Home</MenuItem>
         <MenuItem sx={styles.smallMenutext} onClick={() => { handleClose(); navigate("/gallery") }}>Gallery</MenuItem>
         <MenuItem sx={styles.smallMenutext} onClick={() => { handleClose(); navigate("/sponsers") }}>Sponsors</MenuItem>
         <MenuItem sx={styles.smallMenutext} onClick={() => { handleClose(); navigate("/about") }}>About Us</MenuItem>
-        <MenuItem sx={styles.smallMenutext} onClick={() => { handleClose(); navigate("/ourTeam") }}>Our Team</MenuItem>
+        <MenuItem sx={styles.smallMenutext} onClick={() => { handleClose(); navigate("/stalls") }}>Stalls</MenuItem>
+        <MenuItem sx={styles.smallMenutext} onClick={() => { handleClose(); navigate("/projectShowCase") }}>Projects</MenuItem>
+        <MenuItem sx={styles.smallMenutext} onClick={() => { handleClose(); navigate("/technicalEvents") }}>Tech Events</MenuItem>
+        <MenuItem sx={styles.smallMenutext} onClick={() => { handleClose(); navigate("/events") }}>Events</MenuItem>
+        <MenuItem sx={styles.smallMenutext} onClick={() => { handleClose(); navigate("/ourDevTeam") }}>Our Team</MenuItem>
+        <MenuItem sx={styles.smallMenutext} onClick={() => { handleClose(); navigate("/contactus") }}>Contact Us</MenuItem>
         
 
-        {user ? (<MenuItem sx={styles.smallMenutext} onClick={handleLogout}>Logout</MenuItem>) : (<MenuItem sx={styles.smallMenutext} onClick={handleBasicMenuLoginClick}>Login</MenuItem>)}
 
       </Menu>
     </div>
