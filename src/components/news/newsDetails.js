@@ -3,7 +3,6 @@ import { getDataById } from "../../api/general";
 import { useState, useEffect } from "react";
 import { Box, Typography } from "@mui/material";
 import { useMediaQuery } from "@mui/material";
-import image from '../../assets/images/hackathon-src.jpg'
 import { extractDateTimeFromTimestamp } from '../../utils/timeStampToDate';
 
 
@@ -120,7 +119,7 @@ export default function NewsDetails() {
                 <Box sx={styles.descriptionMain1}>
                     <Box>
                         <img
-                            src={image}
+                            src={data?.image}
                             alt="Event"
                             style={{
                                 width: "100%",
@@ -132,7 +131,7 @@ export default function NewsDetails() {
                     </Box>
                 </Box>
             </Box>
-            {/* Description Below the Image */}
+    
             <Box sx={styles.descriptionMain2}>
                 <Typography sx={contentTextStyles}>{data?.description}</Typography>
             </Box>
