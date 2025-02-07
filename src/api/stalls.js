@@ -1,5 +1,5 @@
 import { getAllData } from "./general"
-const collectionName="Stalls"
+const collectionName=process.env.REACT_APP_FIREBASE_STALLS_COLLECTION
 
 export const getAllStalls=async()=>{
     try {

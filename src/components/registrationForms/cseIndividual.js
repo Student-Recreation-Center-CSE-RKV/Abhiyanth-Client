@@ -33,7 +33,7 @@ const IndividualRegistrationForm = ({ open, onClose, eventName, amount,departmen
     const getSessionId = async () => {
         try {
             setLoading(true);
-            const res = await axios.post('https://us-central1-abhiyanth-a8d4c.cloudfunctions.net/createOrderProd', {
+            const res = await axios.post(process.env.REACT_APP_FIREBASE_CREATEORDER_COLLECTION, {
                 cust_id: "jbbhbzx",
                 email: user?.email || "jrevanth101@gmail.com",
                 phone: formData.mobile.toString(),
@@ -63,7 +63,7 @@ const IndividualRegistrationForm = ({ open, onClose, eventName, amount,departmen
   const handlePayment = (sessionId)=>{
           let checkoutOptions = {
               paymentSessionId: sessionId,
-              returnUrl: "https://us-central1-abhiyanth-a8d4c.cloudfunctions.net/checkStatusForWebProd/{order_id} ",
+              returnUrl: process.env.REACT_APP_FIREBASE_CHECKSTATUS_COLLECTION,
               
           }  
           cashfree.checkout(checkoutOptions).then(function(result){

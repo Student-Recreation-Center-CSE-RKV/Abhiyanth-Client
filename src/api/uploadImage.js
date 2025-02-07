@@ -1,6 +1,5 @@
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { collection, addDoc } from "firebase/firestore";
-import { db, storage } from "./firebaseConfig"; // Updated import
+import { storage } from "./firebaseConfig"; // Updated import
 
 const uploadImage = async (image, collectionName) => {
   if (!image) throw new Error("No image file provided!");

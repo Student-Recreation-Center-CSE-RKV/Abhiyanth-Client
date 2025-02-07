@@ -1,5 +1,6 @@
 import { db } from "./firebaseConfig";
 import { doc, updateDoc, arrayUnion } from "firebase/firestore";
+const collectionName=process.env.REACT_APP_FIREBASE_STALLS_COLLECTION
 
 export const addReviewToStall = async (docId, review) => {
   try {
@@ -8,10 +9,10 @@ export const addReviewToStall = async (docId, review) => {
       return { status: false, message: "Invalid inputs" };
     }
 
-    const stallRef = doc(db, "Stalls", docId);
+    const stallRef = doc(db, collectionName, docId);
 
     await updateDoc(stallRef, {
-      reviews: arrayUnion(review), // Add review to the array, create if not exists
+      reviews: arrayUnion(review), 
     });
 
     console.log("Review added successfully!");
