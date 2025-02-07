@@ -5,12 +5,13 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import newsImage from '../../assets/images/news/news1.jpeg'
 import { Avatar, CardHeader } from '@mui/material';
 import { extractDateTimeFromTimestamp } from '../../utils/timeStampToDate';
 import { extractRelativeTime } from '../../utils/timeStampToDate';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import ab_logo from "../../assets/images/abhiyath_logo_2.png"
+
 
 const styles = {
   HeadingContent: {
@@ -21,9 +22,13 @@ const styles = {
   textContent: {
     fontFamily: "Poppins",
     border: "1px solid #FF6AB7",
-    borderRadius: "20px",
-
+    borderRadius: "5px",
+    Padding:"0.6px",
+    textAlign: "center",  
+    background: "linear-gradient(180deg, #FF6AB7 0%, #6AE4FF 100%)",
+    color:"white"
   }
+  
 }
 export default function NewsCard({ id, title, sub_title, description, image, date }) {
 
@@ -45,34 +50,53 @@ export default function NewsCard({ id, title, sub_title, description, image, dat
 
   return (
     <Card sx={{
-      maxWidth: 345, border: "2px solid  #FF6AB7",
-      bordeRadius: "30px",
-      boxShadow: " 0px 4px 15px rgba(173, 216, 230, 0.5)"
+      maxWidth: 345,
+      border: "2px solid  #FF6AB7",
+      borderRadius: "30px",
+      boxShadow: "0px 4px 15px rgba(173, 216, 230, 0.5)",
+      display: "flex",
+      flexDirection: "column",
+      height: "100%", 
+      backgroundColor:"transparent",
+      color:"white",
+     
     }}>
       <CardMedia
         component="img"
-        alt="green iguana"
+        alt="News Image"
         height="140"
-        image={newsImage}
+        image={image}
       />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div" sx={styles.HeadingContent}>
+      <CardContent sx={{ flexGrow: 1, minHeight: "120px" }}>
+        <Typography gutterBottom variant="h6" component="div" sx={styles.HeadingContent}>
           {description}
         </Typography>
       </CardContent>
       <CardHeader
         avatar={
-          <Avatar sx={{ bgcolor: "red[500]" }} aria-label="recipe">
-
+          <Avatar sx={{ bgcolor: "red[500]", width: 50, height: 50 }} aria-label="recipe">
+            <img
+              src={ab_logo}
+              alt="Logo"
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                borderRadius: "50%"
+              }}
+            />
           </Avatar>
         }
+        
         title={title}
+        titleTypographyProps={{align:"left"}}
         subheader={`${formattedDate} • ${relativeTime}`}
+      subheaderTypographyProps={{color:"white" , align:"left"}}
       />
-      <CardActions>
-        <Button size="small" sx={styles.textContent}>Share</Button>
+      <CardActions sx={{ alignSelf: "center" }}>
         <Button size="small" sx={styles.textContent} onClick={handleReadMore}>Read More</Button>
       </CardActions>
     </Card>
+
   );
 }
