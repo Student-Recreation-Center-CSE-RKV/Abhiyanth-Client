@@ -17,6 +17,9 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import DailogBox from "../general/Dialog";
 import ReviewDialog from "../general/ReviewDialog";
+import { addReviewToStall } from "../../api/addReview";
+import { getUser } from "../../utils/getUser";
+import { updateReview } from "../../redux/slices/stallsSlice";
 
 const styles = {
 	titleContainer: {
@@ -72,16 +75,15 @@ const styles = {
 		margin: "1%",
 	},
 };
- let reviews= [
-	{ "user": "John Doe", "comment": "Great food! jbndvjbszjjbdzf sbvjzndjnvskmvnjzsv zfvzkjvjkz" },
-	{ "user": "Alice", "comment": "Loved the service!"}
-  ]
+
 function StallShowcase() {
 	const { id } = useParams();
 	const dispatch = useDispatch();
 	const [open, setOpen] = useState(false);
 	const [openReviewDialog, setOpenReviewDialog] = useState(false);
   	const [review, setReview] = useState("");
+	const [updatedReviews,setUpdatedReviews]=useState([]);
+	const [user,setUser]=useState(null);
 	const handleOpen = () => {
 		setOpen(true);
 	};
@@ -96,23 +98,43 @@ function StallShowcase() {
 		setOpenReviewDialog(false);
 		setReview("");
 	  };
+	 
+
 	  const handleReviewSubmit = async () => {
-		try{
-		  const updatedReviews = [...(stall.reviews || []), review];
-		  console.log("Updated Reviews:", updatedReviews);
+		try {
+		  const newReview = { user: user?.displayName || "User", comment: review };
+	  
+		  console.log("Calling Firebase Function...");
+		  await addReviewToStall(stall.id, newReview);
+		  console.log("Firebase Function Completed!");
+	  
+		  console.log("Calling Redux Action...");
+		  dispatch(updateReview(stall.id, newReview));
+		  console.log("Redux Action Dispatched!");
+	  
+		//   setUpdatedReviews([newReview, ...updatedReviews]);
+		  alert("Review added successfully");
 		} catch (error) {
 		  console.error("Failed to submit review:", error);
 		}
 		handleReviewDialogClose();
 	  };
+	  
 	const { stall, loading } = useSelector((state) => state.stalls);
 	const fetchStall = async () => {
 		try {
 			dispatch(getStallById(id));
+			
+			
 		} catch (error) {}
 	};
+
+	const fetchAll=async ()=>{
+		await fetchStall();
+	}
 	useEffect(() => {
-		fetchStall();
+		fetchAll()
+		getUser().then(setUser).catch(console.error);
 	// eslint-disable-next-line
 	}, []);
 
@@ -288,7 +310,7 @@ function StallShowcase() {
 							</Box>
 						)}
 					</Box>
-					<Box sx={{ marginTop: "4%" }}>
+					<Box sx={{ marginTop: "4%",width:"100%" }}>
   						<Typography
     						sx={{
       							fontSize: "30px",
@@ -303,7 +325,7 @@ function StallShowcase() {
     						Customer Reviews
   						</Typography>
 
-  						{reviews && reviews.length > 0 ? (
+  						{stall?.reviews && stall.reviews.length > 0 ? (
     					<Box
       						sx={{
         						display: "flex",
@@ -317,7 +339,7 @@ function StallShowcase() {
 								margin:"3%"
       						}}
    						 >
-      						{reviews.map((review, index) => (
+      						{stall.reviews.map((review, index) => (
         				<Box
           					key={index}
           					sx={{
@@ -334,6 +356,7 @@ function StallShowcase() {
           					<Typography sx={{ color: "white",fontFamily:"Averia Sans Libre", fontSize: {sm:"18px",md:"20px"} }}>{review.comment}</Typography>
         				</Box>
       					))}
+						
    					 </Box>
   					) : (
     					<Typography sx={{ color: "white", textAlign: "center", fontSize: "16px" ,fontFamily:"Averia Sans Libre"}}>

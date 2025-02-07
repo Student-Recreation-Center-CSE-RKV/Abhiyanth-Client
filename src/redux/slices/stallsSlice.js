@@ -25,12 +25,23 @@ const eventsSlice = createSlice({
     },
     setStall: (state, action) => {
       state.stall = state.stalls.find(stall => stall.id === action.payload) || null;
+    },
+    setReview:(state,action)=>{
+      const { id, review } = action.payload;
+      const stall = state.stalls.find(stall => stall.id === id);
+      if (stall) {
+        if (!stall.reviews) {
+          stall.reviews = [];
+        }
+        stall.reviews.unshift(review);
+      }
+      console.log("Revanth",stall.reviews)
     }
     
   },
 });
 
-export const { setStalls, setLoading, setError,setStall } = eventsSlice.actions;
+export const { setStalls, setLoading, setError,setStall,setReview } = eventsSlice.actions;
 
 // Async thunk action to fetch events
 export const fetchStalls = () => async (dispatch, getState) => {
@@ -56,6 +67,11 @@ export const fetchStalls = () => async (dispatch, getState) => {
 export const getStallById = (id) => (dispatch) => {
   dispatch(setStall(id));
 };
+
+export const updateReview= (id,review)=> (dispatch)=>{
+  console.log("Revanth is calling")
+  dispatch(setReview({ id, review }))
+}
 
 
 export default eventsSlice.reducer;

@@ -9,17 +9,20 @@ import shawarma from "../assets/images/stalls/shawarma.jpg";
 import tiffin from "../assets/images/stalls/tiffin.avif";
 import StallCard from "../components/stalls/stallCard";
 import foodCourtMap from "../assets/images/stalls/foodcourtmap.png"
-import { fetchStalls } from "../redux/slices/stallsSlice";
+import { fetchStalls ,updateReview} from "../redux/slices/stallsSlice";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import PageTop from "../components/general/PageTop";
 import TechnicalShimmer from "../components/technicalEvents/technicalShimmer";
 import Grid from "@mui/material/Grid";
 import ErrorBoundary from "./ErrorBoundary";
+import { getUser } from "../utils/getUser";
+import { useState } from "react";
+
 
 export default function AllStalls() {
 	const dispatch = useDispatch();
-
+	const [user,setUser]=useState(null);
 	const { stalls, loading, error } = useSelector((state) => state.stalls);
 
 	const fetchAllStalls = async () => {
@@ -28,10 +31,14 @@ export default function AllStalls() {
 		} catch (error) { }
 	};
 
+	
+
 	useEffect(() => {
-		fetchAllStalls();
+		getUser().then(setUser).catch(console.error);
+		fetchAllStalls()
+			
 		// eslint-disable-next-line
-	}, []);
+		}, []);
 
 	if (error) {
 		return <div>
@@ -123,7 +130,7 @@ export default function AllStalls() {
 							>
 								{stalls.map((stall) => (
 									<Grid2 size={{ xs: "12", sm: "12", md: "4", lg: "3" }} key={stall.id} sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
-										<StallCard stall={stall} />
+										<StallCard user={user} stall={stall} />
 									</Grid2>
 								))}
 							</Grid2>
