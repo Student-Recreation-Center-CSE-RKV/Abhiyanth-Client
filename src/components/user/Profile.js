@@ -39,7 +39,7 @@ export default function Profile() {
 
                     const [userData, transactionHistory] = await Promise.all([
                         getDataById("Users", fetchedUser?.uid),
-                        getDataById("UserTransactions", user?.email),
+                        getDataById("UserTransactions", fetchedUser?.email),
                     ]);
 
                     setUserData(userData);
