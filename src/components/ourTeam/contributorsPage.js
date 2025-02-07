@@ -4,7 +4,7 @@ import { Avatar, Card, CardContent, Grid, Typography, Container, CircularProgres
 const ContributorsPage = () => {
   const [contributors, setContributors] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  
 
   useEffect(() => {
     const fetchContributors = async () => {
@@ -30,7 +30,7 @@ const ContributorsPage = () => {
 
         setContributors(formattedContributors);
       } catch (error) {
-        setError(error.message);
+        
       } finally {
         setLoading(false);
       }

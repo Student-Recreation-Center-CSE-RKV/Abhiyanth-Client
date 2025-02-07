@@ -1,6 +1,6 @@
 
 import "../../styles/profile.css";
-import { Typography, Box, fabClasses } from "@mui/material";
+import { Typography, Box } from "@mui/material";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { getDataById } from "../../api/general";
