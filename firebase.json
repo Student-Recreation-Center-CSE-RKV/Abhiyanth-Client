@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "abhiyanth-a8d4c",
+    "site": "abhiyanthtest",
     "public": "build",
     "ignore": [
       "firebase.json",
