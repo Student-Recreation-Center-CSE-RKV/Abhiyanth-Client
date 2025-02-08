@@ -8,7 +8,7 @@ export const getUser = () => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       unsubscribe(); 
       resolve(user);
-      console.log(user)
+      
     }, reject);
   });
 };

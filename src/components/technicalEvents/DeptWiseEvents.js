@@ -17,12 +17,12 @@ const DeptWiseEvents = () => {
   const { department } = useParams();
 
   const fetchDepartmentEvents = async (dept) => {
-    console.log(`Fetching events for department: ${dept}`);
+    
     try {
       
       dispatch(fetchTechnicalCarousels(dept))
       if (!carouselLoading) {
-        console.log(carousels)
+        
         dispatch(fetchTechnicalEvents(dept));
       }
     } catch (error) {

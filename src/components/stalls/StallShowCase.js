@@ -104,13 +104,12 @@ function StallShowcase() {
 		try {
 		  const newReview = { user: user?.displayName || "User", comment: review };
 	  
-		  console.log("Calling Firebase Function...");
+		  
 		  await addReviewToStall(stall.id, newReview);
-		  console.log("Firebase Function Completed!");
+		  
 	  
-		  console.log("Calling Redux Action...");
 		  dispatch(updateReview(stall.id, newReview));
-		  console.log("Redux Action Dispatched!");
+		  
 	  
 		//   setUpdatedReviews([newReview, ...updatedReviews]);
 		  alert("Review added successfully");

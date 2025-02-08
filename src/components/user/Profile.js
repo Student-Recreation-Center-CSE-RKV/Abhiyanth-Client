@@ -57,7 +57,6 @@ export default function Profile() {
 
             } catch (error) {
 
-                console.log("Error fetching the data:", error)
             } finally {
                 setLoading(false)
             }

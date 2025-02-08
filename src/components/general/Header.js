@@ -189,7 +189,7 @@ function Header() {
     try {
       await auth.signOut(); // Firebase signOut
       // setIsLogin(false);
-      console.log("Successfully logged out")
+      
       toast.success("Successfully logged out");
       navigate('/');
     } catch (error) {

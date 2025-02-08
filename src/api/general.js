@@ -8,7 +8,7 @@ export const addDataToCollection = async (collectionName, data) => {
       const docRef = doc(collection(db, collectionName));
       data.id = docRef.id;  
       await setDoc(docRef, data);
-      console.log("Document written with ID: ", docRef.id);
+      
       return {status:true,message:"Document added successfully"}
       
     } catch (error) {
@@ -21,7 +21,7 @@ export const deleteDataById = async (collectionName, id) => {
     try {
       const docRef = doc(db, collectionName, id);
       await deleteDoc(docRef);
-      console.log(`Document with ID: ${id} successfully deleted.`);
+      
       return {status:true,message:"Document Deleted successfully"}
     } catch (error) {
       console.error("Error deleting document: ", error);
@@ -34,10 +34,10 @@ export const updateDataById = async (collectionName, id, updatedData) => {
     try {
       const docRef = doc(db, collectionName, id);  
       await updateDoc(docRef, updatedData);  
-      console.log(`Document with ID: ${id} successfully updated.`);
+      
       return {status:true,message:"Document Updated Successfully"}
     } catch (error) {
-      console.error("Error updating document: ", error);
+      
       return {status:true,message:"Document Updation Failed"}
     }
   };
@@ -58,7 +58,7 @@ export const updateDataById = async (collectionName, id, updatedData) => {
 
   export const getDataById = async (collectionName, id) => {
     try {
-      console.log(collectionName,id)
+      
       const docRef = doc(db, collectionName, id); 
       const docSnapshot = await getDoc(docRef); 
       if (docSnapshot.exists()) {
@@ -121,11 +121,11 @@ export const updateDataById = async (collectionName, id, updatedData) => {
   
       // 2. Upload the file to Firebase Storage
       const snapshot = await uploadBytes(storageRef, file);
-      console.log("File uploaded successfully:", snapshot);
+      
   
       // 3. Get the download URL for the uploaded file
       const downloadURL = await getDownloadURL(snapshot.ref);
-      console.log("Download URL:", downloadURL);
+      
   
       return downloadURL;
     } catch (error) {

@@ -111,7 +111,7 @@ function MomentsOfPreviousAbhiyath() {
         const localVersion = localCache?.version || 0;
     
         if (localVersion < firebaseVersion) {
-          console.log("Fetching new gallery images from Firebase...");
+          
     
           // Step 3: Fetch new images from Firebase if the version is outdated or missing
           const fetchedImageUrls = await fetchAllImages("gallery");
@@ -129,7 +129,7 @@ function MomentsOfPreviousAbhiyath() {
             })
           );
         } else {
-          console.log("Using cached gallery images from localStorage...");
+          
     
           // Step 6: Use cached images from localStorage
           const cachedImages = localCache.images || [];

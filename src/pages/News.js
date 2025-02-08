@@ -50,7 +50,7 @@ function News() {
 
     }
     catch (error) {
-      console.log("Error fetching details")
+      
     }
     finally {
       setLoading(false)

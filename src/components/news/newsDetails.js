@@ -88,10 +88,7 @@ export default function NewsDetails() {
 
     const { id } = useParams();
     const [data, setData] = useState();
-    console.log(id);
-
-
-
+   
     useEffect(() => {
         const fetchData = async () => {
             try {

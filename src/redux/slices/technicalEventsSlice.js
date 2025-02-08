@@ -73,7 +73,7 @@ export const addTechnicalEvent = (data, department) => async (dispatch) => {
 
 export const fetchTechnicalEvents = (department) => async (dispatch, getState) => {
   const { events } = getState().technicalEvents; // Correct destructuring
-  // console.log(events);
+  
 
   if (events[department]?.length > 0) {
     return; // Skip API call if data exists
@@ -94,7 +94,7 @@ export const fetchTechnicalEvents = (department) => async (dispatch, getState) =
 
 export const fetchTechnicalCarousels = (department) => async (dispatch, getState) => {
   const { carousels } = getState().technicalEvents; // Correct destructuring
-  // console.log(carousels);
+  
 
   if (carousels[department]?.length > 0) {
     return; // Skip API call if data exists

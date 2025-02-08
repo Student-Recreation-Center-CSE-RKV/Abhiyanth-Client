@@ -41,7 +41,7 @@ function EventDetails() {
       setLoading(true); // Set loading to true before fetching data
       const res = await getEventById(id);
       setEventDetails(res);
-      console.log(res);
+      
     } catch (error) {
       console.error("Error fetching event details:", error);
     } finally {
