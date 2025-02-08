@@ -15,7 +15,7 @@ export default function RegisterVolunteer() {
 
     useEffect(() => {
         dispatch(fetchVolunteers());  
-        console.log(volunteerEvents)
+        
     // eslint-disable-next-line
       }, [dispatch]);
 

@@ -35,7 +35,7 @@ const eventsSlice = createSlice({
         }
         stall.reviews.unshift(review);
       }
-      console.log("Revanth",stall.reviews)
+      
     }
     
   },
@@ -55,7 +55,7 @@ export const fetchStalls = () => async (dispatch, getState) => {
   dispatch(setLoading(true));
   try {
     const res = await getAllStalls();
-    console.log(res);
+   
     dispatch(setStalls(shuffleArray(res)));  // Update Redux state
     dispatch(setLoading(false));
   } catch (error) {
@@ -69,7 +69,7 @@ export const getStallById = (id) => (dispatch) => {
 };
 
 export const updateReview= (id,review)=> (dispatch)=>{
-  console.log("Revanth is calling")
+  
   dispatch(setReview({ id, review }))
 }
 

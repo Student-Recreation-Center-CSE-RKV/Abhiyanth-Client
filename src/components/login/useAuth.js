@@ -22,7 +22,7 @@ export const useAuth = () => {
 
       const check = await isInDb(user.uid, userData); // Custom function to check user in DB
       setUser(user);
-      console.log("Successfully logged in");
+      
       toast.success("Successfully logged in");
 
       localStorage.setItem("Users", check ? "true" : "false");

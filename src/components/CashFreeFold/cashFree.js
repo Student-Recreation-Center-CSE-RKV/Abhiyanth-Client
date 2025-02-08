@@ -27,12 +27,12 @@ const Cashfree = () => {
         .then((res)=>{
             setLoading(false);
             setSessionId(res.data.payment_session_id);
-            console.log(res.data);
+            
             // window.open(res.data, '_blank');
         })
         .catch((err)=>{
             setLoading(false);
-            console.log(err);
+            
         })
     }
 
@@ -43,12 +43,12 @@ const Cashfree = () => {
             
         }   
         cashfree.checkout(checkoutOptions).then(function(result){
-            console.log(result)
+            
             if(result.error){
                 alert(result.error.message);
             }
             if (result.status === "redirect" && result.url) {
-            console.log("Redirecting to:", result.url);
+            
             window.location.href = result.url; 
         }
         });

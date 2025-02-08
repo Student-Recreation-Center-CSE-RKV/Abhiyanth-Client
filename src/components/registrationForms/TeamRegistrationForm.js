@@ -59,14 +59,12 @@ const handlePayment = (sessionId)=>{
             
         }  
         cashfree.checkout(checkoutOptions).then(function(result){
-            console.log(result)
+            
             if(result.error){
                 alert(result.error.message);
             }
             if(result.redirect){
-                // navigate("/");
-                console.log("Redirection")
-                console.log(result);
+                
             }
         });
     }

@@ -24,7 +24,7 @@ export default function TechEventDetails() {
   const [openDialog, setOpenDialog] = useState(false);
 
   const fetchDepartmentEvent = async (dept, id) => {
-    console.log(`Fetching events for department: ${dept} ${id}`);
+    
     try {
       setLoading(true);
       const event = await getTechnicalEventById(dept, id);

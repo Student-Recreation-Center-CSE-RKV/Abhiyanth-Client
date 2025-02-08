@@ -90,7 +90,7 @@ function SignInWrapper() {
   const navigate = useNavigate();
   
   const  [isloading , setIsLoading] = useState(false);
-  console.log(isloading);
+  
 
   const handleUserLogin = async () => {
     setIsLoading(true);
@@ -110,7 +110,7 @@ function SignInWrapper() {
 
       navigate("/");
     } catch (error) {
-      console.log("error", error.code, "error msg: ", error.message);
+      
     }
     finally{
       setIsLoading(false);

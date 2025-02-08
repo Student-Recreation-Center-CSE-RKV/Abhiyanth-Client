@@ -29,7 +29,7 @@ export default function  ScheduleUpload() {
         Time: typeof row.Time === 'number' ? XLSX.SSF.format("h:mm:ss", row.Time) : row.Time || ""
       }));
 
-      console.log("Excel Data:", filteredData);
+      
       setJsonData(filteredData);
     };
 

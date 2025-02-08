@@ -37,7 +37,7 @@ export const addVolunteer = (data) => async (dispatch) => {
   dispatch(setError(null));
 
   try {
-    // console.log("Revanth",data)
+   
     await addVolunteerEvent(data); 
     dispatch(setSuccess(true));
   } catch (error) {
@@ -49,7 +49,7 @@ export const addVolunteer = (data) => async (dispatch) => {
 
 export const fetchVolunteers = () => async (dispatch, getState) => {
   const { volunteerEvents } = getState().volunteerEvents;
-  console.log(volunteerEvents)
+  
   if (volunteerEvents.length > 0) {
     return; 
   }
@@ -57,7 +57,7 @@ export const fetchVolunteers = () => async (dispatch, getState) => {
   dispatch(setLoading(true));
   try {
     const res = await getAllVolunteerEvents();
-    // console.log(res)
+    
     dispatch(setEvents(res));  
     dispatch(setLoading(false));
   } catch (error) {

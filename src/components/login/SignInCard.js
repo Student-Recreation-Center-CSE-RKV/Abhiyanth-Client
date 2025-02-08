@@ -26,10 +26,10 @@ const Card = styled(MuiCard)(({ theme }) => ({
 }));
 
 export default function SignInCard({handleUserLogin ,loading}) {
-  console.log(loading)
+  
 
   const handleUserLoginClick = async () => {
-    console.log("signin with google clicked");
+    
     try {
       await handleUserLogin();  
     } catch (error) {

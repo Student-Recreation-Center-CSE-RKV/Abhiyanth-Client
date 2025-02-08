@@ -21,7 +21,7 @@ export default function EditProfile() {
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prev) => ({ ...prev, [name]: value }));
-        console.log(formData);
+        
     };
 
     const handleSave = async () => {
@@ -31,7 +31,7 @@ export default function EditProfile() {
             alert("Profile updated successfully");
             navigate("/profile");
         } catch (error) {
-            console.log("Error updating profile");
+            
         }finally{
             setUploading(false)
         }

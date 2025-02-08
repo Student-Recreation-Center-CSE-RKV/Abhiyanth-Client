@@ -15,7 +15,7 @@ export const addReviewToStall = async (docId, review) => {
       reviews: arrayUnion(review), 
     });
 
-    console.log("Review added successfully!");
+    
     return { status: true, message: "Review added successfully" };
   } catch (error) {
     console.error("Error adding review:", error);
